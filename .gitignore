@@ -12,4 +12,7 @@
 !/log/.keep
 /tmp
 
-/mobile/cfams/node_modules
+mobile/cfams/node_modules
+.DS_Store
+mobile/.DS_Store
+
