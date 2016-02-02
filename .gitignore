@@ -11,3 +11,5 @@
 /log/*
 !/log/.keep
 /tmp
+
+/mobile/cfams/node_modules
