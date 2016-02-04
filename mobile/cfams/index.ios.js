@@ -3,34 +3,52 @@
  * https://github.com/facebook/react-native
  */
 'use strict';
-import React, {
+
+var React = require('react-native');
+var Login = require('./components/Login.js');
+
+var {
   AppRegistry,
   Component,
   StyleSheet,
   Text,
-  View
-} from 'react-native';
+  View,
+  Navigator
+} = React;
 
-class cfams extends Component {
-  render() {
+var cfams = React.createClass({
+
+  getInitialState: function () {
+    return {}
+  },
+
+  _navigate: function (navigator, component, title) {
+    navigator.push({
+      component: component,
+      title: title
+    })
+  },
+
+  _renderScene: function (route, navigator) {
+    var Component = route.component;
     return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
-        <Text style={styles.instructions}>
-          To get started, edit index.ios.js
-        </Text>
-        <Text style={styles.instructions}>
-          Press Cmd+R to reload,{'\n'}
-          Cmd+D or shake for dev menu
-        </Text>
-      </View>
+      <Component  navigate={this._navigate}
+                  {...route.props}
+                  navigator={navigator}
+                  route={route} />
+    )
+  },
+
+  render: function () {
+    return (
+      <Navigator 
+          initialRoute={{name: 'Login', component: Login, index: 0}}
+          renderScene={this._renderScene} />
     );
   }
-}
+})
 
-const styles = StyleSheet.create({
+var styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
