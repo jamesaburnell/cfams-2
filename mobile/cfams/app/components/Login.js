@@ -1,3 +1,5 @@
+'use strict';
+
 var React = require('react-native');
 var SignUp = require('./SignUp.js');
 var AccountHome = require('./AccountHome.js')
@@ -20,6 +22,7 @@ var Login = React.createClass({
 	},
 
 	goToAccountHome: function () {
+		this.props.checkCreds();
 		this.props.navigate(this.props.navigator, AccountHome, 'Account Home');
 	},
 
@@ -35,12 +38,12 @@ var Login = React.createClass({
 
 				<Text>Username:</Text>
                 <TouchableHighlight>
-                    <TextInput style={styles.inputField} />    
+                    <TextInput style={styles.inputField} onChangeText={this.props.setUsername} />    
                 </TouchableHighlight>
 
                 <Text>Password:</Text>
                 <TouchableHighlight>
-                    <TextInput style={styles.inputField} />    
+                    <TextInput style={styles.inputField} onChangeText={this.props.setPassword} />    
                 </TouchableHighlight>
 
 				<View>
@@ -51,6 +54,7 @@ var Login = React.createClass({
 						<Text>LOGIN</Text>
 					</TouchableHighlight>
 				</View>	
+
 			</View>	
 		)
 	}
