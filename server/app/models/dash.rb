@@ -24,7 +24,7 @@ class Dash < ActiveRecord::Base
 	def twitter_pic_scrape
 		t = self.get_twit_client
 		temp = []
-		search_var = "#catsareassholes"
+		search_var = "#catsoftwitter"
 		t.search(search_var, ).take(100).collect do |tweet|
 			unless tweet.media[0].nil?
 				img = tweet.media[0].media_url
@@ -48,31 +48,26 @@ class Dash < ActiveRecord::Base
 		return twitCli
 	end
 
+	
+
 	#Build Posts
 	def build_post(title, src, body, image, author)
-		p = self.posts.build(title: title, og_source: src, body: body, image_src: image)
-		if p.title != "Twitter"
-			# p.picture_from_url(p.image_src)
-		else
-			puts "no"
-		end		
+		p = self.posts.build(title: title, og_source: src, body: body, image_src: image)		
 		p.save
 	end
 
+
+
+
 	# JSON Formatting
-	def as_json(options={})
-	  super(:only => [:name],
-	        :include => {
-	          :posts => {:only => [:title, :body, :image_src]
-	          	# ,
-	            # :methods => [:image],
-	            # :include => {
-	            #   :recaps => {:only => [:body]}
-	            # }
-	          }
-	        }
-	  )
-	end	
+	# def as_json(options={})
+	#   super(:only => [:name],
+	#         :include => {
+	#           :posts => {:only => [:title, :body, :image_src]
+	#           }
+	#         }
+	#   )
+	# end	
 end
 
 

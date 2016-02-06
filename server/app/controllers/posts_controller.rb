@@ -61,7 +61,6 @@ class PostsController < ApplicationController
     end
   end
 
-
   def toggle_approve  
       @p = Post.find(params[:id])  
     if @p.approved
@@ -72,17 +71,20 @@ class PostsController < ApplicationController
       @p.save
     render :nothing => true  
   end
+
   def toggle_disapprove  
       @p = Post.find(params[:id])  
     if @p.approved
       @p.toggle!(:approved)  
     else
       @p.approved = false
-      
     end
     @p.save
     render :nothing => true  
   end
+
+
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_post

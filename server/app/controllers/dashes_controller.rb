@@ -14,7 +14,7 @@ class DashesController < ApplicationController
     @posts = @dash.posts.where(approved: nil)
     respond_to do |format|
       format.html # show.html.erb
-      format.json { render json: @dash }
+      format.json { render json: @posts }
      end        
   end
 
