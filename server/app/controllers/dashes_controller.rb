@@ -1,6 +1,6 @@
 class DashesController < ApplicationController
   before_action :set_dash, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!, only: [:index, :post_queue]
+  before_action :authenticate_user!, only: [:index]
 
   # GET /dashes
   # GET /dashes.json
