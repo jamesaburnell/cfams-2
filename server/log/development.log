@@ -1600,3 +1600,45 @@ Can't verify CSRF token authenticity
   [1m[35mSQL (0.3ms)[0m  UPDATE "users" SET "tokens" = $1, "updated_at" = $2 WHERE "users"."id" = $3  [["tokens", "{\"7bIuj7fPpK0dNfyP-hm8ag\":{\"token\":\"$2a$10$c5Px8uW9TtCTW6UZCkymxO4qWQH/DJKaVo24rs4jNOgBlavxDF2oy\",\"expiry\":1455933680,\"last_token\":\"$2a$10$hpg18lUVAel0vxDDs0r8Bur9COrWqbkhDd4e2YqXHAanmOl67Rg.m\",\"updated_at\":\"2016-02-05T19:01:20.603-07:00\"},\"m3BfiAAX4yFaRsXaDTQXiw\":{\"token\":\"$2a$10$7clDupzP6m8zHGtIPBqfXOKS7U.CCON4.IWLXir12HesNUMv4WG5S\",\"expiry\":1455933827,\"last_token\":\"$2a$10$EtyauNC6OpVQ9HOJKaJWLeuNamiXOuiT0d0RmaFZK3JcSooUWnfey\",\"updated_at\":\"2016-02-05T19:03:47.241-07:00\"},\"TCMeet0hVipoHZc60Y44YQ\":{\"token\":\"$2a$10$aIXVehs9Yqp5eD3pxieAMu7Jpodj/ggZneBZy8jmh3qe2QtqBxMi.\",\"expiry\":1455933981,\"last_token\":\"$2a$10$HBlAea4WsjV8BN4DBo8f5OX/8pQ7GBmotrjXfphg/juJAPsnxEvMC\",\"updated_at\":\"2016-02-05T19:06:21.840-07:00\"},\"lcFIDq7lxHvUCVqCSGmvow\":{\"token\":\"$2a$10$x/ki7JYgeveJU6p2irYBCux.jFNXrehlx3YJdciDIVQ68QKtWzMA2\",\"expiry\":1455934558,\"last_token\":\"$2a$10$zajTRnnNVuMQ9wDrPerp1.66dKkyIiKvikM14O6At3BvDQeIFgjeC\",\"updated_at\":\"2016-02-05T19:15:58.844-07:00\"}}"], ["updated_at", "2016-02-06 02:15:58.845479"], ["id", 2]]
   [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
 Completed 200 OK in 306ms (Views: 0.2ms | ActiveRecord: 9.2ms)
+
+
+Started GET "/dashes" for ::1 at 2016-02-05 19:17:48 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by DashesController#index as HTML
+  [1m[35mDash Load (0.4ms)[0m  SELECT "dashes".* FROM "dashes"
+  Rendered dashes/index.html.erb within layouts/application (11.8ms)
+Completed 200 OK in 292ms (Views: 273.7ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/assets/scaffolds.self-5b9911c4ebb63e5ff64030a0fb7e0bf9c2ab51f0565463545aaec9c05e96c758.css?body=1" for ::1 at 2016-02-05 19:17:48 -0700
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2016-02-05 19:17:48 -0700
+
+
+Started GET "/assets/jquery.self-c64a74367bda6ef8b860f19e74df08927ca99d2be2ac934e9e92d5fd361e0da4.js?body=1" for ::1 at 2016-02-05 19:17:48 -0700
+
+
+Started GET "/assets/dashes.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-02-05 19:17:48 -0700
+
+
+Started GET "/assets/jquery_ujs.self-d602bdfe68ffc63b9f9cc512872aa3cfff046228a0a36e90dd476e8ef54c1b09.js?body=1" for ::1 at 2016-02-05 19:17:48 -0700
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2016-02-05 19:17:48 -0700
+
+
+Started GET "/assets/dashes.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-02-05 19:17:48 -0700
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2016-02-05 19:17:48 -0700
+
+
+Started GET "/dashes/1" for ::1 at 2016-02-05 19:17:49 -0700
+Processing by DashesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mDash Load (0.3ms)[0m  [1mSELECT  "dashes".* FROM "dashes" WHERE "dashes"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered dashes/show.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 32ms (Views: 19.8ms | ActiveRecord: 0.7ms)
+  [1m[36mDash Load (0.5ms)[0m  [1mSELECT  "dashes".* FROM "dashes"  ORDER BY "dashes"."id" ASC LIMIT 1[0m
+  [1m[36mDash Load (0.5ms)[0m  [1mSELECT  "dashes".* FROM "dashes"  ORDER BY "dashes"."id" ASC LIMIT 1[0m

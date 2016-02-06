@@ -14,8 +14,6 @@ class Dash < ActiveRecord::Base
 				puts "nope"
 			end
 		end
-
-
 		# temp.each do |post|
 		# 	self.build_post("reddit", post[0]["url"], post[1], post[0]["url"], post[0])
 		# end
