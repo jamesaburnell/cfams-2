@@ -10,6 +10,9 @@ class DashesController < ApplicationController
   # GET /dashes/1
   # GET /dashes/1.json
   def show
+    @dash.redd
+    @dash = Dash.find(params[:id])
+    @posts = @dash.posts
   end
 
   # GET /dashes/new

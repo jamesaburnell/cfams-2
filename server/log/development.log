@@ -1910,3 +1910,479 @@ ORDER BY c.conname
   [1m[35m (0.1ms)[0m  BEGIN
   [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "posts" ("title", "og_source", "body", "image_src", "dash_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "Twitter"], ["og_source", "http://pbs.twimg.com/media/CZvGrSKW0AEtvUA.jpg"], ["body", "Feedin my stray babies.. then Vixen comes back.. think she will kill me now.. #betrayal #catsareassholes https://t.co/7raC4gJlP0"], ["image_src", "http://pbs.twimg.com/media/CZvGrSKW0AEtvUA.jpg"], ["dash_id", 1], ["created_at", "2016-02-06 02:48:15.410555"], ["updated_at", "2016-02-06 02:48:15.410555"]]
   [1m[35m (0.3ms)[0m  COMMIT
+
+
+Started GET "/dashes/1" for ::1 at 2016-02-05 19:49:23 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by DashesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mDash Load (0.2ms)[0m  SELECT  "dashes".* FROM "dashes" WHERE "dashes"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered dashes/show.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 34ms (Views: 18.9ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/dashes/1" for ::1 at 2016-02-05 19:49:41 -0700
+Processing by DashesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mDash Load (0.7ms)[0m  [1mSELECT  "dashes".* FROM "dashes" WHERE "dashes"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered dashes/show.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 748ms (Views: 23.0ms | ActiveRecord: 3.9ms)
+
+
+Started GET "/assets/dashes.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-02-05 19:49:42 -0700
+
+
+Started GET "/assets/posts.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-02-05 19:49:42 -0700
+
+
+Started GET "/assets/scaffolds.self-5b9911c4ebb63e5ff64030a0fb7e0bf9c2ab51f0565463545aaec9c05e96c758.css?body=1" for ::1 at 2016-02-05 19:49:42 -0700
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2016-02-05 19:49:42 -0700
+
+
+Started GET "/assets/jquery.self-c64a74367bda6ef8b860f19e74df08927ca99d2be2ac934e9e92d5fd361e0da4.js?body=1" for ::1 at 2016-02-05 19:49:42 -0700
+
+
+Started GET "/assets/jquery_ujs.self-d602bdfe68ffc63b9f9cc512872aa3cfff046228a0a36e90dd476e8ef54c1b09.js?body=1" for ::1 at 2016-02-05 19:49:42 -0700
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2016-02-05 19:49:42 -0700
+
+
+Started GET "/assets/dashes.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-02-05 19:49:42 -0700
+
+
+Started GET "/assets/posts.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-02-05 19:49:42 -0700
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2016-02-05 19:49:42 -0700
+
+
+Started GET "/dashes/1" for ::1 at 2016-02-05 19:50:25 -0700
+Processing by DashesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mDash Load (0.2ms)[0m  SELECT  "dashes".* FROM "dashes" WHERE "dashes"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mDash Load (0.4ms)[0m  [1mSELECT  "dashes".* FROM "dashes" WHERE "dashes"."id" = $1 LIMIT 1[0m  [["id", nil]]
+Completed 404 Not Found in 12ms (ActiveRecord: 2.2ms)
+
+ActiveRecord::RecordNotFound (Couldn't find Dash with 'id'=):
+  app/controllers/dashes_controller.rb:13:in `show'
+
+
+  Rendered /Users/andrewhathaway/.rvm/rubies/ruby-2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-4.2.2/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.4ms)
+  Rendered /Users/andrewhathaway/.rvm/rubies/ruby-2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-4.2.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.9ms)
+  Rendered /Users/andrewhathaway/.rvm/rubies/ruby-2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-4.2.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/andrewhathaway/.rvm/rubies/ruby-2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-4.2.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (85.8ms)
+  Rendered /Users/andrewhathaway/.rvm/rubies/ruby-2.2.0/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /Users/andrewhathaway/.rvm/rubies/ruby-2.2.0/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/andrewhathaway/.rvm/rubies/ruby-2.2.0/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/andrewhathaway/.rvm/rubies/ruby-2.2.0/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/andrewhathaway/.rvm/rubies/ruby-2.2.0/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (70.4ms)
+  Rendered /Users/andrewhathaway/.rvm/rubies/ruby-2.2.0/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (2.2ms)
+  Rendered /Users/andrewhathaway/.rvm/rubies/ruby-2.2.0/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/andrewhathaway/.rvm/rubies/ruby-2.2.0/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (160.3ms)
+
+
+Started GET "/dashes/1" for ::1 at 2016-02-05 19:50:30 -0700
+Processing by DashesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mDash Load (0.3ms)[0m  SELECT  "dashes".* FROM "dashes" WHERE "dashes"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "dashes".* FROM "dashes" WHERE "dashes"."id" = $1 LIMIT 1[0m  [["id", "1"]]
+  Rendered dashes/show.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 277ms (Views: 17.5ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/assets/posts.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-02-05 19:50:30 -0700
+
+
+Started GET "/assets/scaffolds.self-5b9911c4ebb63e5ff64030a0fb7e0bf9c2ab51f0565463545aaec9c05e96c758.css?body=1" for ::1 at 2016-02-05 19:50:30 -0700
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2016-02-05 19:50:30 -0700
+
+
+Started GET "/assets/jquery.self-c64a74367bda6ef8b860f19e74df08927ca99d2be2ac934e9e92d5fd361e0da4.js?body=1" for ::1 at 2016-02-05 19:50:30 -0700
+
+
+Started GET "/assets/jquery_ujs.self-d602bdfe68ffc63b9f9cc512872aa3cfff046228a0a36e90dd476e8ef54c1b09.js?body=1" for ::1 at 2016-02-05 19:50:30 -0700
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2016-02-05 19:50:30 -0700
+
+
+Started GET "/assets/dashes.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-02-05 19:50:30 -0700
+
+
+Started GET "/assets/dashes.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-02-05 19:50:30 -0700
+
+
+Started GET "/assets/posts.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-02-05 19:50:30 -0700
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2016-02-05 19:50:30 -0700
+
+
+Started GET "/dashes" for ::1 at 2016-02-05 19:50:32 -0700
+Processing by DashesController#index as HTML
+  [1m[35mDash Load (0.3ms)[0m  SELECT "dashes".* FROM "dashes"
+  Rendered dashes/index.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 22ms (Views: 21.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/dashes/1" for ::1 at 2016-02-05 19:50:33 -0700
+Processing by DashesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mDash Load (0.2ms)[0m  [1mSELECT  "dashes".* FROM "dashes" WHERE "dashes"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "dashes".* FROM "dashes" WHERE "dashes"."id" = $1 LIMIT 1  [["id", "1"]]
+  Rendered dashes/show.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 284ms (Views: 27.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/dashes/1" for ::1 at 2016-02-05 19:51:43 -0700
+Processing by DashesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mDash Load (0.4ms)[0m  [1mSELECT  "dashes".* FROM "dashes" WHERE "dashes"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "dashes".* FROM "dashes" WHERE "dashes"."id" = $1 LIMIT 1  [["id", "1"]]
+  Rendered dashes/show.html.erb within layouts/application (4.3ms)
+Completed 500 Internal Server Error in 480ms (ActiveRecord: 0.4ms)
+
+ActionView::Template::Error (undefined method `each' for nil:NilClass):
+     7: 
+     8: <div id="masonry-container" class="transitions-enabled infinite-scroll clearfix">
+     9: 
+    10: <% @posts.each do |post|  %>
+    11:   <div class="box col2">
+    12:   title: <%= post.title %>, 
+    13:   body: <%= post.body %>, 
+  app/views/dashes/show.html.erb:10:in `_app_views_dashes_show_html_erb__685078723848128513_70250670739120'
+
+
+  Rendered /Users/andrewhathaway/.rvm/rubies/ruby-2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-4.2.2/lib/action_dispatch/middleware/templates/rescues/_source.erb (25.4ms)
+  Rendered /Users/andrewhathaway/.rvm/rubies/ruby-2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-4.2.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (5.3ms)
+  Rendered /Users/andrewhathaway/.rvm/rubies/ruby-2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-4.2.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/andrewhathaway/.rvm/rubies/ruby-2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-4.2.2/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (95.5ms)
+  Rendered /Users/andrewhathaway/.rvm/rubies/ruby-2.2.0/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /Users/andrewhathaway/.rvm/rubies/ruby-2.2.0/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/andrewhathaway/.rvm/rubies/ruby-2.2.0/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/andrewhathaway/.rvm/rubies/ruby-2.2.0/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/andrewhathaway/.rvm/rubies/ruby-2.2.0/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (66.1ms)
+  Rendered /Users/andrewhathaway/.rvm/rubies/ruby-2.2.0/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/andrewhathaway/.rvm/rubies/ruby-2.2.0/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (1.6ms)
+  Rendered /Users/andrewhathaway/.rvm/rubies/ruby-2.2.0/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (152.3ms)
+
+
+Started GET "/dashes/1" for ::1 at 2016-02-05 19:52:10 -0700
+Processing by DashesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mDash Load (0.1ms)[0m  [1mSELECT  "dashes".* FROM "dashes" WHERE "dashes"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "dashes".* FROM "dashes" WHERE "dashes"."id" = $1 LIMIT 1  [["id", "1"]]
+PG::UndefinedColumn: ERROR:  column posts.approved does not exist
+LINE 1: ...".* FROM "posts" WHERE "posts"."dash_id" = $1 AND "posts"."a...
+                                                             ^
+: SELECT "posts".* FROM "posts" WHERE "posts"."dash_id" = $1 AND "posts"."approved" IS NULL
+  Rendered dashes/show.html.erb within layouts/application (33.3ms)
+Completed 500 Internal Server Error in 715ms (ActiveRecord: 1.6ms)
+
+ActionView::Template::Error (PG::UndefinedColumn: ERROR:  column posts.approved does not exist
+LINE 1: ...".* FROM "posts" WHERE "posts"."dash_id" = $1 AND "posts"."a...
+                                                             ^
+: SELECT "posts".* FROM "posts" WHERE "posts"."dash_id" = $1 AND "posts"."approved" IS NULL):
+     7: 
+     8: <div id="masonry-container" class="transitions-enabled infinite-scroll clearfix">
+     9: 
+    10: <% @posts.each do |post|  %>
+    11:   <div class="box col2">
+    12:   title: <%= post.title %>, 
+    13:   body: <%= post.body %>, 
+  app/views/dashes/show.html.erb:10:in `_app_views_dashes_show_html_erb__685078723848128513_70250663253940'
+
+
+  Rendered /Users/andrewhathaway/.rvm/rubies/ruby-2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-4.2.2/lib/action_dispatch/middleware/templates/rescues/_source.erb (10.9ms)
+  Rendered /Users/andrewhathaway/.rvm/rubies/ruby-2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-4.2.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.1ms)
+  Rendered /Users/andrewhathaway/.rvm/rubies/ruby-2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-4.2.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/andrewhathaway/.rvm/rubies/ruby-2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-4.2.2/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (75.9ms)
+  Rendered /Users/andrewhathaway/.rvm/rubies/ruby-2.2.0/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /Users/andrewhathaway/.rvm/rubies/ruby-2.2.0/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/andrewhathaway/.rvm/rubies/ruby-2.2.0/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/andrewhathaway/.rvm/rubies/ruby-2.2.0/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/andrewhathaway/.rvm/rubies/ruby-2.2.0/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (67.9ms)
+  Rendered /Users/andrewhathaway/.rvm/rubies/ruby-2.2.0/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/andrewhathaway/.rvm/rubies/ruby-2.2.0/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/andrewhathaway/.rvm/rubies/ruby-2.2.0/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (152.7ms)
+
+
+Started GET "/dashes/1" for ::1 at 2016-02-05 19:52:36 -0700
+Processing by DashesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mDash Load (0.3ms)[0m  [1mSELECT  "dashes".* FROM "dashes" WHERE "dashes"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "dashes".* FROM "dashes" WHERE "dashes"."id" = $1 LIMIT 1  [["id", "1"]]
+  [1m[36mPost Load (0.3ms)[0m  [1mSELECT "posts".* FROM "posts" WHERE "posts"."dash_id" = $1[0m  [["dash_id", 1]]
+  Rendered dashes/show.html.erb within layouts/application (35.8ms)
+Completed 500 Internal Server Error in 286ms (ActiveRecord: 3.2ms)
+
+ActionView::Template::Error (undefined method `toggle_approve_dash_post_path' for #<#<Class:0x007fc8fa761db0>:0x007fc8fa760c08>):
+    19: 
+    20:   <% end %>
+    21: <!-- 
+    22: <%= link_to "approve", toggle_approve_dash_post_path(@dash, post),   
+    23:             :remote => true %>  
+    24:            | |
+    25: <%= link_to "disapprove", toggle_disapprove_dash_post_path(@dash, post),   
+  app/views/dashes/show.html.erb:22:in `block in _app_views_dashes_show_html_erb__685078723848128513_70250663253940'
+  app/views/dashes/show.html.erb:10:in `_app_views_dashes_show_html_erb__685078723848128513_70250663253940'
+
+
+  Rendered /Users/andrewhathaway/.rvm/rubies/ruby-2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-4.2.2/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.5ms)
+  Rendered /Users/andrewhathaway/.rvm/rubies/ruby-2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-4.2.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.8ms)
+  Rendered /Users/andrewhathaway/.rvm/rubies/ruby-2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-4.2.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/andrewhathaway/.rvm/rubies/ruby-2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-4.2.2/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (83.7ms)
+  Rendered /Users/andrewhathaway/.rvm/rubies/ruby-2.2.0/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /Users/andrewhathaway/.rvm/rubies/ruby-2.2.0/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/andrewhathaway/.rvm/rubies/ruby-2.2.0/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.9ms)
+  Rendered /Users/andrewhathaway/.rvm/rubies/ruby-2.2.0/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/andrewhathaway/.rvm/rubies/ruby-2.2.0/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (60.2ms)
+  Rendered /Users/andrewhathaway/.rvm/rubies/ruby-2.2.0/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/andrewhathaway/.rvm/rubies/ruby-2.2.0/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/andrewhathaway/.rvm/rubies/ruby-2.2.0/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (146.2ms)
+
+
+Started GET "/dashes/1" for ::1 at 2016-02-05 19:52:49 -0700
+Processing by DashesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mDash Load (0.3ms)[0m  SELECT  "dashes".* FROM "dashes" WHERE "dashes"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "dashes".* FROM "dashes" WHERE "dashes"."id" = $1 LIMIT 1[0m  [["id", "1"]]
+  [1m[35mPost Load (0.2ms)[0m  SELECT "posts".* FROM "posts" WHERE "posts"."dash_id" = $1  [["dash_id", 1]]
+  Rendered dashes/show.html.erb within layouts/application (7.6ms)
+Completed 200 OK in 378ms (Views: 28.4ms | ActiveRecord: 4.0ms)
+
+
+Started GET "/assets/posts.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-02-05 19:52:50 -0700
+
+
+Started GET "/assets/dashes.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-02-05 19:52:50 -0700
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2016-02-05 19:52:50 -0700
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2016-02-05 19:52:50 -0700
+
+
+Started GET "/assets/scaffolds.self-5b9911c4ebb63e5ff64030a0fb7e0bf9c2ab51f0565463545aaec9c05e96c758.css?body=1" for ::1 at 2016-02-05 19:52:50 -0700
+
+
+Started GET "/assets/jquery.self-c64a74367bda6ef8b860f19e74df08927ca99d2be2ac934e9e92d5fd361e0da4.js?body=1" for ::1 at 2016-02-05 19:52:50 -0700
+
+
+Started GET "/assets/jquery_ujs.self-d602bdfe68ffc63b9f9cc512872aa3cfff046228a0a36e90dd476e8ef54c1b09.js?body=1" for ::1 at 2016-02-05 19:52:50 -0700
+
+
+Started GET "/assets/dashes.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-02-05 19:52:50 -0700
+
+
+Started GET "/assets/posts.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-02-05 19:52:50 -0700
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2016-02-05 19:52:50 -0700
+  [1m[36mPost Load (0.5ms)[0m  [1mSELECT  "posts".* FROM "posts"  ORDER BY "posts"."id" ASC LIMIT 1[0m
+
+
+Started GET "/dashes/1" for ::1 at 2016-02-05 19:53:58 -0700
+Processing by DashesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mDash Load (0.3ms)[0m  [1mSELECT  "dashes".* FROM "dashes" WHERE "dashes"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "dashes".* FROM "dashes" WHERE "dashes"."id" = $1 LIMIT 1  [["id", "1"]]
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT "posts".* FROM "posts" WHERE "posts"."dash_id" = $1[0m  [["dash_id", 1]]
+  Rendered dashes/show.html.erb within layouts/application (9.2ms)
+Completed 200 OK in 656ms (Views: 34.0ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/assets/posts.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-02-05 19:53:59 -0700
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2016-02-05 19:53:59 -0700
+
+
+Started GET "/assets/scaffolds.self-5b9911c4ebb63e5ff64030a0fb7e0bf9c2ab51f0565463545aaec9c05e96c758.css?body=1" for ::1 at 2016-02-05 19:53:59 -0700
+
+
+Started GET "/assets/dashes.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-02-05 19:53:59 -0700
+
+
+Started GET "/assets/jquery.self-c64a74367bda6ef8b860f19e74df08927ca99d2be2ac934e9e92d5fd361e0da4.js?body=1" for ::1 at 2016-02-05 19:53:59 -0700
+
+
+Started GET "/assets/jquery_ujs.self-d602bdfe68ffc63b9f9cc512872aa3cfff046228a0a36e90dd476e8ef54c1b09.js?body=1" for ::1 at 2016-02-05 19:53:59 -0700
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2016-02-05 19:53:59 -0700
+
+
+Started GET "/assets/dashes.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-02-05 19:53:59 -0700
+
+
+Started GET "/assets/posts.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-02-05 19:53:59 -0700
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2016-02-05 19:53:59 -0700
+
+
+Started GET "/dashes/1" for ::1 at 2016-02-05 19:54:10 -0700
+Processing by DashesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mDash Load (0.1ms)[0m  SELECT  "dashes".* FROM "dashes" WHERE "dashes"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "dashes".* FROM "dashes" WHERE "dashes"."id" = $1 LIMIT 1[0m  [["id", "1"]]
+  [1m[35mPost Load (0.9ms)[0m  SELECT "posts".* FROM "posts" WHERE "posts"."dash_id" = $1  [["dash_id", 1]]
+  Rendered dashes/show.html.erb within layouts/application (4.1ms)
+Completed 200 OK in 290ms (Views: 26.8ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/assets/dashes.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-02-05 19:54:10 -0700
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2016-02-05 19:54:10 -0700
+
+
+Started GET "/assets/jquery.self-c64a74367bda6ef8b860f19e74df08927ca99d2be2ac934e9e92d5fd361e0da4.js?body=1" for ::1 at 2016-02-05 19:54:10 -0700
+
+
+Started GET "/assets/jquery_ujs.self-d602bdfe68ffc63b9f9cc512872aa3cfff046228a0a36e90dd476e8ef54c1b09.js?body=1" for ::1 at 2016-02-05 19:54:10 -0700
+
+
+Started GET "/assets/scaffolds.self-5b9911c4ebb63e5ff64030a0fb7e0bf9c2ab51f0565463545aaec9c05e96c758.css?body=1" for ::1 at 2016-02-05 19:54:10 -0700
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2016-02-05 19:54:10 -0700
+
+
+Started GET "/assets/posts.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-02-05 19:54:10 -0700
+
+
+Started GET "/assets/dashes.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-02-05 19:54:10 -0700
+
+
+Started GET "/assets/posts.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-02-05 19:54:10 -0700
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2016-02-05 19:54:10 -0700
+
+
+Started GET "/dashes/1" for ::1 at 2016-02-05 19:54:13 -0700
+Processing by DashesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mDash Load (0.2ms)[0m  [1mSELECT  "dashes".* FROM "dashes" WHERE "dashes"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.1ms)[0m  SELECT  "dashes".* FROM "dashes" WHERE "dashes"."id" = $1 LIMIT 1  [["id", "1"]]
+  [1m[36mPost Load (0.3ms)[0m  [1mSELECT "posts".* FROM "posts" WHERE "posts"."dash_id" = $1[0m  [["dash_id", 1]]
+  Rendered dashes/show.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 281ms (Views: 27.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/posts.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-02-05 19:54:13 -0700
+
+
+Started GET "/assets/scaffolds.self-5b9911c4ebb63e5ff64030a0fb7e0bf9c2ab51f0565463545aaec9c05e96c758.css?body=1" for ::1 at 2016-02-05 19:54:13 -0700
+
+
+Started GET "/assets/dashes.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-02-05 19:54:13 -0700
+
+
+Started GET "/assets/jquery.self-c64a74367bda6ef8b860f19e74df08927ca99d2be2ac934e9e92d5fd361e0da4.js?body=1" for ::1 at 2016-02-05 19:54:13 -0700
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2016-02-05 19:54:13 -0700
+
+
+Started GET "/assets/jquery_ujs.self-d602bdfe68ffc63b9f9cc512872aa3cfff046228a0a36e90dd476e8ef54c1b09.js?body=1" for ::1 at 2016-02-05 19:54:13 -0700
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2016-02-05 19:54:13 -0700
+
+
+Started GET "/assets/dashes.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-02-05 19:54:13 -0700
+
+
+Started GET "/assets/posts.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-02-05 19:54:13 -0700
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2016-02-05 19:54:13 -0700
+
+
+Started GET "/dashes/1" for ::1 at 2016-02-05 19:54:14 -0700
+Processing by DashesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mDash Load (0.2ms)[0m  SELECT  "dashes".* FROM "dashes" WHERE "dashes"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "dashes".* FROM "dashes" WHERE "dashes"."id" = $1 LIMIT 1[0m  [["id", "1"]]
+  [1m[35mPost Load (0.3ms)[0m  SELECT "posts".* FROM "posts" WHERE "posts"."dash_id" = $1  [["dash_id", 1]]
+  Rendered dashes/show.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 302ms (Views: 24.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/posts.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-02-05 19:54:15 -0700
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2016-02-05 19:54:15 -0700
+
+
+Started GET "/assets/scaffolds.self-5b9911c4ebb63e5ff64030a0fb7e0bf9c2ab51f0565463545aaec9c05e96c758.css?body=1" for ::1 at 2016-02-05 19:54:15 -0700
+
+
+Started GET "/assets/jquery.self-c64a74367bda6ef8b860f19e74df08927ca99d2be2ac934e9e92d5fd361e0da4.js?body=1" for ::1 at 2016-02-05 19:54:15 -0700
+
+
+Started GET "/assets/dashes.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-02-05 19:54:15 -0700
+
+
+Started GET "/assets/jquery_ujs.self-d602bdfe68ffc63b9f9cc512872aa3cfff046228a0a36e90dd476e8ef54c1b09.js?body=1" for ::1 at 2016-02-05 19:54:15 -0700
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2016-02-05 19:54:15 -0700
+
+
+Started GET "/assets/dashes.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-02-05 19:54:15 -0700
+
+
+Started GET "/assets/posts.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-02-05 19:54:15 -0700
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2016-02-05 19:54:15 -0700
+
+
+Started GET "/dashes/1" for ::1 at 2016-02-05 19:54:16 -0700
+Processing by DashesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mDash Load (0.4ms)[0m  [1mSELECT  "dashes".* FROM "dashes" WHERE "dashes"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "dashes".* FROM "dashes" WHERE "dashes"."id" = $1 LIMIT 1  [["id", "1"]]
+  [1m[36mPost Load (1.0ms)[0m  [1mSELECT "posts".* FROM "posts" WHERE "posts"."dash_id" = $1[0m  [["dash_id", 1]]
+  Rendered dashes/show.html.erb within layouts/application (4.3ms)
+Completed 200 OK in 315ms (Views: 28.4ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/assets/posts.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-02-05 19:54:16 -0700
+
+
+Started GET "/assets/dashes.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-02-05 19:54:16 -0700
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2016-02-05 19:54:16 -0700
+
+
+Started GET "/assets/scaffolds.self-5b9911c4ebb63e5ff64030a0fb7e0bf9c2ab51f0565463545aaec9c05e96c758.css?body=1" for ::1 at 2016-02-05 19:54:17 -0700
+
+
+Started GET "/assets/jquery_ujs.self-d602bdfe68ffc63b9f9cc512872aa3cfff046228a0a36e90dd476e8ef54c1b09.js?body=1" for ::1 at 2016-02-05 19:54:17 -0700
+
+
+Started GET "/assets/jquery.self-c64a74367bda6ef8b860f19e74df08927ca99d2be2ac934e9e92d5fd361e0da4.js?body=1" for ::1 at 2016-02-05 19:54:17 -0700
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2016-02-05 19:54:17 -0700
+
+
+Started GET "/assets/dashes.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-02-05 19:54:17 -0700
+
+
+Started GET "/assets/posts.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-02-05 19:54:17 -0700
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2016-02-05 19:54:17 -0700
