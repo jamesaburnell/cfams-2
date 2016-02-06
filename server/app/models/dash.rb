@@ -1,4 +1,5 @@
 class Dash < ActiveRecord::Base
+	require 'open-uri'
 	belongs_to :user
 	has_many :posts	
 
