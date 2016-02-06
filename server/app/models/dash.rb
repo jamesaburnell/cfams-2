@@ -1,6 +1,6 @@
 class Dash < ActiveRecord::Base
 	has_many :posts	
-	def redd
+	def reddit_pic_scrape
 		subredd = self.subreddit
 		reddit_api_url = "https://www.reddit.com/r/"+ subredd +".json"
 		resp = Net::HTTP.get_response(URI.parse(reddit_api_url))
@@ -59,6 +59,20 @@ class Dash < ActiveRecord::Base
 		p.save
 	end
 
+	# JSON Formatting
+	def as_json(options={})
+	  super(:only => [:name],
+	        :include => {
+	          :posts => {:only => [:title, :body, :image_src]
+	          	# ,
+	            # :methods => [:image],
+	            # :include => {
+	            #   :recaps => {:only => [:body]}
+	            # }
+	          }
+	        }
+	  )
+	end	
 end
 
 

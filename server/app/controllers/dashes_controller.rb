@@ -11,8 +11,12 @@ class DashesController < ApplicationController
   # GET /dashes/1.json
   def show
     @dash = Dash.find(params[:id])
-    @dash.redd
+    @dash.reddit_pic_scrape
     @posts = @dash.posts
+    respond_to do |format|
+      format.html # show.html.erb
+      format.json { render json: @dash }
+     end        
   end
 
   # GET /dashes/new
