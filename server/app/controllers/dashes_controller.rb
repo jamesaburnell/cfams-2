@@ -70,6 +70,12 @@ class DashesController < ApplicationController
   end
 
 
+
+
+
+
+# Custom Controller Methods
+
   def add_reddit_pics
     search_term = params[:search_term]
     puts "SearchTerm: ", search_term
@@ -108,6 +114,12 @@ class DashesController < ApplicationController
       format.json { render json: @posts }
      end        
   end
+
+
+
+
+
+
 
   private
     # Use callbacks to share common setup or constraints between actions.
