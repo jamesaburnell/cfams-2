@@ -22,6 +22,7 @@ var Login = React.createClass({
 	},
 
 	goToAccountHome: function () {
+		
 		this.props.checkCreds();
 		this.props.navigate(this.props.navigator, AccountHome, 'Account Home');
 	},

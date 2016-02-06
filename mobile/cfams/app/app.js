@@ -58,11 +58,27 @@ var cfams = React.createClass({
     })
       .then(function (response) {
         console.log(response);
+        this.getDashContent();
       })
   },
 
-  setHead: function (options) {
+  getDashContent: function () {
+    fetch('http://localhost:3000/dashes/1.json', {method: 'GET'}, function (err) {
+      console.log("ERROR: ", err)
+    })
+      .then(function (response) {
+        return response.json();
+      })
+      .then(function (responseData) {
+        console.log('redit: ', responseData);
+        this.setDashContent(responseData);
+      })
+  },
 
+  setDashContent: function (data) {
+    this.setState({
+      unapprovedContent: data
+    })
   },
 
   _navigate: function (navigator, component, title) {
@@ -82,6 +98,7 @@ var cfams = React.createClass({
                   username={this.state.username} 
                   password={this.state.password} 
                   checkCreds={this.checkCreds}
+                  unapprovedContent={this.unapprovedContent}
                   {...route.props}
                   navigator={navigator}
                   route={route} />

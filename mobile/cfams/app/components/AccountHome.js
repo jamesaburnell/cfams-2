@@ -41,9 +41,10 @@ var AccountHome = React.createClass({
 
 	render: function () {
 		var imageStyle = [styles.resizeMode, this.state.viewStyle]
-		var images = this.props.dummyData.map(function (element, index) {
-			return (<TouchableWithoutFeedback onPress={this.animateView}><Image resizeMode={Image.resizeMode.cover} style={imageStyle} key={index} source={element.imgUrl} /></TouchableWithoutFeedback>)
-		}.bind(this))
+		console.log('content: ', this.props.unapprovedContent)
+		var images = this.props.unapprovedContent.map(function (element, index) {
+			return (<TouchableWithoutFeedback onPress={this.animateView}><Image resizeMode={Image.resizeMode.cover} style={imageStyle} key={index} source={element.image_src} /></TouchableWithoutFeedback>)
+		}.bind(this)) 
 
 		return (
 			<View style={styles.accountHome}>	
@@ -62,7 +63,7 @@ var styles = StyleSheet.create({
 		alignSelf: 'center'
 	},
 	resizeMode: {
-	    width: 180,
+	    //width: 180,
 	    // height: 120,
 	    borderWidth: 0.5,
 	    borderColor: 'black',
