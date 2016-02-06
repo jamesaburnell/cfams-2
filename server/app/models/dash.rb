@@ -1,5 +1,5 @@
 class Dash < ActiveRecord::Base
-	require 'open-uri'
+	# require 'open-uri'
 	require 'net/http'
 	require 'uri'
 	belongs_to :user
