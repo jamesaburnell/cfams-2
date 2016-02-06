@@ -7951,3 +7951,210 @@ Started GET "/assets/posts.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde45
 
 
 Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2016-02-06 13:18:16 -0700
+
+
+Started GET "/dashes/1" for ::1 at 2016-02-06 13:20:47 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by DashesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mDash Load (0.4ms)[0m  SELECT  "dashes".* FROM "dashes" WHERE "dashes"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mPost Exists (0.9ms)[0m  SELECT  1 AS one FROM "posts" WHERE "posts"."og_source" = 'https://i.redditmedia.com/Caj0jK-xTFhu77SDR9RYjE_xcPeJ6-fF6A95kIXxF-I.jpg?s=b836f7a09199bdbcad3725d4ab4320da' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mPost Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "posts" WHERE "posts"."og_source" = 'https://i.redditmedia.com/lAMO8s3uHA-kROHcRIzYMSDHm5jvrwjX-XBazbhbECs.jpg?s=555cfb02b3b6e3855184e302be285651' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mPost Exists (0.2ms)[0m  SELECT  1 AS one FROM "posts" WHERE "posts"."og_source" = 'https://i.redditmedia.com/ggZS6D03n60FOV7J_enRFYypl8h7rQlGD-evR2H1SWc.jpg?s=5b2ca767cd3c31a0b5b95dcd6819c88c' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mPost Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "posts" WHERE "posts"."og_source" = 'https://i.redditmedia.com/FeJCIX9SnEeuMQoNMum7LMonJZZDPX10E3TaGHuLnPE.jpg?s=82aafba56d5db3c59b89e974501c0192' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mPost Exists (0.2ms)[0m  SELECT  1 AS one FROM "posts" WHERE "posts"."og_source" = 'https://i.redditmedia.com/nfZ9KthjraORnHeRA2THmT7YqCtCo0O6sTj8YvcGCg4.jpg?s=f887f505f554f241264efd8f26afdb60' LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36mPost Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "posts" WHERE "posts"."og_source" = 'https://i.redditmedia.com/WGpUpLXuzPSbMeT7lAH0vRsZNGyj4Ifn6zF9OLvQ4_E.jpg?s=8797f61d6fbf71160e87582b83a3b179' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mPost Exists (0.3ms)[0m  SELECT  1 AS one FROM "posts" WHERE "posts"."og_source" = 'https://i.redditmedia.com/45J0_z4MTpDqdS3ixlHlvHPllsWDqZpeTrh0LWkzxYk.jpg?s=cfaeffcadcca7671d831596d6b5ac301' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mPost Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "posts" WHERE "posts"."og_source" = 'https://i.redditmedia.com/yzm3rNfoaqJ8qMt82eMKhbix4pPmzqGpqaWcYtwWz0w.jpg?s=28b9306a60cba3fb17d7413b1d2a32cb' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mPost Exists (0.1ms)[0m  SELECT  1 AS one FROM "posts" WHERE "posts"."og_source" = 'https://i.redditmedia.com/VSdrAnm5JJX_IW8riJ_dEMHIF2mwwAJqjGIQ3vKv_AE.jpg?s=90600cece945762ed979a70569f35f3b' LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mPost Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "posts" WHERE "posts"."og_source" = 'https://i.redditmedia.com/wA5Q6DPhSjp-nGld3AwM-W4VkBFAMZjQV55yjmPL5gE.jpg?s=3a9beab4a2e73646c21b9efc093228cb' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mPost Exists (0.2ms)[0m  SELECT  1 AS one FROM "posts" WHERE "posts"."og_source" = 'https://i.redditmedia.com/L0kzJkYrX_VKG-LMz2rb3Z2BUANxyS50naGHo7ak8IU.jpg?s=200b93da85f7f5086f2447f9a8d22c9b' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mPost Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "posts" WHERE "posts"."og_source" = 'https://i.redditmedia.com/gVi2on2O9GKbCnZCCZ7GIasumTJoJcG9xwaNrM_KZLc.jpg?s=6998e2b24dac3f326272f915bd25fdec' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mPost Exists (0.2ms)[0m  SELECT  1 AS one FROM "posts" WHERE "posts"."og_source" = 'https://i.redditmedia.com/IZLrB8-1rTpkzeC42HbdC4o9B4NT6gmTFcAKLG5Fanc.jpg?s=96fc10522152b2c198a33859f7cebff9' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mPost Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "posts" WHERE "posts"."og_source" = 'https://i.redditmedia.com/4JWVeleQVdQX12sCNsG1hAEHQB-iGTaWjBQJv_gk9Ns.jpg?s=98352ea6cdefa8692505dce51c4f66a2' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mPost Exists (0.3ms)[0m  SELECT  1 AS one FROM "posts" WHERE "posts"."og_source" = 'https://i.redditmedia.com/m0PgfqqXkA1SIYzWI4xNO6YzBg2kiNbcQ7va02HGXlY.jpg?s=5c8973cb2f93c9586f6af74a7caaad87' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mPost Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "posts" WHERE "posts"."og_source" = 'https://i.redditmedia.com/4bbt2r5pY4LdWUi_R4zXPPjrch3EPMfjTaeQhgiPpew.jpg?s=c71cdcade233199a00407b3c6d865368' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mPost Exists (0.2ms)[0m  SELECT  1 AS one FROM "posts" WHERE "posts"."og_source" = 'https://i.redditmedia.com/0LfIeeuNV_LxkpUWTw3MxgfR3QEDoRyIA8RDt6cVAP8.jpg?s=4ea7292d9211729e955657b11144cf1e' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mPost Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "posts" WHERE "posts"."og_source" = 'https://i.redditmedia.com/6DQpLn-bDukUNP61Ni_XvIZXfw6wMtLPDv9zyNANU0s.jpg?s=0abd14cac54835e2c0ddb6303f8a19df' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mPost Exists (0.3ms)[0m  SELECT  1 AS one FROM "posts" WHERE "posts"."og_source" = 'https://i.redditmedia.com/7tJwmrN1cQira6jnB1QNonZTGbQSMACCzQIrV3uUh5U.jpg?s=68f89f54b2a8a57d4f1803b65e76ea70' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mPost Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "posts" WHERE "posts"."og_source" = 'https://i.redditmedia.com/X_GMRP8KrbejsqFS5HmQAT1LNQgDrHqEfgF6ibU2zV4.jpg?s=c76507d8e85af2a34e4b8d95f847faf1' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mPost Exists (0.2ms)[0m  SELECT  1 AS one FROM "posts" WHERE "posts"."og_source" = 'https://i.redditmedia.com/QuQZ8XEkM2GaLuDJz_ODvDVjXe1DdGGX1TKhVcZZixg.jpg?s=acff3abfcb120cfd672f4109c5903098' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mPost Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "posts" WHERE "posts"."og_source" = 'https://i.redditmedia.com/5C8PxnRqn9RbfEu1B_J0u2KYLse6u6z0DcZkP7XNnOw.jpg?s=886448071a6d6e6803517b5d2cc6971c' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mPost Exists (0.2ms)[0m  SELECT  1 AS one FROM "posts" WHERE "posts"."og_source" = 'https://i.redditmedia.com/D65zNpGL-IvkOcohfMe_TgtkHPCgP2tL9j3h9svezhI.jpg?s=a7dbde75e6b31955d89af87d2594a1d7' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mPost Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "posts" WHERE "posts"."og_source" = 'https://i.redditmedia.com/9kky3q4ciBssRh405yNHM7gP8axTdiNBSIyX3LwYYYw.jpg?s=d2dfd32d860d237a051bfdf807f26694' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mPost Exists (0.3ms)[0m  SELECT  1 AS one FROM "posts" WHERE "posts"."og_source" = 'https://i.redditmedia.com/amO9YoLPZSlaE0uXQWC5ICfNZQDJJdkwlnMSgsWwZ1w.jpg?s=91831091a21a44bce7eff844e858d831' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35mPost Load (0.3ms)[0m  SELECT "posts".* FROM "posts" WHERE "posts"."dash_id" = $1 AND "posts"."approved" IS NULL  [["dash_id", 1]]
+  Rendered dashes/show.html.erb within layouts/application (4.5ms)
+Completed 200 OK in 1381ms (Views: 229.1ms | ActiveRecord: 17.9ms)
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2016-02-06 13:20:49 -0700
+
+
+Started GET "/assets/jquery.self-c64a74367bda6ef8b860f19e74df08927ca99d2be2ac934e9e92d5fd361e0da4.js?body=1" for ::1 at 2016-02-06 13:20:49 -0700
+
+
+Started GET "/assets/posts.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-02-06 13:20:49 -0700
+
+
+Started GET "/assets/scaffolds.self-7d54453e88ebfcc1f19d1b9056781e8047187eb677417a8c8fc97da87cda4c39.css?body=1" for ::1 at 2016-02-06 13:20:49 -0700
+
+
+Started GET "/assets/jquery_ujs.self-d602bdfe68ffc63b9f9cc512872aa3cfff046228a0a36e90dd476e8ef54c1b09.js?body=1" for ::1 at 2016-02-06 13:20:49 -0700
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2016-02-06 13:20:49 -0700
+
+
+Started GET "/assets/dashes.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-02-06 13:20:49 -0700
+
+
+Started GET "/assets/posts.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-02-06 13:20:49 -0700
+
+
+Started GET "/assets/dashes.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-02-06 13:20:49 -0700
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2016-02-06 13:20:49 -0700
+
+
+Started GET "/dashes/1/add_twitter_pics?utf8=%E2%9C%93&search_term=%23catsaremean&commit=Search+Twitter" for ::1 at 2016-02-06 13:20:55 -0700
+Processing by DashesController#add_twitter_pics as HTML
+  Parameters: {"utf8"=>"✓", "search_term"=>"#catsaremean", "commit"=>"Search Twitter", "dash_id"=>"1"}
+  [1m[36mDash Load (0.3ms)[0m  [1mSELECT  "dashes".* FROM "dashes" WHERE "dashes"."id" = $1 LIMIT 1[0m  [["id", 1]]
+Redirected to http://localhost:3000/dashes/1
+Completed 302 Found in 365ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/dashes/1" for ::1 at 2016-02-06 13:20:55 -0700
+Processing by DashesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mDash Load (0.2ms)[0m  SELECT  "dashes".* FROM "dashes" WHERE "dashes"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mPost Exists (0.2ms)[0m  SELECT  1 AS one FROM "posts" WHERE "posts"."og_source" = 'https://i.redditmedia.com/Caj0jK-xTFhu77SDR9RYjE_xcPeJ6-fF6A95kIXxF-I.jpg?s=b836f7a09199bdbcad3725d4ab4320da' LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mPost Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "posts" WHERE "posts"."og_source" = 'https://i.redditmedia.com/lAMO8s3uHA-kROHcRIzYMSDHm5jvrwjX-XBazbhbECs.jpg?s=555cfb02b3b6e3855184e302be285651' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mPost Exists (0.2ms)[0m  SELECT  1 AS one FROM "posts" WHERE "posts"."og_source" = 'https://i.redditmedia.com/ggZS6D03n60FOV7J_enRFYypl8h7rQlGD-evR2H1SWc.jpg?s=5b2ca767cd3c31a0b5b95dcd6819c88c' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mPost Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "posts" WHERE "posts"."og_source" = 'https://i.redditmedia.com/FeJCIX9SnEeuMQoNMum7LMonJZZDPX10E3TaGHuLnPE.jpg?s=82aafba56d5db3c59b89e974501c0192' LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mPost Exists (0.2ms)[0m  SELECT  1 AS one FROM "posts" WHERE "posts"."og_source" = 'https://i.redditmedia.com/nfZ9KthjraORnHeRA2THmT7YqCtCo0O6sTj8YvcGCg4.jpg?s=f887f505f554f241264efd8f26afdb60' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mPost Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "posts" WHERE "posts"."og_source" = 'https://i.redditmedia.com/WGpUpLXuzPSbMeT7lAH0vRsZNGyj4Ifn6zF9OLvQ4_E.jpg?s=8797f61d6fbf71160e87582b83a3b179' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mPost Exists (0.2ms)[0m  SELECT  1 AS one FROM "posts" WHERE "posts"."og_source" = 'https://i.redditmedia.com/45J0_z4MTpDqdS3ixlHlvHPllsWDqZpeTrh0LWkzxYk.jpg?s=cfaeffcadcca7671d831596d6b5ac301' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mPost Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "posts" WHERE "posts"."og_source" = 'https://i.redditmedia.com/yzm3rNfoaqJ8qMt82eMKhbix4pPmzqGpqaWcYtwWz0w.jpg?s=28b9306a60cba3fb17d7413b1d2a32cb' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mPost Exists (0.2ms)[0m  SELECT  1 AS one FROM "posts" WHERE "posts"."og_source" = 'https://i.redditmedia.com/VSdrAnm5JJX_IW8riJ_dEMHIF2mwwAJqjGIQ3vKv_AE.jpg?s=90600cece945762ed979a70569f35f3b' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mPost Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "posts" WHERE "posts"."og_source" = 'https://i.redditmedia.com/wA5Q6DPhSjp-nGld3AwM-W4VkBFAMZjQV55yjmPL5gE.jpg?s=3a9beab4a2e73646c21b9efc093228cb' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mPost Exists (0.2ms)[0m  SELECT  1 AS one FROM "posts" WHERE "posts"."og_source" = 'https://i.redditmedia.com/L0kzJkYrX_VKG-LMz2rb3Z2BUANxyS50naGHo7ak8IU.jpg?s=200b93da85f7f5086f2447f9a8d22c9b' LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mPost Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "posts" WHERE "posts"."og_source" = 'https://i.redditmedia.com/gVi2on2O9GKbCnZCCZ7GIasumTJoJcG9xwaNrM_KZLc.jpg?s=6998e2b24dac3f326272f915bd25fdec' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mPost Exists (0.2ms)[0m  SELECT  1 AS one FROM "posts" WHERE "posts"."og_source" = 'https://i.redditmedia.com/IZLrB8-1rTpkzeC42HbdC4o9B4NT6gmTFcAKLG5Fanc.jpg?s=96fc10522152b2c198a33859f7cebff9' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mPost Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "posts" WHERE "posts"."og_source" = 'https://i.redditmedia.com/4JWVeleQVdQX12sCNsG1hAEHQB-iGTaWjBQJv_gk9Ns.jpg?s=98352ea6cdefa8692505dce51c4f66a2' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mPost Exists (0.3ms)[0m  SELECT  1 AS one FROM "posts" WHERE "posts"."og_source" = 'https://i.redditmedia.com/m0PgfqqXkA1SIYzWI4xNO6YzBg2kiNbcQ7va02HGXlY.jpg?s=5c8973cb2f93c9586f6af74a7caaad87' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mPost Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "posts" WHERE "posts"."og_source" = 'https://i.redditmedia.com/4bbt2r5pY4LdWUi_R4zXPPjrch3EPMfjTaeQhgiPpew.jpg?s=c71cdcade233199a00407b3c6d865368' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mPost Exists (0.6ms)[0m  SELECT  1 AS one FROM "posts" WHERE "posts"."og_source" = 'https://i.redditmedia.com/0LfIeeuNV_LxkpUWTw3MxgfR3QEDoRyIA8RDt6cVAP8.jpg?s=4ea7292d9211729e955657b11144cf1e' LIMIT 1
+  [1m[36m (0.5ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mPost Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "posts" WHERE "posts"."og_source" = 'https://i.redditmedia.com/6DQpLn-bDukUNP61Ni_XvIZXfw6wMtLPDv9zyNANU0s.jpg?s=0abd14cac54835e2c0ddb6303f8a19df' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mPost Exists (0.2ms)[0m  SELECT  1 AS one FROM "posts" WHERE "posts"."og_source" = 'https://i.redditmedia.com/7tJwmrN1cQira6jnB1QNonZTGbQSMACCzQIrV3uUh5U.jpg?s=68f89f54b2a8a57d4f1803b65e76ea70' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mPost Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "posts" WHERE "posts"."og_source" = 'https://i.redditmedia.com/X_GMRP8KrbejsqFS5HmQAT1LNQgDrHqEfgF6ibU2zV4.jpg?s=c76507d8e85af2a34e4b8d95f847faf1' LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mPost Exists (0.2ms)[0m  SELECT  1 AS one FROM "posts" WHERE "posts"."og_source" = 'https://i.redditmedia.com/QuQZ8XEkM2GaLuDJz_ODvDVjXe1DdGGX1TKhVcZZixg.jpg?s=acff3abfcb120cfd672f4109c5903098' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mPost Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "posts" WHERE "posts"."og_source" = 'https://i.redditmedia.com/5C8PxnRqn9RbfEu1B_J0u2KYLse6u6z0DcZkP7XNnOw.jpg?s=886448071a6d6e6803517b5d2cc6971c' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mPost Exists (0.2ms)[0m  SELECT  1 AS one FROM "posts" WHERE "posts"."og_source" = 'https://i.redditmedia.com/D65zNpGL-IvkOcohfMe_TgtkHPCgP2tL9j3h9svezhI.jpg?s=a7dbde75e6b31955d89af87d2594a1d7' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mPost Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "posts" WHERE "posts"."og_source" = 'https://i.redditmedia.com/9kky3q4ciBssRh405yNHM7gP8axTdiNBSIyX3LwYYYw.jpg?s=d2dfd32d860d237a051bfdf807f26694' LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mPost Exists (0.2ms)[0m  SELECT  1 AS one FROM "posts" WHERE "posts"."og_source" = 'https://i.redditmedia.com/amO9YoLPZSlaE0uXQWC5ICfNZQDJJdkwlnMSgsWwZ1w.jpg?s=91831091a21a44bce7eff844e858d831' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35mPost Load (0.4ms)[0m  SELECT "posts".* FROM "posts" WHERE "posts"."dash_id" = $1 AND "posts"."approved" IS NULL  [["dash_id", 1]]
+  Rendered dashes/show.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 414ms (Views: 16.9ms | ActiveRecord: 12.0ms)
