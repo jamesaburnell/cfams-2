@@ -1,4 +1,5 @@
 class Dash < ActiveRecord::Base
+	has_many :posts	
 	def redd
 		subredd = self.subreddit
 		reddit_api_url = "https://www.reddit.com/r/"+ subredd +".json"
@@ -30,7 +31,7 @@ class Dash < ActiveRecord::Base
 				puts img
 				puts tweet.text
 				temp.push(tweet.text, img)
-				# self.build_post("Twitter", img, tweet.text, img, img)
+				self.build_post("Twitter", img, tweet.text, img, img)
 			end
 		end	 		
 	end
@@ -48,10 +49,16 @@ class Dash < ActiveRecord::Base
 	end
 
 	#Build Posts
+	def build_post(title, src, body, image, author)
+		p = self.posts.build(title: title, og_source: src, body: body, image_src: image)
+		if p.title != "Twitter"
+			# p.picture_from_url(p.image_src)
+		else
+			puts "no"
+		end		
+		p.save
+	end
 
-
-
-	
 end
 
 
