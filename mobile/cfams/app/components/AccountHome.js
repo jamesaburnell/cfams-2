@@ -19,15 +19,18 @@ var AccountHome = React.createClass({
 	getInitialState: function () {
 		return {
 			viewStyle: {
-				height: 120
+				height: 120,
+			    width: 180
 			}
 		}
 	},
 
 	animateView: function () {
+		LayoutAnimation.configureNext(LayoutAnimation.Presets.spring)
 		this.setState({
 			viewStyle: {
-				height: this.state.viewStyle.height > 120 ? 120 : 250
+				height: this.state.viewStyle.height > 120 ? 120 : 250,
+				width: this.state.viewStyle.width > 180 ? 180 : 300
 			}
 		})
 	},
