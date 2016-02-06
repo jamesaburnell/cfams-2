@@ -71,8 +71,10 @@ class DashesController < ApplicationController
 
 
   def add_twitter_pics
+    search_term = params[:search_term]
+    puts "SearchTerm: ", search_term
     @dash = Dash.find(params[:dash_id])
-    @dash.twitter_pic_scrape
+    @dash.twitter_pic_scrape(search_term)
     redirect_to @dash
   end
 

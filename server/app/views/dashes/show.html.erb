@@ -4,8 +4,11 @@
 <p>
   <%= @dash.title %>
 </p>
-
-  <%= link_to "Add Twitter Posts", dash_add_twitter_pics_path(@dash) %>
+<%= form_tag("1/add_twitter_pics", method: "get") do %>
+  <%= label_tag(:search_term, "Search for:") %>
+  <%= text_field_tag(:search_term) %>
+  <%= submit_tag("Search Twitter") %>
+<% end %>
   <br/>
 
 <div id="masonry-container" class="transitions-enabled infinite-scroll clearfix">

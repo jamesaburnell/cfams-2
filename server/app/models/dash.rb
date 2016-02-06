@@ -29,10 +29,11 @@ class Dash < ActiveRecord::Base
 
 		return temp
 	end	
-	def twitter_pic_scrape
+
+	def twitter_pic_scrape(search)
 		t = self.get_twit_client
 		temp = []
-		search_var = "#catsoftwitter"
+		search_var = search
 		t.search(search_var, ).take(100).collect do |tweet|
 			unless tweet.media[0].nil?
 				img = tweet.media[0].media_url
