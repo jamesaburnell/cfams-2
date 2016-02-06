@@ -1,5 +1,10 @@
 class Dash < ActiveRecord::Base
+	belongs_to :user
 	has_many :posts	
+
+
+
+
 	def reddit_pic_scrape
 		subredd = self.subreddit
 		reddit_api_url = "https://www.reddit.com/r/"+ subredd +".json"
@@ -48,7 +53,7 @@ class Dash < ActiveRecord::Base
 		return twitCli
 	end
 
-	
+
 
 	#Build Posts
 	def build_post(title, src, body, image, author)
