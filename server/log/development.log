@@ -25761,3 +25761,1740 @@ Started GET "/assets/posts.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde45
 
 
 Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2016-02-06 15:40:23 -0700
+
+
+Started GET "/dashes/1.json" for ::1 at 2016-02-06 15:42:58 -0700
+Processing by DashesController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mDash Load (0.3ms)[0m  [1mSELECT  "dashes".* FROM "dashes" WHERE "dashes"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mPost Load (0.4ms)[0m  SELECT "posts".* FROM "posts" WHERE "posts"."dash_id" = $1 AND "posts"."approved" IS NULL  [["dash_id", 1]]
+Completed 200 OK in 16ms (Views: 12.5ms | ActiveRecord: 0.6ms)
+  [1m[36mPost Load (0.6ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  [1m[35mSQL (6.5ms)[0m  DELETE FROM "posts" WHERE "posts"."id" = $1  [["id", 931]]
+  [1m[36mSQL (5.8ms)[0m  [1mDELETE FROM "posts" WHERE "posts"."id" = $1[0m  [["id", 932]]
+  [1m[35mSQL (6.3ms)[0m  DELETE FROM "posts" WHERE "posts"."id" = $1  [["id", 933]]
+  [1m[36mSQL (5.3ms)[0m  [1mDELETE FROM "posts" WHERE "posts"."id" = $1[0m  [["id", 934]]
+  [1m[35mSQL (0.5ms)[0m  DELETE FROM "posts" WHERE "posts"."id" = $1  [["id", 935]]
+  [1m[36mSQL (0.4ms)[0m  [1mDELETE FROM "posts" WHERE "posts"."id" = $1[0m  [["id", 936]]
+  [1m[35mSQL (0.4ms)[0m  DELETE FROM "posts" WHERE "posts"."id" = $1  [["id", 937]]
+  [1m[36mSQL (0.3ms)[0m  [1mDELETE FROM "posts" WHERE "posts"."id" = $1[0m  [["id", 938]]
+  [1m[35mSQL (0.3ms)[0m  DELETE FROM "posts" WHERE "posts"."id" = $1  [["id", 939]]
+  [1m[36mSQL (0.5ms)[0m  [1mDELETE FROM "posts" WHERE "posts"."id" = $1[0m  [["id", 940]]
+  [1m[35mSQL (0.5ms)[0m  DELETE FROM "posts" WHERE "posts"."id" = $1  [["id", 941]]
+  [1m[36mSQL (0.4ms)[0m  [1mDELETE FROM "posts" WHERE "posts"."id" = $1[0m  [["id", 942]]
+  [1m[35mSQL (0.3ms)[0m  DELETE FROM "posts" WHERE "posts"."id" = $1  [["id", 943]]
+  [1m[36mSQL (0.3ms)[0m  [1mDELETE FROM "posts" WHERE "posts"."id" = $1[0m  [["id", 944]]
+  [1m[35mSQL (0.3ms)[0m  DELETE FROM "posts" WHERE "posts"."id" = $1  [["id", 945]]
+  [1m[36mSQL (0.3ms)[0m  [1mDELETE FROM "posts" WHERE "posts"."id" = $1[0m  [["id", 946]]
+  [1m[35mSQL (0.3ms)[0m  DELETE FROM "posts" WHERE "posts"."id" = $1  [["id", 947]]
+  [1m[36mSQL (0.3ms)[0m  [1mDELETE FROM "posts" WHERE "posts"."id" = $1[0m  [["id", 948]]
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM "posts" WHERE "posts"."id" = $1  [["id", 949]]
+  [1m[36mSQL (0.3ms)[0m  [1mDELETE FROM "posts" WHERE "posts"."id" = $1[0m  [["id", 950]]
+  [1m[35mSQL (0.3ms)[0m  DELETE FROM "posts" WHERE "posts"."id" = $1  [["id", 951]]
+  [1m[36mSQL (0.3ms)[0m  [1mDELETE FROM "posts" WHERE "posts"."id" = $1[0m  [["id", 952]]
+  [1m[35mSQL (0.3ms)[0m  DELETE FROM "posts" WHERE "posts"."id" = $1  [["id", 953]]
+  [1m[36mSQL (0.3ms)[0m  [1mDELETE FROM "posts" WHERE "posts"."id" = $1[0m  [["id", 954]]
+  [1m[35mSQL (0.3ms)[0m  DELETE FROM "posts" WHERE "posts"."id" = $1  [["id", 955]]
+  [1m[36mSQL (0.3ms)[0m  [1mDELETE FROM "posts" WHERE "posts"."id" = $1[0m  [["id", 956]]
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM "posts" WHERE "posts"."id" = $1  [["id", 957]]
+  [1m[36mSQL (0.3ms)[0m  [1mDELETE FROM "posts" WHERE "posts"."id" = $1[0m  [["id", 958]]
+  [1m[35mSQL (0.3ms)[0m  DELETE FROM "posts" WHERE "posts"."id" = $1  [["id", 959]]
+  [1m[36mSQL (0.3ms)[0m  [1mDELETE FROM "posts" WHERE "posts"."id" = $1[0m  [["id", 926]]
+  [1m[35mSQL (0.3ms)[0m  DELETE FROM "posts" WHERE "posts"."id" = $1  [["id", 927]]
+  [1m[36mSQL (0.3ms)[0m  [1mDELETE FROM "posts" WHERE "posts"."id" = $1[0m  [["id", 964]]
+  [1m[35mSQL (0.3ms)[0m  DELETE FROM "posts" WHERE "posts"."id" = $1  [["id", 929]]
+  [1m[36mSQL (0.3ms)[0m  [1mDELETE FROM "posts" WHERE "posts"."id" = $1[0m  [["id", 930]]
+  [1m[35mSQL (0.3ms)[0m  DELETE FROM "posts" WHERE "posts"."id" = $1  [["id", 960]]
+  [1m[36mSQL (0.3ms)[0m  [1mDELETE FROM "posts" WHERE "posts"."id" = $1[0m  [["id", 961]]
+  [1m[35mSQL (0.3ms)[0m  DELETE FROM "posts" WHERE "posts"."id" = $1  [["id", 962]]
+  [1m[36mSQL (0.3ms)[0m  [1mDELETE FROM "posts" WHERE "posts"."id" = $1[0m  [["id", 963]]
+  [1m[35mSQL (0.3ms)[0m  DELETE FROM "posts" WHERE "posts"."id" = $1  [["id", 925]]
+  [1m[36mSQL (0.3ms)[0m  [1mDELETE FROM "posts" WHERE "posts"."id" = $1[0m  [["id", 965]]
+  [1m[35mSQL (0.3ms)[0m  DELETE FROM "posts" WHERE "posts"."id" = $1  [["id", 966]]
+  [1m[36mSQL (0.3ms)[0m  [1mDELETE FROM "posts" WHERE "posts"."id" = $1[0m  [["id", 967]]
+  [1m[35mSQL (0.3ms)[0m  DELETE FROM "posts" WHERE "posts"."id" = $1  [["id", 968]]
+  [1m[36mSQL (0.3ms)[0m  [1mDELETE FROM "posts" WHERE "posts"."id" = $1[0m  [["id", 969]]
+  [1m[35mSQL (0.3ms)[0m  DELETE FROM "posts" WHERE "posts"."id" = $1  [["id", 970]]
+  [1m[36mSQL (0.3ms)[0m  [1mDELETE FROM "posts" WHERE "posts"."id" = $1[0m  [["id", 971]]
+  [1m[35mSQL (0.4ms)[0m  DELETE FROM "posts" WHERE "posts"."id" = $1  [["id", 972]]
+  [1m[36mSQL (0.3ms)[0m  [1mDELETE FROM "posts" WHERE "posts"."id" = $1[0m  [["id", 973]]
+  [1m[35mSQL (0.3ms)[0m  DELETE FROM "posts" WHERE "posts"."id" = $1  [["id", 974]]
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM "posts" WHERE "posts"."id" = $1[0m  [["id", 975]]
+  [1m[35mSQL (0.3ms)[0m  DELETE FROM "posts" WHERE "posts"."id" = $1  [["id", 976]]
+  [1m[36mSQL (0.3ms)[0m  [1mDELETE FROM "posts" WHERE "posts"."id" = $1[0m  [["id", 977]]
+  [1m[35mSQL (0.4ms)[0m  DELETE FROM "posts" WHERE "posts"."id" = $1  [["id", 978]]
+  [1m[36mSQL (0.3ms)[0m  [1mDELETE FROM "posts" WHERE "posts"."id" = $1[0m  [["id", 979]]
+  [1m[35mSQL (0.3ms)[0m  DELETE FROM "posts" WHERE "posts"."id" = $1  [["id", 980]]
+  [1m[36mSQL (0.3ms)[0m  [1mDELETE FROM "posts" WHERE "posts"."id" = $1[0m  [["id", 981]]
+  [1m[35mSQL (0.3ms)[0m  DELETE FROM "posts" WHERE "posts"."id" = $1  [["id", 982]]
+  [1m[36mSQL (0.5ms)[0m  [1mDELETE FROM "posts" WHERE "posts"."id" = $1[0m  [["id", 983]]
+  [1m[35mSQL (0.3ms)[0m  DELETE FROM "posts" WHERE "posts"."id" = $1  [["id", 984]]
+  [1m[36mSQL (0.3ms)[0m  [1mDELETE FROM "posts" WHERE "posts"."id" = $1[0m  [["id", 985]]
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM "posts" WHERE "posts"."id" = $1  [["id", 986]]
+  [1m[36mSQL (0.3ms)[0m  [1mDELETE FROM "posts" WHERE "posts"."id" = $1[0m  [["id", 987]]
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM "posts" WHERE "posts"."id" = $1  [["id", 988]]
+  [1m[36mSQL (0.3ms)[0m  [1mDELETE FROM "posts" WHERE "posts"."id" = $1[0m  [["id", 989]]
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM "posts" WHERE "posts"."id" = $1  [["id", 990]]
+  [1m[36mSQL (0.3ms)[0m  [1mDELETE FROM "posts" WHERE "posts"."id" = $1[0m  [["id", 991]]
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM "posts" WHERE "posts"."id" = $1  [["id", 992]]
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM "posts" WHERE "posts"."id" = $1[0m  [["id", 993]]
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM "posts" WHERE "posts"."id" = $1  [["id", 928]]
+
+
+Started GET "/dashes/1" for ::1 at 2016-02-06 15:44:30 -0700
+Processing by DashesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mDash Load (0.3ms)[0m  [1mSELECT  "dashes".* FROM "dashes" WHERE "dashes"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mPost Load (0.3ms)[0m  SELECT "posts".* FROM "posts" WHERE "posts"."dash_id" = $1 AND "posts"."approved" IS NULL  [["dash_id", 1]]
+  Rendered dashes/show.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 25ms (Views: 22.5ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/dashes.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-02-06 15:44:30 -0700
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2016-02-06 15:44:30 -0700
+
+
+Started GET "/assets/dashes.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-02-06 15:44:30 -0700
+
+
+Started GET "/assets/posts.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-02-06 15:44:30 -0700
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2016-02-06 15:44:30 -0700
+
+
+Started GET "/assets/jquery.self-c64a74367bda6ef8b860f19e74df08927ca99d2be2ac934e9e92d5fd361e0da4.js?body=1" for ::1 at 2016-02-06 15:44:30 -0700
+
+
+Started GET "/assets/jquery_ujs.self-d602bdfe68ffc63b9f9cc512872aa3cfff046228a0a36e90dd476e8ef54c1b09.js?body=1" for ::1 at 2016-02-06 15:44:30 -0700
+
+
+Started GET "/assets/scaffolds.self-7d54453e88ebfcc1f19d1b9056781e8047187eb677417a8c8fc97da87cda4c39.css?body=1" for ::1 at 2016-02-06 15:44:30 -0700
+
+
+Started GET "/assets/posts.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-02-06 15:44:30 -0700
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2016-02-06 15:44:30 -0700
+
+
+Started GET "/dashes/1/add_giphy_gifs?utf8=%E2%9C%93&search_term=cats+suck&commit=Search+Giphy" for ::1 at 2016-02-06 15:44:36 -0700
+Processing by DashesController#add_giphy_gifs as HTML
+  Parameters: {"utf8"=>"✓", "search_term"=>"cats suck", "commit"=>"Search Giphy", "dash_id"=>"1"}
+  [1m[36mDash Load (0.2ms)[0m  [1mSELECT  "dashes".* FROM "dashes" WHERE "dashes"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mPost Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "posts" WHERE "posts"."og_source" = 'http://media2.giphy.com/media/NqvQQ4D5ZLDwI/200.gif' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "posts" ("title", "og_source", "body", "image_src", "dash_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["title", "giphy"], ["og_source", "http://media2.giphy.com/media/NqvQQ4D5ZLDwI/200.gif"], ["body", "http://media2.giphy.com/media/NqvQQ4D5ZLDwI/200.gif"], ["image_src", "http://media2.giphy.com/media/NqvQQ4D5ZLDwI/200.gif"], ["dash_id", 1], ["created_at", "2016-02-06 22:45:55.439010"], ["updated_at", "2016-02-06 22:45:55.439010"]]
+  [1m[36m (1.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mPost Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "posts" WHERE "posts"."og_source" = 'http://media3.giphy.com/media/ParkkBTPV2M3C/200.gif' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "posts" ("title", "og_source", "body", "image_src", "dash_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["title", "giphy"], ["og_source", "http://media3.giphy.com/media/ParkkBTPV2M3C/200.gif"], ["body", "http://media3.giphy.com/media/ParkkBTPV2M3C/200.gif"], ["image_src", "http://media3.giphy.com/media/ParkkBTPV2M3C/200.gif"], ["dash_id", 1], ["created_at", "2016-02-06 22:45:55.443428"], ["updated_at", "2016-02-06 22:45:55.443428"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mPost Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "posts" WHERE "posts"."og_source" = 'http://media3.giphy.com/media/P2nT7g6QNqvGo/200.gif' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "posts" ("title", "og_source", "body", "image_src", "dash_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["title", "giphy"], ["og_source", "http://media3.giphy.com/media/P2nT7g6QNqvGo/200.gif"], ["body", "http://media3.giphy.com/media/P2nT7g6QNqvGo/200.gif"], ["image_src", "http://media3.giphy.com/media/P2nT7g6QNqvGo/200.gif"], ["dash_id", 1], ["created_at", "2016-02-06 22:45:55.446097"], ["updated_at", "2016-02-06 22:45:55.446097"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mPost Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "posts" WHERE "posts"."og_source" = 'http://media0.giphy.com/media/fnw8QHcjS7ZAc/200.gif' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "posts" ("title", "og_source", "body", "image_src", "dash_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["title", "giphy"], ["og_source", "http://media0.giphy.com/media/fnw8QHcjS7ZAc/200.gif"], ["body", "http://media0.giphy.com/media/fnw8QHcjS7ZAc/200.gif"], ["image_src", "http://media0.giphy.com/media/fnw8QHcjS7ZAc/200.gif"], ["dash_id", 1], ["created_at", "2016-02-06 22:45:55.448451"], ["updated_at", "2016-02-06 22:45:55.448451"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mPost Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "posts" WHERE "posts"."og_source" = 'http://media2.giphy.com/media/8DMYVuE1Tb0gE/200.gif' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "posts" ("title", "og_source", "body", "image_src", "dash_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["title", "giphy"], ["og_source", "http://media2.giphy.com/media/8DMYVuE1Tb0gE/200.gif"], ["body", "http://media2.giphy.com/media/8DMYVuE1Tb0gE/200.gif"], ["image_src", "http://media2.giphy.com/media/8DMYVuE1Tb0gE/200.gif"], ["dash_id", 1], ["created_at", "2016-02-06 22:45:55.450754"], ["updated_at", "2016-02-06 22:45:55.450754"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mPost Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "posts" WHERE "posts"."og_source" = 'http://media2.giphy.com/media/ifGjfAanhQhI4/200.gif' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "posts" ("title", "og_source", "body", "image_src", "dash_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["title", "giphy"], ["og_source", "http://media2.giphy.com/media/ifGjfAanhQhI4/200.gif"], ["body", "http://media2.giphy.com/media/ifGjfAanhQhI4/200.gif"], ["image_src", "http://media2.giphy.com/media/ifGjfAanhQhI4/200.gif"], ["dash_id", 1], ["created_at", "2016-02-06 22:45:55.452954"], ["updated_at", "2016-02-06 22:45:55.452954"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mPost Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "posts" WHERE "posts"."og_source" = 'http://media1.giphy.com/media/h8tk3RJnzLwkg/200.gif' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "posts" ("title", "og_source", "body", "image_src", "dash_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["title", "giphy"], ["og_source", "http://media1.giphy.com/media/h8tk3RJnzLwkg/200.gif"], ["body", "http://media1.giphy.com/media/h8tk3RJnzLwkg/200.gif"], ["image_src", "http://media1.giphy.com/media/h8tk3RJnzLwkg/200.gif"], ["dash_id", 1], ["created_at", "2016-02-06 22:45:55.455230"], ["updated_at", "2016-02-06 22:45:55.455230"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mPost Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "posts" WHERE "posts"."og_source" = 'http://media3.giphy.com/media/tIvO4irO41bO/200.gif' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "posts" ("title", "og_source", "body", "image_src", "dash_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["title", "giphy"], ["og_source", "http://media3.giphy.com/media/tIvO4irO41bO/200.gif"], ["body", "http://media3.giphy.com/media/tIvO4irO41bO/200.gif"], ["image_src", "http://media3.giphy.com/media/tIvO4irO41bO/200.gif"], ["dash_id", 1], ["created_at", "2016-02-06 22:45:55.457551"], ["updated_at", "2016-02-06 22:45:55.457551"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mPost Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "posts" WHERE "posts"."og_source" = 'http://media4.giphy.com/media/m4nFFbsv8bLPy/200.gif' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "posts" ("title", "og_source", "body", "image_src", "dash_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["title", "giphy"], ["og_source", "http://media4.giphy.com/media/m4nFFbsv8bLPy/200.gif"], ["body", "http://media4.giphy.com/media/m4nFFbsv8bLPy/200.gif"], ["image_src", "http://media4.giphy.com/media/m4nFFbsv8bLPy/200.gif"], ["dash_id", 1], ["created_at", "2016-02-06 22:45:55.459829"], ["updated_at", "2016-02-06 22:45:55.459829"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mPost Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "posts" WHERE "posts"."og_source" = 'http://media3.giphy.com/media/1tKyHMAN0VYNq/200.gif' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "posts" ("title", "og_source", "body", "image_src", "dash_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["title", "giphy"], ["og_source", "http://media3.giphy.com/media/1tKyHMAN0VYNq/200.gif"], ["body", "http://media3.giphy.com/media/1tKyHMAN0VYNq/200.gif"], ["image_src", "http://media3.giphy.com/media/1tKyHMAN0VYNq/200.gif"], ["dash_id", 1], ["created_at", "2016-02-06 22:45:55.462135"], ["updated_at", "2016-02-06 22:45:55.462135"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mPost Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "posts" WHERE "posts"."og_source" = 'http://media2.giphy.com/media/CbH83ezwyGaGs/200.gif' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "posts" ("title", "og_source", "body", "image_src", "dash_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["title", "giphy"], ["og_source", "http://media2.giphy.com/media/CbH83ezwyGaGs/200.gif"], ["body", "http://media2.giphy.com/media/CbH83ezwyGaGs/200.gif"], ["image_src", "http://media2.giphy.com/media/CbH83ezwyGaGs/200.gif"], ["dash_id", 1], ["created_at", "2016-02-06 22:45:55.464400"], ["updated_at", "2016-02-06 22:45:55.464400"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mPost Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "posts" WHERE "posts"."og_source" = 'http://media2.giphy.com/media/qFOFsV4isTI8o/200.gif' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "posts" ("title", "og_source", "body", "image_src", "dash_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["title", "giphy"], ["og_source", "http://media2.giphy.com/media/qFOFsV4isTI8o/200.gif"], ["body", "http://media2.giphy.com/media/qFOFsV4isTI8o/200.gif"], ["image_src", "http://media2.giphy.com/media/qFOFsV4isTI8o/200.gif"], ["dash_id", 1], ["created_at", "2016-02-06 22:45:55.466707"], ["updated_at", "2016-02-06 22:45:55.466707"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mPost Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "posts" WHERE "posts"."og_source" = 'http://media1.giphy.com/media/fVzSMIXWVBSWQ/200.gif' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "posts" ("title", "og_source", "body", "image_src", "dash_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["title", "giphy"], ["og_source", "http://media1.giphy.com/media/fVzSMIXWVBSWQ/200.gif"], ["body", "http://media1.giphy.com/media/fVzSMIXWVBSWQ/200.gif"], ["image_src", "http://media1.giphy.com/media/fVzSMIXWVBSWQ/200.gif"], ["dash_id", 1], ["created_at", "2016-02-06 22:45:55.469007"], ["updated_at", "2016-02-06 22:45:55.469007"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mPost Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "posts" WHERE "posts"."og_source" = 'http://media4.giphy.com/media/6ZzRwuxOYpaIU/200.gif' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "posts" ("title", "og_source", "body", "image_src", "dash_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["title", "giphy"], ["og_source", "http://media4.giphy.com/media/6ZzRwuxOYpaIU/200.gif"], ["body", "http://media4.giphy.com/media/6ZzRwuxOYpaIU/200.gif"], ["image_src", "http://media4.giphy.com/media/6ZzRwuxOYpaIU/200.gif"], ["dash_id", 1], ["created_at", "2016-02-06 22:45:55.471334"], ["updated_at", "2016-02-06 22:45:55.471334"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/dashes/1
+Completed 302 Found in 78901ms (ActiveRecord: 11.1ms)
+
+
+Started GET "/dashes/1" for ::1 at 2016-02-06 15:45:55 -0700
+Processing by DashesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mDash Load (0.1ms)[0m  SELECT  "dashes".* FROM "dashes" WHERE "dashes"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT "posts".* FROM "posts" WHERE "posts"."dash_id" = $1 AND "posts"."approved" IS NULL[0m  [["dash_id", 1]]
+  Rendered dashes/show.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 18ms (Views: 15.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/dashes/1/posts/994/toggle_disapprove" for ::1 at 2016-02-06 15:45:59 -0700
+Processing by PostsController#toggle_disapprove as JS
+  Parameters: {"dash_id"=>"1", "id"=>"994"}
+  [1m[35mPost Load (0.2ms)[0m  SELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT 1  [["id", 994]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mPost Exists (0.2ms)[0m  SELECT  1 AS one FROM "posts" WHERE ("posts"."og_source" = 'http://media2.giphy.com/media/NqvQQ4D5ZLDwI/200.gif' AND "posts"."id" != 994) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "posts" SET "approved" = $1, "updated_at" = $2 WHERE "posts"."id" = $3[0m  [["approved", "f"], ["updated_at", "2016-02-06 22:45:59.783797"], ["id", 994]]
+  [1m[35m (0.7ms)[0m  COMMIT
+  Rendered text template (0.0ms)
+Completed 200 OK in 4ms (Views: 0.4ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/dashes/1/posts/995/toggle_disapprove" for ::1 at 2016-02-06 15:46:01 -0700
+Processing by PostsController#toggle_disapprove as JS
+  Parameters: {"dash_id"=>"1", "id"=>"995"}
+  [1m[36mPost Load (1.0ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT 1[0m  [["id", 995]]
+  [1m[35m (0.5ms)[0m  BEGIN
+  [1m[36mPost Exists (1.9ms)[0m  [1mSELECT  1 AS one FROM "posts" WHERE ("posts"."og_source" = 'http://media3.giphy.com/media/ParkkBTPV2M3C/200.gif' AND "posts"."id" != 995) LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  UPDATE "posts" SET "approved" = $1, "updated_at" = $2 WHERE "posts"."id" = $3  [["approved", "f"], ["updated_at", "2016-02-06 22:46:01.044111"], ["id", 995]]
+  [1m[36m (5.7ms)[0m  [1mCOMMIT[0m
+  Rendered text template (0.0ms)
+Completed 200 OK in 14ms (Views: 0.5ms | ActiveRecord: 9.5ms)
+
+
+Started GET "/dashes/1/posts/996/toggle_approve" for ::1 at 2016-02-06 15:46:03 -0700
+Processing by PostsController#toggle_approve as JS
+  Parameters: {"dash_id"=>"1", "id"=>"996"}
+  [1m[35mPost Load (0.4ms)[0m  SELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT 1  [["id", 996]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mPost Exists (0.4ms)[0m  SELECT  1 AS one FROM "posts" WHERE ("posts"."og_source" = 'http://media3.giphy.com/media/P2nT7g6QNqvGo/200.gif' AND "posts"."id" != 996) LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "posts" SET "approved" = $1, "updated_at" = $2 WHERE "posts"."id" = $3[0m  [["approved", "t"], ["updated_at", "2016-02-06 22:46:03.249314"], ["id", 996]]
+  [1m[35m (0.7ms)[0m  COMMIT
+  Rendered text template (0.0ms)
+Completed 200 OK in 6ms (Views: 0.4ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/dashes/1/posts/997/toggle_approve" for ::1 at 2016-02-06 15:46:05 -0700
+Processing by PostsController#toggle_approve as JS
+  Parameters: {"dash_id"=>"1", "id"=>"997"}
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT 1[0m  [["id", 997]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mPost Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "posts" WHERE ("posts"."og_source" = 'http://media0.giphy.com/media/fnw8QHcjS7ZAc/200.gif' AND "posts"."id" != 997) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "posts" SET "approved" = $1, "updated_at" = $2 WHERE "posts"."id" = $3  [["approved", "t"], ["updated_at", "2016-02-06 22:46:05.151611"], ["id", 997]]
+  [1m[36m (1.4ms)[0m  [1mCOMMIT[0m
+  Rendered text template (0.0ms)
+Completed 200 OK in 6ms (Views: 0.5ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/dashes/1/posts/998/toggle_disapprove" for ::1 at 2016-02-06 15:46:07 -0700
+Processing by PostsController#toggle_disapprove as JS
+  Parameters: {"dash_id"=>"1", "id"=>"998"}
+  [1m[35mPost Load (0.1ms)[0m  SELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT 1  [["id", 998]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mPost Exists (0.2ms)[0m  SELECT  1 AS one FROM "posts" WHERE ("posts"."og_source" = 'http://media2.giphy.com/media/8DMYVuE1Tb0gE/200.gif' AND "posts"."id" != 998) LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mUPDATE "posts" SET "approved" = $1, "updated_at" = $2 WHERE "posts"."id" = $3[0m  [["approved", "f"], ["updated_at", "2016-02-06 22:46:07.642364"], ["id", 998]]
+  [1m[35m (0.8ms)[0m  COMMIT
+  Rendered text template (0.0ms)
+Completed 200 OK in 4ms (Views: 0.3ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/dashes/1/posts/999/toggle_disapprove" for ::1 at 2016-02-06 15:46:08 -0700
+Processing by PostsController#toggle_disapprove as JS
+  Parameters: {"dash_id"=>"1", "id"=>"999"}
+  [1m[36mPost Load (0.1ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT 1[0m  [["id", 999]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mPost Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "posts" WHERE ("posts"."og_source" = 'http://media2.giphy.com/media/ifGjfAanhQhI4/200.gif' AND "posts"."id" != 999) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  UPDATE "posts" SET "approved" = $1, "updated_at" = $2 WHERE "posts"."id" = $3  [["approved", "f"], ["updated_at", "2016-02-06 22:46:08.958733"], ["id", 999]]
+  [1m[36m (0.7ms)[0m  [1mCOMMIT[0m
+  Rendered text template (0.0ms)
+Completed 200 OK in 4ms (Views: 0.3ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/dashes/1/posts/1000/toggle_disapprove" for ::1 at 2016-02-06 15:46:11 -0700
+Processing by PostsController#toggle_disapprove as JS
+  Parameters: {"dash_id"=>"1", "id"=>"1000"}
+  [1m[35mPost Load (0.3ms)[0m  SELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT 1  [["id", 1000]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mPost Exists (0.2ms)[0m  SELECT  1 AS one FROM "posts" WHERE ("posts"."og_source" = 'http://media1.giphy.com/media/h8tk3RJnzLwkg/200.gif' AND "posts"."id" != 1000) LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mUPDATE "posts" SET "approved" = $1, "updated_at" = $2 WHERE "posts"."id" = $3[0m  [["approved", "f"], ["updated_at", "2016-02-06 22:46:11.024416"], ["id", 1000]]
+  [1m[35m (0.9ms)[0m  COMMIT
+  Rendered text template (0.0ms)
+Completed 200 OK in 6ms (Views: 0.4ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/dashes/1/posts/1001/toggle_disapprove" for ::1 at 2016-02-06 15:46:15 -0700
+Processing by PostsController#toggle_disapprove as JS
+  Parameters: {"dash_id"=>"1", "id"=>"1001"}
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT 1[0m  [["id", 1001]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mPost Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "posts" WHERE ("posts"."og_source" = 'http://media3.giphy.com/media/tIvO4irO41bO/200.gif' AND "posts"."id" != 1001) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  UPDATE "posts" SET "approved" = $1, "updated_at" = $2 WHERE "posts"."id" = $3  [["approved", "f"], ["updated_at", "2016-02-06 22:46:15.957425"], ["id", 1001]]
+  [1m[36m (0.9ms)[0m  [1mCOMMIT[0m
+  Rendered text template (0.0ms)
+Completed 200 OK in 5ms (Views: 0.4ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/dashes/1/posts/1002/toggle_approve" for ::1 at 2016-02-06 15:46:17 -0700
+Processing by PostsController#toggle_approve as JS
+  Parameters: {"dash_id"=>"1", "id"=>"1002"}
+  [1m[35mPost Load (0.2ms)[0m  SELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT 1  [["id", 1002]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mPost Exists (0.2ms)[0m  SELECT  1 AS one FROM "posts" WHERE ("posts"."og_source" = 'http://media4.giphy.com/media/m4nFFbsv8bLPy/200.gif' AND "posts"."id" != 1002) LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mUPDATE "posts" SET "approved" = $1, "updated_at" = $2 WHERE "posts"."id" = $3[0m  [["approved", "t"], ["updated_at", "2016-02-06 22:46:17.712375"], ["id", 1002]]
+  [1m[35m (0.7ms)[0m  COMMIT
+  Rendered text template (0.0ms)
+Completed 200 OK in 4ms (Views: 0.4ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/dashes/1/posts/1003/toggle_disapprove" for ::1 at 2016-02-06 15:46:18 -0700
+Processing by PostsController#toggle_disapprove as JS
+  Parameters: {"dash_id"=>"1", "id"=>"1003"}
+  [1m[36mPost Load (0.1ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT 1[0m  [["id", 1003]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mPost Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "posts" WHERE ("posts"."og_source" = 'http://media3.giphy.com/media/1tKyHMAN0VYNq/200.gif' AND "posts"."id" != 1003) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  UPDATE "posts" SET "approved" = $1, "updated_at" = $2 WHERE "posts"."id" = $3  [["approved", "f"], ["updated_at", "2016-02-06 22:46:18.832631"], ["id", 1003]]
+  [1m[36m (0.7ms)[0m  [1mCOMMIT[0m
+  Rendered text template (0.0ms)
+Completed 200 OK in 5ms (Views: 0.3ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/dashes/1/posts/1004/toggle_approve" for ::1 at 2016-02-06 15:46:20 -0700
+Processing by PostsController#toggle_approve as JS
+  Parameters: {"dash_id"=>"1", "id"=>"1004"}
+  [1m[35mPost Load (0.1ms)[0m  SELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT 1  [["id", 1004]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mPost Exists (0.3ms)[0m  SELECT  1 AS one FROM "posts" WHERE ("posts"."og_source" = 'http://media2.giphy.com/media/CbH83ezwyGaGs/200.gif' AND "posts"."id" != 1004) LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "posts" SET "approved" = $1, "updated_at" = $2 WHERE "posts"."id" = $3[0m  [["approved", "t"], ["updated_at", "2016-02-06 22:46:20.638753"], ["id", 1004]]
+  [1m[35m (0.8ms)[0m  COMMIT
+  Rendered text template (0.0ms)
+Completed 200 OK in 6ms (Views: 0.5ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/dashes/1/posts/1005/toggle_disapprove" for ::1 at 2016-02-06 15:46:21 -0700
+Processing by PostsController#toggle_disapprove as JS
+  Parameters: {"dash_id"=>"1", "id"=>"1005"}
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT 1[0m  [["id", 1005]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mPost Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "posts" WHERE ("posts"."og_source" = 'http://media2.giphy.com/media/qFOFsV4isTI8o/200.gif' AND "posts"."id" != 1005) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  UPDATE "posts" SET "approved" = $1, "updated_at" = $2 WHERE "posts"."id" = $3  [["approved", "f"], ["updated_at", "2016-02-06 22:46:21.752998"], ["id", 1005]]
+  [1m[36m (0.8ms)[0m  [1mCOMMIT[0m
+  Rendered text template (0.0ms)
+Completed 200 OK in 5ms (Views: 0.3ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/dashes/1/posts/1006/toggle_disapprove" for ::1 at 2016-02-06 15:46:23 -0700
+Processing by PostsController#toggle_disapprove as JS
+  Parameters: {"dash_id"=>"1", "id"=>"1006"}
+  [1m[35mPost Load (0.2ms)[0m  SELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT 1  [["id", 1006]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mPost Exists (0.2ms)[0m  SELECT  1 AS one FROM "posts" WHERE ("posts"."og_source" = 'http://media1.giphy.com/media/fVzSMIXWVBSWQ/200.gif' AND "posts"."id" != 1006) LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mUPDATE "posts" SET "approved" = $1, "updated_at" = $2 WHERE "posts"."id" = $3[0m  [["approved", "f"], ["updated_at", "2016-02-06 22:46:23.020896"], ["id", 1006]]
+  [1m[35m (0.7ms)[0m  COMMIT
+  Rendered text template (0.0ms)
+Completed 200 OK in 5ms (Views: 0.6ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/dashes/1/posts/1007/toggle_disapprove" for ::1 at 2016-02-06 15:46:23 -0700
+Processing by PostsController#toggle_disapprove as JS
+  Parameters: {"dash_id"=>"1", "id"=>"1007"}
+  [1m[36mPost Load (0.5ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT 1[0m  [["id", 1007]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mPost Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "posts" WHERE ("posts"."og_source" = 'http://media4.giphy.com/media/6ZzRwuxOYpaIU/200.gif' AND "posts"."id" != 1007) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  UPDATE "posts" SET "approved" = $1, "updated_at" = $2 WHERE "posts"."id" = $3  [["approved", "f"], ["updated_at", "2016-02-06 22:46:23.984658"], ["id", 1007]]
+  [1m[36m (0.9ms)[0m  [1mCOMMIT[0m
+  Rendered text template (0.0ms)
+Completed 200 OK in 5ms (Views: 0.4ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/dashes/1" for ::1 at 2016-02-06 15:46:26 -0700
+Processing by DashesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mDash Load (0.1ms)[0m  SELECT  "dashes".* FROM "dashes" WHERE "dashes"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mPost Load (0.4ms)[0m  [1mSELECT "posts".* FROM "posts" WHERE "posts"."dash_id" = $1 AND "posts"."approved" IS NULL[0m  [["dash_id", 1]]
+  Rendered dashes/show.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 18ms (Views: 15.5ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/dashes.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-02-06 15:46:26 -0700
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2016-02-06 15:46:27 -0700
+
+
+Started GET "/assets/scaffolds.self-7d54453e88ebfcc1f19d1b9056781e8047187eb677417a8c8fc97da87cda4c39.css?body=1" for ::1 at 2016-02-06 15:46:27 -0700
+
+
+Started GET "/assets/posts.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-02-06 15:46:27 -0700
+
+
+Started GET "/assets/jquery.self-c64a74367bda6ef8b860f19e74df08927ca99d2be2ac934e9e92d5fd361e0da4.js?body=1" for ::1 at 2016-02-06 15:46:27 -0700
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2016-02-06 15:46:27 -0700
+
+
+Started GET "/assets/jquery_ujs.self-d602bdfe68ffc63b9f9cc512872aa3cfff046228a0a36e90dd476e8ef54c1b09.js?body=1" for ::1 at 2016-02-06 15:46:27 -0700
+
+
+Started GET "/assets/dashes.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-02-06 15:46:27 -0700
+
+
+Started GET "/assets/posts.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-02-06 15:46:27 -0700
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2016-02-06 15:46:27 -0700
+
+
+Started GET "/dashes/1.json" for ::1 at 2016-02-06 15:46:32 -0700
+Processing by DashesController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[35mDash Load (0.2ms)[0m  SELECT  "dashes".* FROM "dashes" WHERE "dashes"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT "posts".* FROM "posts" WHERE "posts"."dash_id" = $1 AND "posts"."approved" IS NULL[0m  [["dash_id", 1]]
+Completed 200 OK in 3ms (Views: 0.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/dashes/1/add_reddit_pics?utf8=%E2%9C%93&search_term=catsareassholes&commit=Search+Reddit" for ::1 at 2016-02-06 15:46:38 -0700
+Processing by DashesController#add_reddit_pics as HTML
+  Parameters: {"utf8"=>"✓", "search_term"=>"catsareassholes", "commit"=>"Search Reddit", "dash_id"=>"1"}
+  [1m[35mDash Load (0.2ms)[0m  SELECT  "dashes".* FROM "dashes" WHERE "dashes"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mPost Exists (0.2ms)[0m  SELECT  1 AS one FROM "posts" WHERE "posts"."og_source" = 'https://i.redditmedia.com/Caj0jK-xTFhu77SDR9RYjE_xcPeJ6-fF6A95kIXxF-I.jpg?s=b836f7a09199bdbcad3725d4ab4320da' LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "posts" ("title", "og_source", "body", "image_src", "dash_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "reddit"], ["og_source", "https://i.redditmedia.com/Caj0jK-xTFhu77SDR9RYjE_xcPeJ6-fF6A95kIXxF-I.jpg?s=b836f7a09199bdbcad3725d4ab4320da"], ["body", "Instant Karma"], ["image_src", "https://i.redditmedia.com/Caj0jK-xTFhu77SDR9RYjE_xcPeJ6-fF6A95kIXxF-I.jpg?s=b836f7a09199bdbcad3725d4ab4320da"], ["dash_id", 1], ["created_at", "2016-02-06 22:46:38.754849"], ["updated_at", "2016-02-06 22:46:38.754849"]]
+  [1m[35m (0.9ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mPost Exists (0.2ms)[0m  SELECT  1 AS one FROM "posts" WHERE "posts"."og_source" = 'https://i.redditmedia.com/lAMO8s3uHA-kROHcRIzYMSDHm5jvrwjX-XBazbhbECs.jpg?s=555cfb02b3b6e3855184e302be285651' LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "posts" ("title", "og_source", "body", "image_src", "dash_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "reddit"], ["og_source", "https://i.redditmedia.com/lAMO8s3uHA-kROHcRIzYMSDHm5jvrwjX-XBazbhbECs.jpg?s=555cfb02b3b6e3855184e302be285651"], ["body", "My cat's food bowl was empty, so he pushed it over to his litter box and peed in it. Jerk."], ["image_src", "https://i.redditmedia.com/lAMO8s3uHA-kROHcRIzYMSDHm5jvrwjX-XBazbhbECs.jpg?s=555cfb02b3b6e3855184e302be285651"], ["dash_id", 1], ["created_at", "2016-02-06 22:46:38.758467"], ["updated_at", "2016-02-06 22:46:38.758467"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mPost Exists (0.2ms)[0m  SELECT  1 AS one FROM "posts" WHERE "posts"."og_source" = 'https://i.redditmedia.com/ggZS6D03n60FOV7J_enRFYypl8h7rQlGD-evR2H1SWc.jpg?s=5b2ca767cd3c31a0b5b95dcd6819c88c' LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "posts" ("title", "og_source", "body", "image_src", "dash_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "reddit"], ["og_source", "https://i.redditmedia.com/ggZS6D03n60FOV7J_enRFYypl8h7rQlGD-evR2H1SWc.jpg?s=5b2ca767cd3c31a0b5b95dcd6819c88c"], ["body", "Dog just wants to play"], ["image_src", "https://i.redditmedia.com/ggZS6D03n60FOV7J_enRFYypl8h7rQlGD-evR2H1SWc.jpg?s=5b2ca767cd3c31a0b5b95dcd6819c88c"], ["dash_id", 1], ["created_at", "2016-02-06 22:46:38.761078"], ["updated_at", "2016-02-06 22:46:38.761078"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mPost Exists (0.2ms)[0m  SELECT  1 AS one FROM "posts" WHERE "posts"."og_source" = 'https://i.redditmedia.com/FeJCIX9SnEeuMQoNMum7LMonJZZDPX10E3TaGHuLnPE.jpg?s=82aafba56d5db3c59b89e974501c0192' LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "posts" ("title", "og_source", "body", "image_src", "dash_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "reddit"], ["og_source", "https://i.redditmedia.com/FeJCIX9SnEeuMQoNMum7LMonJZZDPX10E3TaGHuLnPE.jpg?s=82aafba56d5db3c59b89e974501c0192"], ["body", "Go away"], ["image_src", "https://i.redditmedia.com/FeJCIX9SnEeuMQoNMum7LMonJZZDPX10E3TaGHuLnPE.jpg?s=82aafba56d5db3c59b89e974501c0192"], ["dash_id", 1], ["created_at", "2016-02-06 22:46:38.763668"], ["updated_at", "2016-02-06 22:46:38.763668"]]
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mPost Exists (0.2ms)[0m  SELECT  1 AS one FROM "posts" WHERE "posts"."og_source" = 'https://i.redditmedia.com/nfZ9KthjraORnHeRA2THmT7YqCtCo0O6sTj8YvcGCg4.jpg?s=f887f505f554f241264efd8f26afdb60' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "posts" ("title", "og_source", "body", "image_src", "dash_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "reddit"], ["og_source", "https://i.redditmedia.com/nfZ9KthjraORnHeRA2THmT7YqCtCo0O6sTj8YvcGCg4.jpg?s=f887f505f554f241264efd8f26afdb60"], ["body", "I dare you to say it again. I have a little what?"], ["image_src", "https://i.redditmedia.com/nfZ9KthjraORnHeRA2THmT7YqCtCo0O6sTj8YvcGCg4.jpg?s=f887f505f554f241264efd8f26afdb60"], ["dash_id", 1], ["created_at", "2016-02-06 22:46:38.766286"], ["updated_at", "2016-02-06 22:46:38.766286"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mPost Exists (0.2ms)[0m  SELECT  1 AS one FROM "posts" WHERE "posts"."og_source" = 'https://i.redditmedia.com/WGpUpLXuzPSbMeT7lAH0vRsZNGyj4Ifn6zF9OLvQ4_E.jpg?s=8797f61d6fbf71160e87582b83a3b179' LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "posts" ("title", "og_source", "body", "image_src", "dash_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "reddit"], ["og_source", "https://i.redditmedia.com/WGpUpLXuzPSbMeT7lAH0vRsZNGyj4Ifn6zF9OLvQ4_E.jpg?s=8797f61d6fbf71160e87582b83a3b179"], ["body", "Ye Olde Cats were also assholes"], ["image_src", "https://i.redditmedia.com/WGpUpLXuzPSbMeT7lAH0vRsZNGyj4Ifn6zF9OLvQ4_E.jpg?s=8797f61d6fbf71160e87582b83a3b179"], ["dash_id", 1], ["created_at", "2016-02-06 22:46:38.769304"], ["updated_at", "2016-02-06 22:46:38.769304"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mPost Exists (0.2ms)[0m  SELECT  1 AS one FROM "posts" WHERE "posts"."og_source" = 'https://i.redditmedia.com/45J0_z4MTpDqdS3ixlHlvHPllsWDqZpeTrh0LWkzxYk.jpg?s=cfaeffcadcca7671d831596d6b5ac301' LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "posts" ("title", "og_source", "body", "image_src", "dash_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "reddit"], ["og_source", "https://i.redditmedia.com/45J0_z4MTpDqdS3ixlHlvHPllsWDqZpeTrh0LWkzxYk.jpg?s=cfaeffcadcca7671d831596d6b5ac301"], ["body", "Go to sleep"], ["image_src", "https://i.redditmedia.com/45J0_z4MTpDqdS3ixlHlvHPllsWDqZpeTrh0LWkzxYk.jpg?s=cfaeffcadcca7671d831596d6b5ac301"], ["dash_id", 1], ["created_at", "2016-02-06 22:46:38.771911"], ["updated_at", "2016-02-06 22:46:38.771911"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mPost Exists (0.2ms)[0m  SELECT  1 AS one FROM "posts" WHERE "posts"."og_source" = 'https://i.redditmedia.com/yzm3rNfoaqJ8qMt82eMKhbix4pPmzqGpqaWcYtwWz0w.jpg?s=28b9306a60cba3fb17d7413b1d2a32cb' LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "posts" ("title", "og_source", "body", "image_src", "dash_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "reddit"], ["og_source", "https://i.redditmedia.com/yzm3rNfoaqJ8qMt82eMKhbix4pPmzqGpqaWcYtwWz0w.jpg?s=28b9306a60cba3fb17d7413b1d2a32cb"], ["body", "Wake up!"], ["image_src", "https://i.redditmedia.com/yzm3rNfoaqJ8qMt82eMKhbix4pPmzqGpqaWcYtwWz0w.jpg?s=28b9306a60cba3fb17d7413b1d2a32cb"], ["dash_id", 1], ["created_at", "2016-02-06 22:46:38.774571"], ["updated_at", "2016-02-06 22:46:38.774571"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mPost Exists (0.2ms)[0m  SELECT  1 AS one FROM "posts" WHERE "posts"."og_source" = 'https://i.redditmedia.com/VSdrAnm5JJX_IW8riJ_dEMHIF2mwwAJqjGIQ3vKv_AE.jpg?s=90600cece945762ed979a70569f35f3b' LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "posts" ("title", "og_source", "body", "image_src", "dash_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "reddit"], ["og_source", "https://i.redditmedia.com/VSdrAnm5JJX_IW8riJ_dEMHIF2mwwAJqjGIQ3vKv_AE.jpg?s=90600cece945762ed979a70569f35f3b"], ["body", "I am doomed."], ["image_src", "https://i.redditmedia.com/VSdrAnm5JJX_IW8riJ_dEMHIF2mwwAJqjGIQ3vKv_AE.jpg?s=90600cece945762ed979a70569f35f3b"], ["dash_id", 1], ["created_at", "2016-02-06 22:46:38.777153"], ["updated_at", "2016-02-06 22:46:38.777153"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mPost Exists (0.2ms)[0m  SELECT  1 AS one FROM "posts" WHERE "posts"."og_source" = 'https://i.redditmedia.com/wA5Q6DPhSjp-nGld3AwM-W4VkBFAMZjQV55yjmPL5gE.jpg?s=3a9beab4a2e73646c21b9efc093228cb' LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "posts" ("title", "og_source", "body", "image_src", "dash_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "reddit"], ["og_source", "https://i.redditmedia.com/wA5Q6DPhSjp-nGld3AwM-W4VkBFAMZjQV55yjmPL5gE.jpg?s=3a9beab4a2e73646c21b9efc093228cb"], ["body", "Tree house."], ["image_src", "https://i.redditmedia.com/wA5Q6DPhSjp-nGld3AwM-W4VkBFAMZjQV55yjmPL5gE.jpg?s=3a9beab4a2e73646c21b9efc093228cb"], ["dash_id", 1], ["created_at", "2016-02-06 22:46:38.779727"], ["updated_at", "2016-02-06 22:46:38.779727"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mPost Exists (0.2ms)[0m  SELECT  1 AS one FROM "posts" WHERE "posts"."og_source" = 'https://i.redditmedia.com/L0kzJkYrX_VKG-LMz2rb3Z2BUANxyS50naGHo7ak8IU.jpg?s=200b93da85f7f5086f2447f9a8d22c9b' LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "posts" ("title", "og_source", "body", "image_src", "dash_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "reddit"], ["og_source", "https://i.redditmedia.com/L0kzJkYrX_VKG-LMz2rb3Z2BUANxyS50naGHo7ak8IU.jpg?s=200b93da85f7f5086f2447f9a8d22c9b"], ["body", "Kids these days..."], ["image_src", "https://i.redditmedia.com/L0kzJkYrX_VKG-LMz2rb3Z2BUANxyS50naGHo7ak8IU.jpg?s=200b93da85f7f5086f2447f9a8d22c9b"], ["dash_id", 1], ["created_at", "2016-02-06 22:46:38.782445"], ["updated_at", "2016-02-06 22:46:38.782445"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mPost Exists (0.2ms)[0m  SELECT  1 AS one FROM "posts" WHERE "posts"."og_source" = 'https://i.redditmedia.com/gVi2on2O9GKbCnZCCZ7GIasumTJoJcG9xwaNrM_KZLc.jpg?s=6998e2b24dac3f326272f915bd25fdec' LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "posts" ("title", "og_source", "body", "image_src", "dash_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "reddit"], ["og_source", "https://i.redditmedia.com/gVi2on2O9GKbCnZCCZ7GIasumTJoJcG9xwaNrM_KZLc.jpg?s=6998e2b24dac3f326272f915bd25fdec"], ["body", "Knock Knock Kranky Kitty"], ["image_src", "https://i.redditmedia.com/gVi2on2O9GKbCnZCCZ7GIasumTJoJcG9xwaNrM_KZLc.jpg?s=6998e2b24dac3f326272f915bd25fdec"], ["dash_id", 1], ["created_at", "2016-02-06 22:46:38.785221"], ["updated_at", "2016-02-06 22:46:38.785221"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mPost Exists (0.2ms)[0m  SELECT  1 AS one FROM "posts" WHERE "posts"."og_source" = 'https://i.redditmedia.com/IZLrB8-1rTpkzeC42HbdC4o9B4NT6gmTFcAKLG5Fanc.jpg?s=96fc10522152b2c198a33859f7cebff9' LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "posts" ("title", "og_source", "body", "image_src", "dash_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "reddit"], ["og_source", "https://i.redditmedia.com/IZLrB8-1rTpkzeC42HbdC4o9B4NT6gmTFcAKLG5Fanc.jpg?s=96fc10522152b2c198a33859f7cebff9"], ["body", "Pearlington"], ["image_src", "https://i.redditmedia.com/IZLrB8-1rTpkzeC42HbdC4o9B4NT6gmTFcAKLG5Fanc.jpg?s=96fc10522152b2c198a33859f7cebff9"], ["dash_id", 1], ["created_at", "2016-02-06 22:46:38.787931"], ["updated_at", "2016-02-06 22:46:38.787931"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mPost Exists (0.2ms)[0m  SELECT  1 AS one FROM "posts" WHERE "posts"."og_source" = 'https://i.redditmedia.com/4JWVeleQVdQX12sCNsG1hAEHQB-iGTaWjBQJv_gk9Ns.jpg?s=98352ea6cdefa8692505dce51c4f66a2' LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "posts" ("title", "og_source", "body", "image_src", "dash_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "reddit"], ["og_source", "https://i.redditmedia.com/4JWVeleQVdQX12sCNsG1hAEHQB-iGTaWjBQJv_gk9Ns.jpg?s=98352ea6cdefa8692505dce51c4f66a2"], ["body", "Leave me alone!"], ["image_src", "https://i.redditmedia.com/4JWVeleQVdQX12sCNsG1hAEHQB-iGTaWjBQJv_gk9Ns.jpg?s=98352ea6cdefa8692505dce51c4f66a2"], ["dash_id", 1], ["created_at", "2016-02-06 22:46:38.790689"], ["updated_at", "2016-02-06 22:46:38.790689"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mPost Exists (0.2ms)[0m  SELECT  1 AS one FROM "posts" WHERE "posts"."og_source" = 'https://i.redditmedia.com/m0PgfqqXkA1SIYzWI4xNO6YzBg2kiNbcQ7va02HGXlY.jpg?s=5c8973cb2f93c9586f6af74a7caaad87' LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "posts" ("title", "og_source", "body", "image_src", "dash_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "reddit"], ["og_source", "https://i.redditmedia.com/m0PgfqqXkA1SIYzWI4xNO6YzBg2kiNbcQ7va02HGXlY.jpg?s=5c8973cb2f93c9586f6af74a7caaad87"], ["body", "Even the big ones are jerks"], ["image_src", "https://i.redditmedia.com/m0PgfqqXkA1SIYzWI4xNO6YzBg2kiNbcQ7va02HGXlY.jpg?s=5c8973cb2f93c9586f6af74a7caaad87"], ["dash_id", 1], ["created_at", "2016-02-06 22:46:38.793407"], ["updated_at", "2016-02-06 22:46:38.793407"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mPost Exists (0.2ms)[0m  SELECT  1 AS one FROM "posts" WHERE "posts"."og_source" = 'https://i.redditmedia.com/4bbt2r5pY4LdWUi_R4zXPPjrch3EPMfjTaeQhgiPpew.jpg?s=c71cdcade233199a00407b3c6d865368' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "posts" ("title", "og_source", "body", "image_src", "dash_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "reddit"], ["og_source", "https://i.redditmedia.com/4bbt2r5pY4LdWUi_R4zXPPjrch3EPMfjTaeQhgiPpew.jpg?s=c71cdcade233199a00407b3c6d865368"], ["body", "No remorse"], ["image_src", "https://i.redditmedia.com/4bbt2r5pY4LdWUi_R4zXPPjrch3EPMfjTaeQhgiPpew.jpg?s=c71cdcade233199a00407b3c6d865368"], ["dash_id", 1], ["created_at", "2016-02-06 22:46:38.796086"], ["updated_at", "2016-02-06 22:46:38.796086"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mPost Exists (0.2ms)[0m  SELECT  1 AS one FROM "posts" WHERE "posts"."og_source" = 'https://i.redditmedia.com/0LfIeeuNV_LxkpUWTw3MxgfR3QEDoRyIA8RDt6cVAP8.jpg?s=4ea7292d9211729e955657b11144cf1e' LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "posts" ("title", "og_source", "body", "image_src", "dash_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "reddit"], ["og_source", "https://i.redditmedia.com/0LfIeeuNV_LxkpUWTw3MxgfR3QEDoRyIA8RDt6cVAP8.jpg?s=4ea7292d9211729e955657b11144cf1e"], ["body", "Our cat being an ass: opening and slithering into the trashcan"], ["image_src", "https://i.redditmedia.com/0LfIeeuNV_LxkpUWTw3MxgfR3QEDoRyIA8RDt6cVAP8.jpg?s=4ea7292d9211729e955657b11144cf1e"], ["dash_id", 1], ["created_at", "2016-02-06 22:46:38.798867"], ["updated_at", "2016-02-06 22:46:38.798867"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mPost Exists (0.2ms)[0m  SELECT  1 AS one FROM "posts" WHERE "posts"."og_source" = 'https://i.redditmedia.com/6DQpLn-bDukUNP61Ni_XvIZXfw6wMtLPDv9zyNANU0s.jpg?s=0abd14cac54835e2c0ddb6303f8a19df' LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "posts" ("title", "og_source", "body", "image_src", "dash_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "reddit"], ["og_source", "https://i.redditmedia.com/6DQpLn-bDukUNP61Ni_XvIZXfw6wMtLPDv9zyNANU0s.jpg?s=0abd14cac54835e2c0ddb6303f8a19df"], ["body", "Asshole? Well, at least the mouse agrees..."], ["image_src", "https://i.redditmedia.com/6DQpLn-bDukUNP61Ni_XvIZXfw6wMtLPDv9zyNANU0s.jpg?s=0abd14cac54835e2c0ddb6303f8a19df"], ["dash_id", 1], ["created_at", "2016-02-06 22:46:38.801454"], ["updated_at", "2016-02-06 22:46:38.801454"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mPost Exists (0.2ms)[0m  SELECT  1 AS one FROM "posts" WHERE "posts"."og_source" = 'https://i.redditmedia.com/7tJwmrN1cQira6jnB1QNonZTGbQSMACCzQIrV3uUh5U.jpg?s=68f89f54b2a8a57d4f1803b65e76ea70' LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "posts" ("title", "og_source", "body", "image_src", "dash_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "reddit"], ["og_source", "https://i.redditmedia.com/7tJwmrN1cQira6jnB1QNonZTGbQSMACCzQIrV3uUh5U.jpg?s=68f89f54b2a8a57d4f1803b65e76ea70"], ["body", "I really thought we could try to take one nice picture..."], ["image_src", "https://i.redditmedia.com/7tJwmrN1cQira6jnB1QNonZTGbQSMACCzQIrV3uUh5U.jpg?s=68f89f54b2a8a57d4f1803b65e76ea70"], ["dash_id", 1], ["created_at", "2016-02-06 22:46:38.804212"], ["updated_at", "2016-02-06 22:46:38.804212"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mPost Exists (0.2ms)[0m  SELECT  1 AS one FROM "posts" WHERE "posts"."og_source" = 'https://i.redditmedia.com/X_GMRP8KrbejsqFS5HmQAT1LNQgDrHqEfgF6ibU2zV4.jpg?s=c76507d8e85af2a34e4b8d95f847faf1' LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "posts" ("title", "og_source", "body", "image_src", "dash_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "reddit"], ["og_source", "https://i.redditmedia.com/X_GMRP8KrbejsqFS5HmQAT1LNQgDrHqEfgF6ibU2zV4.jpg?s=c76507d8e85af2a34e4b8d95f847faf1"], ["body", "Dis mah slipper now, lil bitch!"], ["image_src", "https://i.redditmedia.com/X_GMRP8KrbejsqFS5HmQAT1LNQgDrHqEfgF6ibU2zV4.jpg?s=c76507d8e85af2a34e4b8d95f847faf1"], ["dash_id", 1], ["created_at", "2016-02-06 22:46:38.806902"], ["updated_at", "2016-02-06 22:46:38.806902"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mPost Exists (0.2ms)[0m  SELECT  1 AS one FROM "posts" WHERE "posts"."og_source" = 'https://i.redditmedia.com/QuQZ8XEkM2GaLuDJz_ODvDVjXe1DdGGX1TKhVcZZixg.jpg?s=acff3abfcb120cfd672f4109c5903098' LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "posts" ("title", "og_source", "body", "image_src", "dash_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "reddit"], ["og_source", "https://i.redditmedia.com/QuQZ8XEkM2GaLuDJz_ODvDVjXe1DdGGX1TKhVcZZixg.jpg?s=acff3abfcb120cfd672f4109c5903098"], ["body", "this is why we can't have nice things"], ["image_src", "https://i.redditmedia.com/QuQZ8XEkM2GaLuDJz_ODvDVjXe1DdGGX1TKhVcZZixg.jpg?s=acff3abfcb120cfd672f4109c5903098"], ["dash_id", 1], ["created_at", "2016-02-06 22:46:38.809518"], ["updated_at", "2016-02-06 22:46:38.809518"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mPost Exists (0.2ms)[0m  SELECT  1 AS one FROM "posts" WHERE "posts"."og_source" = 'https://i.redditmedia.com/5C8PxnRqn9RbfEu1B_J0u2KYLse6u6z0DcZkP7XNnOw.jpg?s=886448071a6d6e6803517b5d2cc6971c' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "posts" ("title", "og_source", "body", "image_src", "dash_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "reddit"], ["og_source", "https://i.redditmedia.com/5C8PxnRqn9RbfEu1B_J0u2KYLse6u6z0DcZkP7XNnOw.jpg?s=886448071a6d6e6803517b5d2cc6971c"], ["body", "Sorry did you need this?"], ["image_src", "https://i.redditmedia.com/5C8PxnRqn9RbfEu1B_J0u2KYLse6u6z0DcZkP7XNnOw.jpg?s=886448071a6d6e6803517b5d2cc6971c"], ["dash_id", 1], ["created_at", "2016-02-06 22:46:38.812158"], ["updated_at", "2016-02-06 22:46:38.812158"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mPost Exists (0.2ms)[0m  SELECT  1 AS one FROM "posts" WHERE "posts"."og_source" = 'https://i.redditmedia.com/D65zNpGL-IvkOcohfMe_TgtkHPCgP2tL9j3h9svezhI.jpg?s=a7dbde75e6b31955d89af87d2594a1d7' LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "posts" ("title", "og_source", "body", "image_src", "dash_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "reddit"], ["og_source", "https://i.redditmedia.com/D65zNpGL-IvkOcohfMe_TgtkHPCgP2tL9j3h9svezhI.jpg?s=a7dbde75e6b31955d89af87d2594a1d7"], ["body", "Sheela: Cat in the Dark"], ["image_src", "https://i.redditmedia.com/D65zNpGL-IvkOcohfMe_TgtkHPCgP2tL9j3h9svezhI.jpg?s=a7dbde75e6b31955d89af87d2594a1d7"], ["dash_id", 1], ["created_at", "2016-02-06 22:46:38.814777"], ["updated_at", "2016-02-06 22:46:38.814777"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mPost Exists (0.2ms)[0m  SELECT  1 AS one FROM "posts" WHERE "posts"."og_source" = 'https://i.redditmedia.com/9kky3q4ciBssRh405yNHM7gP8axTdiNBSIyX3LwYYYw.jpg?s=d2dfd32d860d237a051bfdf807f26694' LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "posts" ("title", "og_source", "body", "image_src", "dash_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "reddit"], ["og_source", "https://i.redditmedia.com/9kky3q4ciBssRh405yNHM7gP8axTdiNBSIyX3LwYYYw.jpg?s=d2dfd32d860d237a051bfdf807f26694"], ["body", "Give me some goddamn breakfast. I've only been yowling since 3am."], ["image_src", "https://i.redditmedia.com/9kky3q4ciBssRh405yNHM7gP8axTdiNBSIyX3LwYYYw.jpg?s=d2dfd32d860d237a051bfdf807f26694"], ["dash_id", 1], ["created_at", "2016-02-06 22:46:38.817666"], ["updated_at", "2016-02-06 22:46:38.817666"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mPost Exists (0.2ms)[0m  SELECT  1 AS one FROM "posts" WHERE "posts"."og_source" = 'https://i.redditmedia.com/amO9YoLPZSlaE0uXQWC5ICfNZQDJJdkwlnMSgsWwZ1w.jpg?s=91831091a21a44bce7eff844e858d831' LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "posts" ("title", "og_source", "body", "image_src", "dash_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "reddit"], ["og_source", "https://i.redditmedia.com/amO9YoLPZSlaE0uXQWC5ICfNZQDJJdkwlnMSgsWwZ1w.jpg?s=91831091a21a44bce7eff844e858d831"], ["body", "Ninja cat preys on dog over and over again. Evil."], ["image_src", "https://i.redditmedia.com/amO9YoLPZSlaE0uXQWC5ICfNZQDJJdkwlnMSgsWwZ1w.jpg?s=91831091a21a44bce7eff844e858d831"], ["dash_id", 1], ["created_at", "2016-02-06 22:46:38.820395"], ["updated_at", "2016-02-06 22:46:38.820395"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+Redirected to http://localhost:3000/dashes/1
+Completed 302 Found in 752ms (ActiveRecord: 18.6ms)
+
+
+Started GET "/dashes/1" for ::1 at 2016-02-06 15:46:38 -0700
+Processing by DashesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mDash Load (0.2ms)[0m  [1mSELECT  "dashes".* FROM "dashes" WHERE "dashes"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mPost Load (0.2ms)[0m  SELECT "posts".* FROM "posts" WHERE "posts"."dash_id" = $1 AND "posts"."approved" IS NULL  [["dash_id", 1]]
+  Rendered dashes/show.html.erb within layouts/application (5.9ms)
+Completed 200 OK in 24ms (Views: 22.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/dashes/1/posts/1008/toggle_approve" for ::1 at 2016-02-06 15:46:42 -0700
+Processing by PostsController#toggle_approve as JS
+  Parameters: {"dash_id"=>"1", "id"=>"1008"}
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT 1[0m  [["id", 1008]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mPost Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "posts" WHERE ("posts"."og_source" = 'https://i.redditmedia.com/Caj0jK-xTFhu77SDR9RYjE_xcPeJ6-fF6A95kIXxF-I.jpg?s=b836f7a09199bdbcad3725d4ab4320da' AND "posts"."id" != 1008) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  UPDATE "posts" SET "approved" = $1, "updated_at" = $2 WHERE "posts"."id" = $3  [["approved", "t"], ["updated_at", "2016-02-06 22:46:42.186102"], ["id", 1008]]
+  [1m[36m (0.8ms)[0m  [1mCOMMIT[0m
+  Rendered text template (0.0ms)
+Completed 200 OK in 5ms (Views: 0.4ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/dashes/1/posts/1009/toggle_approve" for ::1 at 2016-02-06 15:46:45 -0700
+Processing by PostsController#toggle_approve as JS
+  Parameters: {"dash_id"=>"1", "id"=>"1009"}
+  [1m[35mPost Load (0.8ms)[0m  SELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT 1  [["id", 1009]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mPost Exists (0.2ms)[0m  SELECT  1 AS one FROM "posts" WHERE ("posts"."og_source" = 'https://i.redditmedia.com/lAMO8s3uHA-kROHcRIzYMSDHm5jvrwjX-XBazbhbECs.jpg?s=555cfb02b3b6e3855184e302be285651' AND "posts"."id" != 1009) LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mUPDATE "posts" SET "approved" = $1, "updated_at" = $2 WHERE "posts"."id" = $3[0m  [["approved", "t"], ["updated_at", "2016-02-06 22:46:45.617549"], ["id", 1009]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  Rendered text template (0.0ms)
+Completed 200 OK in 5ms (Views: 0.4ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/dashes/1/posts/1010/toggle_approve" for ::1 at 2016-02-06 15:46:46 -0700
+Processing by PostsController#toggle_approve as JS
+  Parameters: {"dash_id"=>"1", "id"=>"1010"}
+  [1m[36mPost Load (0.8ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT 1[0m  [["id", 1010]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mPost Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "posts" WHERE ("posts"."og_source" = 'https://i.redditmedia.com/ggZS6D03n60FOV7J_enRFYypl8h7rQlGD-evR2H1SWc.jpg?s=5b2ca767cd3c31a0b5b95dcd6819c88c' AND "posts"."id" != 1010) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "posts" SET "approved" = $1, "updated_at" = $2 WHERE "posts"."id" = $3  [["approved", "t"], ["updated_at", "2016-02-06 22:46:47.003238"], ["id", 1010]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  Rendered text template (0.0ms)
+Completed 200 OK in 5ms (Views: 0.3ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/dashes/1/posts/1011/toggle_approve" for ::1 at 2016-02-06 15:46:48 -0700
+Processing by PostsController#toggle_approve as JS
+  Parameters: {"dash_id"=>"1", "id"=>"1011"}
+  [1m[35mPost Load (0.8ms)[0m  SELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT 1  [["id", 1011]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mPost Exists (0.2ms)[0m  SELECT  1 AS one FROM "posts" WHERE ("posts"."og_source" = 'https://i.redditmedia.com/FeJCIX9SnEeuMQoNMum7LMonJZZDPX10E3TaGHuLnPE.jpg?s=82aafba56d5db3c59b89e974501c0192' AND "posts"."id" != 1011) LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mUPDATE "posts" SET "approved" = $1, "updated_at" = $2 WHERE "posts"."id" = $3[0m  [["approved", "t"], ["updated_at", "2016-02-06 22:46:48.424768"], ["id", 1011]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  Rendered text template (0.0ms)
+Completed 200 OK in 5ms (Views: 0.4ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/dashes/1/posts/1012/toggle_approve" for ::1 at 2016-02-06 15:46:50 -0700
+Processing by PostsController#toggle_approve as JS
+  Parameters: {"dash_id"=>"1", "id"=>"1012"}
+  [1m[36mPost Load (0.8ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT 1[0m  [["id", 1012]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mPost Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "posts" WHERE ("posts"."og_source" = 'https://i.redditmedia.com/nfZ9KthjraORnHeRA2THmT7YqCtCo0O6sTj8YvcGCg4.jpg?s=f887f505f554f241264efd8f26afdb60' AND "posts"."id" != 1012) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  UPDATE "posts" SET "approved" = $1, "updated_at" = $2 WHERE "posts"."id" = $3  [["approved", "t"], ["updated_at", "2016-02-06 22:46:50.525194"], ["id", 1012]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  Rendered text template (0.0ms)
+Completed 200 OK in 5ms (Views: 0.3ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/dashes/1/posts/1013/toggle_approve" for ::1 at 2016-02-06 15:46:51 -0700
+Processing by PostsController#toggle_approve as JS
+  Parameters: {"dash_id"=>"1", "id"=>"1013"}
+  [1m[35mPost Load (0.8ms)[0m  SELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT 1  [["id", 1013]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mPost Exists (0.2ms)[0m  SELECT  1 AS one FROM "posts" WHERE ("posts"."og_source" = 'https://i.redditmedia.com/WGpUpLXuzPSbMeT7lAH0vRsZNGyj4Ifn6zF9OLvQ4_E.jpg?s=8797f61d6fbf71160e87582b83a3b179' AND "posts"."id" != 1013) LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mUPDATE "posts" SET "approved" = $1, "updated_at" = $2 WHERE "posts"."id" = $3[0m  [["approved", "t"], ["updated_at", "2016-02-06 22:46:51.790651"], ["id", 1013]]
+  [1m[35m (0.2ms)[0m  COMMIT
+  Rendered text template (0.0ms)
+Completed 200 OK in 5ms (Views: 0.4ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/dashes/1/posts/1014/toggle_approve" for ::1 at 2016-02-06 15:46:53 -0700
+Processing by PostsController#toggle_approve as JS
+  Parameters: {"dash_id"=>"1", "id"=>"1014"}
+  [1m[36mPost Load (0.8ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT 1[0m  [["id", 1014]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mPost Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "posts" WHERE ("posts"."og_source" = 'https://i.redditmedia.com/45J0_z4MTpDqdS3ixlHlvHPllsWDqZpeTrh0LWkzxYk.jpg?s=cfaeffcadcca7671d831596d6b5ac301' AND "posts"."id" != 1014) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  UPDATE "posts" SET "approved" = $1, "updated_at" = $2 WHERE "posts"."id" = $3  [["approved", "t"], ["updated_at", "2016-02-06 22:46:53.506060"], ["id", 1014]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  Rendered text template (0.0ms)
+Completed 200 OK in 5ms (Views: 0.3ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/dashes/1/posts/1015/toggle_approve" for ::1 at 2016-02-06 15:46:55 -0700
+Processing by PostsController#toggle_approve as JS
+  Parameters: {"dash_id"=>"1", "id"=>"1015"}
+  [1m[35mPost Load (0.8ms)[0m  SELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT 1  [["id", 1015]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mPost Exists (0.2ms)[0m  SELECT  1 AS one FROM "posts" WHERE ("posts"."og_source" = 'https://i.redditmedia.com/yzm3rNfoaqJ8qMt82eMKhbix4pPmzqGpqaWcYtwWz0w.jpg?s=28b9306a60cba3fb17d7413b1d2a32cb' AND "posts"."id" != 1015) LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mUPDATE "posts" SET "approved" = $1, "updated_at" = $2 WHERE "posts"."id" = $3[0m  [["approved", "t"], ["updated_at", "2016-02-06 22:46:55.375678"], ["id", 1015]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  Rendered text template (0.0ms)
+Completed 200 OK in 5ms (Views: 0.3ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/dashes/1/posts/1016/toggle_approve" for ::1 at 2016-02-06 15:46:56 -0700
+Processing by PostsController#toggle_approve as JS
+  Parameters: {"dash_id"=>"1", "id"=>"1016"}
+  [1m[36mPost Load (0.8ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT 1[0m  [["id", 1016]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mPost Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "posts" WHERE ("posts"."og_source" = 'https://i.redditmedia.com/VSdrAnm5JJX_IW8riJ_dEMHIF2mwwAJqjGIQ3vKv_AE.jpg?s=90600cece945762ed979a70569f35f3b' AND "posts"."id" != 1016) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "posts" SET "approved" = $1, "updated_at" = $2 WHERE "posts"."id" = $3  [["approved", "t"], ["updated_at", "2016-02-06 22:46:56.995560"], ["id", 1016]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  Rendered text template (0.0ms)
+Completed 200 OK in 5ms (Views: 0.3ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/dashes/1/posts/1017/toggle_approve" for ::1 at 2016-02-06 15:46:59 -0700
+Processing by PostsController#toggle_approve as JS
+  Parameters: {"dash_id"=>"1", "id"=>"1017"}
+  [1m[35mPost Load (0.8ms)[0m  SELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT 1  [["id", 1017]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mPost Exists (0.2ms)[0m  SELECT  1 AS one FROM "posts" WHERE ("posts"."og_source" = 'https://i.redditmedia.com/wA5Q6DPhSjp-nGld3AwM-W4VkBFAMZjQV55yjmPL5gE.jpg?s=3a9beab4a2e73646c21b9efc093228cb' AND "posts"."id" != 1017) LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mUPDATE "posts" SET "approved" = $1, "updated_at" = $2 WHERE "posts"."id" = $3[0m  [["approved", "t"], ["updated_at", "2016-02-06 22:46:59.875081"], ["id", 1017]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  Rendered text template (0.0ms)
+Completed 200 OK in 5ms (Views: 0.3ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/dashes/1/posts/1018/toggle_approve" for ::1 at 2016-02-06 15:47:01 -0700
+Processing by PostsController#toggle_approve as JS
+  Parameters: {"dash_id"=>"1", "id"=>"1018"}
+  [1m[36mPost Load (1.5ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT 1[0m  [["id", 1018]]
+  [1m[35m (0.7ms)[0m  BEGIN
+  [1m[36mPost Exists (0.6ms)[0m  [1mSELECT  1 AS one FROM "posts" WHERE ("posts"."og_source" = 'https://i.redditmedia.com/L0kzJkYrX_VKG-LMz2rb3Z2BUANxyS50naGHo7ak8IU.jpg?s=200b93da85f7f5086f2447f9a8d22c9b' AND "posts"."id" != 1018) LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  UPDATE "posts" SET "approved" = $1, "updated_at" = $2 WHERE "posts"."id" = $3  [["approved", "t"], ["updated_at", "2016-02-06 22:47:01.582926"], ["id", 1018]]
+  [1m[36m (1.3ms)[0m  [1mCOMMIT[0m
+  Rendered text template (0.0ms)
+Completed 200 OK in 9ms (Views: 0.5ms | ActiveRecord: 4.6ms)
+
+
+Started GET "/dashes/1/posts/1019/toggle_approve" for ::1 at 2016-02-06 15:47:02 -0700
+Processing by PostsController#toggle_approve as JS
+  Parameters: {"dash_id"=>"1", "id"=>"1019"}
+  [1m[35mPost Load (1.1ms)[0m  SELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT 1  [["id", 1019]]
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mPost Exists (0.7ms)[0m  SELECT  1 AS one FROM "posts" WHERE ("posts"."og_source" = 'https://i.redditmedia.com/gVi2on2O9GKbCnZCCZ7GIasumTJoJcG9xwaNrM_KZLc.jpg?s=6998e2b24dac3f326272f915bd25fdec' AND "posts"."id" != 1019) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "posts" SET "approved" = $1, "updated_at" = $2 WHERE "posts"."id" = $3[0m  [["approved", "t"], ["updated_at", "2016-02-06 22:47:02.823429"], ["id", 1019]]
+  [1m[35m (0.2ms)[0m  COMMIT
+  Rendered text template (0.0ms)
+Completed 200 OK in 7ms (Views: 0.4ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/dashes/1/posts/1020/toggle_approve" for ::1 at 2016-02-06 15:47:04 -0700
+Processing by PostsController#toggle_approve as JS
+  Parameters: {"dash_id"=>"1", "id"=>"1020"}
+  [1m[36mPost Load (0.4ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT 1[0m  [["id", 1020]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mPost Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "posts" WHERE ("posts"."og_source" = 'https://i.redditmedia.com/IZLrB8-1rTpkzeC42HbdC4o9B4NT6gmTFcAKLG5Fanc.jpg?s=96fc10522152b2c198a33859f7cebff9' AND "posts"."id" != 1020) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "posts" SET "approved" = $1, "updated_at" = $2 WHERE "posts"."id" = $3  [["approved", "t"], ["updated_at", "2016-02-06 22:47:04.048607"], ["id", 1020]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  Rendered text template (0.0ms)
+Completed 200 OK in 5ms (Views: 0.4ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/dashes/1/posts/1022/toggle_approve" for ::1 at 2016-02-06 15:47:05 -0700
+Processing by PostsController#toggle_approve as JS
+  Parameters: {"dash_id"=>"1", "id"=>"1022"}
+  [1m[35mPost Load (3.4ms)[0m  SELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT 1  [["id", 1022]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mPost Exists (0.4ms)[0m  SELECT  1 AS one FROM "posts" WHERE ("posts"."og_source" = 'https://i.redditmedia.com/m0PgfqqXkA1SIYzWI4xNO6YzBg2kiNbcQ7va02HGXlY.jpg?s=5c8973cb2f93c9586f6af74a7caaad87' AND "posts"."id" != 1022) LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mUPDATE "posts" SET "approved" = $1, "updated_at" = $2 WHERE "posts"."id" = $3[0m  [["approved", "t"], ["updated_at", "2016-02-06 22:47:05.789126"], ["id", 1022]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  Rendered text template (0.0ms)
+Completed 200 OK in 8ms (Views: 0.3ms | ActiveRecord: 4.4ms)
+
+
+Started GET "/dashes/1/posts/1023/toggle_approve" for ::1 at 2016-02-06 15:47:07 -0700
+Processing by PostsController#toggle_approve as JS
+  Parameters: {"dash_id"=>"1", "id"=>"1023"}
+  [1m[36mPost Load (0.8ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT 1[0m  [["id", 1023]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mPost Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "posts" WHERE ("posts"."og_source" = 'https://i.redditmedia.com/4bbt2r5pY4LdWUi_R4zXPPjrch3EPMfjTaeQhgiPpew.jpg?s=c71cdcade233199a00407b3c6d865368' AND "posts"."id" != 1023) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  UPDATE "posts" SET "approved" = $1, "updated_at" = $2 WHERE "posts"."id" = $3  [["approved", "t"], ["updated_at", "2016-02-06 22:47:07.367339"], ["id", 1023]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  Rendered text template (0.0ms)
+Completed 200 OK in 5ms (Views: 0.3ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/dashes/1/posts/1024/toggle_approve" for ::1 at 2016-02-06 15:47:08 -0700
+Processing by PostsController#toggle_approve as JS
+  Parameters: {"dash_id"=>"1", "id"=>"1024"}
+  [1m[35mPost Load (0.1ms)[0m  SELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT 1  [["id", 1024]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mPost Exists (0.2ms)[0m  SELECT  1 AS one FROM "posts" WHERE ("posts"."og_source" = 'https://i.redditmedia.com/0LfIeeuNV_LxkpUWTw3MxgfR3QEDoRyIA8RDt6cVAP8.jpg?s=4ea7292d9211729e955657b11144cf1e' AND "posts"."id" != 1024) LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mUPDATE "posts" SET "approved" = $1, "updated_at" = $2 WHERE "posts"."id" = $3[0m  [["approved", "t"], ["updated_at", "2016-02-06 22:47:08.370756"], ["id", 1024]]
+  [1m[35m (0.7ms)[0m  COMMIT
+  Rendered text template (0.0ms)
+Completed 200 OK in 4ms (Views: 0.3ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/dashes/1/posts/1025/toggle_approve" for ::1 at 2016-02-06 15:47:12 -0700
+Processing by PostsController#toggle_approve as JS
+  Parameters: {"dash_id"=>"1", "id"=>"1025"}
+  [1m[36mPost Load (0.1ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT 1[0m  [["id", 1025]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mPost Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "posts" WHERE ("posts"."og_source" = 'https://i.redditmedia.com/6DQpLn-bDukUNP61Ni_XvIZXfw6wMtLPDv9zyNANU0s.jpg?s=0abd14cac54835e2c0ddb6303f8a19df' AND "posts"."id" != 1025) LIMIT 1[0m
+  [1m[35mSQL (0.5ms)[0m  UPDATE "posts" SET "approved" = $1, "updated_at" = $2 WHERE "posts"."id" = $3  [["approved", "t"], ["updated_at", "2016-02-06 22:47:12.108015"], ["id", 1025]]
+  [1m[36m (0.9ms)[0m  [1mCOMMIT[0m
+  Rendered text template (0.0ms)
+Completed 200 OK in 5ms (Views: 0.4ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/dashes/1/posts/1026/toggle_approve" for ::1 at 2016-02-06 15:47:14 -0700
+Processing by PostsController#toggle_approve as JS
+  Parameters: {"dash_id"=>"1", "id"=>"1026"}
+  [1m[35mPost Load (0.2ms)[0m  SELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT 1  [["id", 1026]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mPost Exists (0.2ms)[0m  SELECT  1 AS one FROM "posts" WHERE ("posts"."og_source" = 'https://i.redditmedia.com/7tJwmrN1cQira6jnB1QNonZTGbQSMACCzQIrV3uUh5U.jpg?s=68f89f54b2a8a57d4f1803b65e76ea70' AND "posts"."id" != 1026) LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mUPDATE "posts" SET "approved" = $1, "updated_at" = $2 WHERE "posts"."id" = $3[0m  [["approved", "t"], ["updated_at", "2016-02-06 22:47:14.121225"], ["id", 1026]]
+  [1m[35m (0.7ms)[0m  COMMIT
+  Rendered text template (0.0ms)
+Completed 200 OK in 4ms (Views: 0.3ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/dashes/1/posts/1027/toggle_approve" for ::1 at 2016-02-06 15:47:15 -0700
+Processing by PostsController#toggle_approve as JS
+  Parameters: {"dash_id"=>"1", "id"=>"1027"}
+  [1m[36mPost Load (0.1ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT 1[0m  [["id", 1027]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mPost Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "posts" WHERE ("posts"."og_source" = 'https://i.redditmedia.com/X_GMRP8KrbejsqFS5HmQAT1LNQgDrHqEfgF6ibU2zV4.jpg?s=c76507d8e85af2a34e4b8d95f847faf1' AND "posts"."id" != 1027) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "posts" SET "approved" = $1, "updated_at" = $2 WHERE "posts"."id" = $3  [["approved", "t"], ["updated_at", "2016-02-06 22:47:15.074691"], ["id", 1027]]
+  [1m[36m (0.7ms)[0m  [1mCOMMIT[0m
+  Rendered text template (0.0ms)
+Completed 200 OK in 4ms (Views: 0.3ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/dashes/1/posts/1029/toggle_approve" for ::1 at 2016-02-06 15:47:19 -0700
+Processing by PostsController#toggle_approve as JS
+  Parameters: {"dash_id"=>"1", "id"=>"1029"}
+  [1m[35mPost Load (0.1ms)[0m  SELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT 1  [["id", 1029]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mPost Exists (0.2ms)[0m  SELECT  1 AS one FROM "posts" WHERE ("posts"."og_source" = 'https://i.redditmedia.com/5C8PxnRqn9RbfEu1B_J0u2KYLse6u6z0DcZkP7XNnOw.jpg?s=886448071a6d6e6803517b5d2cc6971c' AND "posts"."id" != 1029) LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mUPDATE "posts" SET "approved" = $1, "updated_at" = $2 WHERE "posts"."id" = $3[0m  [["approved", "t"], ["updated_at", "2016-02-06 22:47:19.864899"], ["id", 1029]]
+  [1m[35m (1.4ms)[0m  COMMIT
+  Rendered text template (0.0ms)
+Completed 200 OK in 5ms (Views: 0.4ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/dashes/1/posts/1028/toggle_approve" for ::1 at 2016-02-06 15:47:21 -0700
+Processing by PostsController#toggle_approve as JS
+  Parameters: {"dash_id"=>"1", "id"=>"1028"}
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT 1[0m  [["id", 1028]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mPost Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "posts" WHERE ("posts"."og_source" = 'https://i.redditmedia.com/QuQZ8XEkM2GaLuDJz_ODvDVjXe1DdGGX1TKhVcZZixg.jpg?s=acff3abfcb120cfd672f4109c5903098' AND "posts"."id" != 1028) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  UPDATE "posts" SET "approved" = $1, "updated_at" = $2 WHERE "posts"."id" = $3  [["approved", "t"], ["updated_at", "2016-02-06 22:47:21.605760"], ["id", 1028]]
+  [1m[36m (0.7ms)[0m  [1mCOMMIT[0m
+  Rendered text template (0.0ms)
+Completed 200 OK in 4ms (Views: 0.4ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/dashes/1/posts/1030/toggle_approve" for ::1 at 2016-02-06 15:47:23 -0700
+Processing by PostsController#toggle_approve as JS
+  Parameters: {"dash_id"=>"1", "id"=>"1030"}
+  [1m[35mPost Load (0.2ms)[0m  SELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT 1  [["id", 1030]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mPost Exists (0.2ms)[0m  SELECT  1 AS one FROM "posts" WHERE ("posts"."og_source" = 'https://i.redditmedia.com/D65zNpGL-IvkOcohfMe_TgtkHPCgP2tL9j3h9svezhI.jpg?s=a7dbde75e6b31955d89af87d2594a1d7' AND "posts"."id" != 1030) LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mUPDATE "posts" SET "approved" = $1, "updated_at" = $2 WHERE "posts"."id" = $3[0m  [["approved", "t"], ["updated_at", "2016-02-06 22:47:23.547421"], ["id", 1030]]
+  [1m[35m (0.7ms)[0m  COMMIT
+  Rendered text template (0.0ms)
+Completed 200 OK in 4ms (Views: 0.3ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/dashes/1/posts/1031/toggle_approve" for ::1 at 2016-02-06 15:47:26 -0700
+Processing by PostsController#toggle_approve as JS
+  Parameters: {"dash_id"=>"1", "id"=>"1031"}
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT 1[0m  [["id", 1031]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mPost Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "posts" WHERE ("posts"."og_source" = 'https://i.redditmedia.com/9kky3q4ciBssRh405yNHM7gP8axTdiNBSIyX3LwYYYw.jpg?s=d2dfd32d860d237a051bfdf807f26694' AND "posts"."id" != 1031) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  UPDATE "posts" SET "approved" = $1, "updated_at" = $2 WHERE "posts"."id" = $3  [["approved", "t"], ["updated_at", "2016-02-06 22:47:26.883435"], ["id", 1031]]
+  [1m[36m (0.8ms)[0m  [1mCOMMIT[0m
+  Rendered text template (0.0ms)
+Completed 200 OK in 4ms (Views: 0.4ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/dashes/1/posts/1032/toggle_approve" for ::1 at 2016-02-06 15:47:27 -0700
+Processing by PostsController#toggle_approve as JS
+  Parameters: {"dash_id"=>"1", "id"=>"1032"}
+  [1m[35mPost Load (0.1ms)[0m  SELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT 1  [["id", 1032]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mPost Exists (0.2ms)[0m  SELECT  1 AS one FROM "posts" WHERE ("posts"."og_source" = 'https://i.redditmedia.com/amO9YoLPZSlaE0uXQWC5ICfNZQDJJdkwlnMSgsWwZ1w.jpg?s=91831091a21a44bce7eff844e858d831' AND "posts"."id" != 1032) LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mUPDATE "posts" SET "approved" = $1, "updated_at" = $2 WHERE "posts"."id" = $3[0m  [["approved", "t"], ["updated_at", "2016-02-06 22:47:27.777861"], ["id", 1032]]
+  [1m[35m (0.7ms)[0m  COMMIT
+  Rendered text template (0.0ms)
+Completed 200 OK in 4ms (Views: 0.4ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/dashes/1" for ::1 at 2016-02-06 15:47:30 -0700
+Processing by DashesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mDash Load (0.1ms)[0m  [1mSELECT  "dashes".* FROM "dashes" WHERE "dashes"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mPost Load (0.2ms)[0m  SELECT "posts".* FROM "posts" WHERE "posts"."dash_id" = $1 AND "posts"."approved" IS NULL  [["dash_id", 1]]
+  Rendered dashes/show.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 16ms (Views: 14.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/dashes.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-02-06 15:47:30 -0700
+
+
+Started GET "/assets/posts.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-02-06 15:47:30 -0700
+
+
+Started GET "/assets/scaffolds.self-7d54453e88ebfcc1f19d1b9056781e8047187eb677417a8c8fc97da87cda4c39.css?body=1" for ::1 at 2016-02-06 15:47:30 -0700
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2016-02-06 15:47:30 -0700
+
+
+Started GET "/assets/jquery.self-c64a74367bda6ef8b860f19e74df08927ca99d2be2ac934e9e92d5fd361e0da4.js?body=1" for ::1 at 2016-02-06 15:47:30 -0700
+
+
+Started GET "/assets/jquery_ujs.self-d602bdfe68ffc63b9f9cc512872aa3cfff046228a0a36e90dd476e8ef54c1b09.js?body=1" for ::1 at 2016-02-06 15:47:30 -0700
+
+
+Started GET "/assets/dashes.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-02-06 15:47:30 -0700
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2016-02-06 15:47:30 -0700
+
+
+Started GET "/assets/posts.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-02-06 15:47:30 -0700
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2016-02-06 15:47:30 -0700
+
+
+Started GET "/dashes/1/posts/1021/toggle_disapprove" for ::1 at 2016-02-06 15:47:32 -0700
+Processing by PostsController#toggle_disapprove as JS
+  Parameters: {"dash_id"=>"1", "id"=>"1021"}
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT 1[0m  [["id", 1021]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mPost Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "posts" WHERE ("posts"."og_source" = 'https://i.redditmedia.com/4JWVeleQVdQX12sCNsG1hAEHQB-iGTaWjBQJv_gk9Ns.jpg?s=98352ea6cdefa8692505dce51c4f66a2' AND "posts"."id" != 1021) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  UPDATE "posts" SET "approved" = $1, "updated_at" = $2 WHERE "posts"."id" = $3  [["approved", "f"], ["updated_at", "2016-02-06 22:47:32.167977"], ["id", 1021]]
+  [1m[36m (0.8ms)[0m  [1mCOMMIT[0m
+  Rendered text template (0.0ms)
+Completed 200 OK in 5ms (Views: 0.4ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/dashes/1" for ::1 at 2016-02-06 15:47:34 -0700
+Processing by DashesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mDash Load (0.1ms)[0m  SELECT  "dashes".* FROM "dashes" WHERE "dashes"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mPost Load (0.9ms)[0m  [1mSELECT "posts".* FROM "posts" WHERE "posts"."dash_id" = $1 AND "posts"."approved" IS NULL[0m  [["dash_id", 1]]
+  Rendered dashes/show.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 17ms (Views: 14.1ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/assets/dashes.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-02-06 15:47:34 -0700
+
+
+Started GET "/assets/posts.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-02-06 15:47:34 -0700
+
+
+Started GET "/assets/scaffolds.self-7d54453e88ebfcc1f19d1b9056781e8047187eb677417a8c8fc97da87cda4c39.css?body=1" for ::1 at 2016-02-06 15:47:34 -0700
+
+
+Started GET "/assets/jquery_ujs.self-d602bdfe68ffc63b9f9cc512872aa3cfff046228a0a36e90dd476e8ef54c1b09.js?body=1" for ::1 at 2016-02-06 15:47:34 -0700
+
+
+Started GET "/assets/jquery.self-c64a74367bda6ef8b860f19e74df08927ca99d2be2ac934e9e92d5fd361e0da4.js?body=1" for ::1 at 2016-02-06 15:47:34 -0700
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2016-02-06 15:47:34 -0700
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2016-02-06 15:47:34 -0700
+
+
+Started GET "/assets/dashes.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-02-06 15:47:34 -0700
+
+
+Started GET "/assets/posts.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-02-06 15:47:34 -0700
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2016-02-06 15:47:34 -0700
+
+
+Started GET "/dashes/1/add_twitter_pics?utf8=%E2%9C%93&search_term=%23catsarejerks&commit=Search+Twitter" for ::1 at 2016-02-06 15:47:47 -0700
+Processing by DashesController#add_twitter_pics as HTML
+  Parameters: {"utf8"=>"✓", "search_term"=>"#catsarejerks", "commit"=>"Search Twitter", "dash_id"=>"1"}
+  [1m[35mDash Load (0.1ms)[0m  SELECT  "dashes".* FROM "dashes" WHERE "dashes"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "dashes" SET "twitter_pic_search" = $1, "updated_at" = $2 WHERE "dashes"."id" = $3  [["twitter_pic_search", "#catsarejerks"], ["updated_at", "2016-02-06 22:47:47.335295"], ["id", 1]]
+  [1m[36m (5.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mPost Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "posts" WHERE "posts"."og_source" = 'http://pbs.twimg.com/media/CacKr7bVIAAGYF7.jpg' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "posts" ("title", "og_source", "body", "image_src", "dash_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["title", "Twitter"], ["og_source", "http://pbs.twimg.com/media/CacKr7bVIAAGYF7.jpg"], ["body", "Thank goodness for study buddies at 3 am. JK, they're snoring and making it very hard to stay awake #catsarejerks https://t.co/Rv5FzI1mZY"], ["image_src", "http://pbs.twimg.com/media/CacKr7bVIAAGYF7.jpg"], ["dash_id", 1], ["created_at", "2016-02-06 22:47:47.799762"], ["updated_at", "2016-02-06 22:47:47.799762"]]
+  [1m[36m (0.7ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mPost Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "posts" WHERE "posts"."og_source" = 'http://pbs.twimg.com/media/CZYfT5DUMAAOvgV.jpg' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "posts" ("title", "og_source", "body", "image_src", "dash_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["title", "Twitter"], ["og_source", "http://pbs.twimg.com/media/CZYfT5DUMAAOvgV.jpg"], ["body", "RT @catsrassholes: #cats #catsareassholes #catsarejerks https://t.co/Rf57aPgjxS"], ["image_src", "http://pbs.twimg.com/media/CZYfT5DUMAAOvgV.jpg"], ["dash_id", 1], ["created_at", "2016-02-06 22:47:47.804616"], ["updated_at", "2016-02-06 22:47:47.804616"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mPost Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "posts" WHERE "posts"."og_source" = 'http://pbs.twimg.com/media/CaO9DWLUcAAWoiX.jpg' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "posts" ("title", "og_source", "body", "image_src", "dash_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["title", "Twitter"], ["og_source", "http://pbs.twimg.com/media/CaO9DWLUcAAWoiX.jpg"], ["body", "#catsarejerks https://t.co/z0YQKx0RuR"], ["image_src", "http://pbs.twimg.com/media/CaO9DWLUcAAWoiX.jpg"], ["dash_id", 1], ["created_at", "2016-02-06 22:47:47.808611"], ["updated_at", "2016-02-06 22:47:47.808611"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mPost Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "posts" WHERE "posts"."og_source" = 'http://pbs.twimg.com/media/CaKYFz4WkAEIkhi.jpg' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "posts" ("title", "og_source", "body", "image_src", "dash_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["title", "Twitter"], ["og_source", "http://pbs.twimg.com/media/CaKYFz4WkAEIkhi.jpg"], ["body", "\"May I have my ski cap back?\" I asked.\nThe cat just laughed and laughed.\n#kittylove #catsarejerks https://t.co/h6x3sYWEOL"], ["image_src", "http://pbs.twimg.com/media/CaKYFz4WkAEIkhi.jpg"], ["dash_id", 1], ["created_at", "2016-02-06 22:47:47.811994"], ["updated_at", "2016-02-06 22:47:47.811994"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mPost Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "posts" WHERE "posts"."og_source" = 'http://pbs.twimg.com/media/CaJxalyVAAAvlYG.jpg' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "posts" ("title", "og_source", "body", "image_src", "dash_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["title", "Twitter"], ["og_source", "http://pbs.twimg.com/media/CaJxalyVAAAvlYG.jpg"], ["body", "Yes, that's a good place to play with that. #catsarejerks https://t.co/0xuhE0tZc8"], ["image_src", "http://pbs.twimg.com/media/CaJxalyVAAAvlYG.jpg"], ["dash_id", 1], ["created_at", "2016-02-06 22:47:47.815583"], ["updated_at", "2016-02-06 22:47:47.815583"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mPost Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "posts" WHERE "posts"."og_source" = 'http://pbs.twimg.com/media/CaIV10PWAAA6qWQ.jpg' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "posts" ("title", "og_source", "body", "image_src", "dash_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["title", "Twitter"], ["og_source", "http://pbs.twimg.com/media/CaIV10PWAAA6qWQ.jpg"], ["body", "XD #wtf #catsarejerks thats to funny https://t.co/8IRwiawaIf"], ["image_src", "http://pbs.twimg.com/media/CaIV10PWAAA6qWQ.jpg"], ["dash_id", 1], ["created_at", "2016-02-06 22:47:47.818754"], ["updated_at", "2016-02-06 22:47:47.818754"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mPost Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "posts" WHERE "posts"."og_source" = 'http://pbs.twimg.com/media/CZYfT5DUMAAOvgV.jpg' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mPost Exists (0.2ms)[0m  SELECT  1 AS one FROM "posts" WHERE "posts"."og_source" = 'http://pbs.twimg.com/media/CZYfT5DUMAAOvgV.jpg' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mPost Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "posts" WHERE "posts"."og_source" = 'http://pbs.twimg.com/media/CZ5VcEsUkAAqfK3.jpg' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "posts" ("title", "og_source", "body", "image_src", "dash_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["title", "Twitter"], ["og_source", "http://pbs.twimg.com/media/CZ5VcEsUkAAqfK3.jpg"], ["body", "Apparently his bed didn't take enough space. #catsarejerks https://t.co/q1oWLHUBQi"], ["image_src", "http://pbs.twimg.com/media/CZ5VcEsUkAAqfK3.jpg"], ["dash_id", 1], ["created_at", "2016-02-06 22:47:47.828709"], ["updated_at", "2016-02-06 22:47:47.828709"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mPost Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "posts" WHERE "posts"."og_source" = 'http://pbs.twimg.com/media/CZ2_taQWAAAjEIo.jpg' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "posts" ("title", "og_source", "body", "image_src", "dash_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["title", "Twitter"], ["og_source", "http://pbs.twimg.com/media/CZ2_taQWAAAjEIo.jpg"], ["body", "Wasn't me. I swears. \n#catsarejerks #redecorating #catimakittycat #blackcat #catstagram #c… https://t.co/jZmrCYpheH https://t.co/dwV0SOKkEA"], ["image_src", "http://pbs.twimg.com/media/CZ2_taQWAAAjEIo.jpg"], ["dash_id", 1], ["created_at", "2016-02-06 22:47:47.832006"], ["updated_at", "2016-02-06 22:47:47.832006"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/dashes/1
+Completed 302 Found in 500ms (ActiveRecord: 13.3ms)
+
+
+Started GET "/dashes/1" for ::1 at 2016-02-06 15:47:47 -0700
+Processing by DashesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mDash Load (0.1ms)[0m  SELECT  "dashes".* FROM "dashes" WHERE "dashes"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mPost Load (0.5ms)[0m  [1mSELECT "posts".* FROM "posts" WHERE "posts"."dash_id" = $1 AND "posts"."approved" IS NULL[0m  [["dash_id", 1]]
+  Rendered dashes/show.html.erb within layouts/application (3.4ms)
+Completed 200 OK in 19ms (Views: 16.5ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/dashes/1/posts/1033/toggle_approve" for ::1 at 2016-02-06 15:47:50 -0700
+Processing by PostsController#toggle_approve as JS
+  Parameters: {"dash_id"=>"1", "id"=>"1033"}
+  [1m[35mPost Load (0.2ms)[0m  SELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT 1  [["id", 1033]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mPost Exists (0.2ms)[0m  SELECT  1 AS one FROM "posts" WHERE ("posts"."og_source" = 'http://pbs.twimg.com/media/CacKr7bVIAAGYF7.jpg' AND "posts"."id" != 1033) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "posts" SET "approved" = $1, "updated_at" = $2 WHERE "posts"."id" = $3[0m  [["approved", "t"], ["updated_at", "2016-02-06 22:47:50.667159"], ["id", 1033]]
+  [1m[35m (1.4ms)[0m  COMMIT
+  Rendered text template (0.0ms)
+Completed 200 OK in 6ms (Views: 0.5ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/dashes/1/posts/1034/toggle_approve" for ::1 at 2016-02-06 15:47:52 -0700
+Processing by PostsController#toggle_approve as JS
+  Parameters: {"dash_id"=>"1", "id"=>"1034"}
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT 1[0m  [["id", 1034]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mPost Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "posts" WHERE ("posts"."og_source" = 'http://pbs.twimg.com/media/CZYfT5DUMAAOvgV.jpg' AND "posts"."id" != 1034) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "posts" SET "approved" = $1, "updated_at" = $2 WHERE "posts"."id" = $3  [["approved", "t"], ["updated_at", "2016-02-06 22:47:52.403984"], ["id", 1034]]
+  [1m[36m (0.9ms)[0m  [1mCOMMIT[0m
+  Rendered text template (0.0ms)
+Completed 200 OK in 5ms (Views: 0.4ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/dashes/1/posts/1035/toggle_approve" for ::1 at 2016-02-06 15:47:53 -0700
+Processing by PostsController#toggle_approve as JS
+  Parameters: {"dash_id"=>"1", "id"=>"1035"}
+  [1m[35mPost Load (0.2ms)[0m  SELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT 1  [["id", 1035]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mPost Exists (0.2ms)[0m  SELECT  1 AS one FROM "posts" WHERE ("posts"."og_source" = 'http://pbs.twimg.com/media/CaO9DWLUcAAWoiX.jpg' AND "posts"."id" != 1035) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "posts" SET "approved" = $1, "updated_at" = $2 WHERE "posts"."id" = $3[0m  [["approved", "t"], ["updated_at", "2016-02-06 22:47:53.731860"], ["id", 1035]]
+  [1m[35m (0.9ms)[0m  COMMIT
+  Rendered text template (0.0ms)
+Completed 200 OK in 5ms (Views: 0.4ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/dashes/1/posts/1036/toggle_approve" for ::1 at 2016-02-06 15:47:55 -0700
+Processing by PostsController#toggle_approve as JS
+  Parameters: {"dash_id"=>"1", "id"=>"1036"}
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT 1[0m  [["id", 1036]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mPost Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "posts" WHERE ("posts"."og_source" = 'http://pbs.twimg.com/media/CaKYFz4WkAEIkhi.jpg' AND "posts"."id" != 1036) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "posts" SET "approved" = $1, "updated_at" = $2 WHERE "posts"."id" = $3  [["approved", "t"], ["updated_at", "2016-02-06 22:47:55.234474"], ["id", 1036]]
+  [1m[36m (0.9ms)[0m  [1mCOMMIT[0m
+  Rendered text template (0.0ms)
+Completed 200 OK in 5ms (Views: 0.4ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/dashes/1/posts/1037/toggle_approve" for ::1 at 2016-02-06 15:47:56 -0700
+Processing by PostsController#toggle_approve as JS
+  Parameters: {"dash_id"=>"1", "id"=>"1037"}
+  [1m[35mPost Load (0.2ms)[0m  SELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT 1  [["id", 1037]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mPost Exists (0.2ms)[0m  SELECT  1 AS one FROM "posts" WHERE ("posts"."og_source" = 'http://pbs.twimg.com/media/CaJxalyVAAAvlYG.jpg' AND "posts"."id" != 1037) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "posts" SET "approved" = $1, "updated_at" = $2 WHERE "posts"."id" = $3[0m  [["approved", "t"], ["updated_at", "2016-02-06 22:47:56.197775"], ["id", 1037]]
+  [1m[35m (0.9ms)[0m  COMMIT
+  Rendered text template (0.0ms)
+Completed 200 OK in 5ms (Views: 0.3ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/dashes/1/posts/1038/toggle_approve" for ::1 at 2016-02-06 15:47:58 -0700
+Processing by PostsController#toggle_approve as JS
+  Parameters: {"dash_id"=>"1", "id"=>"1038"}
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT 1[0m  [["id", 1038]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mPost Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "posts" WHERE ("posts"."og_source" = 'http://pbs.twimg.com/media/CaIV10PWAAA6qWQ.jpg' AND "posts"."id" != 1038) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "posts" SET "approved" = $1, "updated_at" = $2 WHERE "posts"."id" = $3  [["approved", "t"], ["updated_at", "2016-02-06 22:47:58.035734"], ["id", 1038]]
+  [1m[36m (5.5ms)[0m  [1mCOMMIT[0m
+  Rendered text template (0.0ms)
+Completed 200 OK in 9ms (Views: 0.4ms | ActiveRecord: 6.1ms)
+
+
+Started GET "/dashes/1/posts/1039/toggle_approve" for ::1 at 2016-02-06 15:47:59 -0700
+Processing by PostsController#toggle_approve as JS
+  Parameters: {"dash_id"=>"1", "id"=>"1039"}
+  [1m[35mPost Load (0.2ms)[0m  SELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT 1  [["id", 1039]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mPost Exists (0.2ms)[0m  SELECT  1 AS one FROM "posts" WHERE ("posts"."og_source" = 'http://pbs.twimg.com/media/CZ5VcEsUkAAqfK3.jpg' AND "posts"."id" != 1039) LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mUPDATE "posts" SET "approved" = $1, "updated_at" = $2 WHERE "posts"."id" = $3[0m  [["approved", "t"], ["updated_at", "2016-02-06 22:47:59.053401"], ["id", 1039]]
+  [1m[35m (0.7ms)[0m  COMMIT
+  Rendered text template (0.0ms)
+Completed 200 OK in 5ms (Views: 0.5ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/dashes/1/posts/1040/toggle_approve" for ::1 at 2016-02-06 15:48:00 -0700
+Processing by PostsController#toggle_approve as JS
+  Parameters: {"dash_id"=>"1", "id"=>"1040"}
+  [1m[36mPost Load (2.8ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT 1[0m  [["id", 1040]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mPost Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "posts" WHERE ("posts"."og_source" = 'http://pbs.twimg.com/media/CZ2_taQWAAAjEIo.jpg' AND "posts"."id" != 1040) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "posts" SET "approved" = $1, "updated_at" = $2 WHERE "posts"."id" = $3  [["approved", "t"], ["updated_at", "2016-02-06 22:48:00.454196"], ["id", 1040]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  Rendered text template (0.0ms)
+Completed 200 OK in 8ms (Views: 0.5ms | ActiveRecord: 3.7ms)
+
+
+Started GET "/dashes/1" for ::1 at 2016-02-06 15:48:02 -0700
+Processing by DashesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mDash Load (0.6ms)[0m  SELECT  "dashes".* FROM "dashes" WHERE "dashes"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT "posts".* FROM "posts" WHERE "posts"."dash_id" = $1 AND "posts"."approved" IS NULL[0m  [["dash_id", 1]]
+  Rendered dashes/show.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 28ms (Views: 25.2ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/assets/dashes.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-02-06 15:48:02 -0700
+
+
+Started GET "/assets/scaffolds.self-7d54453e88ebfcc1f19d1b9056781e8047187eb677417a8c8fc97da87cda4c39.css?body=1" for ::1 at 2016-02-06 15:48:02 -0700
+
+
+Started GET "/assets/posts.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-02-06 15:48:02 -0700
+
+
+Started GET "/assets/jquery_ujs.self-d602bdfe68ffc63b9f9cc512872aa3cfff046228a0a36e90dd476e8ef54c1b09.js?body=1" for ::1 at 2016-02-06 15:48:02 -0700
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2016-02-06 15:48:02 -0700
+
+
+Started GET "/assets/jquery.self-c64a74367bda6ef8b860f19e74df08927ca99d2be2ac934e9e92d5fd361e0da4.js?body=1" for ::1 at 2016-02-06 15:48:02 -0700
+
+
+Started GET "/assets/dashes.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-02-06 15:48:02 -0700
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2016-02-06 15:48:02 -0700
+
+
+Started GET "/assets/posts.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-02-06 15:48:02 -0700
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2016-02-06 15:48:02 -0700
+
+
+Started GET "/dashes/1" for ::1 at 2016-02-06 15:49:55 -0700
+Processing by DashesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mDash Load (0.1ms)[0m  SELECT  "dashes".* FROM "dashes" WHERE "dashes"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mPost Load (0.4ms)[0m  [1mSELECT "posts".* FROM "posts" WHERE "posts"."dash_id" = $1 AND "posts"."approved" IS NULL[0m  [["dash_id", 1]]
+  Rendered dashes/show.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 17ms (Views: 14.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/posts.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-02-06 15:49:55 -0700
+
+
+Started GET "/assets/jquery.self-c64a74367bda6ef8b860f19e74df08927ca99d2be2ac934e9e92d5fd361e0da4.js?body=1" for ::1 at 2016-02-06 15:49:55 -0700
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2016-02-06 15:49:55 -0700
+
+
+Started GET "/assets/jquery_ujs.self-d602bdfe68ffc63b9f9cc512872aa3cfff046228a0a36e90dd476e8ef54c1b09.js?body=1" for ::1 at 2016-02-06 15:49:55 -0700
+
+
+Started GET "/assets/scaffolds.self-7d54453e88ebfcc1f19d1b9056781e8047187eb677417a8c8fc97da87cda4c39.css?body=1" for ::1 at 2016-02-06 15:49:55 -0700
+
+
+Started GET "/assets/dashes.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-02-06 15:49:55 -0700
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2016-02-06 15:49:55 -0700
+
+
+Started GET "/assets/dashes.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-02-06 15:49:55 -0700
+
+
+Started GET "/assets/posts.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-02-06 15:49:55 -0700
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2016-02-06 15:49:55 -0700
+
+
+Started GET "/dashes/1/queue" for ::1 at 2016-02-06 15:49:57 -0700
+Processing by DashesController#post_queue as HTML
+  Parameters: {"dash_id"=>"1"}
+  [1m[35mDash Load (0.1ms)[0m  SELECT  "dashes".* FROM "dashes" WHERE "dashes"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT "posts".* FROM "posts" WHERE "posts"."dash_id" = $1 AND "posts"."approved" = 't'[0m  [["dash_id", 1]]
+  Rendered dashes/post_queue.html.erb within layouts/application (5.9ms)
+Completed 200 OK in 20ms (Views: 18.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/dashes/1" for ::1 at 2016-02-06 15:52:20 -0700
+Processing by DashesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mDash Load (0.1ms)[0m  SELECT  "dashes".* FROM "dashes" WHERE "dashes"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT "posts".* FROM "posts" WHERE "posts"."dash_id" = $1 AND "posts"."approved" IS NULL[0m  [["dash_id", 1]]
+  Rendered dashes/show.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 16ms (Views: 14.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/dashes.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-02-06 15:52:20 -0700
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2016-02-06 15:52:20 -0700
+
+
+Started GET "/assets/posts.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-02-06 15:52:20 -0700
+
+
+Started GET "/assets/scaffolds.self-7d54453e88ebfcc1f19d1b9056781e8047187eb677417a8c8fc97da87cda4c39.css?body=1" for ::1 at 2016-02-06 15:52:20 -0700
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2016-02-06 15:52:20 -0700
+
+
+Started GET "/assets/jquery.self-c64a74367bda6ef8b860f19e74df08927ca99d2be2ac934e9e92d5fd361e0da4.js?body=1" for ::1 at 2016-02-06 15:52:20 -0700
+
+
+Started GET "/assets/jquery_ujs.self-d602bdfe68ffc63b9f9cc512872aa3cfff046228a0a36e90dd476e8ef54c1b09.js?body=1" for ::1 at 2016-02-06 15:52:20 -0700
+
+
+Started GET "/assets/dashes.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-02-06 15:52:20 -0700
+
+
+Started GET "/assets/posts.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-02-06 15:52:20 -0700
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2016-02-06 15:52:20 -0700
+
+
+Started GET "/dashes/1/add_reddit_pics?utf8=%E2%9C%93&search_term=aww&commit=Search+Reddit" for ::1 at 2016-02-06 15:52:32 -0700
+Processing by DashesController#add_reddit_pics as HTML
+  Parameters: {"utf8"=>"✓", "search_term"=>"aww", "commit"=>"Search Reddit", "dash_id"=>"1"}
+  [1m[35mDash Load (0.1ms)[0m  SELECT  "dashes".* FROM "dashes" WHERE "dashes"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mPost Exists (0.2ms)[0m  SELECT  1 AS one FROM "posts" WHERE "posts"."og_source" = 'https://i.redditmedia.com/8bWk0XbUeTxhVFQcz840_jpxhaaRt5GP40KfDmMAT5c.jpg?s=ff83d482a7091969bd1dac6857a5c0ff' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "posts" ("title", "og_source", "body", "image_src", "dash_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "reddit"], ["og_source", "https://i.redditmedia.com/8bWk0XbUeTxhVFQcz840_jpxhaaRt5GP40KfDmMAT5c.jpg?s=ff83d482a7091969bd1dac6857a5c0ff"], ["body", "A rare moment of stillness."], ["image_src", "https://i.redditmedia.com/8bWk0XbUeTxhVFQcz840_jpxhaaRt5GP40KfDmMAT5c.jpg?s=ff83d482a7091969bd1dac6857a5c0ff"], ["dash_id", 1], ["created_at", "2016-02-06 22:52:33.436043"], ["updated_at", "2016-02-06 22:52:33.436043"]]
+  [1m[35m (0.9ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mPost Exists (0.2ms)[0m  SELECT  1 AS one FROM "posts" WHERE "posts"."og_source" = 'https://i.redditmedia.com/_CbhTNwbirem6bCia5HPB7iay34LFFDHW0raQXKF4EY.jpg?s=354835d72a6ea070fae5311d4274befe' LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "posts" ("title", "og_source", "body", "image_src", "dash_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "reddit"], ["og_source", "https://i.redditmedia.com/_CbhTNwbirem6bCia5HPB7iay34LFFDHW0raQXKF4EY.jpg?s=354835d72a6ea070fae5311d4274befe"], ["body", "Cats react to their first ceiling fan"], ["image_src", "https://i.redditmedia.com/_CbhTNwbirem6bCia5HPB7iay34LFFDHW0raQXKF4EY.jpg?s=354835d72a6ea070fae5311d4274befe"], ["dash_id", 1], ["created_at", "2016-02-06 22:52:33.439698"], ["updated_at", "2016-02-06 22:52:33.439698"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mPost Exists (0.2ms)[0m  SELECT  1 AS one FROM "posts" WHERE "posts"."og_source" = 'https://i.redditmedia.com/Kt8NprfyH1yLZCt5Qk3YsxxMEGO-8E8Ltp0hgnVF_MI.jpg?s=bb9999b4eb0159d425628216e8c21881' LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "posts" ("title", "og_source", "body", "image_src", "dash_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "reddit"], ["og_source", "https://i.redditmedia.com/Kt8NprfyH1yLZCt5Qk3YsxxMEGO-8E8Ltp0hgnVF_MI.jpg?s=bb9999b4eb0159d425628216e8c21881"], ["body", "Hey, leave her alone!"], ["image_src", "https://i.redditmedia.com/Kt8NprfyH1yLZCt5Qk3YsxxMEGO-8E8Ltp0hgnVF_MI.jpg?s=bb9999b4eb0159d425628216e8c21881"], ["dash_id", 1], ["created_at", "2016-02-06 22:52:33.442489"], ["updated_at", "2016-02-06 22:52:33.442489"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mPost Exists (0.2ms)[0m  SELECT  1 AS one FROM "posts" WHERE "posts"."og_source" = 'https://i.redditmedia.com/ZCJR6JowkHervPKoAUae4OofqVqLlamJdVzrsot9-ho.jpg?s=b1b1e59f4092c02676365998ec25118f' LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "posts" ("title", "og_source", "body", "image_src", "dash_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "reddit"], ["og_source", "https://i.redditmedia.com/ZCJR6JowkHervPKoAUae4OofqVqLlamJdVzrsot9-ho.jpg?s=b1b1e59f4092c02676365998ec25118f"], ["body", "When the cat is plotting to kill you and the dog is trying to warn you..."], ["image_src", "https://i.redditmedia.com/ZCJR6JowkHervPKoAUae4OofqVqLlamJdVzrsot9-ho.jpg?s=b1b1e59f4092c02676365998ec25118f"], ["dash_id", 1], ["created_at", "2016-02-06 22:52:33.445026"], ["updated_at", "2016-02-06 22:52:33.445026"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mPost Exists (0.2ms)[0m  SELECT  1 AS one FROM "posts" WHERE "posts"."og_source" = 'https://i.redditmedia.com/q1XNxKuRAXNTwsH_g6Hno3eGwFYLSspDnDL1fp-e9kU.jpg?s=5e5f1763bfe2708cb5ba7693e915e69f' LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "posts" ("title", "og_source", "body", "image_src", "dash_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "reddit"], ["og_source", "https://i.redditmedia.com/q1XNxKuRAXNTwsH_g6Hno3eGwFYLSspDnDL1fp-e9kU.jpg?s=5e5f1763bfe2708cb5ba7693e915e69f"], ["body", "Day 32 - They still think I am one of them"], ["image_src", "https://i.redditmedia.com/q1XNxKuRAXNTwsH_g6Hno3eGwFYLSspDnDL1fp-e9kU.jpg?s=5e5f1763bfe2708cb5ba7693e915e69f"], ["dash_id", 1], ["created_at", "2016-02-06 22:52:33.447492"], ["updated_at", "2016-02-06 22:52:33.447492"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mPost Exists (0.2ms)[0m  SELECT  1 AS one FROM "posts" WHERE "posts"."og_source" = 'https://i.redditmedia.com/QrkODbX8rAauvQAeTv8gPIw9EDi3s4ufxpQrx3NzgWk.jpg?s=7c8cddc2abda374b45254b86ea2f44e5' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "posts" ("title", "og_source", "body", "image_src", "dash_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "reddit"], ["og_source", "https://i.redditmedia.com/QrkODbX8rAauvQAeTv8gPIw9EDi3s4ufxpQrx3NzgWk.jpg?s=7c8cddc2abda374b45254b86ea2f44e5"], ["body", "My brothers cat with no eyes"], ["image_src", "https://i.redditmedia.com/QrkODbX8rAauvQAeTv8gPIw9EDi3s4ufxpQrx3NzgWk.jpg?s=7c8cddc2abda374b45254b86ea2f44e5"], ["dash_id", 1], ["created_at", "2016-02-06 22:52:33.449813"], ["updated_at", "2016-02-06 22:52:33.449813"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mPost Exists (0.2ms)[0m  SELECT  1 AS one FROM "posts" WHERE "posts"."og_source" = 'https://i.redditmedia.com/_WPRFP2L1g4Xho2FZSr1cPDfoePY_gcEDhJIpLOe7wM.jpg?s=a9e08daf0d5f944b01cddd73073e5875' LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "posts" ("title", "og_source", "body", "image_src", "dash_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "reddit"], ["og_source", "https://i.redditmedia.com/_WPRFP2L1g4Xho2FZSr1cPDfoePY_gcEDhJIpLOe7wM.jpg?s=a9e08daf0d5f944b01cddd73073e5875"], ["body", "Hey Reddit, this is Cheese and Pickle. Looking fabulous this morning!"], ["image_src", "https://i.redditmedia.com/_WPRFP2L1g4Xho2FZSr1cPDfoePY_gcEDhJIpLOe7wM.jpg?s=a9e08daf0d5f944b01cddd73073e5875"], ["dash_id", 1], ["created_at", "2016-02-06 22:52:33.452378"], ["updated_at", "2016-02-06 22:52:33.452378"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mPost Exists (0.2ms)[0m  SELECT  1 AS one FROM "posts" WHERE "posts"."og_source" = 'https://i.redditmedia.com/nZnLsxkhFn2pwVK3Z0KRIiXrw_8BKmgRCE_8wV8TvLs.jpg?s=4742cb6b6b39437d7fe3409b30b08c31' LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "posts" ("title", "og_source", "body", "image_src", "dash_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "reddit"], ["og_source", "https://i.redditmedia.com/nZnLsxkhFn2pwVK3Z0KRIiXrw_8BKmgRCE_8wV8TvLs.jpg?s=4742cb6b6b39437d7fe3409b30b08c31"], ["body", "Hey, do not stand too close - I tiger, not pussy! Siberian farm cats."], ["image_src", "https://i.redditmedia.com/nZnLsxkhFn2pwVK3Z0KRIiXrw_8BKmgRCE_8wV8TvLs.jpg?s=4742cb6b6b39437d7fe3409b30b08c31"], ["dash_id", 1], ["created_at", "2016-02-06 22:52:33.454922"], ["updated_at", "2016-02-06 22:52:33.454922"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mPost Exists (0.2ms)[0m  SELECT  1 AS one FROM "posts" WHERE "posts"."og_source" = 'https://i.redditmedia.com/meWXZt8SxBK5HHMtve1_KlMDm7Bszx2SQdbb9Vfu_No.jpg?s=1cef1ee9dca6f6519c28efa7478bc7c0' LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "posts" ("title", "og_source", "body", "image_src", "dash_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "reddit"], ["og_source", "https://i.redditmedia.com/meWXZt8SxBK5HHMtve1_KlMDm7Bszx2SQdbb9Vfu_No.jpg?s=1cef1ee9dca6f6519c28efa7478bc7c0"], ["body", "We'll always be friends forever... Won't we?"], ["image_src", "https://i.redditmedia.com/meWXZt8SxBK5HHMtve1_KlMDm7Bszx2SQdbb9Vfu_No.jpg?s=1cef1ee9dca6f6519c28efa7478bc7c0"], ["dash_id", 1], ["created_at", "2016-02-06 22:52:33.457410"], ["updated_at", "2016-02-06 22:52:33.457410"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mPost Exists (0.2ms)[0m  SELECT  1 AS one FROM "posts" WHERE "posts"."og_source" = 'https://i.redditmedia.com/cvsaypiIBESPGPkPnobWjJgQkZoluGHIcyUmrUb2yco.jpg?s=c1963caf404adf3047e4caa7e5e50015' LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "posts" ("title", "og_source", "body", "image_src", "dash_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "reddit"], ["og_source", "https://i.redditmedia.com/cvsaypiIBESPGPkPnobWjJgQkZoluGHIcyUmrUb2yco.jpg?s=c1963caf404adf3047e4caa7e5e50015"], ["body", "My boyfriend and our cat are close...too close?"], ["image_src", "https://i.redditmedia.com/cvsaypiIBESPGPkPnobWjJgQkZoluGHIcyUmrUb2yco.jpg?s=c1963caf404adf3047e4caa7e5e50015"], ["dash_id", 1], ["created_at", "2016-02-06 22:52:33.459888"], ["updated_at", "2016-02-06 22:52:33.459888"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mPost Exists (0.2ms)[0m  SELECT  1 AS one FROM "posts" WHERE "posts"."og_source" = 'https://i.redditmedia.com/swyVhJM1m7Pxz1CZSbrgNSVoAImxwPxhW_eaKXAdm2k.jpg?s=615eabb45db0f44ebb88048364ee14b3' LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "posts" ("title", "og_source", "body", "image_src", "dash_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "reddit"], ["og_source", "https://i.redditmedia.com/swyVhJM1m7Pxz1CZSbrgNSVoAImxwPxhW_eaKXAdm2k.jpg?s=615eabb45db0f44ebb88048364ee14b3"], ["body", "My cat loves my girlfriend's cat"], ["image_src", "https://i.redditmedia.com/swyVhJM1m7Pxz1CZSbrgNSVoAImxwPxhW_eaKXAdm2k.jpg?s=615eabb45db0f44ebb88048364ee14b3"], ["dash_id", 1], ["created_at", "2016-02-06 22:52:33.463000"], ["updated_at", "2016-02-06 22:52:33.463000"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mPost Exists (0.2ms)[0m  SELECT  1 AS one FROM "posts" WHERE "posts"."og_source" = 'https://i.redditmedia.com/Ic8X8xcrn2fKyuZJCUUHDvzDEBKkUR68POSQVwOskMI.jpg?s=e9b1270e4697817232c73c80232f98eb' LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "posts" ("title", "og_source", "body", "image_src", "dash_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "reddit"], ["og_source", "https://i.redditmedia.com/Ic8X8xcrn2fKyuZJCUUHDvzDEBKkUR68POSQVwOskMI.jpg?s=e9b1270e4697817232c73c80232f98eb"], ["body", "This is the type of cat that would try to sell me magical potions in the woods. I'd buy them all."], ["image_src", "https://i.redditmedia.com/Ic8X8xcrn2fKyuZJCUUHDvzDEBKkUR68POSQVwOskMI.jpg?s=e9b1270e4697817232c73c80232f98eb"], ["dash_id", 1], ["created_at", "2016-02-06 22:52:33.465696"], ["updated_at", "2016-02-06 22:52:33.465696"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mPost Exists (0.2ms)[0m  SELECT  1 AS one FROM "posts" WHERE "posts"."og_source" = 'https://i.redditmedia.com/exKPKrX1OXYGs-b4qzCn__nixTISkJATJGvSwW1I0qU.jpg?s=02a65d770f497a4ad76b5a8f34a8d8ae' LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "posts" ("title", "og_source", "body", "image_src", "dash_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "reddit"], ["og_source", "https://i.redditmedia.com/exKPKrX1OXYGs-b4qzCn__nixTISkJATJGvSwW1I0qU.jpg?s=02a65d770f497a4ad76b5a8f34a8d8ae"], ["body", "G'day mate."], ["image_src", "https://i.redditmedia.com/exKPKrX1OXYGs-b4qzCn__nixTISkJATJGvSwW1I0qU.jpg?s=02a65d770f497a4ad76b5a8f34a8d8ae"], ["dash_id", 1], ["created_at", "2016-02-06 22:52:33.468389"], ["updated_at", "2016-02-06 22:52:33.468389"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mPost Exists (0.2ms)[0m  SELECT  1 AS one FROM "posts" WHERE "posts"."og_source" = 'https://i.redditmedia.com/1rYtqGIck8gW-onaMb_KtZHRt-pD5YnCSfoYwgfZotM.jpg?s=105d8d538e4cf74d879e047330e8564f' LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "posts" ("title", "og_source", "body", "image_src", "dash_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "reddit"], ["og_source", "https://i.redditmedia.com/1rYtqGIck8gW-onaMb_KtZHRt-pD5YnCSfoYwgfZotM.jpg?s=105d8d538e4cf74d879e047330e8564f"], ["body", "The face of betrayal"], ["image_src", "https://i.redditmedia.com/1rYtqGIck8gW-onaMb_KtZHRt-pD5YnCSfoYwgfZotM.jpg?s=105d8d538e4cf74d879e047330e8564f"], ["dash_id", 1], ["created_at", "2016-02-06 22:52:33.470990"], ["updated_at", "2016-02-06 22:52:33.470990"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mPost Exists (0.2ms)[0m  SELECT  1 AS one FROM "posts" WHERE "posts"."og_source" = 'https://i.redditmedia.com/ZN1Vxk6Jr9QQfL93fTrHKbYqgdmnnHbWqQ-1RNxI6p0.jpg?s=f4566fbd28c35228be8b9bb80e459472' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "posts" ("title", "og_source", "body", "image_src", "dash_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "reddit"], ["og_source", "https://i.redditmedia.com/ZN1Vxk6Jr9QQfL93fTrHKbYqgdmnnHbWqQ-1RNxI6p0.jpg?s=f4566fbd28c35228be8b9bb80e459472"], ["body", "Cats magically turn into cartoon characters when you eat tuna sandwiches"], ["image_src", "https://i.redditmedia.com/ZN1Vxk6Jr9QQfL93fTrHKbYqgdmnnHbWqQ-1RNxI6p0.jpg?s=f4566fbd28c35228be8b9bb80e459472"], ["dash_id", 1], ["created_at", "2016-02-06 22:52:33.473860"], ["updated_at", "2016-02-06 22:52:33.473860"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mPost Exists (0.2ms)[0m  SELECT  1 AS one FROM "posts" WHERE "posts"."og_source" = 'https://i.redditmedia.com/wNx7J_zZY5DfIkmWbHiLOrzGIlY_rdp8teop75L1Q8I.jpg?s=75031b57bcef1516864821790de0e062' LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "posts" ("title", "og_source", "body", "image_src", "dash_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "reddit"], ["og_source", "https://i.redditmedia.com/wNx7J_zZY5DfIkmWbHiLOrzGIlY_rdp8teop75L1Q8I.jpg?s=75031b57bcef1516864821790de0e062"], ["body", "Dog doesn't know how to handle coconut crab"], ["image_src", "https://i.redditmedia.com/wNx7J_zZY5DfIkmWbHiLOrzGIlY_rdp8teop75L1Q8I.jpg?s=75031b57bcef1516864821790de0e062"], ["dash_id", 1], ["created_at", "2016-02-06 22:52:33.476770"], ["updated_at", "2016-02-06 22:52:33.476770"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mPost Exists (0.2ms)[0m  SELECT  1 AS one FROM "posts" WHERE "posts"."og_source" = 'https://i.redditmedia.com/vvnhg7cNw9QDmH0c8oo9FXgsW9G5OwN4yaZ7ji6ip7A.jpg?s=fe9c144847de283bb5df0602975fcf54' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "posts" ("title", "og_source", "body", "image_src", "dash_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "reddit"], ["og_source", "https://i.redditmedia.com/vvnhg7cNw9QDmH0c8oo9FXgsW9G5OwN4yaZ7ji6ip7A.jpg?s=fe9c144847de283bb5df0602975fcf54"], ["body", "The rare and elusive Tiger Shark"], ["image_src", "https://i.redditmedia.com/vvnhg7cNw9QDmH0c8oo9FXgsW9G5OwN4yaZ7ji6ip7A.jpg?s=fe9c144847de283bb5df0602975fcf54"], ["dash_id", 1], ["created_at", "2016-02-06 22:52:33.479552"], ["updated_at", "2016-02-06 22:52:33.479552"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mPost Exists (0.2ms)[0m  SELECT  1 AS one FROM "posts" WHERE "posts"."og_source" = 'https://i.redditmedia.com/tTW72aM1DKNoWZbzdte5OpFZF7-7mFmpm4EnamZwR1s.jpg?s=6cce9380d6ee1027b22ce15f6c27341c' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "posts" ("title", "og_source", "body", "image_src", "dash_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "reddit"], ["og_source", "https://i.redditmedia.com/tTW72aM1DKNoWZbzdte5OpFZF7-7mFmpm4EnamZwR1s.jpg?s=6cce9380d6ee1027b22ce15f6c27341c"], ["body", "Once a Momma, Always a Momma"], ["image_src", "https://i.redditmedia.com/tTW72aM1DKNoWZbzdte5OpFZF7-7mFmpm4EnamZwR1s.jpg?s=6cce9380d6ee1027b22ce15f6c27341c"], ["dash_id", 1], ["created_at", "2016-02-06 22:52:33.482193"], ["updated_at", "2016-02-06 22:52:33.482193"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mPost Exists (0.2ms)[0m  SELECT  1 AS one FROM "posts" WHERE "posts"."og_source" = 'https://i.redditmedia.com/lVaAHNFJ053eEy9vJT7PU6HBNX5Edeyz0kK2SS5vShg.jpg?s=d06cd032c83f28c3d62d250e30dfaa91' LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "posts" ("title", "og_source", "body", "image_src", "dash_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "reddit"], ["og_source", "https://i.redditmedia.com/lVaAHNFJ053eEy9vJT7PU6HBNX5Edeyz0kK2SS5vShg.jpg?s=d06cd032c83f28c3d62d250e30dfaa91"], ["body", "Getting out of bed is almost impossible these days"], ["image_src", "https://i.redditmedia.com/lVaAHNFJ053eEy9vJT7PU6HBNX5Edeyz0kK2SS5vShg.jpg?s=d06cd032c83f28c3d62d250e30dfaa91"], ["dash_id", 1], ["created_at", "2016-02-06 22:52:33.484871"], ["updated_at", "2016-02-06 22:52:33.484871"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mPost Exists (0.2ms)[0m  SELECT  1 AS one FROM "posts" WHERE "posts"."og_source" = 'https://i.redditmedia.com/1GGpCGMa4TikZLPGZrrUOgLDjvd0ymSC3ZMDtIHSMDw.jpg?s=b2efcee0e62f0580062de129acdd624f' LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "posts" ("title", "og_source", "body", "image_src", "dash_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "reddit"], ["og_source", "https://i.redditmedia.com/1GGpCGMa4TikZLPGZrrUOgLDjvd0ymSC3ZMDtIHSMDw.jpg?s=b2efcee0e62f0580062de129acdd624f"], ["body", "hello"], ["image_src", "https://i.redditmedia.com/1GGpCGMa4TikZLPGZrrUOgLDjvd0ymSC3ZMDtIHSMDw.jpg?s=b2efcee0e62f0580062de129acdd624f"], ["dash_id", 1], ["created_at", "2016-02-06 22:52:33.487344"], ["updated_at", "2016-02-06 22:52:33.487344"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mPost Exists (0.2ms)[0m  SELECT  1 AS one FROM "posts" WHERE "posts"."og_source" = 'https://i.redditmedia.com/pILwuF1hZtjlYVmq6FlTSYnjSUgijinIdjN_5huJGsQ.jpg?s=24ac58b3efdf2307dd68771aaf07ceae' LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "posts" ("title", "og_source", "body", "image_src", "dash_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "reddit"], ["og_source", "https://i.redditmedia.com/pILwuF1hZtjlYVmq6FlTSYnjSUgijinIdjN_5huJGsQ.jpg?s=24ac58b3efdf2307dd68771aaf07ceae"], ["body", "Tiger yawn"], ["image_src", "https://i.redditmedia.com/pILwuF1hZtjlYVmq6FlTSYnjSUgijinIdjN_5huJGsQ.jpg?s=24ac58b3efdf2307dd68771aaf07ceae"], ["dash_id", 1], ["created_at", "2016-02-06 22:52:33.489807"], ["updated_at", "2016-02-06 22:52:33.489807"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mPost Exists (0.2ms)[0m  SELECT  1 AS one FROM "posts" WHERE "posts"."og_source" = 'https://i.redditmedia.com/noVeHwzRBI5ymKfd0LIdlO_jmn0xEFwVCS6HAYmS8CM.jpg?s=35db77bfff4cc7914626c7396637ddc8' LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "posts" ("title", "og_source", "body", "image_src", "dash_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "reddit"], ["og_source", "https://i.redditmedia.com/noVeHwzRBI5ymKfd0LIdlO_jmn0xEFwVCS6HAYmS8CM.jpg?s=35db77bfff4cc7914626c7396637ddc8"], ["body", "Kookaburra says hello"], ["image_src", "https://i.redditmedia.com/noVeHwzRBI5ymKfd0LIdlO_jmn0xEFwVCS6HAYmS8CM.jpg?s=35db77bfff4cc7914626c7396637ddc8"], ["dash_id", 1], ["created_at", "2016-02-06 22:52:33.492346"], ["updated_at", "2016-02-06 22:52:33.492346"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mPost Exists (0.2ms)[0m  SELECT  1 AS one FROM "posts" WHERE "posts"."og_source" = 'https://i.redditmedia.com/bSC6UWjZJJLygVeGd2PCuPj7KZhRvwUrK9haH_JmukA.jpg?s=d20a0177e3ba6466d868abc0ee28bca6' LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "posts" ("title", "og_source", "body", "image_src", "dash_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "reddit"], ["og_source", "https://i.redditmedia.com/bSC6UWjZJJLygVeGd2PCuPj7KZhRvwUrK9haH_JmukA.jpg?s=d20a0177e3ba6466d868abc0ee28bca6"], ["body", "They grow up so fast..."], ["image_src", "https://i.redditmedia.com/bSC6UWjZJJLygVeGd2PCuPj7KZhRvwUrK9haH_JmukA.jpg?s=d20a0177e3ba6466d868abc0ee28bca6"], ["dash_id", 1], ["created_at", "2016-02-06 22:52:33.494715"], ["updated_at", "2016-02-06 22:52:33.494715"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mPost Exists (0.2ms)[0m  SELECT  1 AS one FROM "posts" WHERE "posts"."og_source" = 'https://i.redditmedia.com/eNWkguFe99UBkxMn4_oclBD7K9bQEI-te9sImB0wz-Y.jpg?s=70318b72a10b5f280a944351cf548628' LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "posts" ("title", "og_source", "body", "image_src", "dash_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "reddit"], ["og_source", "https://i.redditmedia.com/eNWkguFe99UBkxMn4_oclBD7K9bQEI-te9sImB0wz-Y.jpg?s=70318b72a10b5f280a944351cf548628"], ["body", "Wanted a German shepherd, got a kangaroo."], ["image_src", "https://i.redditmedia.com/eNWkguFe99UBkxMn4_oclBD7K9bQEI-te9sImB0wz-Y.jpg?s=70318b72a10b5f280a944351cf548628"], ["dash_id", 1], ["created_at", "2016-02-06 22:52:33.497243"], ["updated_at", "2016-02-06 22:52:33.497243"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mPost Exists (0.2ms)[0m  SELECT  1 AS one FROM "posts" WHERE "posts"."og_source" = 'https://i.redditmedia.com/S7F-yzr0lvNuw6YxpvhzstjhNL9WNgvgykaYLEc4fnw.jpg?s=ab288cc7849901caed9c725aa5281021' LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "posts" ("title", "og_source", "body", "image_src", "dash_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "reddit"], ["og_source", "https://i.redditmedia.com/S7F-yzr0lvNuw6YxpvhzstjhNL9WNgvgykaYLEc4fnw.jpg?s=ab288cc7849901caed9c725aa5281021"], ["body", "Num num num..hey there!"], ["image_src", "https://i.redditmedia.com/S7F-yzr0lvNuw6YxpvhzstjhNL9WNgvgykaYLEc4fnw.jpg?s=ab288cc7849901caed9c725aa5281021"], ["dash_id", 1], ["created_at", "2016-02-06 22:52:33.499757"], ["updated_at", "2016-02-06 22:52:33.499757"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+Redirected to http://localhost:3000/dashes/1
+Completed 302 Found in 924ms (ActiveRecord: 18.5ms)
+
+
+Started GET "/dashes/1" for ::1 at 2016-02-06 15:52:33 -0700
+Processing by DashesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mDash Load (0.1ms)[0m  [1mSELECT  "dashes".* FROM "dashes" WHERE "dashes"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mPost Load (0.2ms)[0m  SELECT "posts".* FROM "posts" WHERE "posts"."dash_id" = $1 AND "posts"."approved" IS NULL  [["dash_id", 1]]
+  Rendered dashes/show.html.erb within layouts/application (5.6ms)
+Completed 200 OK in 19ms (Views: 16.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/dashes/1/add_reddit_pics?utf8=%E2%9C%93&search_term=puppies&commit=Search+Reddit" for ::1 at 2016-02-06 15:53:22 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by DashesController#add_reddit_pics as HTML
+  Parameters: {"utf8"=>"✓", "search_term"=>"puppies", "commit"=>"Search Reddit", "dash_id"=>"1"}
+  [1m[35mDash Load (0.5ms)[0m  SELECT  "dashes".* FROM "dashes" WHERE "dashes"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "dashes" SET "subreddit" = $1, "updated_at" = $2 WHERE "dashes"."id" = $3  [["subreddit", "puppies"], ["updated_at", "2016-02-06 22:53:22.630094"], ["id", 1]]
+  [1m[36m (6.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mPost Exists (0.7ms)[0m  [1mSELECT  1 AS one FROM "posts" WHERE "posts"."og_source" = 'https://i.redditmedia.com/BFkMvq4iTPGVLIFRq3EFEnvi6-On-ee3Y5YnzJQYJB8.jpg?s=4e77624513f2e820560e1a461bfce30c' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "posts" ("title", "og_source", "body", "image_src", "dash_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["title", "reddit"], ["og_source", "https://i.redditmedia.com/BFkMvq4iTPGVLIFRq3EFEnvi6-On-ee3Y5YnzJQYJB8.jpg?s=4e77624513f2e820560e1a461bfce30c"], ["body", "Loom mom I made a new friend!"], ["image_src", "https://i.redditmedia.com/BFkMvq4iTPGVLIFRq3EFEnvi6-On-ee3Y5YnzJQYJB8.jpg?s=4e77624513f2e820560e1a461bfce30c"], ["dash_id", 1], ["created_at", "2016-02-06 22:53:23.561941"], ["updated_at", "2016-02-06 22:53:23.561941"]]
+  [1m[36m (5.8ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mPost Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "posts" WHERE "posts"."og_source" = 'https://i.redditmedia.com/Phsyv2eHGrp2pnq4AukLJvDCgOollGQBuc0TlLqINNw.jpg?s=e01434a8431e831a49791e25055d34bd' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "posts" ("title", "og_source", "body", "image_src", "dash_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["title", "reddit"], ["og_source", "https://i.redditmedia.com/Phsyv2eHGrp2pnq4AukLJvDCgOollGQBuc0TlLqINNw.jpg?s=e01434a8431e831a49791e25055d34bd"], ["body", "My 1 year old party girl"], ["image_src", "https://i.redditmedia.com/Phsyv2eHGrp2pnq4AukLJvDCgOollGQBuc0TlLqINNw.jpg?s=e01434a8431e831a49791e25055d34bd"], ["dash_id", 1], ["created_at", "2016-02-06 22:53:23.578871"], ["updated_at", "2016-02-06 22:53:23.578871"]]
+  [1m[36m (5.0ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mPost Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "posts" WHERE "posts"."og_source" = 'https://i.redditmedia.com/zF83iqYKo7vvEiqS2snmGADbnMJHFtUUB_mnLm60DaY.jpg?s=7060d4e4a3128a0a31002ff137f1b038' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "posts" ("title", "og_source", "body", "image_src", "dash_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["title", "reddit"], ["og_source", "https://i.redditmedia.com/zF83iqYKo7vvEiqS2snmGADbnMJHFtUUB_mnLm60DaY.jpg?s=7060d4e4a3128a0a31002ff137f1b038"], ["body", "this is my chusky puppy chief, hes 2 months old and hes my baby &lt;3"], ["image_src", "https://i.redditmedia.com/zF83iqYKo7vvEiqS2snmGADbnMJHFtUUB_mnLm60DaY.jpg?s=7060d4e4a3128a0a31002ff137f1b038"], ["dash_id", 1], ["created_at", "2016-02-06 22:53:23.586615"], ["updated_at", "2016-02-06 22:53:23.586615"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mPost Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "posts" WHERE "posts"."og_source" = 'https://i.redditmedia.com/34YMuIpbSoIE1sldQCZ_jAzgdzR0wc3tpHsOGrYpuIw.jpg?s=7ab00714292bbfbc9d0ff12d8c1f7fbd' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "posts" ("title", "og_source", "body", "image_src", "dash_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["title", "reddit"], ["og_source", "https://i.redditmedia.com/34YMuIpbSoIE1sldQCZ_jAzgdzR0wc3tpHsOGrYpuIw.jpg?s=7ab00714292bbfbc9d0ff12d8c1f7fbd"], ["body", "Basil posing with the baby sock we found in the wash"], ["image_src", "https://i.redditmedia.com/34YMuIpbSoIE1sldQCZ_jAzgdzR0wc3tpHsOGrYpuIw.jpg?s=7ab00714292bbfbc9d0ff12d8c1f7fbd"], ["dash_id", 1], ["created_at", "2016-02-06 22:53:23.589302"], ["updated_at", "2016-02-06 22:53:23.589302"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mPost Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "posts" WHERE "posts"."og_source" = 'https://i.redditmedia.com/4xFezp8qybWigpg6WN5gkAuI39AIPdv4jdHijFU4_ns.jpg?s=8598544207619a3020f808583e28b4c4' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "posts" ("title", "og_source", "body", "image_src", "dash_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["title", "reddit"], ["og_source", "https://i.redditmedia.com/4xFezp8qybWigpg6WN5gkAuI39AIPdv4jdHijFU4_ns.jpg?s=8598544207619a3020f808583e28b4c4"], ["body", "Need help naming your puppy or dog? Try new subreddit /r/NameMyDog"], ["image_src", "https://i.redditmedia.com/4xFezp8qybWigpg6WN5gkAuI39AIPdv4jdHijFU4_ns.jpg?s=8598544207619a3020f808583e28b4c4"], ["dash_id", 1], ["created_at", "2016-02-06 22:53:23.592040"], ["updated_at", "2016-02-06 22:53:23.592040"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mPost Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "posts" WHERE "posts"."og_source" = 'https://i.redditmedia.com/VngxqBATHPekif6yZwntoikHWu2YZdvhVHv0_SRxGM0.jpg?s=8fe56f8b61e9046aa650a584eec3b903' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "posts" ("title", "og_source", "body", "image_src", "dash_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["title", "reddit"], ["og_source", "https://i.redditmedia.com/VngxqBATHPekif6yZwntoikHWu2YZdvhVHv0_SRxGM0.jpg?s=8fe56f8b61e9046aa650a584eec3b903"], ["body", "Hello...!"], ["image_src", "https://i.redditmedia.com/VngxqBATHPekif6yZwntoikHWu2YZdvhVHv0_SRxGM0.jpg?s=8fe56f8b61e9046aa650a584eec3b903"], ["dash_id", 1], ["created_at", "2016-02-06 22:53:23.595212"], ["updated_at", "2016-02-06 22:53:23.595212"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mPost Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "posts" WHERE "posts"."og_source" = 'https://i.redditmedia.com/wJvQRQnpi0GhKezKfKSO1eBcYgwQRIemjEg28U49i4I.jpg?s=edded74cc9545b7f0325510e624daf10' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "posts" ("title", "og_source", "body", "image_src", "dash_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["title", "reddit"], ["og_source", "https://i.redditmedia.com/wJvQRQnpi0GhKezKfKSO1eBcYgwQRIemjEg28U49i4I.jpg?s=edded74cc9545b7f0325510e624daf10"], ["body", "Are you sure you have to work? Are you sure you don't wanna throw a ball and I never bring it back?"], ["image_src", "https://i.redditmedia.com/wJvQRQnpi0GhKezKfKSO1eBcYgwQRIemjEg28U49i4I.jpg?s=edded74cc9545b7f0325510e624daf10"], ["dash_id", 1], ["created_at", "2016-02-06 22:53:23.597746"], ["updated_at", "2016-02-06 22:53:23.597746"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mPost Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "posts" WHERE "posts"."og_source" = 'https://i.redditmedia.com/907tx42PTondNdUL4Z8nK7JINdztSc8m7jz8zehmZLk.jpg?s=190aa543e8801808c3cabf93a29a292e' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "posts" ("title", "og_source", "body", "image_src", "dash_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["title", "reddit"], ["og_source", "https://i.redditmedia.com/907tx42PTondNdUL4Z8nK7JINdztSc8m7jz8zehmZLk.jpg?s=190aa543e8801808c3cabf93a29a292e"], ["body", "Boo Berry Bandit - Bended Like Beckham"], ["image_src", "https://i.redditmedia.com/907tx42PTondNdUL4Z8nK7JINdztSc8m7jz8zehmZLk.jpg?s=190aa543e8801808c3cabf93a29a292e"], ["dash_id", 1], ["created_at", "2016-02-06 22:53:23.600569"], ["updated_at", "2016-02-06 22:53:23.600569"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mPost Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "posts" WHERE "posts"."og_source" = 'https://i.redditmedia.com/hINx7643hiRIVRTxtRwvxYUROrnPqWYKSKsr8vU1DpE.jpg?s=77afb5468dd14f28c7bc0c4a12730f0d' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "posts" ("title", "og_source", "body", "image_src", "dash_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["title", "reddit"], ["og_source", "https://i.redditmedia.com/hINx7643hiRIVRTxtRwvxYUROrnPqWYKSKsr8vU1DpE.jpg?s=77afb5468dd14f28c7bc0c4a12730f0d"], ["body", "Morning Peace"], ["image_src", "https://i.redditmedia.com/hINx7643hiRIVRTxtRwvxYUROrnPqWYKSKsr8vU1DpE.jpg?s=77afb5468dd14f28c7bc0c4a12730f0d"], ["dash_id", 1], ["created_at", "2016-02-06 22:53:23.603405"], ["updated_at", "2016-02-06 22:53:23.603405"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mPost Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "posts" WHERE "posts"."og_source" = 'https://i.redditmedia.com/2j8fb21f7J35iPmlgzon8sG7eGMSIMqVM6K6kOpdNAI.jpg?s=b1b28d7f5bb4d40f0a30fdaa174024ed' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "posts" ("title", "og_source", "body", "image_src", "dash_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["title", "reddit"], ["og_source", "https://i.redditmedia.com/2j8fb21f7J35iPmlgzon8sG7eGMSIMqVM6K6kOpdNAI.jpg?s=b1b28d7f5bb4d40f0a30fdaa174024ed"], ["body", "Watcher of the Woods (xpost /r/CanineMajesty)"], ["image_src", "https://i.redditmedia.com/2j8fb21f7J35iPmlgzon8sG7eGMSIMqVM6K6kOpdNAI.jpg?s=b1b28d7f5bb4d40f0a30fdaa174024ed"], ["dash_id", 1], ["created_at", "2016-02-06 22:53:23.606008"], ["updated_at", "2016-02-06 22:53:23.606008"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mPost Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "posts" WHERE "posts"."og_source" = 'https://i.redditmedia.com/qrCF3cO6Xo1GMUmp1EhA2szrbEmdlNfe4-gb_LjirqA.jpg?s=c7544819693b56c8ddd6356989b02084' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "posts" ("title", "og_source", "body", "image_src", "dash_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["title", "reddit"], ["og_source", "https://i.redditmedia.com/qrCF3cO6Xo1GMUmp1EhA2szrbEmdlNfe4-gb_LjirqA.jpg?s=c7544819693b56c8ddd6356989b02084"], ["body", "Budweiser's 'Puppy Love' crowned Ad Meter 50 for 50th bracket champion"], ["image_src", "https://i.redditmedia.com/qrCF3cO6Xo1GMUmp1EhA2szrbEmdlNfe4-gb_LjirqA.jpg?s=c7544819693b56c8ddd6356989b02084"], ["dash_id", 1], ["created_at", "2016-02-06 22:53:23.624503"], ["updated_at", "2016-02-06 22:53:23.624503"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mPost Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "posts" WHERE "posts"."og_source" = 'https://i.redditmedia.com/jUPc7E1JRw0DBoAZXGzv7t5nqv2x9AxynpIdpeFbPQk.jpg?s=905afdc3e877fccf350f0388d0f79175' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "posts" ("title", "og_source", "body", "image_src", "dash_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["title", "reddit"], ["og_source", "https://i.redditmedia.com/jUPc7E1JRw0DBoAZXGzv7t5nqv2x9AxynpIdpeFbPQk.jpg?s=905afdc3e877fccf350f0388d0f79175"], ["body", "Boo Berry Bandit (BBB) and the US open"], ["image_src", "https://i.redditmedia.com/jUPc7E1JRw0DBoAZXGzv7t5nqv2x9AxynpIdpeFbPQk.jpg?s=905afdc3e877fccf350f0388d0f79175"], ["dash_id", 1], ["created_at", "2016-02-06 22:53:23.627587"], ["updated_at", "2016-02-06 22:53:23.627587"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mPost Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "posts" WHERE "posts"."og_source" = 'https://i.redditmedia.com/4Sho0qA-Sqy7YsEd5h75k9aK51p0rEz2SP-9k4-QMWc.jpg?s=bff4e3b67c8c86f63e9e6276757d8c7f' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "posts" ("title", "og_source", "body", "image_src", "dash_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["title", "reddit"], ["og_source", "https://i.redditmedia.com/4Sho0qA-Sqy7YsEd5h75k9aK51p0rEz2SP-9k4-QMWc.jpg?s=bff4e3b67c8c86f63e9e6276757d8c7f"], ["body", "Anatolian-Great Pyrenees pups. They'll grow up to be fierce guard dogs, but they're just adorable now."], ["image_src", "https://i.redditmedia.com/4Sho0qA-Sqy7YsEd5h75k9aK51p0rEz2SP-9k4-QMWc.jpg?s=bff4e3b67c8c86f63e9e6276757d8c7f"], ["dash_id", 1], ["created_at", "2016-02-06 22:53:23.630394"], ["updated_at", "2016-02-06 22:53:23.630394"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mPost Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "posts" WHERE "posts"."og_source" = 'https://i.redditmedia.com/CmuGLiAUv_diRi-ZJX_3PS_ELjbEsvivO0GavINvygQ.jpg?s=9c927f5404493dda76d51a734521499d' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "posts" ("title", "og_source", "body", "image_src", "dash_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["title", "reddit"], ["og_source", "https://i.redditmedia.com/CmuGLiAUv_diRi-ZJX_3PS_ELjbEsvivO0GavINvygQ.jpg?s=9c927f5404493dda76d51a734521499d"], ["body", "Hands full with husky puppies"], ["image_src", "https://i.redditmedia.com/CmuGLiAUv_diRi-ZJX_3PS_ELjbEsvivO0GavINvygQ.jpg?s=9c927f5404493dda76d51a734521499d"], ["dash_id", 1], ["created_at", "2016-02-06 22:53:23.633153"], ["updated_at", "2016-02-06 22:53:23.633153"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mPost Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "posts" WHERE "posts"."og_source" = 'https://i.redditmedia.com/15VREukXXkVlJ1q_kALCrAkbq9qme2FNxyk25mRR-6w.jpg?s=1a3cf85ede7fbdc13f0ef59f07dfb548' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "posts" ("title", "og_source", "body", "image_src", "dash_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["title", "reddit"], ["og_source", "https://i.redditmedia.com/15VREukXXkVlJ1q_kALCrAkbq9qme2FNxyk25mRR-6w.jpg?s=1a3cf85ede7fbdc13f0ef59f07dfb548"], ["body", "introducing Watson; he's an English lab"], ["image_src", "https://i.redditmedia.com/15VREukXXkVlJ1q_kALCrAkbq9qme2FNxyk25mRR-6w.jpg?s=1a3cf85ede7fbdc13f0ef59f07dfb548"], ["dash_id", 1], ["created_at", "2016-02-06 22:53:23.636070"], ["updated_at", "2016-02-06 22:53:23.636070"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mPost Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "posts" WHERE "posts"."og_source" = 'https://i.redditmedia.com/PykM6JNnUDaBpeo3FOp4Y__XaRsb9dYHJ3GCFSr015g.jpg?s=3e3f522704c3e151a028dcaac4a1b73d' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "posts" ("title", "og_source", "body", "image_src", "dash_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["title", "reddit"], ["og_source", "https://i.redditmedia.com/PykM6JNnUDaBpeo3FOp4Y__XaRsb9dYHJ3GCFSr015g.jpg?s=3e3f522704c3e151a028dcaac4a1b73d"], ["body", "That puppy stage when your legs are too long and you don't know where to put them..."], ["image_src", "https://i.redditmedia.com/PykM6JNnUDaBpeo3FOp4Y__XaRsb9dYHJ3GCFSr015g.jpg?s=3e3f522704c3e151a028dcaac4a1b73d"], ["dash_id", 1], ["created_at", "2016-02-06 22:53:23.638784"], ["updated_at", "2016-02-06 22:53:23.638784"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mPost Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "posts" WHERE "posts"."og_source" = 'https://i.redditmedia.com/wbSTpM8eY9qFCZ0cJq9G9JJGQ_IXFyDQkpOO41Vy0m0.jpg?s=79a32f8f22f4185744d6fd4647617d35' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "posts" ("title", "og_source", "body", "image_src", "dash_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["title", "reddit"], ["og_source", "https://i.redditmedia.com/wbSTpM8eY9qFCZ0cJq9G9JJGQ_IXFyDQkpOO41Vy0m0.jpg?s=79a32f8f22f4185744d6fd4647617d35"], ["body", "Playing with cute white puppy!"], ["image_src", "https://i.redditmedia.com/wbSTpM8eY9qFCZ0cJq9G9JJGQ_IXFyDQkpOO41Vy0m0.jpg?s=79a32f8f22f4185744d6fd4647617d35"], ["dash_id", 1], ["created_at", "2016-02-06 22:53:23.641442"], ["updated_at", "2016-02-06 22:53:23.641442"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mPost Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "posts" WHERE "posts"."og_source" = 'https://i.redditmedia.com/Cr-910sZaY-HzM9EE1f3i_dElVeHLJwkCsNHbzGLLT0.jpg?s=9b62cf400d075fa4287ac90653cddecc' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "posts" ("title", "og_source", "body", "image_src", "dash_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["title", "reddit"], ["og_source", "https://i.redditmedia.com/Cr-910sZaY-HzM9EE1f3i_dElVeHLJwkCsNHbzGLLT0.jpg?s=9b62cf400d075fa4287ac90653cddecc"], ["body", "ZZZ... in the spiky haired boy's messy room"], ["image_src", "https://i.redditmedia.com/Cr-910sZaY-HzM9EE1f3i_dElVeHLJwkCsNHbzGLLT0.jpg?s=9b62cf400d075fa4287ac90653cddecc"], ["dash_id", 1], ["created_at", "2016-02-06 22:53:23.644536"], ["updated_at", "2016-02-06 22:53:23.644536"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mPost Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "posts" WHERE "posts"."og_source" = 'https://i.redditmedia.com/7q6haIiZv4f73u2cRPaC99-f3bTPeqlxmbXYqmsi4Ow.jpg?s=bcb4d7f0f4ffd190266debd4f2c4ae02' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "posts" ("title", "og_source", "body", "image_src", "dash_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["title", "reddit"], ["og_source", "https://i.redditmedia.com/7q6haIiZv4f73u2cRPaC99-f3bTPeqlxmbXYqmsi4Ow.jpg?s=bcb4d7f0f4ffd190266debd4f2c4ae02"], ["body", "The breeder wanted to know if he was settling in ok. I sent her this"], ["image_src", "https://i.redditmedia.com/7q6haIiZv4f73u2cRPaC99-f3bTPeqlxmbXYqmsi4Ow.jpg?s=bcb4d7f0f4ffd190266debd4f2c4ae02"], ["dash_id", 1], ["created_at", "2016-02-06 22:53:23.647336"], ["updated_at", "2016-02-06 22:53:23.647336"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mPost Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "posts" WHERE "posts"."og_source" = 'https://i.redditmedia.com/HKL2My2F33gDWmBEqDWOh6xpHGpzsSakqi8FaxG3YF4.jpg?s=b5eaa86654f1347d10546a4cfed53480' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "posts" ("title", "og_source", "body", "image_src", "dash_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["title", "reddit"], ["og_source", "https://i.redditmedia.com/HKL2My2F33gDWmBEqDWOh6xpHGpzsSakqi8FaxG3YF4.jpg?s=b5eaa86654f1347d10546a4cfed53480"], ["body", "So I heard you guys like puppies..."], ["image_src", "https://i.redditmedia.com/HKL2My2F33gDWmBEqDWOh6xpHGpzsSakqi8FaxG3YF4.jpg?s=b5eaa86654f1347d10546a4cfed53480"], ["dash_id", 1], ["created_at", "2016-02-06 22:53:23.649968"], ["updated_at", "2016-02-06 22:53:23.649968"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mPost Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "posts" WHERE "posts"."og_source" = 'https://i.redditmedia.com/hVu3dN7n5PJIVKz3QBbJWtbHQVmNRc6nh3B_IJT1DMA.jpg?s=c34ac8e18ef23098a8d8414fa77a3b4e' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "posts" ("title", "og_source", "body", "image_src", "dash_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["title", "reddit"], ["og_source", "https://i.redditmedia.com/hVu3dN7n5PJIVKz3QBbJWtbHQVmNRc6nh3B_IJT1DMA.jpg?s=c34ac8e18ef23098a8d8414fa77a3b4e"], ["body", "Bella After A Walk"], ["image_src", "https://i.redditmedia.com/hVu3dN7n5PJIVKz3QBbJWtbHQVmNRc6nh3B_IJT1DMA.jpg?s=c34ac8e18ef23098a8d8414fa77a3b4e"], ["dash_id", 1], ["created_at", "2016-02-06 22:53:23.652828"], ["updated_at", "2016-02-06 22:53:23.652828"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mPost Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "posts" WHERE "posts"."og_source" = 'https://i.redditmedia.com/dqInWdXahHKBvGhBqwXtVfgwcLonQ8C7xJMVNyTVrQo.jpg?s=d3d63cf873c8bf93e94432c9b5ba1f96' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "posts" ("title", "og_source", "body", "image_src", "dash_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["title", "reddit"], ["og_source", "https://i.redditmedia.com/dqInWdXahHKBvGhBqwXtVfgwcLonQ8C7xJMVNyTVrQo.jpg?s=d3d63cf873c8bf93e94432c9b5ba1f96"], ["body", "Maggie went to the dog park today"], ["image_src", "https://i.redditmedia.com/dqInWdXahHKBvGhBqwXtVfgwcLonQ8C7xJMVNyTVrQo.jpg?s=d3d63cf873c8bf93e94432c9b5ba1f96"], ["dash_id", 1], ["created_at", "2016-02-06 22:53:23.655508"], ["updated_at", "2016-02-06 22:53:23.655508"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mPost Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "posts" WHERE "posts"."og_source" = 'https://i.redditmedia.com/3P1ygFkoHs8ASPJSh0h7XZMTIc4WqmVJF2bTcrDyA_I.jpg?s=8403c9cf9ec15303f56251e377557224' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "posts" ("title", "og_source", "body", "image_src", "dash_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["title", "reddit"], ["og_source", "https://i.redditmedia.com/3P1ygFkoHs8ASPJSh0h7XZMTIc4WqmVJF2bTcrDyA_I.jpg?s=8403c9cf9ec15303f56251e377557224"], ["body", "We call him Kevin McCallister"], ["image_src", "https://i.redditmedia.com/3P1ygFkoHs8ASPJSh0h7XZMTIc4WqmVJF2bTcrDyA_I.jpg?s=8403c9cf9ec15303f56251e377557224"], ["dash_id", 1], ["created_at", "2016-02-06 22:53:23.674628"], ["updated_at", "2016-02-06 22:53:23.674628"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mPost Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "posts" WHERE "posts"."og_source" = 'https://i.redditmedia.com/-Rukj_jT6TJPxsdmlBT9FM7Y50lOU9Qe7QHTqN8dGqI.jpg?s=d792a471f8b1b0ca87efdd64a7672bf9' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "posts" ("title", "og_source", "body", "image_src", "dash_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["title", "reddit"], ["og_source", "https://i.redditmedia.com/-Rukj_jT6TJPxsdmlBT9FM7Y50lOU9Qe7QHTqN8dGqI.jpg?s=d792a471f8b1b0ca87efdd64a7672bf9"], ["body", "Rescued this little fella from the shelter today. Reddit meet Koa."], ["image_src", "https://i.redditmedia.com/-Rukj_jT6TJPxsdmlBT9FM7Y50lOU9Qe7QHTqN8dGqI.jpg?s=d792a471f8b1b0ca87efdd64a7672bf9"], ["dash_id", 1], ["created_at", "2016-02-06 22:53:23.677297"], ["updated_at", "2016-02-06 22:53:23.677297"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/dashes/1
+Completed 302 Found in 1089ms (ActiveRecord: 39.7ms)
+
+
+Started GET "/dashes/1" for ::1 at 2016-02-06 15:53:23 -0700
+Processing by DashesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mDash Load (0.2ms)[0m  SELECT  "dashes".* FROM "dashes" WHERE "dashes"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mPost Load (0.4ms)[0m  [1mSELECT "posts".* FROM "posts" WHERE "posts"."dash_id" = $1 AND "posts"."approved" IS NULL[0m  [["dash_id", 1]]
+  Rendered dashes/show.html.erb within layouts/application (15.5ms)
+Completed 200 OK in 213ms (Views: 210.7ms | ActiveRecord: 0.6ms)
+  [1m[36mPost Load (0.9ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  [1m[35mSQL (63.5ms)[0m  DELETE FROM "posts" WHERE "posts"."id" = $1  [["id", 1041]]
+  [1m[36mSQL (0.4ms)[0m  [1mDELETE FROM "posts" WHERE "posts"."id" = $1[0m  [["id", 1042]]
+  [1m[35mSQL (0.3ms)[0m  DELETE FROM "posts" WHERE "posts"."id" = $1  [["id", 1043]]
+  [1m[36mSQL (0.3ms)[0m  [1mDELETE FROM "posts" WHERE "posts"."id" = $1[0m  [["id", 1044]]
+  [1m[35mSQL (0.4ms)[0m  DELETE FROM "posts" WHERE "posts"."id" = $1  [["id", 1045]]
+  [1m[36mSQL (0.3ms)[0m  [1mDELETE FROM "posts" WHERE "posts"."id" = $1[0m  [["id", 1046]]
+  [1m[35mSQL (0.3ms)[0m  DELETE FROM "posts" WHERE "posts"."id" = $1  [["id", 1047]]
+  [1m[36mSQL (0.3ms)[0m  [1mDELETE FROM "posts" WHERE "posts"."id" = $1[0m  [["id", 1048]]
+  [1m[35mSQL (0.3ms)[0m  DELETE FROM "posts" WHERE "posts"."id" = $1  [["id", 1049]]
+  [1m[36mSQL (0.3ms)[0m  [1mDELETE FROM "posts" WHERE "posts"."id" = $1[0m  [["id", 1050]]
+  [1m[35mSQL (0.3ms)[0m  DELETE FROM "posts" WHERE "posts"."id" = $1  [["id", 1051]]
+  [1m[36mSQL (0.3ms)[0m  [1mDELETE FROM "posts" WHERE "posts"."id" = $1[0m  [["id", 1052]]
+  [1m[35mSQL (0.3ms)[0m  DELETE FROM "posts" WHERE "posts"."id" = $1  [["id", 1053]]
+  [1m[36mSQL (0.3ms)[0m  [1mDELETE FROM "posts" WHERE "posts"."id" = $1[0m  [["id", 1054]]
+  [1m[35mSQL (0.3ms)[0m  DELETE FROM "posts" WHERE "posts"."id" = $1  [["id", 1055]]
+  [1m[36mSQL (0.3ms)[0m  [1mDELETE FROM "posts" WHERE "posts"."id" = $1[0m  [["id", 1056]]
+  [1m[35mSQL (0.3ms)[0m  DELETE FROM "posts" WHERE "posts"."id" = $1  [["id", 1057]]
+  [1m[36mSQL (0.3ms)[0m  [1mDELETE FROM "posts" WHERE "posts"."id" = $1[0m  [["id", 1058]]
+  [1m[35mSQL (0.3ms)[0m  DELETE FROM "posts" WHERE "posts"."id" = $1  [["id", 1059]]
+  [1m[36mSQL (0.3ms)[0m  [1mDELETE FROM "posts" WHERE "posts"."id" = $1[0m  [["id", 1060]]
+  [1m[35mSQL (0.3ms)[0m  DELETE FROM "posts" WHERE "posts"."id" = $1  [["id", 1061]]
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM "posts" WHERE "posts"."id" = $1[0m  [["id", 1062]]
+  [1m[35mSQL (0.3ms)[0m  DELETE FROM "posts" WHERE "posts"."id" = $1  [["id", 1063]]
+  [1m[36mSQL (0.3ms)[0m  [1mDELETE FROM "posts" WHERE "posts"."id" = $1[0m  [["id", 1064]]
+  [1m[35mSQL (0.3ms)[0m  DELETE FROM "posts" WHERE "posts"."id" = $1  [["id", 1065]]
+  [1m[36mSQL (0.3ms)[0m  [1mDELETE FROM "posts" WHERE "posts"."id" = $1[0m  [["id", 1074]]
+  [1m[35mSQL (0.3ms)[0m  DELETE FROM "posts" WHERE "posts"."id" = $1  [["id", 1075]]
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM "posts" WHERE "posts"."id" = $1[0m  [["id", 1076]]
+  [1m[35mSQL (0.3ms)[0m  DELETE FROM "posts" WHERE "posts"."id" = $1  [["id", 1077]]
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM "posts" WHERE "posts"."id" = $1[0m  [["id", 1078]]
+  [1m[35mSQL (0.3ms)[0m  DELETE FROM "posts" WHERE "posts"."id" = $1  [["id", 1079]]
+  [1m[36mSQL (0.3ms)[0m  [1mDELETE FROM "posts" WHERE "posts"."id" = $1[0m  [["id", 1080]]
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM "posts" WHERE "posts"."id" = $1  [["id", 1081]]
+  [1m[36mSQL (0.3ms)[0m  [1mDELETE FROM "posts" WHERE "posts"."id" = $1[0m  [["id", 1082]]
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM "posts" WHERE "posts"."id" = $1  [["id", 1083]]
+  [1m[36mSQL (0.3ms)[0m  [1mDELETE FROM "posts" WHERE "posts"."id" = $1[0m  [["id", 1084]]
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM "posts" WHERE "posts"."id" = $1  [["id", 1085]]
+  [1m[36mSQL (0.3ms)[0m  [1mDELETE FROM "posts" WHERE "posts"."id" = $1[0m  [["id", 1086]]
+  [1m[35mSQL (0.3ms)[0m  DELETE FROM "posts" WHERE "posts"."id" = $1  [["id", 1087]]
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM "posts" WHERE "posts"."id" = $1[0m  [["id", 1088]]
+  [1m[35mSQL (0.3ms)[0m  DELETE FROM "posts" WHERE "posts"."id" = $1  [["id", 1089]]
+  [1m[36mSQL (0.3ms)[0m  [1mDELETE FROM "posts" WHERE "posts"."id" = $1[0m  [["id", 1066]]
+  [1m[35mSQL (0.3ms)[0m  DELETE FROM "posts" WHERE "posts"."id" = $1  [["id", 994]]
+  [1m[36mSQL (0.3ms)[0m  [1mDELETE FROM "posts" WHERE "posts"."id" = $1[0m  [["id", 995]]
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM "posts" WHERE "posts"."id" = $1  [["id", 996]]
+  [1m[36mSQL (0.3ms)[0m  [1mDELETE FROM "posts" WHERE "posts"."id" = $1[0m  [["id", 997]]
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM "posts" WHERE "posts"."id" = $1  [["id", 998]]
+  [1m[36mSQL (0.3ms)[0m  [1mDELETE FROM "posts" WHERE "posts"."id" = $1[0m  [["id", 999]]
+  [1m[35mSQL (0.4ms)[0m  DELETE FROM "posts" WHERE "posts"."id" = $1  [["id", 1000]]
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM "posts" WHERE "posts"."id" = $1[0m  [["id", 1001]]
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM "posts" WHERE "posts"."id" = $1  [["id", 1002]]
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM "posts" WHERE "posts"."id" = $1[0m  [["id", 1003]]
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM "posts" WHERE "posts"."id" = $1  [["id", 1004]]
+  [1m[36mSQL (0.3ms)[0m  [1mDELETE FROM "posts" WHERE "posts"."id" = $1[0m  [["id", 1005]]
+  [1m[35mSQL (0.3ms)[0m  DELETE FROM "posts" WHERE "posts"."id" = $1  [["id", 1006]]
+  [1m[36mSQL (0.3ms)[0m  [1mDELETE FROM "posts" WHERE "posts"."id" = $1[0m  [["id", 1007]]
+  [1m[35mSQL (0.3ms)[0m  DELETE FROM "posts" WHERE "posts"."id" = $1  [["id", 1009]]
+  [1m[36mSQL (0.3ms)[0m  [1mDELETE FROM "posts" WHERE "posts"."id" = $1[0m  [["id", 1010]]
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM "posts" WHERE "posts"."id" = $1  [["id", 1011]]
+  [1m[36mSQL (0.3ms)[0m  [1mDELETE FROM "posts" WHERE "posts"."id" = $1[0m  [["id", 1012]]
+  [1m[35mSQL (0.5ms)[0m  DELETE FROM "posts" WHERE "posts"."id" = $1  [["id", 1013]]
+  [1m[36mSQL (0.3ms)[0m  [1mDELETE FROM "posts" WHERE "posts"."id" = $1[0m  [["id", 1014]]
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM "posts" WHERE "posts"."id" = $1  [["id", 1015]]
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM "posts" WHERE "posts"."id" = $1[0m  [["id", 1016]]
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM "posts" WHERE "posts"."id" = $1  [["id", 1017]]
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM "posts" WHERE "posts"."id" = $1[0m  [["id", 1018]]
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM "posts" WHERE "posts"."id" = $1  [["id", 1019]]
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM "posts" WHERE "posts"."id" = $1[0m  [["id", 1020]]
+  [1m[35mSQL (0.3ms)[0m  DELETE FROM "posts" WHERE "posts"."id" = $1  [["id", 1022]]
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM "posts" WHERE "posts"."id" = $1[0m  [["id", 1021]]
+  [1m[35mSQL (0.3ms)[0m  DELETE FROM "posts" WHERE "posts"."id" = $1  [["id", 1008]]
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM "posts" WHERE "posts"."id" = $1[0m  [["id", 1023]]
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM "posts" WHERE "posts"."id" = $1  [["id", 1024]]
+  [1m[36mSQL (0.3ms)[0m  [1mDELETE FROM "posts" WHERE "posts"."id" = $1[0m  [["id", 1025]]
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM "posts" WHERE "posts"."id" = $1  [["id", 1026]]
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM "posts" WHERE "posts"."id" = $1[0m  [["id", 1027]]
+  [1m[35mSQL (0.3ms)[0m  DELETE FROM "posts" WHERE "posts"."id" = $1  [["id", 1029]]
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM "posts" WHERE "posts"."id" = $1[0m  [["id", 1028]]
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM "posts" WHERE "posts"."id" = $1  [["id", 1030]]
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM "posts" WHERE "posts"."id" = $1[0m  [["id", 1031]]
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM "posts" WHERE "posts"."id" = $1  [["id", 1032]]
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM "posts" WHERE "posts"."id" = $1[0m  [["id", 1033]]
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM "posts" WHERE "posts"."id" = $1  [["id", 1034]]
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM "posts" WHERE "posts"."id" = $1[0m  [["id", 1035]]
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM "posts" WHERE "posts"."id" = $1  [["id", 1036]]
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM "posts" WHERE "posts"."id" = $1[0m  [["id", 1037]]
+  [1m[35mSQL (0.3ms)[0m  DELETE FROM "posts" WHERE "posts"."id" = $1  [["id", 1038]]
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM "posts" WHERE "posts"."id" = $1[0m  [["id", 1039]]
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM "posts" WHERE "posts"."id" = $1  [["id", 1040]]
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM "posts" WHERE "posts"."id" = $1[0m  [["id", 1067]]
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM "posts" WHERE "posts"."id" = $1  [["id", 1068]]
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM "posts" WHERE "posts"."id" = $1[0m  [["id", 1069]]
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM "posts" WHERE "posts"."id" = $1  [["id", 1070]]
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM "posts" WHERE "posts"."id" = $1[0m  [["id", 1071]]
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM "posts" WHERE "posts"."id" = $1  [["id", 1072]]
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM "posts" WHERE "posts"."id" = $1[0m  [["id", 1073]]
+
+
+Started GET "/dashes/1" for ::1 at 2016-02-06 15:53:45 -0700
+Processing by DashesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mDash Load (0.2ms)[0m  SELECT  "dashes".* FROM "dashes" WHERE "dashes"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT "posts".* FROM "posts" WHERE "posts"."dash_id" = $1 AND "posts"."approved" IS NULL[0m  [["dash_id", 1]]
+  Rendered dashes/show.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 18ms (Views: 15.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/dashes.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-02-06 15:53:45 -0700
+
+
+Started GET "/assets/posts.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-02-06 15:53:45 -0700
+
+
+Started GET "/assets/scaffolds.self-7d54453e88ebfcc1f19d1b9056781e8047187eb677417a8c8fc97da87cda4c39.css?body=1" for ::1 at 2016-02-06 15:53:45 -0700
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2016-02-06 15:53:45 -0700
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2016-02-06 15:53:45 -0700
+
+
+Started GET "/assets/jquery.self-c64a74367bda6ef8b860f19e74df08927ca99d2be2ac934e9e92d5fd361e0da4.js?body=1" for ::1 at 2016-02-06 15:53:45 -0700
+
+
+Started GET "/assets/jquery_ujs.self-d602bdfe68ffc63b9f9cc512872aa3cfff046228a0a36e90dd476e8ef54c1b09.js?body=1" for ::1 at 2016-02-06 15:53:45 -0700
+
+
+Started GET "/assets/dashes.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-02-06 15:53:45 -0700
+
+
+Started GET "/assets/posts.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-02-06 15:53:45 -0700
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2016-02-06 15:53:45 -0700
+
+
+Started GET "/dashes/1/add_reddit_pics?utf8=%E2%9C%93&search_term=aww&commit=Search+Reddit" for ::1 at 2016-02-06 15:53:56 -0700
+Processing by DashesController#add_reddit_pics as HTML
+  Parameters: {"utf8"=>"✓", "search_term"=>"aww", "commit"=>"Search Reddit", "dash_id"=>"1"}
+  [1m[35mDash Load (0.2ms)[0m  SELECT  "dashes".* FROM "dashes" WHERE "dashes"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE "dashes" SET "subreddit" = $1, "updated_at" = $2 WHERE "dashes"."id" = $3  [["subreddit", "aww"], ["updated_at", "2016-02-06 22:53:56.202442"], ["id", 1]]
+  [1m[36m (6.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mPost Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "posts" WHERE "posts"."og_source" = 'https://i.redditmedia.com/_CbhTNwbirem6bCia5HPB7iay34LFFDHW0raQXKF4EY.jpg?s=354835d72a6ea070fae5311d4274befe' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "posts" ("title", "og_source", "body", "image_src", "dash_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["title", "reddit"], ["og_source", "https://i.redditmedia.com/_CbhTNwbirem6bCia5HPB7iay34LFFDHW0raQXKF4EY.jpg?s=354835d72a6ea070fae5311d4274befe"], ["body", "Cats react to their first ceiling fan"], ["image_src", "https://i.redditmedia.com/_CbhTNwbirem6bCia5HPB7iay34LFFDHW0raQXKF4EY.jpg?s=354835d72a6ea070fae5311d4274befe"], ["dash_id", 1], ["created_at", "2016-02-06 22:53:56.768863"], ["updated_at", "2016-02-06 22:53:56.768863"]]
+  [1m[36m (0.9ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mPost Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "posts" WHERE "posts"."og_source" = 'https://i.redditmedia.com/8bWk0XbUeTxhVFQcz840_jpxhaaRt5GP40KfDmMAT5c.jpg?s=ff83d482a7091969bd1dac6857a5c0ff' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "posts" ("title", "og_source", "body", "image_src", "dash_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["title", "reddit"], ["og_source", "https://i.redditmedia.com/8bWk0XbUeTxhVFQcz840_jpxhaaRt5GP40KfDmMAT5c.jpg?s=ff83d482a7091969bd1dac6857a5c0ff"], ["body", "A rare moment of stillness."], ["image_src", "https://i.redditmedia.com/8bWk0XbUeTxhVFQcz840_jpxhaaRt5GP40KfDmMAT5c.jpg?s=ff83d482a7091969bd1dac6857a5c0ff"], ["dash_id", 1], ["created_at", "2016-02-06 22:53:56.772863"], ["updated_at", "2016-02-06 22:53:56.772863"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mPost Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "posts" WHERE "posts"."og_source" = 'https://i.redditmedia.com/Kt8NprfyH1yLZCt5Qk3YsxxMEGO-8E8Ltp0hgnVF_MI.jpg?s=bb9999b4eb0159d425628216e8c21881' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "posts" ("title", "og_source", "body", "image_src", "dash_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["title", "reddit"], ["og_source", "https://i.redditmedia.com/Kt8NprfyH1yLZCt5Qk3YsxxMEGO-8E8Ltp0hgnVF_MI.jpg?s=bb9999b4eb0159d425628216e8c21881"], ["body", "Hey, leave her alone!"], ["image_src", "https://i.redditmedia.com/Kt8NprfyH1yLZCt5Qk3YsxxMEGO-8E8Ltp0hgnVF_MI.jpg?s=bb9999b4eb0159d425628216e8c21881"], ["dash_id", 1], ["created_at", "2016-02-06 22:53:56.775749"], ["updated_at", "2016-02-06 22:53:56.775749"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mPost Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "posts" WHERE "posts"."og_source" = 'https://i.redditmedia.com/ZCJR6JowkHervPKoAUae4OofqVqLlamJdVzrsot9-ho.jpg?s=b1b1e59f4092c02676365998ec25118f' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "posts" ("title", "og_source", "body", "image_src", "dash_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["title", "reddit"], ["og_source", "https://i.redditmedia.com/ZCJR6JowkHervPKoAUae4OofqVqLlamJdVzrsot9-ho.jpg?s=b1b1e59f4092c02676365998ec25118f"], ["body", "When the cat is plotting to kill you and the dog is trying to warn you..."], ["image_src", "https://i.redditmedia.com/ZCJR6JowkHervPKoAUae4OofqVqLlamJdVzrsot9-ho.jpg?s=b1b1e59f4092c02676365998ec25118f"], ["dash_id", 1], ["created_at", "2016-02-06 22:53:56.778781"], ["updated_at", "2016-02-06 22:53:56.778781"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mPost Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "posts" WHERE "posts"."og_source" = 'https://i.redditmedia.com/q1XNxKuRAXNTwsH_g6Hno3eGwFYLSspDnDL1fp-e9kU.jpg?s=5e5f1763bfe2708cb5ba7693e915e69f' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "posts" ("title", "og_source", "body", "image_src", "dash_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["title", "reddit"], ["og_source", "https://i.redditmedia.com/q1XNxKuRAXNTwsH_g6Hno3eGwFYLSspDnDL1fp-e9kU.jpg?s=5e5f1763bfe2708cb5ba7693e915e69f"], ["body", "Day 32 - They still think I am one of them"], ["image_src", "https://i.redditmedia.com/q1XNxKuRAXNTwsH_g6Hno3eGwFYLSspDnDL1fp-e9kU.jpg?s=5e5f1763bfe2708cb5ba7693e915e69f"], ["dash_id", 1], ["created_at", "2016-02-06 22:53:56.781486"], ["updated_at", "2016-02-06 22:53:56.781486"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mPost Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "posts" WHERE "posts"."og_source" = 'https://i.redditmedia.com/QrkODbX8rAauvQAeTv8gPIw9EDi3s4ufxpQrx3NzgWk.jpg?s=7c8cddc2abda374b45254b86ea2f44e5' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "posts" ("title", "og_source", "body", "image_src", "dash_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["title", "reddit"], ["og_source", "https://i.redditmedia.com/QrkODbX8rAauvQAeTv8gPIw9EDi3s4ufxpQrx3NzgWk.jpg?s=7c8cddc2abda374b45254b86ea2f44e5"], ["body", "My brothers cat with no eyes"], ["image_src", "https://i.redditmedia.com/QrkODbX8rAauvQAeTv8gPIw9EDi3s4ufxpQrx3NzgWk.jpg?s=7c8cddc2abda374b45254b86ea2f44e5"], ["dash_id", 1], ["created_at", "2016-02-06 22:53:56.784184"], ["updated_at", "2016-02-06 22:53:56.784184"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mPost Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "posts" WHERE "posts"."og_source" = 'https://i.redditmedia.com/_WPRFP2L1g4Xho2FZSr1cPDfoePY_gcEDhJIpLOe7wM.jpg?s=a9e08daf0d5f944b01cddd73073e5875' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "posts" ("title", "og_source", "body", "image_src", "dash_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["title", "reddit"], ["og_source", "https://i.redditmedia.com/_WPRFP2L1g4Xho2FZSr1cPDfoePY_gcEDhJIpLOe7wM.jpg?s=a9e08daf0d5f944b01cddd73073e5875"], ["body", "Hey Reddit, this is Cheese and Pickle. Looking fabulous this morning!"], ["image_src", "https://i.redditmedia.com/_WPRFP2L1g4Xho2FZSr1cPDfoePY_gcEDhJIpLOe7wM.jpg?s=a9e08daf0d5f944b01cddd73073e5875"], ["dash_id", 1], ["created_at", "2016-02-06 22:53:56.787321"], ["updated_at", "2016-02-06 22:53:56.787321"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mPost Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "posts" WHERE "posts"."og_source" = 'https://i.redditmedia.com/nZnLsxkhFn2pwVK3Z0KRIiXrw_8BKmgRCE_8wV8TvLs.jpg?s=4742cb6b6b39437d7fe3409b30b08c31' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "posts" ("title", "og_source", "body", "image_src", "dash_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["title", "reddit"], ["og_source", "https://i.redditmedia.com/nZnLsxkhFn2pwVK3Z0KRIiXrw_8BKmgRCE_8wV8TvLs.jpg?s=4742cb6b6b39437d7fe3409b30b08c31"], ["body", "Hey, do not stand too close - I tiger, not pussy! Siberian farm cats."], ["image_src", "https://i.redditmedia.com/nZnLsxkhFn2pwVK3Z0KRIiXrw_8BKmgRCE_8wV8TvLs.jpg?s=4742cb6b6b39437d7fe3409b30b08c31"], ["dash_id", 1], ["created_at", "2016-02-06 22:53:56.790075"], ["updated_at", "2016-02-06 22:53:56.790075"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mPost Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "posts" WHERE "posts"."og_source" = 'https://i.redditmedia.com/meWXZt8SxBK5HHMtve1_KlMDm7Bszx2SQdbb9Vfu_No.jpg?s=1cef1ee9dca6f6519c28efa7478bc7c0' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "posts" ("title", "og_source", "body", "image_src", "dash_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["title", "reddit"], ["og_source", "https://i.redditmedia.com/meWXZt8SxBK5HHMtve1_KlMDm7Bszx2SQdbb9Vfu_No.jpg?s=1cef1ee9dca6f6519c28efa7478bc7c0"], ["body", "We'll always be friends forever... Won't we?"], ["image_src", "https://i.redditmedia.com/meWXZt8SxBK5HHMtve1_KlMDm7Bszx2SQdbb9Vfu_No.jpg?s=1cef1ee9dca6f6519c28efa7478bc7c0"], ["dash_id", 1], ["created_at", "2016-02-06 22:53:56.792922"], ["updated_at", "2016-02-06 22:53:56.792922"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mPost Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "posts" WHERE "posts"."og_source" = 'https://i.redditmedia.com/cvsaypiIBESPGPkPnobWjJgQkZoluGHIcyUmrUb2yco.jpg?s=c1963caf404adf3047e4caa7e5e50015' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "posts" ("title", "og_source", "body", "image_src", "dash_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["title", "reddit"], ["og_source", "https://i.redditmedia.com/cvsaypiIBESPGPkPnobWjJgQkZoluGHIcyUmrUb2yco.jpg?s=c1963caf404adf3047e4caa7e5e50015"], ["body", "My boyfriend and our cat are close...too close?"], ["image_src", "https://i.redditmedia.com/cvsaypiIBESPGPkPnobWjJgQkZoluGHIcyUmrUb2yco.jpg?s=c1963caf404adf3047e4caa7e5e50015"], ["dash_id", 1], ["created_at", "2016-02-06 22:53:56.795614"], ["updated_at", "2016-02-06 22:53:56.795614"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mPost Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "posts" WHERE "posts"."og_source" = 'https://i.redditmedia.com/swyVhJM1m7Pxz1CZSbrgNSVoAImxwPxhW_eaKXAdm2k.jpg?s=615eabb45db0f44ebb88048364ee14b3' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "posts" ("title", "og_source", "body", "image_src", "dash_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["title", "reddit"], ["og_source", "https://i.redditmedia.com/swyVhJM1m7Pxz1CZSbrgNSVoAImxwPxhW_eaKXAdm2k.jpg?s=615eabb45db0f44ebb88048364ee14b3"], ["body", "My cat loves my girlfriend's cat"], ["image_src", "https://i.redditmedia.com/swyVhJM1m7Pxz1CZSbrgNSVoAImxwPxhW_eaKXAdm2k.jpg?s=615eabb45db0f44ebb88048364ee14b3"], ["dash_id", 1], ["created_at", "2016-02-06 22:53:56.798334"], ["updated_at", "2016-02-06 22:53:56.798334"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mPost Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "posts" WHERE "posts"."og_source" = 'https://i.redditmedia.com/exKPKrX1OXYGs-b4qzCn__nixTISkJATJGvSwW1I0qU.jpg?s=02a65d770f497a4ad76b5a8f34a8d8ae' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "posts" ("title", "og_source", "body", "image_src", "dash_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["title", "reddit"], ["og_source", "https://i.redditmedia.com/exKPKrX1OXYGs-b4qzCn__nixTISkJATJGvSwW1I0qU.jpg?s=02a65d770f497a4ad76b5a8f34a8d8ae"], ["body", "G'day mate."], ["image_src", "https://i.redditmedia.com/exKPKrX1OXYGs-b4qzCn__nixTISkJATJGvSwW1I0qU.jpg?s=02a65d770f497a4ad76b5a8f34a8d8ae"], ["dash_id", 1], ["created_at", "2016-02-06 22:53:56.801253"], ["updated_at", "2016-02-06 22:53:56.801253"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mPost Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "posts" WHERE "posts"."og_source" = 'https://i.redditmedia.com/Ic8X8xcrn2fKyuZJCUUHDvzDEBKkUR68POSQVwOskMI.jpg?s=e9b1270e4697817232c73c80232f98eb' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "posts" ("title", "og_source", "body", "image_src", "dash_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["title", "reddit"], ["og_source", "https://i.redditmedia.com/Ic8X8xcrn2fKyuZJCUUHDvzDEBKkUR68POSQVwOskMI.jpg?s=e9b1270e4697817232c73c80232f98eb"], ["body", "This is the type of cat that would try to sell me magical potions in the woods. I'd buy them all."], ["image_src", "https://i.redditmedia.com/Ic8X8xcrn2fKyuZJCUUHDvzDEBKkUR68POSQVwOskMI.jpg?s=e9b1270e4697817232c73c80232f98eb"], ["dash_id", 1], ["created_at", "2016-02-06 22:53:56.804158"], ["updated_at", "2016-02-06 22:53:56.804158"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mPost Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "posts" WHERE "posts"."og_source" = 'https://i.redditmedia.com/1rYtqGIck8gW-onaMb_KtZHRt-pD5YnCSfoYwgfZotM.jpg?s=105d8d538e4cf74d879e047330e8564f' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "posts" ("title", "og_source", "body", "image_src", "dash_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["title", "reddit"], ["og_source", "https://i.redditmedia.com/1rYtqGIck8gW-onaMb_KtZHRt-pD5YnCSfoYwgfZotM.jpg?s=105d8d538e4cf74d879e047330e8564f"], ["body", "The face of betrayal"], ["image_src", "https://i.redditmedia.com/1rYtqGIck8gW-onaMb_KtZHRt-pD5YnCSfoYwgfZotM.jpg?s=105d8d538e4cf74d879e047330e8564f"], ["dash_id", 1], ["created_at", "2016-02-06 22:53:56.806816"], ["updated_at", "2016-02-06 22:53:56.806816"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mPost Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "posts" WHERE "posts"."og_source" = 'https://i.redditmedia.com/ZN1Vxk6Jr9QQfL93fTrHKbYqgdmnnHbWqQ-1RNxI6p0.jpg?s=f4566fbd28c35228be8b9bb80e459472' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "posts" ("title", "og_source", "body", "image_src", "dash_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["title", "reddit"], ["og_source", "https://i.redditmedia.com/ZN1Vxk6Jr9QQfL93fTrHKbYqgdmnnHbWqQ-1RNxI6p0.jpg?s=f4566fbd28c35228be8b9bb80e459472"], ["body", "Cats magically turn into cartoon characters when you eat tuna sandwiches"], ["image_src", "https://i.redditmedia.com/ZN1Vxk6Jr9QQfL93fTrHKbYqgdmnnHbWqQ-1RNxI6p0.jpg?s=f4566fbd28c35228be8b9bb80e459472"], ["dash_id", 1], ["created_at", "2016-02-06 22:53:56.809736"], ["updated_at", "2016-02-06 22:53:56.809736"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mPost Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "posts" WHERE "posts"."og_source" = 'https://i.redditmedia.com/wNx7J_zZY5DfIkmWbHiLOrzGIlY_rdp8teop75L1Q8I.jpg?s=75031b57bcef1516864821790de0e062' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "posts" ("title", "og_source", "body", "image_src", "dash_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["title", "reddit"], ["og_source", "https://i.redditmedia.com/wNx7J_zZY5DfIkmWbHiLOrzGIlY_rdp8teop75L1Q8I.jpg?s=75031b57bcef1516864821790de0e062"], ["body", "Dog doesn't know how to handle coconut crab"], ["image_src", "https://i.redditmedia.com/wNx7J_zZY5DfIkmWbHiLOrzGIlY_rdp8teop75L1Q8I.jpg?s=75031b57bcef1516864821790de0e062"], ["dash_id", 1], ["created_at", "2016-02-06 22:53:56.812527"], ["updated_at", "2016-02-06 22:53:56.812527"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mPost Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "posts" WHERE "posts"."og_source" = 'https://i.redditmedia.com/vvnhg7cNw9QDmH0c8oo9FXgsW9G5OwN4yaZ7ji6ip7A.jpg?s=fe9c144847de283bb5df0602975fcf54' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "posts" ("title", "og_source", "body", "image_src", "dash_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["title", "reddit"], ["og_source", "https://i.redditmedia.com/vvnhg7cNw9QDmH0c8oo9FXgsW9G5OwN4yaZ7ji6ip7A.jpg?s=fe9c144847de283bb5df0602975fcf54"], ["body", "The rare and elusive Tiger Shark"], ["image_src", "https://i.redditmedia.com/vvnhg7cNw9QDmH0c8oo9FXgsW9G5OwN4yaZ7ji6ip7A.jpg?s=fe9c144847de283bb5df0602975fcf54"], ["dash_id", 1], ["created_at", "2016-02-06 22:53:56.815454"], ["updated_at", "2016-02-06 22:53:56.815454"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mPost Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "posts" WHERE "posts"."og_source" = 'https://i.redditmedia.com/tTW72aM1DKNoWZbzdte5OpFZF7-7mFmpm4EnamZwR1s.jpg?s=6cce9380d6ee1027b22ce15f6c27341c' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "posts" ("title", "og_source", "body", "image_src", "dash_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["title", "reddit"], ["og_source", "https://i.redditmedia.com/tTW72aM1DKNoWZbzdte5OpFZF7-7mFmpm4EnamZwR1s.jpg?s=6cce9380d6ee1027b22ce15f6c27341c"], ["body", "Once a Momma, Always a Momma"], ["image_src", "https://i.redditmedia.com/tTW72aM1DKNoWZbzdte5OpFZF7-7mFmpm4EnamZwR1s.jpg?s=6cce9380d6ee1027b22ce15f6c27341c"], ["dash_id", 1], ["created_at", "2016-02-06 22:53:56.818143"], ["updated_at", "2016-02-06 22:53:56.818143"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mPost Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "posts" WHERE "posts"."og_source" = 'https://i.redditmedia.com/lVaAHNFJ053eEy9vJT7PU6HBNX5Edeyz0kK2SS5vShg.jpg?s=d06cd032c83f28c3d62d250e30dfaa91' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "posts" ("title", "og_source", "body", "image_src", "dash_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["title", "reddit"], ["og_source", "https://i.redditmedia.com/lVaAHNFJ053eEy9vJT7PU6HBNX5Edeyz0kK2SS5vShg.jpg?s=d06cd032c83f28c3d62d250e30dfaa91"], ["body", "Getting out of bed is almost impossible these days"], ["image_src", "https://i.redditmedia.com/lVaAHNFJ053eEy9vJT7PU6HBNX5Edeyz0kK2SS5vShg.jpg?s=d06cd032c83f28c3d62d250e30dfaa91"], ["dash_id", 1], ["created_at", "2016-02-06 22:53:56.821109"], ["updated_at", "2016-02-06 22:53:56.821109"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mPost Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "posts" WHERE "posts"."og_source" = 'https://i.redditmedia.com/pILwuF1hZtjlYVmq6FlTSYnjSUgijinIdjN_5huJGsQ.jpg?s=24ac58b3efdf2307dd68771aaf07ceae' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "posts" ("title", "og_source", "body", "image_src", "dash_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["title", "reddit"], ["og_source", "https://i.redditmedia.com/pILwuF1hZtjlYVmq6FlTSYnjSUgijinIdjN_5huJGsQ.jpg?s=24ac58b3efdf2307dd68771aaf07ceae"], ["body", "Tiger yawn"], ["image_src", "https://i.redditmedia.com/pILwuF1hZtjlYVmq6FlTSYnjSUgijinIdjN_5huJGsQ.jpg?s=24ac58b3efdf2307dd68771aaf07ceae"], ["dash_id", 1], ["created_at", "2016-02-06 22:53:56.823891"], ["updated_at", "2016-02-06 22:53:56.823891"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mPost Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "posts" WHERE "posts"."og_source" = 'https://i.redditmedia.com/1GGpCGMa4TikZLPGZrrUOgLDjvd0ymSC3ZMDtIHSMDw.jpg?s=b2efcee0e62f0580062de129acdd624f' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "posts" ("title", "og_source", "body", "image_src", "dash_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["title", "reddit"], ["og_source", "https://i.redditmedia.com/1GGpCGMa4TikZLPGZrrUOgLDjvd0ymSC3ZMDtIHSMDw.jpg?s=b2efcee0e62f0580062de129acdd624f"], ["body", "hello"], ["image_src", "https://i.redditmedia.com/1GGpCGMa4TikZLPGZrrUOgLDjvd0ymSC3ZMDtIHSMDw.jpg?s=b2efcee0e62f0580062de129acdd624f"], ["dash_id", 1], ["created_at", "2016-02-06 22:53:56.826716"], ["updated_at", "2016-02-06 22:53:56.826716"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mPost Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "posts" WHERE "posts"."og_source" = 'https://i.redditmedia.com/noVeHwzRBI5ymKfd0LIdlO_jmn0xEFwVCS6HAYmS8CM.jpg?s=35db77bfff4cc7914626c7396637ddc8' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "posts" ("title", "og_source", "body", "image_src", "dash_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["title", "reddit"], ["og_source", "https://i.redditmedia.com/noVeHwzRBI5ymKfd0LIdlO_jmn0xEFwVCS6HAYmS8CM.jpg?s=35db77bfff4cc7914626c7396637ddc8"], ["body", "Kookaburra says hello"], ["image_src", "https://i.redditmedia.com/noVeHwzRBI5ymKfd0LIdlO_jmn0xEFwVCS6HAYmS8CM.jpg?s=35db77bfff4cc7914626c7396637ddc8"], ["dash_id", 1], ["created_at", "2016-02-06 22:53:56.829428"], ["updated_at", "2016-02-06 22:53:56.829428"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mPost Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "posts" WHERE "posts"."og_source" = 'https://i.redditmedia.com/bSC6UWjZJJLygVeGd2PCuPj7KZhRvwUrK9haH_JmukA.jpg?s=d20a0177e3ba6466d868abc0ee28bca6' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "posts" ("title", "og_source", "body", "image_src", "dash_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["title", "reddit"], ["og_source", "https://i.redditmedia.com/bSC6UWjZJJLygVeGd2PCuPj7KZhRvwUrK9haH_JmukA.jpg?s=d20a0177e3ba6466d868abc0ee28bca6"], ["body", "They grow up so fast..."], ["image_src", "https://i.redditmedia.com/bSC6UWjZJJLygVeGd2PCuPj7KZhRvwUrK9haH_JmukA.jpg?s=d20a0177e3ba6466d868abc0ee28bca6"], ["dash_id", 1], ["created_at", "2016-02-06 22:53:56.832115"], ["updated_at", "2016-02-06 22:53:56.832115"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mPost Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "posts" WHERE "posts"."og_source" = 'https://i.redditmedia.com/eNWkguFe99UBkxMn4_oclBD7K9bQEI-te9sImB0wz-Y.jpg?s=70318b72a10b5f280a944351cf548628' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "posts" ("title", "og_source", "body", "image_src", "dash_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["title", "reddit"], ["og_source", "https://i.redditmedia.com/eNWkguFe99UBkxMn4_oclBD7K9bQEI-te9sImB0wz-Y.jpg?s=70318b72a10b5f280a944351cf548628"], ["body", "Wanted a German shepherd, got a kangaroo."], ["image_src", "https://i.redditmedia.com/eNWkguFe99UBkxMn4_oclBD7K9bQEI-te9sImB0wz-Y.jpg?s=70318b72a10b5f280a944351cf548628"], ["dash_id", 1], ["created_at", "2016-02-06 22:53:56.834820"], ["updated_at", "2016-02-06 22:53:56.834820"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mPost Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "posts" WHERE "posts"."og_source" = 'https://i.redditmedia.com/S7F-yzr0lvNuw6YxpvhzstjhNL9WNgvgykaYLEc4fnw.jpg?s=ab288cc7849901caed9c725aa5281021' LIMIT 1[0m
+  [1m[35mSQL (1.3ms)[0m  INSERT INTO "posts" ("title", "og_source", "body", "image_src", "dash_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["title", "reddit"], ["og_source", "https://i.redditmedia.com/S7F-yzr0lvNuw6YxpvhzstjhNL9WNgvgykaYLEc4fnw.jpg?s=ab288cc7849901caed9c725aa5281021"], ["body", "Num num num..hey there!"], ["image_src", "https://i.redditmedia.com/S7F-yzr0lvNuw6YxpvhzstjhNL9WNgvgykaYLEc4fnw.jpg?s=ab288cc7849901caed9c725aa5281021"], ["dash_id", 1], ["created_at", "2016-02-06 22:53:56.837592"], ["updated_at", "2016-02-06 22:53:56.837592"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/dashes/1
+Completed 302 Found in 641ms (ActiveRecord: 26.5ms)
+
+
+Started GET "/dashes/1" for ::1 at 2016-02-06 15:53:56 -0700
+Processing by DashesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mDash Load (0.3ms)[0m  SELECT  "dashes".* FROM "dashes" WHERE "dashes"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mPost Load (0.3ms)[0m  [1mSELECT "posts".* FROM "posts" WHERE "posts"."dash_id" = $1 AND "posts"."approved" IS NULL[0m  [["dash_id", 1]]
+  Rendered dashes/show.html.erb within layouts/application (6.2ms)
+Completed 200 OK in 22ms (Views: 20.0ms | ActiveRecord: 0.7ms)
+  [1m[35mPost Load (0.5ms)[0m  SELECT "posts".* FROM "posts"
+  [1m[36mSQL (0.5ms)[0m  [1mDELETE FROM "posts" WHERE "posts"."id" = $1[0m  [["id", 1090]]
+  [1m[35mSQL (0.4ms)[0m  DELETE FROM "posts" WHERE "posts"."id" = $1  [["id", 1091]]
+  [1m[36mSQL (0.4ms)[0m  [1mDELETE FROM "posts" WHERE "posts"."id" = $1[0m  [["id", 1092]]
+  [1m[35mSQL (0.4ms)[0m  DELETE FROM "posts" WHERE "posts"."id" = $1  [["id", 1093]]
+  [1m[36mSQL (0.4ms)[0m  [1mDELETE FROM "posts" WHERE "posts"."id" = $1[0m  [["id", 1094]]
+  [1m[35mSQL (0.4ms)[0m  DELETE FROM "posts" WHERE "posts"."id" = $1  [["id", 1095]]
+  [1m[36mSQL (0.4ms)[0m  [1mDELETE FROM "posts" WHERE "posts"."id" = $1[0m  [["id", 1096]]
+  [1m[35mSQL (0.4ms)[0m  DELETE FROM "posts" WHERE "posts"."id" = $1  [["id", 1097]]
+  [1m[36mSQL (0.4ms)[0m  [1mDELETE FROM "posts" WHERE "posts"."id" = $1[0m  [["id", 1098]]
+  [1m[35mSQL (0.4ms)[0m  DELETE FROM "posts" WHERE "posts"."id" = $1  [["id", 1099]]
+  [1m[36mSQL (0.4ms)[0m  [1mDELETE FROM "posts" WHERE "posts"."id" = $1[0m  [["id", 1100]]
+  [1m[35mSQL (0.4ms)[0m  DELETE FROM "posts" WHERE "posts"."id" = $1  [["id", 1101]]
+  [1m[36mSQL (0.4ms)[0m  [1mDELETE FROM "posts" WHERE "posts"."id" = $1[0m  [["id", 1102]]
+  [1m[35mSQL (0.4ms)[0m  DELETE FROM "posts" WHERE "posts"."id" = $1  [["id", 1103]]
+  [1m[36mSQL (0.4ms)[0m  [1mDELETE FROM "posts" WHERE "posts"."id" = $1[0m  [["id", 1104]]
+  [1m[35mSQL (0.4ms)[0m  DELETE FROM "posts" WHERE "posts"."id" = $1  [["id", 1105]]
+  [1m[36mSQL (0.4ms)[0m  [1mDELETE FROM "posts" WHERE "posts"."id" = $1[0m  [["id", 1106]]
+  [1m[35mSQL (0.4ms)[0m  DELETE FROM "posts" WHERE "posts"."id" = $1  [["id", 1107]]
+  [1m[36mSQL (0.4ms)[0m  [1mDELETE FROM "posts" WHERE "posts"."id" = $1[0m  [["id", 1108]]
+  [1m[35mSQL (0.4ms)[0m  DELETE FROM "posts" WHERE "posts"."id" = $1  [["id", 1109]]
+  [1m[36mSQL (0.4ms)[0m  [1mDELETE FROM "posts" WHERE "posts"."id" = $1[0m  [["id", 1110]]
+  [1m[35mSQL (0.4ms)[0m  DELETE FROM "posts" WHERE "posts"."id" = $1  [["id", 1111]]
+  [1m[36mSQL (0.4ms)[0m  [1mDELETE FROM "posts" WHERE "posts"."id" = $1[0m  [["id", 1112]]
+  [1m[35mSQL (0.4ms)[0m  DELETE FROM "posts" WHERE "posts"."id" = $1  [["id", 1113]]
+  [1m[36mSQL (0.4ms)[0m  [1mDELETE FROM "posts" WHERE "posts"."id" = $1[0m  [["id", 1114]]
+
+
+Started GET "/dashes/1" for ::1 at 2016-02-06 15:54:16 -0700
+Processing by DashesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mDash Load (0.2ms)[0m  SELECT  "dashes".* FROM "dashes" WHERE "dashes"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT "posts".* FROM "posts" WHERE "posts"."dash_id" = $1 AND "posts"."approved" IS NULL[0m  [["dash_id", 1]]
+  Rendered dashes/show.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 18ms (Views: 16.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/posts.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-02-06 15:54:16 -0700
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2016-02-06 15:54:16 -0700
+
+
+Started GET "/assets/scaffolds.self-7d54453e88ebfcc1f19d1b9056781e8047187eb677417a8c8fc97da87cda4c39.css?body=1" for ::1 at 2016-02-06 15:54:16 -0700
+
+
+Started GET "/assets/dashes.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-02-06 15:54:16 -0700
+
+
+Started GET "/assets/jquery_ujs.self-d602bdfe68ffc63b9f9cc512872aa3cfff046228a0a36e90dd476e8ef54c1b09.js?body=1" for ::1 at 2016-02-06 15:54:16 -0700
+
+
+Started GET "/assets/jquery.self-c64a74367bda6ef8b860f19e74df08927ca99d2be2ac934e9e92d5fd361e0da4.js?body=1" for ::1 at 2016-02-06 15:54:16 -0700
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2016-02-06 15:54:16 -0700
+
+
+Started GET "/assets/dashes.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-02-06 15:54:16 -0700
+
+
+Started GET "/assets/posts.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-02-06 15:54:16 -0700
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2016-02-06 15:54:16 -0700

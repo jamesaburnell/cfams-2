@@ -74,6 +74,8 @@ class DashesController < ApplicationController
     search_term = params[:search_term]
     puts "SearchTerm: ", search_term
     @dash = Dash.find(params[:dash_id])
+    @dash.subreddit = search_term
+    @dash.save
     @dash.reddit_pic_scrape(search_term)
     redirect_to @dash
   end
