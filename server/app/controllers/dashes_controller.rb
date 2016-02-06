@@ -68,6 +68,14 @@ class DashesController < ApplicationController
     end
   end
 
+
+  def add_twitter_pics
+    @dash = Dash.find(params[:dash_id])
+    @dash.twitter_pic_scrape
+    redirect_to @dash
+  end
+
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_dash

@@ -5,6 +5,9 @@
   <%= @dash.title %>
 </p>
 
+  <%= link_to "Add Twitter Posts", dash_add_twitter_pics_path(@dash) %>
+  <br/>
+  
 <div id="masonry-container" class="transitions-enabled infinite-scroll clearfix">
 
 <% @posts.each do |post|  %>
