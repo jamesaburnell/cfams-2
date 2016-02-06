@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Dashes</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @dashes.each do |dash| %>
+      <tr>
+        <td><%= dash.title %></td>
+        <td><%= link_to 'Show', dash %></td>
+        <td><%= link_to 'Edit', edit_dash_path(dash) %></td>
+        <td><%= link_to 'Destroy', dash, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Dash', new_dash_path %>

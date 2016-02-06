@@ -1,0 +1,45 @@
+<%= form_for(@dash) do |f| %>
+  <% if @dash.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@dash.errors.count, "error") %> prohibited this dash from being saved:</h2>
+
+      <ul>
+      <% @dash.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+  </div>
+  <br/>
+  Twitter App
+  <div class="field">
+    <%= f.label :twit_consumer_key %><br>
+    <%= f.text_field :twit_consumer_key %>
+  </div>
+  <div class="field">
+    <%= f.label :twit_consumer_secret %><br>
+    <%= f.text_field :twit_consumer_secret %>
+  </div>
+  <div class="field">
+    <%= f.label :twit_access_token %><br>
+    <%= f.text_field :twit_access_token %>
+  </div>
+  <div class="field">
+    <%= f.label :twit_access_token_secret %><br>
+    <%= f.text_field :twit_access_token_secret %>
+  </div>
+  <br/>
+  Subreddit
+  <div class="field">
+    <%= f.label :subreddit %><br>
+    <%= f.text_field :subreddit %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

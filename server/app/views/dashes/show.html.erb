@@ -1,0 +1,39 @@
+       <p class="notice"><%= notice %></p>
+       <p class="alert"><%= alert %></p>
+
+<p>
+  <%= @dash.title %>
+</p>
+
+  <%= link_to "Add Twitter Posts", dash_add_twitter_pics_path(@dash) %>
+  <br/>
+
+<div id="masonry-container" class="transitions-enabled infinite-scroll clearfix">
+
+<% @posts.each do |post|  %>
+  <div class="box col2">
+  title: <%= post.title %>, 
+  body: <%= post.body %>, 
+  og source: <%= post.og_source %>, 
+  img: <%= post.image_src %>, 
+  <% if !post.image_src.nil? %>
+
+     <%= image_tag post.og_source %> 
+
+  <% end %>
+
+<%= link_to "approve", toggle_approve_dash_post_path(@dash, post),   
+            :remote => true %>  
+           | |
+<%= link_to "disapprove", toggle_disapprove_dash_post_path(@dash, post),   
+            :remote => true %>   
+
+  </div>
+  <br/>
+<% end %>
+
+  
+</div>
+
+<%= link_to 'Edit', edit_dash_path(@dash) %> |
+<%= link_to 'Back', dashes_path %>
