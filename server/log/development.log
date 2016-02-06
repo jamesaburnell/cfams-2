@@ -12090,3 +12090,405 @@ Processing by DashesController#post_queue as JSON
   [1m[35mDash Load (0.1ms)[0m  SELECT  "dashes".* FROM "dashes" WHERE "dashes"."id" = $1 LIMIT 1  [["id", 1]]
   [1m[36mPost Load (0.3ms)[0m  [1mSELECT "posts".* FROM "posts" WHERE "posts"."dash_id" = $1 AND "posts"."approved" = 't'[0m  [["dash_id", 1]]
 Completed 200 OK in 34ms (Views: 19.6ms | ActiveRecord: 2.2ms)
+  [1m[36mSQL (6.8ms)[0m  [1mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (12.7ms)[0m  CREATE TABLE "dashes" ("id" serial primary key, "title" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "subreddit" character varying, "twit_consumer_key" character varying, "twit_consumer_secret" character varying, "twit_access_token" character varying, "twit_access_token_secret" character varying) 
+  [1m[36m (3.1ms)[0m  [1mCREATE TABLE "posts" ("id" serial primary key, "title" character varying, "og_source" character varying, "body" character varying, "image_src" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "dash_id" integer, "approved" boolean) [0m
+  [1m[35m (19.9ms)[0m  CREATE TABLE "users" ("id" serial primary key, "provider" character varying DEFAULT 'email' NOT NULL, "uid" character varying DEFAULT '' NOT NULL, "encrypted_password" character varying DEFAULT '' NOT NULL, "reset_password_token" character varying, "reset_password_sent_at" timestamp, "remember_created_at" timestamp, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" timestamp, "last_sign_in_at" timestamp, "current_sign_in_ip" character varying, "last_sign_in_ip" character varying, "confirmation_token" character varying, "confirmed_at" timestamp, "confirmation_sent_at" timestamp, "unconfirmed_email" character varying, "name" character varying, "nickname" character varying, "image" character varying, "email" character varying, "tokens" json, "created_at" timestamp, "updated_at" timestamp) 
+  [1m[36m (1.5ms)[0m  [1mCREATE  INDEX  "index_users_on_email" ON "users" USING btree ("email")[0m
+  [1m[35m (0.8ms)[0m  CREATE UNIQUE INDEX  "index_users_on_reset_password_token" ON "users" USING btree ("reset_password_token")
+  [1m[36m (0.7ms)[0m  [1mCREATE UNIQUE INDEX  "index_users_on_uid_and_provider" ON "users" USING btree ("uid", "provider")[0m
+  [1m[35m (12.5ms)[0m  CREATE TABLE "schema_migrations" ("version" character varying NOT NULL) 
+  [1m[36m (11.3ms)[0m  [1mCREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")[0m
+  [1m[35m (0.8ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36m (0.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160206032151')[0m
+  [1m[35m (0.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160206011407')
+  [1m[36m (0.2ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160206011747')[0m
+  [1m[35m (0.2ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160206012132')
+  [1m[36m (37.7ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160206021345')[0m
+  [1m[35m (0.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160206022631')
+  [1m[36m (0.2ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160206023054')[0m
+  [1m[35m (0.2ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160206023150')
+  [1m[36m (0.2ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160206023222')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160206023256')
+  [1m[36m (0.2ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160206024532')[0m
+  [1m[35mSQL (0.2ms)[0m  CREATE EXTENSION IF NOT EXISTS "plpgsql"
+  [1m[36m (3.8ms)[0m  [1mCREATE TABLE "dashes" ("id" serial primary key, "title" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "subreddit" character varying, "twit_consumer_key" character varying, "twit_consumer_secret" character varying, "twit_access_token" character varying, "twit_access_token_secret" character varying) [0m
+  [1m[35m (2.2ms)[0m  CREATE TABLE "posts" ("id" serial primary key, "title" character varying, "og_source" character varying, "body" character varying, "image_src" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "dash_id" integer, "approved" boolean) 
+  [1m[36m (3.1ms)[0m  [1mCREATE TABLE "users" ("id" serial primary key, "provider" character varying DEFAULT 'email' NOT NULL, "uid" character varying DEFAULT '' NOT NULL, "encrypted_password" character varying DEFAULT '' NOT NULL, "reset_password_token" character varying, "reset_password_sent_at" timestamp, "remember_created_at" timestamp, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" timestamp, "last_sign_in_at" timestamp, "current_sign_in_ip" character varying, "last_sign_in_ip" character varying, "confirmation_token" character varying, "confirmed_at" timestamp, "confirmation_sent_at" timestamp, "unconfirmed_email" character varying, "name" character varying, "nickname" character varying, "image" character varying, "email" character varying, "tokens" json, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35m (0.7ms)[0m  CREATE  INDEX  "index_users_on_email" ON "users" USING btree ("email")
+  [1m[36m (0.6ms)[0m  [1mCREATE UNIQUE INDEX  "index_users_on_reset_password_token" ON "users" USING btree ("reset_password_token")[0m
+  [1m[35m (0.6ms)[0m  CREATE UNIQUE INDEX  "index_users_on_uid_and_provider" ON "users" USING btree ("uid", "provider")
+  [1m[36m (1.0ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL) [0m
+  [1m[35m (0.5ms)[0m  CREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")
+  [1m[36m (0.2ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160206032151')
+  [1m[36m (0.2ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160206011407')[0m
+  [1m[35m (0.2ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160206011747')
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160206012132')[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160206021345')
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160206022631')[0m
+  [1m[35m (0.2ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160206023054')
+  [1m[36m (0.2ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160206023150')[0m
+  [1m[35m (0.2ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160206023222')
+  [1m[36m (0.2ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160206023256')[0m
+  [1m[35m (0.2ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160206024532')
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (1.8ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'dashes'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (2.0ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'posts'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (1.9ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'users'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "users" WHERE "users"."provider" = $1 AND "users"."email" = $2[0m  [["provider", "email"], ["email", "jamesaburnell@gmail.com"]]
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."confirmation_token" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["confirmation_token", "18a306b333230aff630980fde1a0a1c3e275f743b61670c66888bc2f5e41aeef"]]
+  [1m[36mSQL (3.0ms)[0m  [1mINSERT INTO "users" ("email", "encrypted_password", "tokens", "uid", "created_at", "updated_at", "confirmation_token", "confirmation_sent_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["email", "jamesaburnell@gmail.com"], ["encrypted_password", "$2a$10$P.5HMbbDjik8kekW5RovQuSzx5gBGQcJCcUauIQ9ff.OTkHXNGSja"], ["tokens", "{}"], ["uid", "jamesaburnell@gmail.com"], ["created_at", "2016-02-06 17:32:49.127046"], ["updated_at", "2016-02-06 17:32:49.127046"], ["confirmation_token", "pnL662afraC4eZDwKzXx"], ["confirmation_sent_at", "2016-02-06 17:32:49.505422"]]
+  Rendered devise/mailer/confirmation_instructions.html.erb (2.0ms)
+
+Devise::Mailer#confirmation_instructions: processed outbound mail in 239.4ms
+
+Sent mail to jamesaburnell@gmail.com (8.9ms)
+Date: Sat, 06 Feb 2016 09:32:49 -0800
+From: hathbanger.ah@gmail.com
+Reply-To: hathbanger.ah@gmail.com
+To: jamesaburnell@gmail.com
+Message-ID: <56b62e41c50e9_5f8c3ff08e45246428540@Jamess-MacBook-Pro.local.mail>
+Subject: Confirmation instructions
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+client-config: default
+
+<p>Welcome jamesaburnell@gmail.com!</p>
+
+<p>You can confirm your account email through the link below:</p>
+
+<p><a href="http://localhost:3000/auth/confirmation?confirmation_token=pnL662afraC4eZDwKzXx">Confirm my account</a></p>
+
+  [1m[35m (6.6ms)[0m  COMMIT
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users"[0m
+
+
+Started GET "/" for ::1 at 2016-02-06 09:33:07 -0800
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by DashesController#index as HTML
+  [1m[35mDash Load (0.4ms)[0m  SELECT "dashes".* FROM "dashes"
+  Rendered dashes/index.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 775ms (Views: 756.5ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/" for ::1 at 2016-02-06 09:33:08 -0800
+Processing by DashesController#index as HTML
+  [1m[36mDash Load (0.2ms)[0m  [1mSELECT "dashes".* FROM "dashes"[0m
+  Rendered dashes/index.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 15ms (Views: 14.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/dashes.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-02-06 09:33:08 -0800
+
+
+Started GET "/assets/posts.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-02-06 09:33:08 -0800
+
+
+Started GET "/assets/scaffolds.self-5b40ae9bb44d2e5a20efae6359c8949f15501c1d80ffdba505bd711272101078.css?body=1" for ::1 at 2016-02-06 09:33:08 -0800
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2016-02-06 09:33:08 -0800
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2016-02-06 09:33:08 -0800
+
+
+Started GET "/dashes/new" for ::1 at 2016-02-06 09:33:19 -0800
+Processing by DashesController#new as HTML
+  Rendered dashes/_form.html.erb (70.2ms)
+  Rendered dashes/new.html.erb within layouts/application (74.5ms)
+Completed 200 OK in 92ms (Views: 85.5ms | ActiveRecord: 1.2ms)
+
+
+Started POST "/dashes" for ::1 at 2016-02-06 09:34:35 -0800
+Processing by DashesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"RRm5piLnm1Uzd1ZexvG5ZU4JiuxpkQ/4Wa1w8u5B1+e+ikWPGTYE4tn9iVbyUyLxm+jbor3H6gbC7FLQWU3agg==", "dash"=>{"title"=>"Brunelli Beats", "twit_consumer_key"=>"m4212UuwyeIv1YWiGeX46kIdh", "twit_consumer_secret"=>"BIlcey7YXQW3jtPOt6W6qB8jn6P29WPCfooE75LmSxqVkb9Vxr", "twit_access_token"=>"2492139913-N0vn5i7NjkLwniobk5pnnC6A4uUuTPR56B98JjN", "twit_access_token_secret"=>"\tXM11csqagSqbhowdX5P0BJ6lvf2fcIUXAQsA1MnQ5PPH6", "subreddit"=>"blackpeopletwitter"}, "commit"=>"Create Dash"}
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "dashes" ("title", "subreddit", "twit_consumer_key", "twit_consumer_secret", "twit_access_token", "twit_access_token_secret", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["title", "Brunelli Beats"], ["subreddit", "blackpeopletwitter"], ["twit_consumer_key", "m4212UuwyeIv1YWiGeX46kIdh"], ["twit_consumer_secret", "BIlcey7YXQW3jtPOt6W6qB8jn6P29WPCfooE75LmSxqVkb9Vxr"], ["twit_access_token", "2492139913-N0vn5i7NjkLwniobk5pnnC6A4uUuTPR56B98JjN"], ["twit_access_token_secret", "\tXM11csqagSqbhowdX5P0BJ6lvf2fcIUXAQsA1MnQ5PPH6"], ["created_at", "2016-02-06 17:34:35.510587"], ["updated_at", "2016-02-06 17:34:35.510587"]]
+  [1m[35m (5.6ms)[0m  COMMIT
+Redirected to http://localhost:3000/dashes/1
+Completed 302 Found in 11ms (ActiveRecord: 6.2ms)
+
+
+Started GET "/dashes/1" for ::1 at 2016-02-06 09:34:35 -0800
+Processing by DashesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mDash Load (0.3ms)[0m  [1mSELECT  "dashes".* FROM "dashes" WHERE "dashes"."id" = $1 LIMIT 1[0m  [["id", 1]]
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 0.3ms)
+
+NameError (uninitialized constant Net::HTTP):
+  app/models/dash.rb:6:in `reddit_pic_scrape'
+  app/controllers/dashes_controller.rb:13:in `show'
+
+
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.2.2/lib/action_dispatch/middleware/templates/rescues/_source.erb (3.4ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.2.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.4ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.2.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.2.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (77.1ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (16.0ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.2ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.3ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (32.3ms)
+
+
+Started POST "/dashes" for ::1 at 2016-02-06 09:34:52 -0800
+Processing by DashesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Nj3vsHYdyM9L1TQgec0wUkycvnoIHOG1j0anJeZ9V2jNrhOZTcxXeKFf6yhNb6vGmX3vNNxKBEsUB4UHUXFaDQ==", "dash"=>{"title"=>"Brunelli Beats", "twit_consumer_key"=>"m4212UuwyeIv1YWiGeX46kIdh", "twit_consumer_secret"=>"BIlcey7YXQW3jtPOt6W6qB8jn6P29WPCfooE75LmSxqVkb9Vxr", "twit_access_token"=>"2492139913-N0vn5i7NjkLwniobk5pnnC6A4uUuTPR56B98JjN", "twit_access_token_secret"=>"XM11csqagSqbhowdX5P0BJ6lvf2fcIUXAQsA1MnQ5PPH6", "subreddit"=>"blackpeopletwitter"}, "commit"=>"Create Dash"}
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "dashes" ("title", "subreddit", "twit_consumer_key", "twit_consumer_secret", "twit_access_token", "twit_access_token_secret", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["title", "Brunelli Beats"], ["subreddit", "blackpeopletwitter"], ["twit_consumer_key", "m4212UuwyeIv1YWiGeX46kIdh"], ["twit_consumer_secret", "BIlcey7YXQW3jtPOt6W6qB8jn6P29WPCfooE75LmSxqVkb9Vxr"], ["twit_access_token", "2492139913-N0vn5i7NjkLwniobk5pnnC6A4uUuTPR56B98JjN"], ["twit_access_token_secret", "XM11csqagSqbhowdX5P0BJ6lvf2fcIUXAQsA1MnQ5PPH6"], ["created_at", "2016-02-06 17:34:52.463877"], ["updated_at", "2016-02-06 17:34:52.463877"]]
+  [1m[35m (6.2ms)[0m  COMMIT
+Redirected to http://localhost:3000/dashes/2
+Completed 302 Found in 10ms (ActiveRecord: 6.4ms)
+
+
+Started GET "/dashes/2" for ::1 at 2016-02-06 09:34:52 -0800
+Processing by DashesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mDash Load (0.2ms)[0m  [1mSELECT  "dashes".* FROM "dashes" WHERE "dashes"."id" = $1 LIMIT 1[0m  [["id", 2]]
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.2ms)
+
+NameError (uninitialized constant Net::HTTP):
+  app/models/dash.rb:6:in `reddit_pic_scrape'
+  app/controllers/dashes_controller.rb:13:in `show'
+
+
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.2.2/lib/action_dispatch/middleware/templates/rescues/_source.erb (3.3ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.2.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.3ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.2.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.5ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.2.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (12.9ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.2ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.2ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (9.4ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.2ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.2ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (19.8ms)
+
+
+Started GET "/dashes" for ::1 at 2016-02-06 09:35:15 -0800
+Processing by DashesController#index as HTML
+  [1m[35mDash Load (0.2ms)[0m  SELECT "dashes".* FROM "dashes"
+  Rendered dashes/index.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 12ms (Views: 10.8ms | ActiveRecord: 0.2ms)
+
+
+Started DELETE "/dashes/2" for ::1 at 2016-02-06 09:35:22 -0800
+Processing by DashesController#destroy as HTML
+  Parameters: {"authenticity_token"=>"30Rg84g93Xz61s7581+h6ZC5InPMrN7KPx1tY+yizx0k15zas+xCyxBcEfHH/Tp9RVhzPRj6OzSkXE9BW67CeA==", "id"=>"2"}
+  [1m[36mDash Load (0.2ms)[0m  [1mSELECT  "dashes".* FROM "dashes" WHERE "dashes"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mDELETE FROM "dashes" WHERE "dashes"."id" = $1[0m  [["id", 2]]
+  [1m[35m (2.5ms)[0m  COMMIT
+Redirected to http://localhost:3000/dashes
+Completed 302 Found in 5ms (ActiveRecord: 2.9ms)
+
+
+Started GET "/dashes" for ::1 at 2016-02-06 09:35:22 -0800
+Processing by DashesController#index as HTML
+  [1m[36mDash Load (0.2ms)[0m  [1mSELECT "dashes".* FROM "dashes"[0m
+  Rendered dashes/index.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 11ms (Views: 10.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/dashes/1" for ::1 at 2016-02-06 09:35:23 -0800
+Processing by DashesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mDash Load (0.2ms)[0m  SELECT  "dashes".* FROM "dashes" WHERE "dashes"."id" = $1 LIMIT 1  [["id", 1]]
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.2ms)
+
+NameError (uninitialized constant Net::HTTP):
+  app/models/dash.rb:6:in `reddit_pic_scrape'
+  app/controllers/dashes_controller.rb:13:in `show'
+
+
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.2.2/lib/action_dispatch/middleware/templates/rescues/_source.erb (3.1ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.2.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.3ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.2.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.5ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.2.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (12.4ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.2ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.2ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (9.1ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.2ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.2ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (19.0ms)
+
+
+Started GET "/dashes/1" for ::1 at 2016-02-06 09:35:23 -0800
+Processing by DashesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mDash Load (0.2ms)[0m  [1mSELECT  "dashes".* FROM "dashes" WHERE "dashes"."id" = $1 LIMIT 1[0m  [["id", 1]]
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.2ms)
+
+NameError (uninitialized constant Net::HTTP):
+  app/models/dash.rb:6:in `reddit_pic_scrape'
+  app/controllers/dashes_controller.rb:13:in `show'
+
+
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.2.2/lib/action_dispatch/middleware/templates/rescues/_source.erb (3.1ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.2.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.6ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.2.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.6ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.2.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (13.5ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (11.4ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.2ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.2ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (24.3ms)
+
+
+Started GET "/dashes/1/edit" for ::1 at 2016-02-06 09:35:28 -0800
+Processing by DashesController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mDash Load (0.2ms)[0m  SELECT  "dashes".* FROM "dashes" WHERE "dashes"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered dashes/_form.html.erb (2.0ms)
+  Rendered dashes/edit.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 14ms (Views: 13.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/dashes/1" for ::1 at 2016-02-06 09:35:30 -0800
+Processing by DashesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mDash Load (0.1ms)[0m  [1mSELECT  "dashes".* FROM "dashes" WHERE "dashes"."id" = $1 LIMIT 1[0m  [["id", 1]]
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.1ms)
+
+NameError (uninitialized constant Net::HTTP):
+  app/models/dash.rb:6:in `reddit_pic_scrape'
+  app/controllers/dashes_controller.rb:13:in `show'
+
+
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.2.2/lib/action_dispatch/middleware/templates/rescues/_source.erb (3.3ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.2.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.5ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.2.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.6ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.2.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (13.3ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.2ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.2ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (9.6ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.2ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.2ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (20.2ms)
+
+
+Started GET "/dashes/1" for ::1 at 2016-02-06 09:35:30 -0800
+Processing by DashesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mDash Load (0.1ms)[0m  SELECT  "dashes".* FROM "dashes" WHERE "dashes"."id" = $1 LIMIT 1  [["id", 1]]
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.1ms)
+
+NameError (uninitialized constant Net::HTTP):
+  app/models/dash.rb:6:in `reddit_pic_scrape'
+  app/controllers/dashes_controller.rb:13:in `show'
+
+
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.2.2/lib/action_dispatch/middleware/templates/rescues/_source.erb (3.7ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.2.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.4ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.2.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.2.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (13.7ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.2ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.2ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (10.0ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.2ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.3ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (20.3ms)
+
+
+Started GET "/dashes/1" for ::1 at 2016-02-06 09:36:10 -0800
+Processing by DashesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mDash Load (0.2ms)[0m  [1mSELECT  "dashes".* FROM "dashes" WHERE "dashes"."id" = $1 LIMIT 1[0m  [["id", 1]]
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.2ms)
+
+NameError (uninitialized constant Net::HTTP):
+  app/models/dash.rb:6:in `reddit_pic_scrape'
+  app/controllers/dashes_controller.rb:13:in `show'
+
+
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.2.2/lib/action_dispatch/middleware/templates/rescues/_source.erb (3.1ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.2.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.2ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.2.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.5ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.2.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (12.2ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.2ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.2ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (9.3ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.2ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.3ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (23.3ms)
+
+
+Started GET "/dashes/1" for ::1 at 2016-02-06 09:36:10 -0800
+Processing by DashesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mDash Load (0.2ms)[0m  SELECT  "dashes".* FROM "dashes" WHERE "dashes"."id" = $1 LIMIT 1  [["id", 1]]
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.2ms)
+
+NameError (uninitialized constant Net::HTTP):
+  app/models/dash.rb:6:in `reddit_pic_scrape'
+  app/controllers/dashes_controller.rb:13:in `show'
+
+
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.2.2/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.2ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.2.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.7ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.2.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.6ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.2.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (16.9ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.6ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.2ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (9.7ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.2ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.2ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (20.7ms)

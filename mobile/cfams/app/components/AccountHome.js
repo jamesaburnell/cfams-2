@@ -27,9 +27,13 @@ var AccountHome = React.createClass({
 	animateView: function () {
 		this.setState({
 			viewStyle: {
-				height: this.state.viewStyle.height > 250 ? 250 : 450
+				height: this.state.viewStyle.height > 120 ? 120 : 250
 			}
 		})
+	},
+
+	createList: function () {
+		
 	},
 
 	render: function () {
