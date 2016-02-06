@@ -12,7 +12,7 @@ class DashesController < ApplicationController
   # GET /dashes/1.json
   def show
     @user = current_user
-    @dash.reddit_pic_scrape
+    # @dash.reddit_pic_scrape()
     @posts = @dash.posts.where(approved: nil)
     respond_to do |format|
       format.html # show.html.erb
@@ -70,10 +70,20 @@ class DashesController < ApplicationController
   end
 
 
+  def add_reddit_pics
+    search_term = params[:search_term]
+    puts "SearchTerm: ", search_term
+    @dash = Dash.find(params[:dash_id])
+    @dash.reddit_pic_scrape(search_term)
+    redirect_to @dash
+  end
+
   def add_twitter_pics
     search_term = params[:search_term]
     puts "SearchTerm: ", search_term
     @dash = Dash.find(params[:dash_id])
+    @dash.twitter_pic_search = search_term
+    @dash.save
     @dash.twitter_pic_scrape(search_term)
     redirect_to @dash
   end
@@ -82,6 +92,8 @@ class DashesController < ApplicationController
     search_term = params[:search_term]
     puts "SearchTerm: ", search_term
     @dash = Dash.find(params[:dash_id])
+    @dash.giphy_search = search_term
+    @dash.save
     @dash.giphy_scrape(search_term)
     redirect_to @dash
   end
@@ -103,6 +115,6 @@ class DashesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def dash_params
-      params.require(:dash).permit(:title, :subreddit, :twit_consumer_key, :twit_consumer_secret, :twit_access_token, :twit_access_token_secret)
+      params.require(:dash).permit(:title, :subreddit, :twit_consumer_key, :twit_consumer_secret, :twit_access_token, :twit_access_token_secret, :giphy_search, :twitter_pic_search)
     end
 end

@@ -7,6 +7,7 @@ class Dash < ActiveRecord::Base
 
 	def giphy_scrape(search)
 		begin
+			search = search ? search : self.giphy_search
 			sanitize = search.tr(" ", "+");
 			key = "dc6zaTOxFJmzC"
 			url = "http://api.giphy.com/v1/gifs/search?q=" + sanitize + "&api_key=" + key
@@ -29,8 +30,8 @@ class Dash < ActiveRecord::Base
 	end
 
 
-	def reddit_pic_scrape
-		subredd = self.subreddit
+	def reddit_pic_scrape(sub)
+		subredd = sub ? sub : self.subreddit
 		reddit_api_url = "https://www.reddit.com/r/"+ subredd +".json"
 		resp = Net::HTTP.get_response(URI.parse(reddit_api_url))
 		data = resp.body
