@@ -10,9 +10,8 @@ class DashesController < ApplicationController
   # GET /dashes/1
   # GET /dashes/1.json
   def show
-    @dash = Dash.find(params[:id])
     @dash.reddit_pic_scrape
-    @posts = @dash.posts
+    @posts = @dash.posts.where(approved: nil)
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @dash }
@@ -75,6 +74,10 @@ class DashesController < ApplicationController
     redirect_to @dash
   end
 
+  def post_queue
+    @dash = Dash.find(params[:dash_id])
+    @posts = Post.where(approved: true, dash_id: @dash.id)
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.

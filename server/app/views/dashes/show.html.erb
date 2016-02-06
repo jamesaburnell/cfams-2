@@ -7,7 +7,7 @@
 
   <%= link_to "Add Twitter Posts", dash_add_twitter_pics_path(@dash) %>
   <br/>
-  
+
 <div id="masonry-container" class="transitions-enabled infinite-scroll clearfix">
 
 <% @posts.each do |post|  %>
@@ -18,9 +18,16 @@
   img: <%= post.image_src %>, 
   <% if !post.image_src.nil? %>
 
-    <!-- <%= image_tag post.og_source %> -->
+    <!-- <%= image_tag post.og_source %> -->lem
 
   <% end %>
+
+<%= link_to "approve", toggle_approve_dash_post_path(@dash, post),   
+            :remote => true %>  
+           | |
+<%= link_to "disapprove", toggle_disapprove_dash_post_path(@dash, post),   
+            :remote => true %>   
+              
   </div>
   <br/>
 <% end %>
