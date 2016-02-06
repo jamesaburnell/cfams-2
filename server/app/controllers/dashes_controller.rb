@@ -78,6 +78,14 @@ class DashesController < ApplicationController
     redirect_to @dash
   end
 
+  def add_giphy_gifs
+    search_term = params[:search_term]
+    puts "SearchTerm: ", search_term
+    @dash = Dash.find(params[:dash_id])
+    @dash.giphy_scrape(search_term)
+    redirect_to @dash
+  end
+
   def post_queue
     @dash = Dash.find(params[:dash_id])
     @posts = Post.where(approved: true, dash_id: @dash.id)

@@ -10,6 +10,12 @@
   <%= submit_tag("Search Twitter") %>
 <% end %>
   <br/>
+<%= form_tag("1/add_giphy_gifs", method: "get") do %>
+  <%= label_tag(:search_term, "Search for:") %>
+  <%= text_field_tag(:search_term) %>
+  <%= submit_tag("Search Giphy") %>
+<% end %>
+  <br/>
 
 <div id="masonry-container" class="transitions-enabled infinite-scroll clearfix">
 
