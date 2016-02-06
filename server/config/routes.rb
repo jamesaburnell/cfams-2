@@ -6,7 +6,9 @@ Rails.application.routes.draw do
 
   resources :dashes do
 	  get "/post_queue"  => 'dashes#post_queue', path: 'queue'
-	  get "/add_twitter_pics" => "dashes#add_twitter_pics"
+    get "/add_twitter_pics" => "dashes#add_twitter_pics"
+    get "/add_giphy_gifs" => "dashes#add_giphy_gifs"
+	  get "/add_reddit_pics" => "dashes#add_reddit_pics"
     resources :posts do  
       get 'toggle_approve', :on => :member   
   	  get 'toggle_disapprove', :on => :member   

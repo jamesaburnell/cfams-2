@@ -5,17 +5,38 @@ class Dash < ActiveRecord::Base
 	belongs_to :user
 	has_many :posts	
 
+	def giphy_scrape(search)
+		begin
+			search = search ? search : self.giphy_search
+			sanitize = search.tr(" ", "+");
+			key = "dc6zaTOxFJmzC"
+			url = "http://api.giphy.com/v1/gifs/search?q=" + sanitize + "&api_key=" + key
+			resp = Net::HTTP.get_response(URI.parse(url))
+			buffer = resp.body
+			result = JSON.parse(buffer)
+			puts "results: ", result['data']
+			temp = []
+			result['data'].each do |x|
+				puts x
+				temp.push(x["images"]["fixed_height"]["url"])
+			end	
+			temp.each do |post|
+				self.build_post("giphy", post, post, post, post)
+			end
+			return temp 
+		rescue
+			return nil
+		end
+	end
 
 
-
-	def reddit_pic_scrape
-		subredd = self.subreddit
+	def reddit_pic_scrape(sub)
+		subredd = sub ? sub : self.subreddit
 		reddit_api_url = "https://www.reddit.com/r/"+ subredd +".json"
 		resp = Net::HTTP.get_response(URI.parse(reddit_api_url))
 		data = resp.body
 		result = JSON.parse(data)
 		temp = []
-		temp2 = []
 		result["data"]["children"].each do |post|
 			begin
 				temp.push([post["data"]["preview"]["images"].first["source"], post["data"]["title"]])
@@ -29,11 +50,12 @@ class Dash < ActiveRecord::Base
 
 		return temp
 	end	
-	def twitter_pic_scrape
+
+	def twitter_pic_scrape(search)
 		t = self.get_twit_client
 		temp = []
-		search_var = "#catsoftwitter"
-		t.search(search_var, ).take(100).collect do |tweet|
+		search_var = search
+		t.search(search_var, result_type: "recent").collect do |tweet|
 			unless tweet.media[0].nil?
 				img = tweet.media[0].media_url
 				puts img
