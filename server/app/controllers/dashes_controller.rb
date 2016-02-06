@@ -1,21 +1,23 @@
 class DashesController < ApplicationController
   before_action :set_dash, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, only: [:index, :post_queue]
 
   # GET /dashes
   # GET /dashes.json
   def index
-    @dashes = Dash.all
+    @dashes = Dash.all.where(user_id: current_user)
   end
 
   # GET /dashes/1
   # GET /dashes/1.json
   def show
+    @user = current_user
     @dash.reddit_pic_scrape
     @posts = @dash.posts.where(approved: nil)
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @posts }
-     end        
+    end        
   end
 
   # GET /dashes/new
