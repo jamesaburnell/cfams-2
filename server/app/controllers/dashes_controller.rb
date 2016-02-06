@@ -69,6 +69,6 @@ class DashesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def dash_params
-      params.require(:dash).permit(:title, :subreddit)
+      params.require(:dash).permit(:title, :subreddit, :twit_consumer_key, :twit_consumer_secret, :twit_access_token, :twit_access_token_secret)
     end
 end
