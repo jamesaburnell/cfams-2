@@ -21,15 +21,18 @@ var cfams = React.createClass({
       dummyData: [
         {
           title: 'story 1',
-          imgUrl: require('./../dummyData/img1.png')
+          imgUrl: require('./../dummyData/img1.png'),
+          info: 'dis is tha info for dis pic mon'
         },
         {
           title: 'story 2',
-          imgUrl: require('./../dummyData/img2.png')
+          imgUrl: require('./../dummyData/img2.png'),
+          info: 'dis be da info for dis here pic ma main mon'
         },
         {
           title: 'story 3',
-          imgUrl: require('./../dummyData/img3.png')
+          imgUrl: require('./../dummyData/img3.png'),
+          info: 'right by da beach mon'
         },
 
       ]
