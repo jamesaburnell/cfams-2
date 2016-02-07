@@ -72,19 +72,6 @@ class Dash < ActiveRecord::Base
 		search_var = search
 		temp = []
 		img = client.posts(search_var + ".tumblr.com", :type => "photo", :limit => 50)["posts"]
-			# begin
-			# 	puts "tried.."
-			# 	# puts post
-			# 	puts "other side of post = = = = = = ="
-			# 	# img = post["posts"][0]["photos"][0]["alt_sizes"][0]["url"]
-			# 	# temp.push(post)
-			# rescue
-			# 	puts "this one didn't work"
-			# end
-		# end
-		puts "img:"
-		# puts img
-
 		img.each do |post|
 			puts ">>>>>>>>>>>>>>>>>"
 			puts post["summary"]
