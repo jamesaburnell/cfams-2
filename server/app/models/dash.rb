@@ -87,9 +87,15 @@ class Dash < ActiveRecord::Base
 
 		img.each do |post|
 			puts ">>>>>>>>>>>>>>>>>"
+			puts post["summary"]
+			puts "author: "
+			author = post["post_author"]
+			puts author
+			message = post["summary"]
+			puts "post contents ^^^^^^^"
 			extracted_img = post['photos'][0]['alt_sizes'][0]['url']
 			puts extracted_img
-			self.build_post("Tumblr", extracted_img, extracted_img, extracted_img, extracted_img)
+			self.build_post("Tumblr", extracted_img, message, extracted_img, author)
 			temp.push(extracted_img)
 		end
 	end
@@ -120,7 +126,7 @@ class Dash < ActiveRecord::Base
 
 	#Build Posts
 	def build_post(title, src, body, image, author)
-		p = self.posts.build(title: title, og_source: src, body: body, image_src: image)		
+		p = self.posts.build(title: title, og_source: src, body: body, image_src: image, author: author)		
 		p.save
 	end
 

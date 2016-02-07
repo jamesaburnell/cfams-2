@@ -112,7 +112,7 @@ class DashesController < ApplicationController
     @dash = Dash.find(params[:dash_id])
     @dash.tumblr_pic_search = search_term
     @dash.save
-    @dash.tumblr_pic_scrape('catsareassholes')
+    @dash.tumblr_pic_scrape(search_term)
     redirect_to @dash
   end
 
@@ -139,6 +139,6 @@ class DashesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def dash_params
-      params.require(:dash).permit(:title, :subreddit, :twit_consumer_key, :twit_consumer_secret, :twit_access_token, :twit_access_token_secret, :giphy_search, :twitter_pic_search, :tumblr_pic_search)
+      params.require(:dash).permit(:title, :subreddit, :twit_consumer_key, :twit_consumer_secret, :twit_access_token, :twit_access_token_secret, :giphy_search, :twitter_pic_search, :tumblr_pic_search, :author)
     end
 end
