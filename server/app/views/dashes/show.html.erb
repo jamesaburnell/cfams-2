@@ -28,7 +28,9 @@
   <%= submit_tag("Search Tumblr") %>
 <% end %>
   <br/>
-
+Facebook Authentication:
+  <%= link_to "Authenticate", @dash.fb_oauth %>
+  <br/>
 <div id="masonry-container" class="transitions-enabled infinite-scroll clearfix">
 
 <% @posts.each do |post|  %>

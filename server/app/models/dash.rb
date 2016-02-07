@@ -36,31 +36,23 @@ class Dash < ActiveRecord::Base
 		resp = Net::HTTP.get_response(URI.parse(reddit_api_url))
 		data = resp.body
 		result = JSON.parse(data)
-		temp = []
 		result["data"]["children"].each do |post|
 			begin
-				temp.push([post["data"]["preview"]["images"].first["source"], post["data"]["title"]])
+				self.build_post("reddit", post["data"]["preview"]["images"].first["source"]["url"], post["data"]["title"], post["data"]["preview"]["images"].first["source"]["url"], post["data"]["preview"]["images"].first["source"])
 			rescue
 				puts "nope"
 			end
 		end
-		temp.each do |post|
-			self.build_post("reddit", post[0]["url"], post[1], post[0]["url"], post[0])
-		end
-
-		return temp
 	end	
 
 	def twitter_pic_scrape(search)
 		t = self.get_twit_client
-		temp = []
 		search_var = search
 		t.search(search_var, result_type: "recent").collect do |tweet|
 			unless tweet.media[0].nil?
+				puts "tweetlovin: "
+				puts tweet
 				img = tweet.media[0].media_url
-				puts img
-				puts tweet.text
-				temp.push(tweet.text, img)
 				self.build_post("Twitter", img, tweet.text, img, img)
 			end
 		end	 		
@@ -69,21 +61,12 @@ class Dash < ActiveRecord::Base
 	def tumblr_pic_scrape(search)
 		# self.get_tumblr_client
 		client = Tumblr::Client.new
-		search_var = search
-		temp = []
-		img = client.posts(search_var + ".tumblr.com", :type => "photo", :limit => 50)["posts"]
+		img = client.posts(search + ".tumblr.com", :type => "photo", :limit => 50)["posts"]
 		img.each do |post|
-			puts ">>>>>>>>>>>>>>>>>"
-			puts post["summary"]
-			puts "author: "
 			author = post["post_author"]
-			puts author
 			message = post["summary"]
-			puts "post contents ^^^^^^^"
 			extracted_img = post['photos'][0]['alt_sizes'][0]['url']
-			puts extracted_img
 			self.build_post("Tumblr", extracted_img, message, extracted_img, author)
-			temp.push(extracted_img)
 		end
 	end
 
@@ -103,13 +86,13 @@ class Dash < ActiveRecord::Base
 
 
 	def get_tumblr_client
-		@tumblr = Tumblr.configure do |config|
+		tumblr = Tumblr.configure do |config|
 			  config.consumer_key = self.tumblr_consumer_key
 			  config.consumer_secret = self.tumblr_consumer_secret
 			  config.oauth_token = self.tumblr_oauth_token
 			  config.oauth_token_secret = self.tumblr_oauth_token_secret
 			end
-		return @tumblr
+		return tumblr
 	end
 
 
@@ -119,7 +102,7 @@ class Dash < ActiveRecord::Base
 	    callback_url = "http://localhost:3000/#{self.id}/"
 	    @oauth = Koala::Facebook::OAuth.new(app_id, app_secret, callback_url)
 	    oauth_url = @oauth.url_for_oauth_code
-	    return oauth_url 		
+	    return oauth_url
 	end
 
 	def fb_set_token(code)
@@ -134,7 +117,11 @@ class Dash < ActiveRecord::Base
 
 
 
-	#Build Posts
+	#Build Methods
+	def build_from_array(array)
+
+	end
+
 	def build_post(title, src, body, image, author)
 		p = self.posts.build(title: title, og_source: src, body: body, image_src: image, author: author)		
 		p.save

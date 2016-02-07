@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160207163607) do
+ActiveRecord::Schema.define(version: 20160207190159) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,6 +33,10 @@ ActiveRecord::Schema.define(version: 20160207163607) do
     t.string   "tumblr_consumer_secret"
     t.string   "tumblr_oauth_token"
     t.string   "tumblr_oauth_token_secret"
+    t.string   "fb_token"
+    t.string   "fb_app_id"
+    t.string   "fb_app_secret"
+    t.string   "fb_oauth_access_token"
   end
 
   create_table "payola_affiliates", force: :cascade do |t|
