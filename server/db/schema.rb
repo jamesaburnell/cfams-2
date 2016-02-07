@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160206223827) do
+ActiveRecord::Schema.define(version: 20160207000614) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 20160206223827) do
     t.integer  "user_id"
     t.string   "giphy_search"
     t.string   "twitter_pic_search"
+    t.string   "tumblr_pic_search"
   end
 
   create_table "payola_affiliates", force: :cascade do |t|

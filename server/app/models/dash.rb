@@ -66,6 +66,33 @@ class Dash < ActiveRecord::Base
 		end	 		
 	end
 
+	def tumblr_pic_scrape(search)
+		# self.get_tumblr_client
+		client = Tumblr::Client.new
+		search_var = search
+		temp = []
+		img = client.posts(search_var + ".tumblr.com", :type => "photo", :limit => 50)["posts"]
+			# begin
+			# 	puts "tried.."
+			# 	# puts post
+			# 	puts "other side of post = = = = = = ="
+			# 	# img = post["posts"][0]["photos"][0]["alt_sizes"][0]["url"]
+			# 	# temp.push(post)
+			# rescue
+			# 	puts "this one didn't work"
+			# end
+		# end
+		puts "img:"
+		# puts img
+
+		img.each do |post|
+			puts ">>>>>>>>>>>>>>>>>"
+			extracted_img = post['photos'][0]['alt_sizes'][0]['url']
+			puts extracted_img
+			self.build_post("Tumblr", extracted_img, extracted_img, extracted_img, extracted_img)
+			temp.push(extracted_img)
+		end
+	end
 
 	# Auth Methods
 	def get_twit_client
@@ -76,6 +103,17 @@ class Dash < ActiveRecord::Base
 		  config.access_token_secret = self.twit_access_token_secret
 		end
 		return twitCli
+	end
+
+
+	def get_tumblr_client
+		@tumblr = Tumblr.configure do |config|
+			  config.consumer_key = "4G9UxKrtral15WhmBZOw7qinXgcTm3zh6rpGA2VFP2pLYKuE2J"
+			  config.consumer_secret = "kAjrMLb13wV3mDANN831KnthQFUZ9MtpbrUfIFlcLv9D0QkfRt"
+			  config.oauth_token = "mm03apLTip6tllkxoUYSywJIXguY7MfxcMfjoWW32E53X0JMFk"
+			  config.oauth_token_secret = "AYqbvri2JClz2D5YlRCvu6uAOMwnRq1fZur5TAxkCL0LQqHlUP"
+			end
+		return @tumblr
 	end
 
 
