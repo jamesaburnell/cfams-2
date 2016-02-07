@@ -5,17 +5,38 @@ class Dash < ActiveRecord::Base
 	belongs_to :user
 	has_many :posts	
 
+	def giphy_scrape(search)
+		begin
+			search = search ? search : self.giphy_search
+			sanitize = search.tr(" ", "+");
+			key = "dc6zaTOxFJmzC"
+			url = "http://api.giphy.com/v1/gifs/search?q=" + sanitize + "&api_key=" + key
+			resp = Net::HTTP.get_response(URI.parse(url))
+			buffer = resp.body
+			result = JSON.parse(buffer)
+			puts "results: ", result['data']
+			temp = []
+			result['data'].each do |x|
+				puts x
+				temp.push(x["images"]["fixed_height"]["url"])
+			end	
+			temp.each do |post|
+				self.build_post("giphy", post, post, post, post)
+			end
+			return temp 
+		rescue
+			return nil
+		end
+	end
 
 
-
-	def reddit_pic_scrape
-		subredd = self.subreddit
+	def reddit_pic_scrape(sub)
+		subredd = sub ? sub : self.subreddit
 		reddit_api_url = "https://www.reddit.com/r/"+ subredd +".json"
 		resp = Net::HTTP.get_response(URI.parse(reddit_api_url))
 		data = resp.body
 		result = JSON.parse(data)
 		temp = []
-		temp2 = []
 		result["data"]["children"].each do |post|
 			begin
 				temp.push([post["data"]["preview"]["images"].first["source"], post["data"]["title"]])
@@ -34,7 +55,7 @@ class Dash < ActiveRecord::Base
 		t = self.get_twit_client
 		temp = []
 		search_var = search
-		t.search(search_var, ).take(100).collect do |tweet|
+		t.search(search_var, result_type: "recent").collect do |tweet|
 			unless tweet.media[0].nil?
 				img = tweet.media[0].media_url
 				puts img
@@ -45,6 +66,39 @@ class Dash < ActiveRecord::Base
 		end	 		
 	end
 
+	def tumblr_pic_scrape(search)
+		# self.get_tumblr_client
+		client = Tumblr::Client.new
+		search_var = search
+		temp = []
+		img = client.posts(search_var + ".tumblr.com", :type => "photo", :limit => 50)["posts"]
+			# begin
+			# 	puts "tried.."
+			# 	# puts post
+			# 	puts "other side of post = = = = = = ="
+			# 	# img = post["posts"][0]["photos"][0]["alt_sizes"][0]["url"]
+			# 	# temp.push(post)
+			# rescue
+			# 	puts "this one didn't work"
+			# end
+		# end
+		puts "img:"
+		# puts img
+
+		img.each do |post|
+			puts ">>>>>>>>>>>>>>>>>"
+			puts post["summary"]
+			puts "author: "
+			author = post["post_author"]
+			puts author
+			message = post["summary"]
+			puts "post contents ^^^^^^^"
+			extracted_img = post['photos'][0]['alt_sizes'][0]['url']
+			puts extracted_img
+			self.build_post("Tumblr", extracted_img, message, extracted_img, author)
+			temp.push(extracted_img)
+		end
+	end
 
 	# Auth Methods
 	def get_twit_client
@@ -58,10 +112,21 @@ class Dash < ActiveRecord::Base
 	end
 
 
+	def get_tumblr_client
+		@tumblr = Tumblr.configure do |config|
+			  config.consumer_key = self.tumblr_consumer_key
+			  config.consumer_secret = self.tumblr_consumer_secret
+			  config.oauth_token = self.tumblr_oauth_token
+			  config.oauth_token_secret = self.tumblr_oauth_token_secret
+			end
+		return @tumblr
+	end
+
+
 
 	#Build Posts
 	def build_post(title, src, body, image, author)
-		p = self.posts.build(title: title, og_source: src, body: body, image_src: image)		
+		p = self.posts.build(title: title, og_source: src, body: body, image_src: image, author: author)		
 		p.save
 	end
 
