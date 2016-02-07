@@ -114,10 +114,10 @@ class Dash < ActiveRecord::Base
 
 	def get_tumblr_client
 		@tumblr = Tumblr.configure do |config|
-			  config.consumer_key = "4G9UxKrtral15WhmBZOw7qinXgcTm3zh6rpGA2VFP2pLYKuE2J"
-			  config.consumer_secret = "kAjrMLb13wV3mDANN831KnthQFUZ9MtpbrUfIFlcLv9D0QkfRt"
-			  config.oauth_token = "mm03apLTip6tllkxoUYSywJIXguY7MfxcMfjoWW32E53X0JMFk"
-			  config.oauth_token_secret = "AYqbvri2JClz2D5YlRCvu6uAOMwnRq1fZur5TAxkCL0LQqHlUP"
+			  config.consumer_key = self.tumblr_consumer_key
+			  config.consumer_secret = self.tumblr_consumer_secret
+			  config.oauth_token = self.tumblr_oauth_token
+			  config.oauth_token_secret = self.tumblr_oauth_token_secret
 			end
 		return @tumblr
 	end

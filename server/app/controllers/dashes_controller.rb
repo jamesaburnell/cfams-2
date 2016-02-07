@@ -127,10 +127,6 @@ class DashesController < ApplicationController
 
 
 
-
-
-
-
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_dash
@@ -139,6 +135,6 @@ class DashesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def dash_params
-      params.require(:dash).permit(:title, :subreddit, :twit_consumer_key, :twit_consumer_secret, :twit_access_token, :twit_access_token_secret, :giphy_search, :twitter_pic_search, :tumblr_pic_search, :author)
+      params.require(:dash).permit(:title, :subreddit, :twit_consumer_key, :twit_consumer_secret, :twit_access_token, :twit_access_token_secret, :giphy_search, :twitter_pic_search, :tumblr_pic_search, :tumblr_consumer_key, :tumblr_consumer_secret, :tumblr_oauth_token, :tumblr_oauth_token_secret, :author)
     end
 end
