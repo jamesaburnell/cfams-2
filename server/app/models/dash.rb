@@ -87,6 +87,9 @@ class Dash < ActiveRecord::Base
 		end
 	end
 
+
+
+
 	# Auth Methods
 	def get_twit_client
 		twitCli = Twitter::REST::Client.new do |config|
@@ -107,6 +110,26 @@ class Dash < ActiveRecord::Base
 			  config.oauth_token_secret = self.tumblr_oauth_token_secret
 			end
 		return @tumblr
+	end
+
+
+	def fb_oauth
+	    app_id = self.fb_app_id
+	    app_secret = self.fb_app_secret
+	    callback_url = "http://localhost:3000/#{self.id}/"
+	    @oauth = Koala::Facebook::OAuth.new(app_id, app_secret, callback_url)
+	    oauth_url = @oauth.url_for_oauth_code
+	    return oauth_url 		
+	end
+
+	def fb_set_token(code)
+		app_id = self.fb_app_id
+		app_secret = self.fb_app_secret
+		callback_url = "http://localhost:3000/#{self.id}/fb_oauth"
+		@oauth = Koala::Facebook::OAuth.new(app_id, app_secret, callback_url)
+		access_token = @oauth.get_access_token(code)
+		self.fb_token = access_token
+		self.save
 	end
 
 
