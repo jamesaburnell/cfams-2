@@ -72,18 +72,17 @@ class Dash < ActiveRecord::Base
 		search_var = search
 		temp = []
 		img = client.posts(search_var + ".tumblr.com", :type => "photo", :limit => 50)["posts"]
-		img.each do |post|
-			puts ">>>>>>>>>>>>>>>>>"
-			puts post["summary"]
-			puts "author: "
-			author = post["post_author"]
-			puts author
-			message = post["summary"]
-			puts "post contents ^^^^^^^"
-			extracted_img = post['photos'][0]['alt_sizes'][0]['url']
-			puts extracted_img
-			self.build_post("Tumblr", extracted_img, message, extracted_img, author)
-			temp.push(extracted_img)
+		begin
+			img.each do |post|
+				author = post["post_author"]
+				message = post["summary"]
+				extracted_img = post['photos'][0]['alt_sizes'][0]['url']
+				puts extracted_img
+				self.build_post("Tumblr", extracted_img, message, extracted_img, author)
+				temp.push(extracted_img)
+			end
+		rescue
+			puts "broke!"
 		end
 	end
 

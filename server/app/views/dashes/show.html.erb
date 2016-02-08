@@ -4,6 +4,15 @@
 <p>
   <%= @dash.title %>
 </p>
+<p>
+  Unapproved: <%= @dash.posts.where(approved: nil).count %>
+</p>
+<p>
+  Approved: <%= @dash.posts.where(approved: true).count %>
+</p>
+<p>
+  Disapproved: <%= @dash.posts.where(approved: false).count %>
+</p>
 <%= form_tag("1/add_twitter_pics", method: "get") do %>
   <%= label_tag(:search_term, "Search for:") %>
   <%= text_field_tag(:search_term, @dash.twitter_pic_search) %>
