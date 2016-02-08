@@ -12,19 +12,19 @@
 <p>
   Disapproved: <%= @dash.posts.where(approved: false).count %>
 </p>
-<%= form_tag("1/add_twitter_pics", method: "get") do %>
+<%= form_tag("1/twitter-pics", method: "get") do %>
   <%= label_tag(:search_term, "Search for:") %>
   <%= text_field_tag(:search_term, @dash.twitter_pic_search) %>
   <%= submit_tag("Search Twitter") %>
 <% end %>
   <br/>
-<%= form_tag("add_giphy_gifs", method: "get") do %>
+<%= form_tag("giphy-gifs", method: "get") do %>
   <%= label_tag(:search_term, "Search for:") %>
   <%= text_field_tag(:search_term, @dash.giphy_search) %>
   <%= submit_tag("Search Giphy") %>
 <% end %>
   <br/>
-<%= form_tag("add_reddit_pics", method: "get") do %>
+<%= form_tag("reddit-pics", method: "get") do %>
   <%= label_tag(:search_term, "Search for:") %>
   <%= text_field_tag(:search_term, @dash.subreddit) %>
   <%= submit_tag("Search Reddit") %>
