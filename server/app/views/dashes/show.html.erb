@@ -1,5 +1,4 @@
-       <p class="notice"><%= notice %></p>
-       <p class="alert"><%= alert %></p>
+
 
 <p>
   <%= @dash.title %>
@@ -19,24 +18,39 @@
   <%= submit_tag("Search Twitter") %>
 <% end %>
   <br/>
-<%= form_tag("1/add_giphy_gifs", method: "get") do %>
+<%= form_tag("add_giphy_gifs", method: "get") do %>
   <%= label_tag(:search_term, "Search for:") %>
   <%= text_field_tag(:search_term, @dash.giphy_search) %>
   <%= submit_tag("Search Giphy") %>
 <% end %>
   <br/>
-<%= form_tag("1/add_reddit_pics", method: "get") do %>
+<%= form_tag("add_reddit_pics", method: "get") do %>
   <%= label_tag(:search_term, "Search for:") %>
   <%= text_field_tag(:search_term, @dash.subreddit) %>
   <%= submit_tag("Search Reddit") %>
 <% end %>
   <br/>
-<%= form_tag("1/add_tumblr_pics", method: "get") do %>
+<%= form_tag("tumblr-pics", method: "get") do %>
   <%= label_tag(:search_term, "Search for:") %>
   <%= text_field_tag(:search_term, @dash.tumblr_pic_search) %>
   <%= submit_tag("Search Tumblr") %>
 <% end %>
+
+<hr/>
+<%= link_to "Post Tweet", dash_post_tweet_path(@dash) %>
+<br/>
+<hr/>
+
+Facebook Authentication:
+  <%= link_to "Authenticate", @dash.fb_oauth %>
   <br/>
+<hr/>
+
+<%= link_to 'Edit', edit_dash_path(@dash) %> |
+<%= link_to 'Back', dashes_path %>
+<%= link_to 'Queue', dash_post_queue_path(@dash, @post) %>
+
+<%= link_to 'Login Test', user_session_path(email: "hathbanger.ah@gmail.com", password: "amh05055"), method: "post" %>
 
 <div id="masonry-container" class="transitions-enabled infinite-scroll clearfix">
 
@@ -64,9 +78,3 @@
 
   
 </div>
-
-<%= link_to 'Edit', edit_dash_path(@dash) %> |
-<%= link_to 'Back', dashes_path %>
-<%= link_to 'Queue', dash_post_queue_path(@dash, @post) %>
-
-<%= link_to 'Login Test', user_session_path(email: "hathbanger.ah@gmail.com", password: "amh05055"), method: "post" %>
