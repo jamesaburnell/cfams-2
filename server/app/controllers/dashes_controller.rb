@@ -118,11 +118,33 @@ class DashesController < ApplicationController
 
   def post_queue
     @dash = Dash.find(params[:dash_id])
-    @posts = Post.where(approved: true, dash_id: @dash.id)
+    @posts = Post.where(approved: true, dash_id: @dash.id, twit_published: 0)
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @posts }
      end        
+  end
+
+  def already_posted
+    @dash = Dash.find(params[:dash_id])
+    @posts = Post.where(dash_id: @dash.id, twit_published: 1)
+    respond_to do |format|
+      format.html # show.html.erb
+      format.json { render json: @posts }
+     end        
+  end
+
+
+  # Posting Actions
+
+  def post_tweet
+    @dash = Dash.find(params[:dash_id])
+    @dash.post_tweet()
+        respond_to do |format|
+        if @dash.save
+          format.html { redirect_to @dash, notice: 'Tweet Posted.' }
+        end
+      end
   end
 
 
@@ -135,6 +157,16 @@ class DashesController < ApplicationController
     @dash.fb_set_token(code)
     # @dash.save
     # redirect_to(@dash)
+  end
+
+  def fb_set_token(code)
+    app_id = self.fb_app_id
+    app_secret = self.fb_app_secret
+    callback_url = "http://localhost:3000/dashes/#{self.id}/fb_oauth"
+    @oauth = Koala::Facebook::OAuth.new(app_id, app_secret, callback_url)
+    access_token = @oauth.get_access_token(code)
+    self.fb_token = access_token
+    self.save
   end
 
 
