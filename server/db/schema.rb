@@ -11,15 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160206223827) do
+ActiveRecord::Schema.define(version: 20160207163607) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "dashes", force: :cascade do |t|
     t.string   "title"
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
     t.string   "subreddit"
     t.string   "twit_consumer_key"
     t.string   "twit_consumer_secret"
@@ -28,6 +28,11 @@ ActiveRecord::Schema.define(version: 20160206223827) do
     t.integer  "user_id"
     t.string   "giphy_search"
     t.string   "twitter_pic_search"
+    t.string   "tumblr_pic_search"
+    t.string   "tumblr_consumer_key"
+    t.string   "tumblr_consumer_secret"
+    t.string   "tumblr_oauth_token"
+    t.string   "tumblr_oauth_token_secret"
   end
 
   create_table "posts", force: :cascade do |t|
@@ -39,6 +44,7 @@ ActiveRecord::Schema.define(version: 20160206223827) do
     t.datetime "updated_at", null: false
     t.integer  "dash_id"
     t.boolean  "approved"
+    t.string   "author"
   end
 
   create_table "users", force: :cascade do |t|

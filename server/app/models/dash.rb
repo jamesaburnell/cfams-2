@@ -66,6 +66,26 @@ class Dash < ActiveRecord::Base
 		end	 		
 	end
 
+	def tumblr_pic_scrape(search)
+		# self.get_tumblr_client
+		client = Tumblr::Client.new
+		search_var = search
+		temp = []
+		img = client.posts(search_var + ".tumblr.com", :type => "photo", :limit => 50)["posts"]
+		img.each do |post|
+			puts ">>>>>>>>>>>>>>>>>"
+			puts post["summary"]
+			puts "author: "
+			author = post["post_author"]
+			puts author
+			message = post["summary"]
+			puts "post contents ^^^^^^^"
+			extracted_img = post['photos'][0]['alt_sizes'][0]['url']
+			puts extracted_img
+			self.build_post("Tumblr", extracted_img, message, extracted_img, author)
+			temp.push(extracted_img)
+		end
+	end
 
 	# Auth Methods
 	def get_twit_client
@@ -79,10 +99,21 @@ class Dash < ActiveRecord::Base
 	end
 
 
+	def get_tumblr_client
+		@tumblr = Tumblr.configure do |config|
+			  config.consumer_key = self.tumblr_consumer_key
+			  config.consumer_secret = self.tumblr_consumer_secret
+			  config.oauth_token = self.tumblr_oauth_token
+			  config.oauth_token_secret = self.tumblr_oauth_token_secret
+			end
+		return @tumblr
+	end
+
+
 
 	#Build Posts
 	def build_post(title, src, body, image, author)
-		p = self.posts.build(title: title, og_source: src, body: body, image_src: image)		
+		p = self.posts.build(title: title, og_source: src, body: body, image_src: image, author: author)		
 		p.save
 	end
 
