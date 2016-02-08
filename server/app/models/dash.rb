@@ -86,7 +86,6 @@ class Dash < ActiveRecord::Base
 			  img
 			end		
 			post.twit_published += 1
-			puts post.twit_published
 			post.save
 			twitCli.update_with_media(post.body.to_s, img)
 		rescue
@@ -102,12 +101,13 @@ class Dash < ActiveRecord::Base
 			url = post.og_source
 			img = URI.parse(post.image_src)
 			client.photo("ourcatsareassholes.tumblr.com", source: img)
-			puts "posted!"
+			post.tumblr_published += 1
+			post.save
 		rescue => e
 			puts e
 		end
 	end
-	
+
 
 	def post_fb
 		puts "starting FB post..."
@@ -189,9 +189,6 @@ class Dash < ActiveRecord::Base
 
 
 	#Build Methods
-	def build_from_array(array)
-
-	end
 
 	def build_post(title, src, body, image, author)
 		p = self.posts.build(title: title, og_source: src, body: body, image_src: image, author: author)		

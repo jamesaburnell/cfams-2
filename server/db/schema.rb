@@ -149,8 +149,8 @@ ActiveRecord::Schema.define(version: 20160208230134) do
     t.boolean  "approved"
     t.string   "author"
     t.integer  "twit_published",   default: 0
-    t.integer  "fb_published"
-    t.integer  "tumblr_published"
+    t.integer  "fb_published",     default: 0
+    t.integer  "tumblr_published", default: 0
   end
 
   create_table "subscription_plans", force: :cascade do |t|
