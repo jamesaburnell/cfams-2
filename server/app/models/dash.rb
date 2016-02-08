@@ -21,7 +21,7 @@ class Dash < ActiveRecord::Base
 				temp.push(x["images"]["fixed_height"]["url"])
 			end	
 			temp.each do |post|
-				self.build_post("giphy", post, post, post, post)
+				self.build_post("giphy", post, nil, post, post)
 			end
 			return temp 
 		rescue
@@ -100,7 +100,7 @@ class Dash < ActiveRecord::Base
 		begin
 			url = post.og_source
 			img = URI.parse(post.image_src)
-			client.photo("ourcatsareassholes.tumblr.com", source: img)
+			client.photo("ourcatsareassholes.tumblr.com", caption: post.body, source: img)
 			post.tumblr_published += 1
 			post.save
 		rescue => e
