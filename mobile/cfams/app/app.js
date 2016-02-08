@@ -63,15 +63,21 @@ var cfams = React.createClass({
       }.bind(this))
   },
 
+  getDashesList: function() {
+    fetch('http://localhost:3000/dashes', {method: 'GET'}, function (err) {
+      console.log('error getting dashes: ', err);
+    })
+  },
+
   getDashContent: function (func) {
     fetch('http://localhost:3000/dashes/1.json', {method: 'GET'}, function (err) {
-      console.log("ERROR: ", err)
+      console.log("error getting dash content: ", err)
     })
       .then(function (response) {
         return response.json();
       })
       .then(function (responseData) {
-        console.log('redit: ', responseData);
+        console.log('reddit: ', responseData);
         this.setState({
           unapprovedContent: responseData,
         })

@@ -1,5 +1,8 @@
+'use strict';
 var React = require('react-native');
 var ApprovedContent = require('./ApprovedContent.js');
+var UnapprovedContent = require('./AccountHome.js');
+
 
 var {
   Component,
@@ -9,14 +12,26 @@ var {
   Navigator,
   TouchableHighlight,
   LayoutAnimation,
+  TouchableWithoutFeedback
 } = React;
 
 var Navbar = React.createClass({
 	getInitialState: function () {
 		return {
+			menuButton: '...',
+			menuButtonStyle: {
+				marginTop: -25
+			},
+			links: {
+				approved: ''
+			},
 			navStyle: {
 				height: 50
-			}
+			},
+			menuStyle: {
+				marginTop: null
+			},
+
 		}
 	},
 
@@ -24,28 +39,61 @@ var Navbar = React.createClass({
 		this.props.navigate(this.props.navigator, ApprovedContent, 'Approved Content');
 	},
 
+	toUnapprovedPage: function () {
+		this.props.navigate(this.props.navigator, UnapprovedContent, 'Unapproved Content');
+	},
+
 	animateNavbar: function () {
-		LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut)
+		LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut, this.showMenu)
 		this.setState({
 			navStyle: {
-				height: this.state.navStyle.height > 50 ? 50 : 200,
-			}
+				height: this.state.navStyle.height > 50 ? 50 : 200
+			},
+			menuButtonStyle: {
+				marginTop: this.state.navStyle.height > 50 ? -25 : 90
+			},
+			menuStyle: {
+				marginTop: this.state.navStyle.height > 50 ? null : 30
+			},
+
+		})
+	},
+
+	showMenu: function () {
+		console.log('show menu');
+		this.setState({ 
+			links: this.state.navStyle.height > 50 ? {approved: 'Approved Posts', unapproved: 'Unapproved Posts'} : {approved: '', unapproved: ''}
 		})
 	},
 
 	render: function () {
-		var navbarStyle = [styles.container, this.state.navStyle]
+		var navbarStyle = [styles.container, this.state.navStyle];
+		var buttonStyle = [this.state.menuButtonStyle, {fontSize: 20}];
+		var menuStyle = [styles.linkStyle, this.state.approvedStyle]
 		return (
 			<View style={navbarStyle}>
 				<View style={{marginTop: 15, flex: 1, flexDirection: 'row'}}>
 					
 					<View style={styles.menuButton}>
-						<TouchableHighlight 
+						
+						<View style={this.state.menuStyle}>
+							<TouchableHighlight onPress={this.toApprovedPage}>
+									<Text>{this.state.links.approved}</Text>
+							</TouchableHighlight>
+
+							<TouchableHighlight onPress={this.toUnapprovedPage}>
+									<Text>{this.state.links.unapproved}</Text>
+							</TouchableHighlight>
+						</View>
+
+						<TouchableWithoutFeedback 
 							onPress={this.animateNavbar} 
-							style={styles.menuButton}
+							style={styles.menuButton} 
 							>
-							<Text style={{fontSize: 30}}>...</Text>
-						</TouchableHighlight>
+							<Text style={buttonStyle}>{this.state.menuButton}</Text> 
+						</TouchableWithoutFeedback> 
+
+						
 					</View>
 				</View>
 			</View>
@@ -55,16 +103,20 @@ var Navbar = React.createClass({
 
 var styles = StyleSheet.create({
 	container: {
-		width: 400,
 		backgroundColor: 'turquoise',
 		flex: 1,
 		flexDirection: 'row'
 	},
 	menuButton: {
-		width: 50,
-		alignItems: 'flex-end',
-		left: 120,
-	}
+		flex: 1,
+		flexDirection: 'column',
+		alignItems: 'center'
+	},
+	linkStyle: {
+		flex: 1,
+		flexDirection: 'row',
+	},
+
 
 })
 
