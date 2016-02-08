@@ -72,11 +72,11 @@ class Dash < ActiveRecord::Base
 
 
 	#  Posting Methods
-
+	
 	def post_tweet(post)
 		twitCli = self.get_twit_client
+		post = Post.find(post)
 		begin
-			post = Post.all.where(dash_id: self.id, approved: true, twit_published: 0).shuffle.first
 			img = open(post.og_source)
 			if img.is_a?(StringIO)
 			  ext = File.extname(url)
@@ -94,7 +94,36 @@ class Dash < ActiveRecord::Base
 		end
 	end
 
+	# def post_random_tumblr
+	# 	tumblr_client = self.get_tumblr_client
+	# 	client = Tumblr::Client.new
+	# 	post = Post.all.where(dash_id: self.id, approved: true, twit_published: 0).shuffle.first
+	# 	begin
+	# 		url = post.og_source
+	# 		img = URI.parse(post.image_src)
+	# 		client.photo("ourcatsareassholes.tumblr.com", source: img)
+	# 		puts "posted!"
+	# 	rescue => e
+	# 		puts e
+	# 	end
+	# end
+
+	def post_tumblr(post)
+		post = Post.find(post)
+		tumblr_client = self.get_tumblr_client
+		client = Tumblr::Client.new
+		begin
+			url = post.og_source
+			img = URI.parse(post.image_src)
+			client.photo("ourcatsareassholes.tumblr.com", source: img)
+			puts "posted!"
+		rescue => e
+			puts e
+		end
+	end
+
 	def post_fb
+		puts "starting FB post..."
 		user_access_token = self.fb_token
 		@user_graph = Koala::Facebook::API.new(user_access_token)
 	    app_id = self.fb_app_id
@@ -108,14 +137,14 @@ class Dash < ActiveRecord::Base
 		page_id = pages.first['id']
 		@page_graph = Koala::Facebook::API.new(access_token)
 		post = self.posts.shuffle.first
+		puts "almost there!"
+		post @page_graph
 
 		img = open(post.image_src)
 		if img.is_a?(StringIO)
 		  ext = File.extname(url)
 		  name = File.basename(url, ext)
 		  img = Koala::UploadableIO.new(img)
-		else
-		  img
 		end					
 		message =  post.body.to_s
 		url = "http://localhost:3000/dashes/#{self.id}/home"
@@ -157,7 +186,7 @@ class Dash < ActiveRecord::Base
 	    callback_url = "http://localhost:3000/dashes/#{self.id}/"
 	    @oauth = Koala::Facebook::OAuth.new(app_id, app_secret, callback_url)
 	    oauth_url = @oauth.url_for_oauth_code
-	    return oauth_url
+	    return oauth_url 		
 	end
 
 	def fb_set_token(code)

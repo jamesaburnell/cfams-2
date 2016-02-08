@@ -12,7 +12,11 @@ Rails.application.routes.draw do
     get "/add_giphy_gifs" => "dashes#add_giphy_gifs", path: 'giphy-gifs'
     get "/add_reddit_pics" => "dashes#add_reddit_pics", path: 'reddit-pics'
 	  get "/add_tumblr_pics" => "dashes#add_tumblr_pics", path: 'tumblr-pics'
+
+
+    # Posting to Channels
     get "/post_tweet" => "dashes#post_tweet"
+    get "/post_tumblr" => "dashes#post_tumblr"
 
     # Post Routes
     resources :posts do  

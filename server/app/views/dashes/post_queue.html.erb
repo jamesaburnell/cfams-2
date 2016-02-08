@@ -4,6 +4,16 @@
 <p>
   <%= @dash.title %>
 </p>
+<p>
+  Unapproved: <%= @dash.posts.where(approved: nil).count %>
+</p>
+<p>
+  To be Posted: <%= @posts.count %>
+</p>
+
+<p>
+  Already Posted: <%= @dash.posts.where(approved: true).count - @posts.count %>
+</p>
 
 <div id="masonry-container" class="transitions-enabled infinite-scroll clearfix">
 
@@ -25,6 +35,8 @@
             
   </div>
   <br/>
+  <%= link_to "Tweet This!", dash_post_tweet_path(@dash, post_id: post.id) %>||
+  <%= link_to "Tumblr This!", dash_post_tumblr_path(@dash, post_id: post.id) %>
 <% end %>
 
   
