@@ -46,12 +46,12 @@ Facebook Authentication:
   <%= link_to "Authenticate", @dash.fb_oauth %>
   <br/>
 <hr/>
-
-<%= link_to 'Edit', edit_dash_path(@dash) %> |
-<%= link_to 'Back', dashes_path %>
 <%= link_to 'Queue', dash_post_queue_path(@dash, @post) %>
+<br/>
+<hr/>
 
-<%= link_to 'Login Test', user_session_path(email: "hathbanger.ah@gmail.com", password: "amh05055"), method: "post" %>
+<%= link_to 'Settings', edit_dash_path(@dash) %> |
+<%= link_to 'Back', dashes_path %>
 
 <div id="masonry-container" class="transitions-enabled infinite-scroll clearfix">
 

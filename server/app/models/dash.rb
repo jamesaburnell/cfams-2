@@ -72,7 +72,7 @@ class Dash < ActiveRecord::Base
 
 
 	#  Posting Methods
-	
+
 	def post_tweet(post)
 		twitCli = self.get_twit_client
 		post = Post.find(post)
@@ -94,20 +94,6 @@ class Dash < ActiveRecord::Base
 		end
 	end
 
-	# def post_random_tumblr
-	# 	tumblr_client = self.get_tumblr_client
-	# 	client = Tumblr::Client.new
-	# 	post = Post.all.where(dash_id: self.id, approved: true, twit_published: 0).shuffle.first
-	# 	begin
-	# 		url = post.og_source
-	# 		img = URI.parse(post.image_src)
-	# 		client.photo("ourcatsareassholes.tumblr.com", source: img)
-	# 		puts "posted!"
-	# 	rescue => e
-	# 		puts e
-	# 	end
-	# end
-
 	def post_tumblr(post)
 		post = Post.find(post)
 		tumblr_client = self.get_tumblr_client
@@ -121,6 +107,7 @@ class Dash < ActiveRecord::Base
 			puts e
 		end
 	end
+	
 
 	def post_fb
 		puts "starting FB post..."
