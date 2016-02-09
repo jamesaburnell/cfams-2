@@ -2,6 +2,9 @@ tmp/cache
 tmp/pids
 tmp
 
+public/system/posts
+
+
 log
 
 *.log

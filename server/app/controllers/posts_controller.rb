@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
+  before_action :set_dash, only: [:new, :create]
 
   # GET /posts
   # GET /posts.json
@@ -24,12 +25,13 @@ class PostsController < ApplicationController
   # POST /posts
   # POST /posts.json
   def create
+    @dash = Dash.find(params[:dash_id])
     @post = Post.new(post_params)
 
     respond_to do |format|
       if @post.save
-        format.html { redirect_to @post, notice: 'Post was successfully created.' }
-        format.json { render :show, status: :created, location: @post }
+        format.html { redirect_to @dash, notice: 'Post was successfully created.' }
+        format.json { render :show, status: :created, location: @dash }
       else
         format.html { render :new }
         format.json { render json: @post.errors, status: :unprocessable_entity }
@@ -87,12 +89,17 @@ class PostsController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
+    def set_dash
+      @dash = Dash.find(params[:dash_id])
+    end
+
+    # Use callbacks to share common setup or constraints between actions.
     def set_post
       @post = Post.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-      params.require(:post).permit(:title, :og_source, :body, :image_src)
+      params.require(:post).permit(:dash_id, :title, :og_source, :body, :image_src, :usr_image, :author)
     end
 end
