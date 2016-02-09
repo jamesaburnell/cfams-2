@@ -48,7 +48,7 @@ var Navbar = React.createClass({
 	},
 
 	animateNavbar: function () {
-		LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut, this.showMenu)
+		LayoutAnimation.configureNext(LayoutAnimation.Presets.spring, this.showMenu)
 		this.setState({
 			navStyle: {
 				height: this.state.navStyle.height > 50 ? 50 : 200

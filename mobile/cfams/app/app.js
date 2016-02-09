@@ -52,7 +52,6 @@ var cfams = React.createClass({
         currentAccount: currAcct[0]
       })
       this.getDashContent(dashId, func);
-      console.log('current account state', this.state);
     },
 
   checkCreds: function (func) {
@@ -81,17 +80,12 @@ var cfams = React.createClass({
             }
           })
         }
-        console.log('User Headers: ', this.state.userHeaders)
         return this.state.userHeaders;
       }.bind(this))
       .then(function (headers) {
         this.setState({userLoggedIn: true})
         this.getDashesList(headers, func)
       }.bind(this))
-
-  },
-
-  setHead: function (data, func) {
 
   },
 
@@ -108,7 +102,6 @@ var cfams = React.createClass({
       })
     }.bind(this))
     .done(function () {
-      console.log('dashes: ', this.state.userDashes)
       func()
     }.bind(this))
 
@@ -134,6 +127,7 @@ var cfams = React.createClass({
   },
 
   getApprovedContent: function (dashId, func) {
+    console.log('http://localhost:3000/dashes/'+dashId+'/queue.json');
     fetch('http://localhost:3000/dashes/'+dashId+'/queue.json', {method: 'GET'}, function (err) {
       console.log("Error retrieving approved content: ", err)
     })
@@ -146,9 +140,26 @@ var cfams = React.createClass({
       })
     }.bind(this))
     .done(function(){
-      console.log("state set: ", this.state.approvedContent)
       func()
     }.bind(this))
+  },
+
+  sendPost: function (dashId, postId, toggle) {    
+    fetch('http://localhost:3000/dashes/'+dashId+'/'+toggle+'?post_id='+postId, {method: 'GET'}, function (err) {
+      console.error("error: ", err)
+    })
+    .then(function (response) {
+      console.log('post sent response: ', response);
+    })
+  },
+
+  approvePost: function (dashId, postId, toggle) {
+    fetch('http://localhost:3000/dashes/'+dashId+'/posts/'+postId+'/'+toggle, {method: 'GET'}, function (err) {
+      console.error("error: ", err)
+    })
+    .then(function (response) {
+      console.log('approvePost response: ', response)
+    })
   },
 
   _navigate: function (navigator, component, title) {
@@ -157,10 +168,6 @@ var cfams = React.createClass({
       title: title
     })
   },
-
-  // _renderNavbar: function () {
-  //   return !this.props.userLoggedIn ?  : null
-  // },
 
   _renderScene: function (route, navigator) {
     var Component = route.component;
@@ -186,6 +193,8 @@ var cfams = React.createClass({
                     getApprovedContent={this.getApprovedContent}
                     currentAccount={this.state.currentAccount} 
                     approvedContent={this.state.approvedContent}
+                    sendPost={this.sendPost}
+                    approvePost={this.approvePost}
                     {...route.props}
                     navigator={navigator}
                     route={route} />
