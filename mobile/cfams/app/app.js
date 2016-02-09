@@ -133,6 +133,24 @@ var cfams = React.createClass({
       }.bind(this))
   },
 
+  getApprovedContent: function (dashId, func) {
+    fetch('http://localhost:3000/dashes/'+dashId+'/queue.json', {method: 'GET'}, function (err) {
+      console.log("Error retrieving approved content: ", err)
+    })
+    .then(function (response) {
+      return response.json()
+    })
+    .then(function (responseData) {
+      this.setState({
+        approvedContent: responseData
+      })
+    }.bind(this))
+    .done(function(){
+      console.log("state set: ", this.state.approvedContent)
+      func()
+    }.bind(this))
+  },
+
   _navigate: function (navigator, component, title) {
     navigator.push({
       component: component,
@@ -150,7 +168,7 @@ var cfams = React.createClass({
     return (
       <View>
       
-        <Navbar navigate={this._navigate} navigator={navigator} />
+        <Navbar approvedContent={this.state.approvedContent} getApprovedContent={this.getApprovedContent} currentAccount={this.state.currentAccount} navigate={this._navigate} navigator={navigator} />
 
         <Component  navigate={this._navigate} 
                     dummyData={this.state.dummyData} 
@@ -164,7 +182,10 @@ var cfams = React.createClass({
                     userDashes={this.state.userDashes}
                     accountDenied={this.props.accountDenied}
                     userLoggedIn={this.state.userLoggedIn}
-                    saveId={this.saveId}
+                    saveId={this.saveId} 
+                    getApprovedContent={this.getApprovedContent}
+                    currentAccount={this.state.currentAccount} 
+                    approvedContent={this.state.approvedContent}
                     {...route.props}
                     navigator={navigator}
                     route={route} />

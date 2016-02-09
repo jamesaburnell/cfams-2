@@ -54,9 +54,8 @@ var Dash = React.createClass({
 			return (
 
 				<View key={idProp} style={{marginBottom: 50, }}>
-					<TouchableHighlight onPress={this.animateView}>
+					
 					<Image resizeMode={Image.resizeMode.contain} style={imageStyle} key={index} source={{uri: element.image_src}} />
-					</TouchableHighlight>
 					<Text style={{fontStyle: 'italic'}}>{element.body}</Text>					
 					<Text style={{fontStyle: 'italic'}}>Source: {element.title}</Text>
 

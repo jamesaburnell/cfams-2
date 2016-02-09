@@ -14,6 +14,11 @@ var {
 } = React;
 
 var ApprovedContent = React.createClass({
+
+  componentDidMount: function () {
+    console.log('ayyy ', this.props.approvedContent);
+  },
+
 	render: function () {
 		return (
 

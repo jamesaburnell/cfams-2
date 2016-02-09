@@ -36,6 +36,10 @@ var Navbar = React.createClass({
 	},
 
 	toApprovedPage: function () {
+		console.log(this.props.approvedContent)
+		if(!this.props.approvedContent) {
+			return this.props.getApprovedContent(this.props.currentAccount.id, this.toApprovedPage)
+		}
 		this.props.navigate(this.props.navigator, ApprovedContent, 'Approved Content');
 	},
 
