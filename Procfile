@@ -1,1 +1,1 @@
-web: sh server rails s
+web: server
