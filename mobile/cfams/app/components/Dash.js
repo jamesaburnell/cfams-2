@@ -2,6 +2,7 @@
 
 var React = require('react-native');
 
+
 var {
   Component,
   StyleSheet,
@@ -21,8 +22,7 @@ var Dash = React.createClass({
 	getInitialState: function () {
 		return {
 			viewStyle: {
-				height: 240,
-			    width: 360
+				height: 400,
 			}
 		}
 	},
@@ -31,8 +31,7 @@ var Dash = React.createClass({
 		LayoutAnimation.configureNext(LayoutAnimation.Presets.spring)
 		this.setState({
 			viewStyle: {
-				height: this.state.viewStyle.height > 240 ? 240 : 250,
-				width: this.state.viewStyle.width > 180 ? 180 : 300
+				height: this.state.viewStyle.height > 400 ? 400 : 500,
 			}
 		})
 	},
@@ -55,8 +54,9 @@ var Dash = React.createClass({
 			return (
 
 				<View key={idProp} style={{marginBottom: 50, }}>
-					
-					<Image resizeMode={Image.resizeMode.cover} style={imageStyle} key={index} source={{uri: element.image_src}} />
+					<TouchableHighlight onPress={this.animateView}>
+					<Image resizeMode={Image.resizeMode.contain} style={imageStyle} key={index} source={{uri: element.image_src}} />
+					</TouchableHighlight>
 					<Text style={{fontStyle: 'italic'}}>{element.body}</Text>					
 					<Text style={{fontStyle: 'italic'}}>Source: {element.title}</Text>
 
@@ -77,22 +77,23 @@ var Dash = React.createClass({
 				)
 		}.bind(this)) 
 		         
-		// onPress={() => { ScrollView.scrollTo({y: 0}); }}>
-		var _scrollView: ScrollView;
+		// onPress={() => { _scrollView.scrollTo({y: 0}); }}>
+		// var _scrollView: ScrollView;
 		return (
-			<View>	
-				
-		        <ScrollView
-		          	automaticallyAdjustContentInsets={false}
-		          	horizontal={false}
-		          	style={[styles.scrollView, styles.horizontalScrollView]}>
-		          	{images}
-		        </ScrollView>
-		        <TouchableOpacity
-		          style={styles.button}>
-		          <Text>Scroll to Top</Text>
-		        </TouchableOpacity>
-		     </View>
+			<View>
+				<View>	
+			        <ScrollView
+			          	automaticallyAdjustContentInsets={false}
+			          	horizontal={false}
+			          	style={[styles.scrollView, styles.horizontalScrollView]}>
+			          	{images}
+			        </ScrollView>
+			        <TouchableOpacity
+			          	style={styles.button}>
+			          	<Text>Scroll to Top</Text>
+			        </TouchableOpacity>
+			     </View>
+			</View>
 				
 			
 		)
@@ -118,6 +119,7 @@ var styles = StyleSheet.create({
 	    flexDirection: 'row',
 	    borderWidth: 0.5,
 	    borderColor: 'black',
+	    backgroundColor: '#ffffff'
 	    
  	},
  	choiceButton: {

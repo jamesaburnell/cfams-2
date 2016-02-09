@@ -21,8 +21,12 @@ var cfams = React.createClass({
       password: null,
       initialContentLoaded: false,
       accountDenied: false,
-      userLoggedIn: null
     }
+  },
+
+  componentDidMount: function () {
+    this.setState(this.getInitialState())
+    console.log('CLEARED STATE: ', this.state)
   },
 
   setUsername: function (username) {
@@ -136,14 +140,17 @@ var cfams = React.createClass({
     })
   },
 
+  // _renderNavbar: function () {
+  //   return !this.props.userLoggedIn ?  : null
+  // },
+
   _renderScene: function (route, navigator) {
     var Component = route.component;
+    // var nav = this._renderNavbar()
     return (
       <View>
       
-        <Navbar  
-            navigate={this._navigate}
-            navigator={navigator} />
+        <Navbar navigate={this._navigate} navigator={navigator} />
 
         <Component  navigate={this._navigate} 
                     dummyData={this.state.dummyData} 

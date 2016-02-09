@@ -70,10 +70,10 @@ var Navbar = React.createClass({
 		var navbarStyle = [styles.container, this.state.navStyle];
 		var buttonStyle = [this.state.menuButtonStyle, {fontSize: 20}];
 		var menuStyle = [styles.linkStyle, this.state.approvedStyle]
+		
 		return (
 			<View style={navbarStyle}>
 				<View style={{marginTop: 15, flex: 1, flexDirection: 'row'}}>
-					
 					<View style={styles.menuButton}>
 						
 						<View style={this.state.menuStyle}>
@@ -92,8 +92,6 @@ var Navbar = React.createClass({
 							>
 							<Text style={buttonStyle}>{this.state.menuButton}</Text> 
 						</TouchableWithoutFeedback> 
-
-						
 					</View>
 				</View>
 			</View>
