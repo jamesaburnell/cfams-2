@@ -1,33 +1,60 @@
-       <p class="notice"><%= notice %></p>
-       <p class="alert"><%= alert %></p>
+
 
 <p>
   <%= @dash.title %>
 </p>
-<%= form_tag("1/add_twitter_pics", method: "get") do %>
+<p>
+  Unapproved: <%= @dash.posts.where(approved: nil).count %>
+</p>
+<p>
+  Approved: <%= @dash.posts.where(approved: true).count %>
+</p>
+<p>
+  Disapproved: <%= @dash.posts.where(approved: false).count %>
+</p>
+<%= form_tag("/dashes/#{@dash.id}/twitter-pics", method: "get") do %>
   <%= label_tag(:search_term, "Search for:") %>
   <%= text_field_tag(:search_term, @dash.twitter_pic_search) %>
   <%= submit_tag("Search Twitter") %>
 <% end %>
   <br/>
-<%= form_tag("1/add_giphy_gifs", method: "get") do %>
+<%= form_tag("/dashes/#{@dash.id}/giphy-gifs", method: "get") do %>
   <%= label_tag(:search_term, "Search for:") %>
   <%= text_field_tag(:search_term, @dash.giphy_search) %>
   <%= submit_tag("Search Giphy") %>
 <% end %>
   <br/>
-<%= form_tag("1/add_reddit_pics", method: "get") do %>
+<%= form_tag("/dashes/#{@dash.id}/reddit-pics", method: "get") do %>
   <%= label_tag(:search_term, "Search for:") %>
   <%= text_field_tag(:search_term, @dash.subreddit) %>
   <%= submit_tag("Search Reddit") %>
 <% end %>
   <br/>
-<%= form_tag("1/add_tumblr_pics", method: "get") do %>
+<%= form_tag("/dashes/#{@dash.id}/tumblr-pics", method: "get") do %>
   <%= label_tag(:search_term, "Search for:") %>
   <%= text_field_tag(:search_term, @dash.tumblr_pic_search) %>
   <%= submit_tag("Search Tumblr") %>
 <% end %>
+
+<hr/>
+<%= link_to "Post Tweet", dash_post_tweet_path(@dash) %>
+<%= link_to "Post Tumblr", dash_post_tumblr_path(@dash) %>
+<br/>
+<hr/>
+
+Facebook Authentication:
+  <%= link_to "Authenticate", @dash.fb_oauth %>
   <br/>
+<hr/>
+<%= link_to 'Queue', dash_post_queue_path(@dash, @post) %>
+<br/>
+<hr/>
+<%= link_to "Add Post", new_dash_post_path(@dash, @post) %>
+<br/>
+<hr/>
+
+<%= link_to 'Settings', edit_dash_path(@dash) %> |
+<%= link_to 'Back', dashes_path %>
 
 <div id="masonry-container" class="transitions-enabled infinite-scroll clearfix">
 
@@ -40,6 +67,10 @@
   <% if !post.image_src.nil? %>
 
      <%= image_tag post.og_source %> 
+
+  <% else %>
+
+    <%= image_tag post.usr_image(:medium) %>
 
   <% end %>
 
@@ -55,9 +86,3 @@
 
   
 </div>
-
-<%= link_to 'Edit', edit_dash_path(@dash) %> |
-<%= link_to 'Back', dashes_path %>
-<%= link_to 'Queue', dash_post_queue_path(@dash, @post) %>
-
-<%= link_to 'Login Test', user_session_path(email: "hathbanger.ah@gmail.com", password: "amh05055"), method: "post" %>

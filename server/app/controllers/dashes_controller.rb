@@ -74,7 +74,7 @@ class DashesController < ApplicationController
 
 
 
-# Custom Controller Methods
+# Custom Scrape Methods
 
   def add_reddit_pics
     search_term = params[:search_term]
@@ -105,8 +105,8 @@ class DashesController < ApplicationController
     @dash.giphy_scrape(search_term)
     redirect_to @dash
   end
-  def add_tumblr_pics
 
+  def add_tumblr_pics
     search_term = params[:search_term]
     puts "SearchTerm: ", search_term
     @dash = Dash.find(params[:dash_id])
@@ -118,14 +118,57 @@ class DashesController < ApplicationController
 
   def post_queue
     @dash = Dash.find(params[:dash_id])
-    @posts = Post.where(approved: true, dash_id: @dash.id)
+    @posts = Post.where(approved: true, dash_id: @dash.id, twit_published: 0)
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @posts }
      end        
   end
 
+  # Posting Actions
 
+  def post_tweet
+    @dash = Dash.find(params[:dash_id])
+    if params[:post_id]
+      post_id = params[:post_id]
+      @dash.post_tweet(post_id)
+    else
+      post = Post.all.where(dash_id: @dash.id, approved: true, twit_published: 0).shuffle.first      
+      @dash.post_tweet(post.id)      
+    end
+    respond_to do |format|
+      if @dash.save
+        format.html { redirect_to @dash, notice: 'Tweet Posted.' }
+      end
+    end
+  end
+
+  def post_tumblr
+    @dash = Dash.find(params[:dash_id])
+    if params[:post_id]
+      post_id = params[:post_id]
+      @dash.post_tumblr(post_id)
+    else
+      post = Post.all.where(dash_id: @dash.id, approved: true).shuffle.first      
+      @dash.post_tumblr(post.id)      
+    end
+    respond_to do |format|
+      if @dash.save
+        format.html { redirect_to @dash, notice: 'Tumblr Posted.' }
+      end
+    end
+  end
+
+
+  # Authorization Controller Methods
+
+  def fb_oauth
+    @dash = Dash.find(params[:dash_id])
+    code = params[:code]
+    @dash.fb_set_token(code)
+    # @dash.save
+    redirect_to @dash
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.
@@ -135,6 +178,6 @@ class DashesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def dash_params
-      params.require(:dash).permit(:title, :subreddit, :twit_consumer_key, :twit_consumer_secret, :twit_access_token, :twit_access_token_secret, :giphy_search, :twitter_pic_search, :tumblr_pic_search, :tumblr_consumer_key, :tumblr_consumer_secret, :tumblr_oauth_token, :tumblr_oauth_token_secret, :author)
+      params.require(:dash).permit(:title, :subreddit, :fb_token, :fb_app_id, :fb_app_secret, :fb_oauth_access_token, :twit_consumer_key, :twit_consumer_key, :twit_consumer_secret, :twit_access_token, :twit_access_token_secret, :giphy_search, :twitter_pic_search, :tumblr_pic_search, :tumblr_consumer_key, :tumblr_consumer_secret, :tumblr_oauth_token, :tumblr_oauth_token_secret, :author)
     end
 end
