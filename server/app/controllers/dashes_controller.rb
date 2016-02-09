@@ -74,7 +74,7 @@ class DashesController < ApplicationController
 
 
 
-# Custom Controller Methods
+# Custom Scrape Methods
 
   def add_reddit_pics
     search_term = params[:search_term]
@@ -105,8 +105,8 @@ class DashesController < ApplicationController
     @dash.giphy_scrape(search_term)
     redirect_to @dash
   end
-  def add_tumblr_pics
 
+  def add_tumblr_pics
     search_term = params[:search_term]
     puts "SearchTerm: ", search_term
     @dash = Dash.find(params[:dash_id])

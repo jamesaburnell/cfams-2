@@ -49,6 +49,9 @@ Facebook Authentication:
 <%= link_to 'Queue', dash_post_queue_path(@dash, @post) %>
 <br/>
 <hr/>
+<%= link_to "Add Post", new_dash_post_path(@dash, @post) %>
+<br/>
+<hr/>
 
 <%= link_to 'Settings', edit_dash_path(@dash) %> |
 <%= link_to 'Back', dashes_path %>

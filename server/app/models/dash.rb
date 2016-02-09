@@ -59,7 +59,6 @@ class Dash < ActiveRecord::Base
 	end
 
 	def tumblr_pic_scrape(search)
-		# self.get_tumblr_client
 		client = Tumblr::Client.new
 		img = client.posts(search + ".tumblr.com", :type => "photo", :limit => 50)["posts"]
 		img.each do |post|
@@ -100,7 +99,7 @@ class Dash < ActiveRecord::Base
 		begin
 			url = post.og_source
 			img = URI.parse(post.image_src)
-			client.photo("ourcatsareassholes.tumblr.com", caption: post.body, source: img)
+			client.photo("ourcatsareassholes.tumblr.com", caption: post.body, source: img, tags: "cats")
 			post.tumblr_published += 1
 			post.save
 		rescue => e
