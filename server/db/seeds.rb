@@ -5,3 +5,8 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+u = User.new(email: "hathbanger.ah@gmail.com", password: "amh05055", password_confirmation: "amh05055")
+u.save
+
+d = Dash.new(title: "Cats are Assholes", subreddit: "catsareassholes", twit_consumer_key: ENV[twit_consumer_secret],)
