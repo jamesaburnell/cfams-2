@@ -13,6 +13,7 @@ class DashesController < ApplicationController
   def show
     @user = current_user
     # @dash.reddit_pic_scrape()
+    
     @posts = @dash.posts.where(approved: nil)
     respond_to do |format|
       format.html # show.html.erb
@@ -126,7 +127,6 @@ class DashesController < ApplicationController
   end
 
   # Posting Actions
-
   def post_tweet
     @dash = Dash.find(params[:dash_id])
     if params[:post_id]

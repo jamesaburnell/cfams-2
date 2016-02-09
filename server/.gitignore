@@ -3,7 +3,7 @@ tmp/pids
 tmp
 
 public/system/posts
-
+log/development.log
 
 log
 
