@@ -68,6 +68,10 @@ Facebook Authentication:
 
      <%= image_tag post.og_source %> 
 
+  <% else %>
+
+    <%= image_tag post.usr_image(:medium) %>
+
   <% end %>
 
 <%= link_to "approve", toggle_approve_dash_post_path(@dash, post),   
