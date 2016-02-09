@@ -2,6 +2,7 @@
 
 var React = require('react-native');
 var Login = require('./components/Login.js');
+var Navbar = require('./components/Navbar.js');
 
 var {
   AppRegistry,
@@ -18,24 +19,9 @@ var cfams = React.createClass({
     return {
       username: null,
       password: null,
-      dummyData: [
-        {
-          title: 'story 1',
-          imgUrl: require('./../dummyData/img1.png'),
-          info: 'dis is tha info for dis pic mon'
-        },
-        {
-          title: 'story 2',
-          imgUrl: require('./../dummyData/img2.png'),
-          info: 'dis be da info for dis here pic ma main mon'
-        },
-        {
-          title: 'story 3',
-          imgUrl: require('./../dummyData/img3.png'),
-          info: 'right by da beach mon'
-        },
-
-      ]
+      initialContentLoaded: false,
+      accountDenied: false,
+      userLoggedIn: null
     }
   },
 
@@ -51,18 +37,94 @@ var cfams = React.createClass({
     })
   },
 
-  checkCreds: function () {
+  saveId: function (dashId, func) {
+      var currAcct = this.state.userDashes.filter(function (element) {
+        if(element.id === dashId){
+          return true;
+        }
+        return false;
+      })
+      this.setState({
+        currentAccount: currAcct[0]
+      })
+      this.getDashContent(dashId, func);
+      console.log('current account state', this.state);
+    },
+
+  checkCreds: function (func) {
     // Get DB set up first, lulz
-    fetch("http://localhost:3000/users/sign_in?email="+this.state.username+"&password="+this.state.password+"", {method: "POST"}, function (error) {
+    fetch("http://localhost:3000/auth/sign_in?email="+this.state.username+"&password="+this.state.password+"", {method: "POST"}, function (error) {
       console.error(error);
     })
       .then(function (response) {
-        console.log(response);
-      })
+        if(response.status === 200) {
+          return response.headers.map
+        } else {
+          this.setState({
+            accountDenied: true
+          })
+        }
+      }.bind(this))
+      .then(function (responseData) {
+        if(!this.state.accountDenied) {
+          this.setState({
+            userHeaders: {
+              access_token: responseData['access-token'][0],
+              client: responseData.client[0],
+              expiry: responseData.expiry[0],
+              token_type: responseData['token-type'][0],
+              uid: responseData.uid[0]
+            }
+          })
+        }
+        return this.state.userHeaders;
+      }.bind(this))
+      .then(function (headers) {
+        this.setState({userLoggedIn: true})
+        this.getDashesList(headers, func)
+      }.bind(this))
+
   },
 
-  setHead: function (options) {
+  setHead: function (data, func) {
 
+  },
+
+  getDashesList: function(headers, func) {
+    fetch('http://localhost:3000/dashes.json', {method: 'GET', headers: headers}, function (err) {
+      console.error('error getting dashes: ', err);
+    })
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (responseData) {
+      this.setState({
+        userDashes: responseData
+      })
+    }.bind(this))
+    .done(function () {
+      func()
+    })
+
+  },
+
+  getDashContent: function (dashId, func) {
+    fetch('http://localhost:3000/dashes/'+dashId+'.json', {method: 'GET'}, function (err) {
+    })
+      .then(function (response) {
+        return response.json();
+      })
+      .then(function (responseData) {
+        this.setState({
+          unapprovedContent: responseData,
+        })
+      }.bind(this))
+      .done(function(){
+        this.setState({
+          initialContentLoaded: true
+        })
+        func()
+      }.bind(this))
   },
 
   _navigate: function (navigator, component, title) {
@@ -75,24 +137,37 @@ var cfams = React.createClass({
   _renderScene: function (route, navigator) {
     var Component = route.component;
     return (
-      <Component  navigate={this._navigate} 
-                  dummyData={this.state.dummyData} 
-                  setPassword={this.setPassword} 
-                  setUsername={this.setUsername} 
-                  username={this.state.username} 
-                  password={this.state.password} 
-                  checkCreds={this.checkCreds}
-                  {...route.props}
-                  navigator={navigator}
-                  route={route} />
+      <View>
+      
+        <Navbar  
+            navigate={this._navigate}
+            navigator={navigator} />
+
+        <Component  navigate={this._navigate} 
+                    dummyData={this.state.dummyData} 
+                    setPassword={this.setPassword} 
+                    setUsername={this.setUsername} 
+                    username={this.state.username} 
+                    password={this.state.password} 
+                    checkCreds={this.checkCreds}
+                    unapprovedContent={this.state.unapprovedContent}
+                    initialContentLoaded={this.state.initialContentLoaded} 
+                    userDashes={this.state.userDashes}
+                    accountDenied={this.props.accountDenied}
+                    userLoggedIn={this.state.userLoggedIn}
+                    saveId={this.saveId}
+                    {...route.props}
+                    navigator={navigator}
+                    route={route} />
+      </View>
     )
   },
 
   render: function () {
     return (
-      <Navigator 
-          initialRoute={{name: 'Login', component: Login, index: 0}}
-          renderScene={this._renderScene} />
+        <Navigator 
+            initialRoute={{name: 'Login', component: Login, index: 0}}
+            renderScene={this._renderScene} />
     );
   }
 })
