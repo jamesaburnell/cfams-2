@@ -12,8 +12,8 @@ var {
   Image,
   LayoutAnimation,
   TouchableWithoutFeedback,
+  TouchableOpacity,
   ScrollView,
-  Link
 } = React;
 
 var Dash = React.createClass({
@@ -76,21 +76,37 @@ var Dash = React.createClass({
 
 				)
 		}.bind(this)) 
-
+		         
+		// onPress={() => { ScrollView.scrollTo({y: 0}); }}>
+		var _scrollView: ScrollView;
 		return (
-			<View style={styles.accountHome}>	
-				<Text>{this.props.username}</Text>
-				<ScrollView 
-					automaticallyAdjustContentInsets={true}>
-					<View>{images}</View>
-				</ScrollView>
+			<View>	
 				
-			</View>
+		        <ScrollView
+		          	automaticallyAdjustContentInsets={false}
+		          	horizontal={false}
+		          	style={[styles.scrollView, styles.horizontalScrollView]}>
+		          	{images}
+		        </ScrollView>
+		        <TouchableOpacity
+		          style={styles.button}>
+		          <Text>Scroll to Top</Text>
+		        </TouchableOpacity>
+		     </View>
+				
+			
 		)
 	}
 });
 
 var styles = StyleSheet.create({
+	scrollView: {
+    	backgroundColor: 'D9F0FF',
+    	height: 300,
+  	},
+  	horizontalScrollView: {
+    	height: 600,
+  	},
 	accountHome: {
 		flex: 1,
 		justifyContent: 'center',
