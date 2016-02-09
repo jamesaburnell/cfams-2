@@ -61,11 +61,15 @@ class Dash < ActiveRecord::Base
 	def tumblr_pic_scrape(search)
 		client = Tumblr::Client.new
 		img = client.posts(search + ".tumblr.com", :type => "photo", :limit => 50)["posts"]
-		img.each do |post|
-			author = post["post_author"]
-			message = post["summary"]
-			extracted_img = post['photos'][0]['alt_sizes'][0]['url']
-			self.build_post("Tumblr", extracted_img, message, extracted_img, author)
+		begin
+			img.each do |post|
+				author = post["post_author"]
+				message = post["summary"]
+				extracted_img = post['photos'][0]['alt_sizes'][0]['url']
+				self.build_post("Tumblr", extracted_img, message, extracted_img, author)
+			end
+		rescue
+			puts "nope. tumblr_pic_scrape failed."
 		end
 	end
 
