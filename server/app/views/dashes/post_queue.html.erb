@@ -35,8 +35,10 @@
             
   </div>
   <br/>
-  <%= link_to "Tweet This!", dash_post_tweet_path(@dash, post_id: post.id) %>||
-  <%= link_to "Tumblr This!", dash_post_tumblr_path(@dash, post_id: post.id) %>
+  <%= link_to "Tweet This!", dash_post_tweet_path(@dash, post_id: post.id),   
+            :remote => true  %>||
+  <%= link_to "Tumblr This!", dash_post_tumblr_path(@dash, post_id: post.id),   
+            :remote => true  %>
 <% end %>
 
   
