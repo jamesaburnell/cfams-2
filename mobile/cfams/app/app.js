@@ -20,6 +20,7 @@ var cfams = React.createClass({
       username: null,
       password: null,
       initialContentLoaded: false,
+      accountDenied: false,
       dummyData: [
         {
           title: 'story 1',
@@ -58,9 +59,38 @@ var cfams = React.createClass({
       console.error(error);
     })
       .then(function (response) {
-        console.log(response);
-        // this.getDashesList(func);
+
+        console.log(response.status);
+        // this.getDashContent(func);
+        if(response.status === 200) {
+          return response.headers.map
+        } else {
+          this.setState({
+            accountDenied: true
+          })
+        }
+
       }.bind(this))
+      .then(function (responseData) {
+        console.log('RD', responseData)
+        if(!this.state.accountDenied) {
+          this.setState({
+            userHeaders: {
+              access_token: responseData['access-token'][0],
+              client: responseData.client[0],
+              expiry: responseData.expiry[0],
+              token_type: responseData['token-type'][0],
+              uid: responseData.uid[0]
+            }
+          })
+        }
+        return this.state.userHeaders;
+
+      }.bind(this))
+      .then(function (headers) {
+        console.log('saved headers: ', this.state.userHeaders);
+      }.bind(this))
+
   },
 
   setHead: function (data, func) {
