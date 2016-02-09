@@ -125,16 +125,6 @@ class DashesController < ApplicationController
      end        
   end
 
-  def already_posted
-    @dash = Dash.find(params[:dash_id])
-    @posts = Post.where(dash_id: @dash.id, twit_published: 1)
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @posts }
-     end        
-  end
-
-
   # Posting Actions
 
   def post_tweet

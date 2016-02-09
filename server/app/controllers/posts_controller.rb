@@ -25,12 +25,13 @@ class PostsController < ApplicationController
   # POST /posts
   # POST /posts.json
   def create
+    @dash = Dash.find(params[:dash_id])
     @post = Post.new(post_params)
 
     respond_to do |format|
       if @post.save
-        format.html { redirect_to @post, notice: 'Post was successfully created.' }
-        format.json { render :show, status: :created, location: @post }
+        format.html { redirect_to @dash, notice: 'Post was successfully created.' }
+        format.json { render :show, status: :created, location: @dash }
       else
         format.html { render :new }
         format.json { render json: @post.errors, status: :unprocessable_entity }
