@@ -21,23 +21,7 @@ var cfams = React.createClass({
       password: null,
       initialContentLoaded: false,
       accountDenied: false,
-      dummyData: [
-        {
-          title: 'story 1',
-          imgUrl: require('./../dummyData/img1.png'),
-          info: 'dis is tha info for dis pic mon'
-        },
-        {
-          title: 'story 2',
-          imgUrl: require('./../dummyData/img2.png'),
-          info: 'dis be da info for dis here pic ma main mon'
-        },
-        {
-          title: 'story 3',
-          imgUrl: require('./../dummyData/img3.png'),
-          info: 'right by da beach mon'
-        },
-      ]
+      userLoggedIn: null
     }
   },
 
@@ -53,15 +37,26 @@ var cfams = React.createClass({
     })
   },
 
+  saveId: function (dashId, func) {
+      var currAcct = this.state.userDashes.filter(function (element) {
+        if(element.id === dashId){
+          return true;
+        }
+        return false;
+      })
+      this.setState({
+        currentAccount: currAcct[0]
+      })
+      this.getDashContent(dashId, func);
+      console.log('current account state', this.state);
+    },
+
   checkCreds: function (func) {
     // Get DB set up first, lulz
     fetch("http://localhost:3000/auth/sign_in?email="+this.state.username+"&password="+this.state.password+"", {method: "POST"}, function (error) {
       console.error(error);
     })
       .then(function (response) {
-
-        console.log(response.status);
-        // this.getDashContent(func);
         if(response.status === 200) {
           return response.headers.map
         } else {
@@ -69,10 +64,8 @@ var cfams = React.createClass({
             accountDenied: true
           })
         }
-
       }.bind(this))
       .then(function (responseData) {
-        console.log('RD', responseData)
         if(!this.state.accountDenied) {
           this.setState({
             userHeaders: {
@@ -85,10 +78,10 @@ var cfams = React.createClass({
           })
         }
         return this.state.userHeaders;
-
       }.bind(this))
       .then(function (headers) {
-        console.log('saved headers: ', this.state.userHeaders);
+        this.setState({userLoggedIn: true})
+        this.getDashesList(headers, func)
       }.bind(this))
 
   },
@@ -97,30 +90,36 @@ var cfams = React.createClass({
 
   },
 
-  getDashesList: function(func) {
-    fetch('http://localhost:3000/dashes', {method: 'GET'}, function (err) {
-      console.log('error getting dashes: ', err);
+  getDashesList: function(headers, func) {
+    fetch('http://localhost:3000/dashes.json', {method: 'GET', headers: headers}, function (err) {
+      console.error('error getting dashes: ', err);
     })
     .then(function (response) {
-      console.log('dashes list: ', response);
+      return response.json();
     })
+    .then(function (responseData) {
+      this.setState({
+        userDashes: responseData
+      })
+    }.bind(this))
+    .done(function () {
+      func()
+    })
+
   },
 
-  getDashContent: function (func) {
-    fetch('http://localhost:3000/dashes/1.json', {method: 'GET'}, function (err) {
-      console.log("error getting dash content: ", err)
+  getDashContent: function (dashId, func) {
+    fetch('http://localhost:3000/dashes/'+dashId+'.json', {method: 'GET'}, function (err) {
     })
       .then(function (response) {
         return response.json();
       })
       .then(function (responseData) {
-        console.log('reddit: ', responseData);
         this.setState({
           unapprovedContent: responseData,
         })
       }.bind(this))
       .done(function(){
-        console.log('CONTENT: ', this.state.unapprovedContent);
         this.setState({
           initialContentLoaded: true
         })
@@ -152,7 +151,11 @@ var cfams = React.createClass({
                     password={this.state.password} 
                     checkCreds={this.checkCreds}
                     unapprovedContent={this.state.unapprovedContent}
-                    initialContentLoaded={this.state.initialContentLoaded}
+                    initialContentLoaded={this.state.initialContentLoaded} 
+                    userDashes={this.state.userDashes}
+                    accountDenied={this.props.accountDenied}
+                    userLoggedIn={this.state.userLoggedIn}
+                    saveId={this.saveId}
                     {...route.props}
                     navigator={navigator}
                     route={route} />

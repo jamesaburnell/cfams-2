@@ -16,7 +16,7 @@ var {
   Link
 } = React;
 
-var AccountHome = React.createClass({
+var Dash = React.createClass({
 
 	getInitialState: function () {
 		return {
@@ -114,4 +114,4 @@ var styles = StyleSheet.create({
 
 })
 
-module.exports = AccountHome;
+module.exports = Dash;

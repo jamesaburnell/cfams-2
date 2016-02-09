@@ -2,7 +2,8 @@
 
 var React = require('react-native');
 var SignUp = require('./SignUp.js');
-var AccountHome = require('./AccountHome.js')
+var Dash = require('./Dash.js');
+var AccountHome = require('./AccountHome.js');
 
 var {
   AppRegistry,
@@ -21,17 +22,11 @@ var Login = React.createClass({
 		this.props.navigate(this.props.navigator, SignUp, 'Sign Up');
 	},
 
-	goToAccountHome: function () {
-
-		console.log('content state: ', this.props.initialContentLoaded)
-		
-		if(!this.props.initialContentLoaded) {
-			return this.props.checkCreds(this.goToAccountHome);
-		} 
-		
+	goToDashes: function () {		
+		if(!this.props.userLoggedIn) {
+			return this.props.checkCreds(this.goToDashes);
+		} 	
 		this.props.navigate(this.props.navigator, AccountHome, 'Account Home');
-		
-
 	},
 
 	render: function () {
@@ -58,7 +53,7 @@ var Login = React.createClass({
 					<TouchableHighlight onPress={this.goToSignUp}>
 						<Text>SIGN UP PAGE</Text>
 					</TouchableHighlight>
-					<TouchableHighlight onPress={this.goToAccountHome}>
+					<TouchableHighlight onPress={this.goToDashes}>
 						<Text>LOGIN</Text>
 					</TouchableHighlight>
 				</View>	
