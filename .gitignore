@@ -11,6 +11,7 @@
 /log/*
 !/log/.keep
 /tmp
+/server/log
 
 mobile/cfams/node_modules
 .DS_Store

@@ -2,7 +2,8 @@
 
 var React = require('react-native');
 var SignUp = require('./SignUp.js');
-var AccountHome = require('./AccountHome.js')
+var Dash = require('./Dash.js');
+var AccountHome = require('./AccountHome.js');
 
 var {
   AppRegistry,
@@ -21,8 +22,10 @@ var Login = React.createClass({
 		this.props.navigate(this.props.navigator, SignUp, 'Sign Up');
 	},
 
-	goToAccountHome: function () {
-		this.props.checkCreds();
+	goToDashes: function () {		
+		if(!this.props.userLoggedIn) {
+			return this.props.checkCreds(this.goToDashes);
+		} 	
 		this.props.navigate(this.props.navigator, AccountHome, 'Account Home');
 	},
 
@@ -50,7 +53,7 @@ var Login = React.createClass({
 					<TouchableHighlight onPress={this.goToSignUp}>
 						<Text>SIGN UP PAGE</Text>
 					</TouchableHighlight>
-					<TouchableHighlight onPress={this.goToAccountHome}>
+					<TouchableHighlight onPress={this.goToDashes}>
 						<Text>LOGIN</Text>
 					</TouchableHighlight>
 				</View>	
@@ -65,6 +68,7 @@ var styles = StyleSheet.create({
 		flex: 1,
 		justifyContent: 'center',
 		alignItems: 'center',
+		marginTop: 80
 
 	},
 	inputField: {
