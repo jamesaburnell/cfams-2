@@ -49,10 +49,12 @@ var Dash = React.createClass({
 	render: function () {
 		console.log(this.props)
 		var imageStyle = [styles.resizeMode, this.state.viewStyle]
+		var idProp = 0;
 		var images = this.props.unapprovedContent.map(function (element, index) {
+			idProp++;
 			return (
 
-				<View style={{marginBottom: 50, }}>
+				<View key={idProp} style={{marginBottom: 50, }}>
 					
 					<Image resizeMode={Image.resizeMode.cover} style={imageStyle} key={index} source={{uri: element.image_src}} />
 					<Text style={{fontStyle: 'italic'}}>{element.body}</Text>					
@@ -79,7 +81,7 @@ var Dash = React.createClass({
 			<View style={styles.accountHome}>	
 				<Text>{this.props.username}</Text>
 				<ScrollView 
-					automaticallyAdjustContentInsets={false}>
+					automaticallyAdjustContentInsets={true}>
 					<View>{images}</View>
 				</ScrollView>
 				

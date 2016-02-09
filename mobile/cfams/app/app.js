@@ -77,6 +77,7 @@ var cfams = React.createClass({
             }
           })
         }
+        console.log('User Headers: ', this.state.userHeaders)
         return this.state.userHeaders;
       }.bind(this))
       .then(function (headers) {
@@ -103,8 +104,9 @@ var cfams = React.createClass({
       })
     }.bind(this))
     .done(function () {
+      console.log('dashes: ', this.state.userDashes)
       func()
-    })
+    }.bind(this))
 
   },
 

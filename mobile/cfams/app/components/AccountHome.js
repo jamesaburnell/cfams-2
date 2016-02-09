@@ -36,9 +36,10 @@ var AccountHome = React.createClass({
 	},
 
 	render: function () {
-		console.log('user dashes: ', this.props.userDashes)
+		var idProp = 0;
 		var dashList = this.props.userDashes.map(function (dash) {
-			return ( <View><TouchableHighlight onPress={function(){this.goToDashes(dash.id)}.bind(this)} style={styles.dash}><Text>{dash.title}</Text></TouchableHighlight></View> )
+			idProp++
+			return ( <View key={idProp}><TouchableHighlight onPress={function(){this.goToDashes(dash.id)}.bind(this)} style={styles.dash}><Text>{dash.title}</Text></TouchableHighlight></View> )
 		}.bind(this)) 
 
 
