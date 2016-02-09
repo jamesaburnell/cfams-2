@@ -54,18 +54,25 @@ var cfams = React.createClass({
 
   checkCreds: function (func) {
     // Get DB set up first, lulz
-    fetch("http://localhost:3000/users/sign_in?email="+this.state.username+"&password="+this.state.password+"", {method: "POST"}, function (error) {
+    fetch("http://localhost:3000/auth/sign_in?email="+this.state.username+"&password="+this.state.password+"", {method: "POST"}, function (error) {
       console.error(error);
     })
       .then(function (response) {
         console.log(response);
-        this.getDashContent(func);
+        // this.getDashesList(func);
       }.bind(this))
   },
 
-  getDashesList: function() {
+  setHead: function (data, func) {
+
+  },
+
+  getDashesList: function(func) {
     fetch('http://localhost:3000/dashes', {method: 'GET'}, function (err) {
       console.log('error getting dashes: ', err);
+    })
+    .then(function (response) {
+      console.log('dashes list: ', response);
     })
   },
 
