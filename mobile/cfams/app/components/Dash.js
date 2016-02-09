@@ -36,15 +36,6 @@ var Dash = React.createClass({
 		})
 	},
 
-	approvePost: function (dashId, postId, toggle) {
-		fetch('http://localhost:3000/dashes/'+dashId+'/posts/'+postId+'/'+toggle, {method: 'GET'}, function (err) {
-			console.error("error: ", err)
-		})
-		.then(function (response) {
-			console.log('approvePost response: ', response)
-		})
-	},
-
 	render: function () {
 		console.log(this.props)
 		var imageStyle = [styles.resizeMode, this.state.viewStyle]
@@ -53,25 +44,21 @@ var Dash = React.createClass({
 			idProp++;
 			return (
 
-				<View key={idProp} style={{marginBottom: 50, }}>
-					<TouchableHighlight onPress={this.animateView}>
-					<Image resizeMode={Image.resizeMode.contain} style={imageStyle} key={index} source={{uri: element.image_src}} />
-					</TouchableHighlight>
-					<Text style={{fontStyle: 'italic'}}>{element.body}</Text>					
-					<Text style={{fontStyle: 'italic'}}>Source: {element.title}</Text>
-
+				<View key={idProp} style={{marginBottom: 50, flex: 1}}>
+					<View style={{flex: 1}}>
+						<Image resizeMode={Image.resizeMode.contain} style={imageStyle} key={index} source={{uri: element.image_src}} />
+						<Text style={{fontStyle: 'italic'}}>{element.body}</Text>					
+						<Text style={{fontStyle: 'italic'}}>Source: {element.title}</Text>
+					</View>
 					<View style={styles.choice}>
-						
-						<TouchableHighlight onPress={function(){this.approvePost(element.dash_Id, element.id, 'toggle_approve')}.bind(this)} style={styles.choiceButton}>
+						<TouchableHighlight onPress={function(){this.props.approvePost(element.dash_Id, element.id, 'toggle_approve')}.bind(this)} style={styles.choiceButton}>
 							<Text>Approve</Text>
 						</TouchableHighlight>
 						
-						<TouchableHighlight onPress={function(){this.approvePost(element.dash_Id, element.id, 'toggle_disapprove')}.bind(this)} style={styles.choiceButton}>
+						<TouchableHighlight onPress={function(){this.props.approvePost(element.dash_Id, element.id, 'toggle_disapprove')}.bind(this)} style={styles.choiceButton}>
 							<Text>Disapprove</Text>
 						</TouchableHighlight>
-
 					</View>
-
 				</View>
 
 				)
@@ -94,8 +81,6 @@ var Dash = React.createClass({
 			        </TouchableOpacity>
 			     </View>
 			</View>
-				
-			
 		)
 	}
 });
@@ -107,6 +92,7 @@ var styles = StyleSheet.create({
   	},
   	horizontalScrollView: {
     	height: 600,
+    	width: 400
   	},
 	accountHome: {
 		flex: 1,

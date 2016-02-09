@@ -36,6 +36,10 @@ var Navbar = React.createClass({
 	},
 
 	toApprovedPage: function () {
+		console.log(this.props.approvedContent)
+		if(!this.props.approvedContent) {
+			return this.props.getApprovedContent(this.props.currentAccount.id, this.toApprovedPage)
+		}
 		this.props.navigate(this.props.navigator, ApprovedContent, 'Approved Content');
 	},
 
@@ -44,7 +48,7 @@ var Navbar = React.createClass({
 	},
 
 	animateNavbar: function () {
-		LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut, this.showMenu)
+		LayoutAnimation.configureNext(LayoutAnimation.Presets.spring, this.showMenu)
 		this.setState({
 			navStyle: {
 				height: this.state.navStyle.height > 50 ? 50 : 200
