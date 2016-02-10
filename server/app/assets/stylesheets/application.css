@@ -24,20 +24,35 @@
     height: 100%;
     width: 50%;
     position: absolute;
-    top: 0;
     transition: .2s ease;	
 }
 
 .toggle_approve{
 	right: 0;
+    top: 0;
 }
 .toggle_disapprove{
 	left: 0;
+    top: 0;
+}
+.toggle_disapprove_queue{
+	left: 0;
+	height: 70px;
+	width: 70px;
+	transition: .3s ease;
+	position: absolute;
+	bottom: 0;
+}
+
+.pic_holder:hover .toggle_disapprove_queue{
+	background: rgba(207, 0, 15, .7);
+    border-top-right-radius: 2em;
 }
 
 .toggle_approve:hover{
 	background: rgba(30, 130, 76, .6);
 }
+
 .toggle_disapprove:hover{
 	background: rgba(207, 0, 15, .6);
 }
@@ -46,9 +61,20 @@
 	position: relative;
 }
 
+.notif-text{
+	color: #fff;
+}
+
+.notif-text:hover{
+	color: #fff;
+	background: none;
+}
+
+.uk-form input{
+	text-align: center;
+}
 
 input.uk-button{
-	margin-top: 10px;
 	text-shadow: none;
 }
 
