@@ -1,90 +1,87 @@
+<%= render "dashes/nav_standard" %>
+
+<p class="notice"><%= notice %></p>
+<p class="alert"><%= alert %></p>
+
+        <div class="uk-container uk-container-center uk-margin-top uk-margin-large-bottom">
 
 
-<p>
-  <%= @dash.title %>
-</p>
-<p>
-  Unapproved: <%= @dash.posts.where(approved: nil).count %>
-</p>
-<p>
-  Approved: <%= @dash.posts.where(approved: true).count %>
-</p>
-<p>
-  Disapproved: <%= @dash.posts.where(approved: false).count %>
-</p>
-<%= form_tag("/dashes/#{@dash.id}/twitter-pics", method: "get") do %>
-  <%= label_tag(:search_term, "Search for:") %>
-  <%= text_field_tag(:search_term, @dash.twitter_pic_search) %>
-  <%= submit_tag("Search Twitter") %>
-<% end %>
-  <br/>
-<%= form_tag("/dashes/#{@dash.id}/giphy-gifs", method: "get") do %>
-  <%= label_tag(:search_term, "Search for:") %>
-  <%= text_field_tag(:search_term, @dash.giphy_search) %>
-  <%= submit_tag("Search Giphy") %>
-<% end %>
-  <br/>
-<%= form_tag("/dashes/#{@dash.id}/reddit-pics", method: "get") do %>
-  <%= label_tag(:search_term, "Search for:") %>
-  <%= text_field_tag(:search_term, @dash.subreddit) %>
-  <%= submit_tag("Search Reddit") %>
-<% end %>
-  <br/>
-<%= form_tag("/dashes/#{@dash.id}/tumblr-pics", method: "get") do %>
-  <%= label_tag(:search_term, "Search for:") %>
-  <%= text_field_tag(:search_term, @dash.tumblr_pic_search) %>
-  <%= submit_tag("Search Tumblr") %>
-<% end %>
-
-<hr/>||
-<%= link_to "Post Random Tweet", dash_post_tweet_path(@dash) %> |
-<%= link_to "Post Random Tumblr", dash_post_tumblr_path(@dash) %>
-||<br/>
-<hr/>
-
-<% if current_user.role != 'user' || current_user.dashes.count == 0 %>
-Facebook Authentication:
-  <%= link_to "Authenticate", @dash.fb_oauth %>
-  <br/>
-<hr/>
-<% end %>
-<%= link_to 'Queue', dash_post_queue_path(@dash, @post) %>
-<br/>
-<hr/>
-<%= link_to "Add Post", new_dash_post_path(@dash, @post) %>
-<br/>
-<hr/>
-
-<%= link_to 'Settings', edit_dash_path(@dash) %> |
-<%= link_to 'Back', dashes_path %>
-
-<div id="masonry-container" class="transitions-enabled infinite-scroll clearfix">
-
-<% @posts.each do |post|  %>
-  <div class="box col2">
-  title: <%= post.title %>, 
-  body: <%= post.body %>, 
-  og source: <%= post.og_source %>, 
-  img: <%= post.image_src %>, 
-  <% if !post.image_src.nil? %>
-
-     <%= image_tag post.og_source %> 
-
-  <% else %>
-
-    <%= image_tag post.usr_image(:medium) %>
-
-  <% end %>
-
-<%= link_to "approve", toggle_approve_dash_post_path(@dash, post),   
-            :remote => true %>  
-           | |
-<%= link_to "disapprove", toggle_disapprove_dash_post_path(@dash, post),   
-            :remote => true %>   
-
+<div class="uk-grid uk-grid-small">
+    <div class="uk-width-1-4">
+      <div class="uk-panel uk-panel-box uk-panel-box-primary">
+        <%= form_tag "/dashes/#{@dash.id}/twitter-pics", method: "get", class: "uk-form" do %>
+          <%= text_field_tag :search_term, @dash.twitter_pic_search, class: "uk-width-1-1"  %>
+        <%= submit_tag "Twitter", class: "uk-margin-small-top twitter-button scrape-button uk-button uk-button-large uk-width-1-1 uk-margin-small-bottom" %>
+        <% end %>                  
+      </div>
+    </div>
+              <div class="uk-width-1-4">
+                <div class="uk-panel uk-panel-box uk-panel-box-primary">
+  <%= form_tag "/dashes/#{@dash.id}/giphy-gifs", method: "get", class: "uk-form" do %>
+    <%= text_field_tag :search_term, @dash.giphy_search, class: "uk-width-1-1"  %>
+  <%= submit_tag "Giphy", class: "uk-margin-small-top giphy-button uk-button scrape-button uk-button-large uk-width-1-1 uk-margin-small-bottom" %>
+  <% end %>                 
+                </div>
+              </div>
+              <div class="uk-width-1-4">
+                <div class="uk-panel uk-panel-box uk-panel-box-primary">
+<%= form_tag "/dashes/#{@dash.id}/reddit-pics", method: "get", class: "uk-form" do %>
+  <%= text_field_tag :search_term, @dash.subreddit, class: "uk-width-1-1" %>
+  <%= submit_tag "Reddit", class: "uk-margin-small-top reddit-button scrape-button uk-button uk-button-large uk-width-1-1 uk-margin-small-bottom" %>
+<% end %>                
+                </div>
+              </div>
+              <div class="uk-width-1-4">
+                <div class="uk-panel uk-panel-box uk-panel-box-primary">
+<%= form_tag "/dashes/#{@dash.id}/tumblr-pics", method: "get", class: "uk-form" do %>
+  <%= text_field_tag :search_term, @dash.tumblr_pic_search, class: "uk-width-1-1" %>
+  <%= submit_tag "Tumblr", class: "uk-margin-small-top tumblr-button scrape-button uk-button uk-button-large uk-width-1-1 uk-margin-small-bottom" %>
+<% end %>               
+                </div>
+              </div>
+          </div>
+  <div class="uk-grid-width-small-1-2 uk-grid-width-medium-1-4" data-uk-grid>
+    <% @posts.each do |post|  %>
+      <div class="overlay">
+          <div>
+            <div class="pic_holder">
+              <% if !post.image_src.nil? %>
+                 <%= image_tag post.og_source %> 
+              <% else %>
+                <%= image_tag post.usr_image(:medium) %>
+                <a href=""><i class="uk-icon-cog"></i> ...</a>
+              <% end %>
+              <%= link_to "", toggle_approve_dash_post_path(@dash, post), :remote => true, class: "toggle_button toggle_approve" %>  
+              <%= link_to "", toggle_disapprove_dash_post_path(@dash, post), :remote => true, class: "toggle_button toggle_disapprove" %>     
+            </div>
+            <h3><%= post.body %></h3>
+            <br/> 
+          </div>
+      </div>
+    <% end %>
   </div>
-  <br/>
-<% end %>
-
-  
 </div>
+</div>
+
+<script type="text/javascript">
+  $(document).ready(function(){
+  $('.toggle_disapprove').click(function(){
+    var parent = $(this).parent().parent().parent();
+    parent.remove();
+    var container = $('.uk-grid-width-small-1-2');
+    var w = container.width();
+    console.log("width: ",w);
+    $(window).trigger("resize");
+  })
+  $('.toggle_approve').click(function(){
+    var parent = $(this).parent().parent().parent();
+    parent.css('background', 'rgba(30, 130, 76, .6)');
+    var container = $('.uk-grid-width-small-1-2');
+    var w = container.width();
+    console.log("width: ",w);
+    $(window).trigger("resize");
+  })
+    $(window).trigger("resize");
+  })
+
+</script>

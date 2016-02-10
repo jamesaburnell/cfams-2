@@ -1,0 +1,45 @@
+<div class="uk-margin">
+    <nav class="uk-navbar">
+
+        <a class="uk-navbar-brand notif-text" href="#">
+            Butterfli
+        </a>
+        <div class="uk-navbar-content uk-navbar-flip  uk-hidden-small">
+
+	        <ul class="uk-navbar-nav">
+				<li>
+					<div class="uk-badge uk-badge-warning uk-navbar-content">
+						<%= link_to @dash.posts.where(approved: true).count, dash_path(@dash), class: "notif-text" %>
+					</div> 
+				</li>
+				<li>
+	               <div class="uk-badge uk-badge-success uk-navbar-content">
+	               		<%= link_to @dash.posts.where(approved: nil).count, dash_post_queue_path(@dash), class: "notif-text" %>
+	               </div>
+	            </li>
+
+			</ul>
+	        <ul class="uk-navbar-nav  uk-navbar-content">
+	    	<%= link_to "", new_dash_post_path(@dash, @post), class: "notif-text uk-margin-small-top uk-icon-large uk-icon-upload uk-navbar-nav"  %>
+	        </ul>
+			<ul class="uk-navbar-nav">
+			    <li class="uk-parent uk-active" data-uk-dropdown="" aria-haspopup="true" aria-expanded="false">
+			        <a href=""><i class="uk-icon-home"></i> <%= @dash.title %></a>
+
+			        <div class="uk-dropdown uk-dropdown-navbar uk-dropdown-bottom" style="top: 40px; left: 0px;">
+			            <ul class="uk-nav uk-nav-navbar">
+			                <li><%= link_to "Scrape", dash_path(@dash) %></li>
+			                <li><%= link_to "Queue", dash_post_queue_path(@dash) %></li>
+			                
+			                <li><%= link_to "Edit #{@dash.title}", edit_dash_path(@dash) %></li>
+			                <li class="uk-nav-divider"></li>
+			                <li>  <%= link_to('Logout', destroy_user_session_path, :method => :delete) %></li>
+			            </ul>
+			        </div>
+
+			    </li>
+
+			</ul>	        
+        </div>
+    </nav>
+</div>

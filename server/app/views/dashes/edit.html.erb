@@ -1,5 +1,10 @@
 <h1>Editing Dash</h1>
-
+<% if current_user.role != 'user' || current_user.dashes.count == 0 %>
+Facebook Authentication:
+  <%= link_to "Authenticate", @dash.fb_oauth %>
+  <br/>
+<hr/>
+<% end %>
 <%= render 'form' %>
 
 <%= link_to 'Show', @dash %> |

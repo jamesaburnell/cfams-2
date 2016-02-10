@@ -1,48 +1,46 @@
-       <p class="notice"><%= notice %></p>
-       <p class="alert"><%= alert %></p>
+<%= render "dashes/nav_standard" %>
 
-<p>
-  <%= @dash.title %>
-</p>
-<p>
-  Unapproved: <%= @dash.posts.where(approved: nil).count %>
-</p>
-<p>
-  To be Posted: <%= @posts.count %>
-</p>
+<p class="notice"><%= notice %></p>
+<p class="alert"><%= alert %></p>
 
-<p>
-  Already Posted: <%= @dash.posts.where(approved: true).count - @posts.count %>
-</p>
+        <div class="uk-container uk-container-center uk-margin-top uk-margin-large-bottom">
 
-<div id="masonry-container" class="transitions-enabled infinite-scroll clearfix">
 
-<% @posts.each do |post|  %>
-  <div class="box col2">
-  title: <%= post.title %>, 
-  body: <%= post.body %>, 
-  og source: <%= post.og_source %>, 
-  img: <%= post.image_src %>, 
-  <% if !post.image_src.nil? %>
+<div class="uk-grid uk-grid-small">
 
-    <%= image_tag post.og_source %>
-
-  <% end %>
-
-           | |
-<%= link_to "disapprove", toggle_disapprove_dash_post_path(@dash, post),   
-            :remote => true %>   
-            
+          </div>
+  <div class="uk-grid-width-small-1-2 uk-grid-width-medium-1-4" data-uk-observe data-uk-grid>
+    <% @posts.each do |post|  %>
+      <div class="overlay">
+          <div>
+            <div class="pic_holder">
+              <% if !post.image_src.nil? %>
+                 <%= image_tag post.og_source %> 
+              <% else %>
+                <%= image_tag post.usr_image(:medium) %>
+              <% end %>
+              <%= link_to "", toggle_disapprove_dash_post_path(@dash, post), :remote => true, class: "toggle_button toggle_disapprove_queue" %>     
+            </div>
+            <h3><%= post.body %></h3>
+            <br/> 
+          </div>
+      <hr/> 
+      </div>
+    <% end %>
   </div>
-  <br/>
-  <%= link_to "Tweet This!", dash_post_tweet_path(@dash, post_id: post.id),   
-            :remote => true  %>||
-  <%= link_to "Tumblr This!", dash_post_tumblr_path(@dash, post_id: post.id),   
-            :remote => true  %>
-<% end %>
-
-  
+</div>
 </div>
 
-<%= link_to 'Edit', edit_dash_path(@dash) %> |
-<%= link_to 'Back', dashes_path %>
+<script type="text/javascript">
+  $(window).ready(function(){
+    $('.toggle_disapprove_queue').click(function(){
+      var parent = $(this).parent().parent().parent();
+      parent.remove();
+      var container = $('.uk-grid-width-small-1-2');
+      var w = container.width();
+      console.log("width: ",w);
+      $(window).trigger("resize");
+    })
+      $(window).trigger("resize");
+  })
+</script>
