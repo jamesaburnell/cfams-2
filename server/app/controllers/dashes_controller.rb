@@ -143,14 +143,16 @@ class DashesController < ApplicationController
     @dash = Dash.find(params[:dash_id])
     if params[:post_id]
       post_id = params[:post_id]
-      @dash.post_tweet(post_id)
+      res = @dash.post_tweet(post_id)
     else
       post = Post.all.where(dash_id: @dash.id, approved: true, twit_published: 0).shuffle.first      
-      @dash.post_tweet(post.id)      
+      res = @dash.post_tweet(post.id)      
     end
     respond_to do |format|
-      if @dash.save
+      if res != 'tried'
         format.html { redirect_to dash_post_queue_path(@dash), notice: 'Tweet Posted.' }
+    else
+        format.html { redirect_to dash_post_queue_path(@dash), notice: 'There was an issue..' }
       end
     end
   end
@@ -159,20 +161,20 @@ class DashesController < ApplicationController
     @dash = Dash.find(params[:dash_id])
     if params[:post_id]
       post_id = params[:post_id]
-      @dash.post_tumblr(post_id)
+      res = @dash.post_tumblr(post_id)
     else
       post = Post.all.where(dash_id: @dash.id, approved: true, tumblr_published: 0).shuffle.first      
-      @dash.post_tumblr(post.id)      
+      res = @dash.post_tumblr(post.id)      
     end
-    flash[:notice] = "woo!"
-    # render :nothing => true, json: { errors: @dash}
-    render :json => { :status => :ok, :message => "Success!", :html => "...insert html..." }
-    # respond_to do |format|
-    #   if @dash.save
-    #     format.json  { render :json => msg } # don't do msg.to_json        
-    #     format.html { redirect_to dash_post_queue_path(@dash), notice: 'Tweet Posted.' }
-    #   end
-    # end
+    respond_to do |format|
+      if res != 'tried'
+        format.html { redirect_to dash_post_queue_path(@dash), notice: 'Tumblr Posted.' }
+      # format.js
+      else
+        format.html { redirect_to dash_post_queue_path(@dash), status: 500, notice: 'There was an issue..' }
+      # format.js
+      end
+    end
   end
 
 

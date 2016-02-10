@@ -92,22 +92,23 @@ class Dash < ActiveRecord::Base
 			post.save
 			twitCli.update_with_media(post.body.to_s, img)
 		rescue
-			puts "nothin here"
+			return 'tried'
 		end
 	end
 
 	def post_tumblr(post)
-		post = Post.find(post)
 		tumblr_client = self.get_tumblr_client
+		post = Post.find(post)
 		client = Tumblr::Client.new
+		puts 'about to try'
 		begin
 			url = post.og_source
 			img = URI.parse(post.image_src)
 			client.photo("ourcatsareassholes.tumblr.com", caption: post.body, source: img, tags: "cats")
 			post.tumblr_published += 1
 			post.save
-		rescue => e
-			puts e
+		rescue
+			return 'tried'
 		end
 	end
 
