@@ -8,7 +8,7 @@
 
 <div class="uk-grid uk-grid-small">
 
-<%= link_to "Find The Fire!", dash_scrape_path(@dash), class: "uk-button uk-button-large uk-width-1-1 uk-margin-small-bottom" %>
+<%= link_to "Find The Fire!", dash_scrape_path(@dash), class: "uk-button uk-button-large uk-width-1-1 uk-margin-bottom" %>
           </div>
   <div class="uk-grid-width-small-1-2 uk-grid-width-medium-1-4" data-uk-observe data-uk-grid>
     <% @posts.each do |post|  %>
@@ -24,12 +24,38 @@
             </div>
             <h3><%= post.body %></h3>                          
               <div class="uk-button-group">
-                  <a href="#" class="uk-button"><i class="uk-icon-facebook"></i></a>
-                  <a href="#" class="uk-button"><i class="uk-icon-twitter"></i></a>
-                  <a href="#" class="uk-button"><i class="uk-icon-tumblr"></i></a>
-                  <a href="#" class="uk-button"><i class="uk-icon-wordpress"></i></a>
-                  <a href="#" class="uk-button"><i class="uk-icon-mail-forward"></i></a>
-                  <a href="#" class="uk-button"><i class="uk-icon-mobile-phone"></i></a>
+                <% if post.fb_published < 1 %>
+                  <%= link_to dash_post_tweet_path(@dash, post_id: post.id), class: "uk-button" do %>
+                    <i class="uk-icon-facebook"></i>
+                    <% end %>
+                <% end %>
+                <% if post.twit_published < 1 %>
+                  <%= link_to dash_post_tweet_path(@dash, post_id: post.id), :remote => true, class: "uk-button" do %>
+                    <i class="uk-icon-twitter"></i>
+                  <% end %>
+                <% else %>
+                  <a class="uk-button disabled">
+                    <i class="uk-icon-twitter"></i>
+                  </a>
+                <% end %>
+                <% if post.tumblr_published < 1 %>
+                  <%= link_to dash_post_tumblr_path(@dash, post_id: post.id), :remote => true, class: "uk-button" do %>
+                    <i class="uk-icon-tumblr"></i>
+                  <% end %>
+                <% else %>
+                  <a class="uk-button disabled">
+                    <i class="uk-icon-tumblr"></i>
+                  </a>
+                <% end %>
+                  <a href="#" class="uk-button">
+                    <i class="uk-icon-wordpress"></i>
+                  </a>
+                  <a href="#" class="uk-button">
+                    <i class="uk-icon-mail-forward"></i>
+                  </a>
+                  <a href="#" class="uk-button">
+                    <i class="uk-icon-mobile-phone"></i>
+                  </a>
               </div>
             <br/> 
           </div>
@@ -52,4 +78,7 @@
     })
       $(window).trigger("resize");
   })
+</script>
+<script type="text/javascript">
+  
 </script>
