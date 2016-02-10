@@ -1,11 +1,13 @@
 class DashesController < ApplicationController
   before_action :set_dash, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!, only: [:index, :show, :new]
+  before_action :authenticate_user!, only: [:index, :show, :scrape, :new]
 
   # GET /dashes
   # GET /dashes.json
   def index
     @dashes = Dash.all.where(user_id: current_user)
+    @dash = @dashes.first
+    @posts = Post.all.where(approved: nil)
   end
 
   # GET /dashes/1
@@ -71,7 +73,17 @@ class DashesController < ApplicationController
   end
 
 
-
+  def scrape
+    @user = current_user
+    @dash = Dash.find(params[:dash_id])
+    # @dash.reddit_pic_scrape()
+    
+    @posts = @dash.posts.where(approved: nil)
+    respond_to do |format|
+      format.html # show.html.erb
+      format.json { render json: @posts }
+    end        
+  end
 
 
 

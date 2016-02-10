@@ -10,6 +10,7 @@ Rails.application.routes.draw do
     get "/fb_oauth"  => 'dashes#fb_oauth'   
 
     # Controller Action Routes
+    get "/scrape"  => 'dashes#scrape', path: 'scrape'
 	  get "/post_queue"  => 'dashes#post_queue', path: 'queue'
     get "/add_twitter_pics" => "dashes#add_twitter_pics", path: 'twitter-pics'
     get "/add_giphy_gifs" => "dashes#add_giphy_gifs", path: 'giphy-gifs'

@@ -1,26 +1,12 @@
 <div class="uk-margin">
     <nav class="uk-navbar">
-
-        <a class="uk-navbar-brand notif-text" href="#">
+       	<%= link_to root_path, class: "uk-navbar-brand notif-text uk-text-bold" do %> 
             Butterfli
-        </a>
+        <% end %>
+
         <div class="uk-navbar-content uk-navbar-flip  uk-hidden-small">
-
-	        <ul class="uk-navbar-nav">
-				<li>
-					<div class="uk-badge uk-badge-warning uk-navbar-content">
-						<%= link_to @dash.posts.where(approved: true).count, dash_path(@dash), class: "notif-text" %>
-					</div> 
-				</li>
-				<li>
-	               <div class="uk-badge uk-badge-success uk-navbar-content">
-	               		<%= link_to @dash.posts.where(approved: nil).count, dash_post_queue_path(@dash), class: "notif-text" %>
-	               </div>
-	            </li>
-
-			</ul>
 	        <ul class="uk-navbar-nav  uk-navbar-content">
-	    	<%= link_to "", new_dash_post_path(@dash, @post), class: "notif-text uk-margin-small-top uk-icon-large uk-icon-upload uk-navbar-nav"  %>
+	    	<%= link_to "", new_dash_post_path(@dash, @post), class: "notif-text uk-margin-small-top uk-icon-large uk-icon-plus uk-navbar-nav"  %>
 	        </ul>
 			<ul class="uk-navbar-nav">
 			    <li class="uk-parent uk-active" data-uk-dropdown="" aria-haspopup="true" aria-expanded="false">
@@ -28,11 +14,27 @@
 
 			        <div class="uk-dropdown uk-dropdown-navbar uk-dropdown-bottom" style="top: 40px; left: 0px;">
 			            <ul class="uk-nav uk-nav-navbar">
-			                <li><%= link_to "Scrape", dash_path(@dash) %></li>
-			                <li><%= link_to "Queue", dash_post_queue_path(@dash) %></li>
+				            <li class="uk-nav-header">Scrape</li>
+			                <li>
+			                	<%= link_to "Scrape (#{@dash.posts.where(approved: nil).count})", dash_scrape_path(@dash) %>
+			                </li>
+			                <li><%= link_to "Queue (#{@dash.posts.where(approved: true).count})", dash_post_queue_path(@dash) %></li>
 			                
-			                <li><%= link_to "Edit #{@dash.title}", edit_dash_path(@dash) %></li>
 			                <li class="uk-nav-divider"></li>
+				            <li class="uk-nav-header">Connect</li>
+			                <li>
+			                	<%= link_to "Favorite", dash_scrape_path(@dash) %>
+			                </li>
+			                
+			                <li class="uk-nav-divider"></li>
+				            <li class="uk-nav-header">Learn</li>
+			                <li>
+			                	<%= link_to "Find Articles", dash_scrape_path(@dash) %>
+			                </li>
+			                <li><%= link_to "Articles (#{@dash.posts.where(approved: true).count - 10})", dash_post_queue_path(@dash) %></li>
+			                
+			                <li class="uk-nav-divider"></li>
+			                <li><%= link_to "Edit #{@dash.title}", edit_dash_path(@dash) %></li>
 			                <li>  <%= link_to('Logout', destroy_user_session_path, :method => :delete) %></li>
 			            </ul>
 			        </div>
