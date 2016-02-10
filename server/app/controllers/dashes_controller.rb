@@ -1,6 +1,6 @@
 class DashesController < ApplicationController
   before_action :set_dash, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!, only: [:index]
+  before_action :authenticate_user!, only: [:index, :show, :new]
 
   # GET /dashes
   # GET /dashes.json
@@ -178,6 +178,6 @@ class DashesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def dash_params
-      params.require(:dash).permit(:title, :subreddit, :fb_token, :fb_app_id, :fb_app_secret, :fb_oauth_access_token, :twit_consumer_key, :twit_consumer_key, :twit_consumer_secret, :twit_access_token, :twit_access_token_secret, :giphy_search, :twitter_pic_search, :tumblr_pic_search, :tumblr_consumer_key, :tumblr_consumer_secret, :tumblr_oauth_token, :tumblr_oauth_token_secret, :author)
+      params.require(:dash).permit(:user_id, :title, :subreddit, :fb_token, :fb_app_id, :fb_app_secret, :fb_oauth_access_token, :twit_consumer_key, :twit_consumer_key, :twit_consumer_secret, :twit_access_token, :twit_access_token_secret, :giphy_search, :twitter_pic_search, :tumblr_pic_search, :tumblr_consumer_key, :tumblr_consumer_secret, :tumblr_oauth_token, :tumblr_oauth_token_secret, :author)
     end
 end
