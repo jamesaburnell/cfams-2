@@ -36,16 +36,18 @@
   <%= submit_tag("Search Tumblr") %>
 <% end %>
 
-<hr/>
-<%= link_to "Post Tweet", dash_post_tweet_path(@dash) %>
-<%= link_to "Post Tumblr", dash_post_tumblr_path(@dash) %>
-<br/>
+<hr/>||
+<%= link_to "Post Random Tweet", dash_post_tweet_path(@dash) %> |
+<%= link_to "Post Random Tumblr", dash_post_tumblr_path(@dash) %>
+||<br/>
 <hr/>
 
+<% if current_user.role != 'user' || current_user.dashes.count == 0 %>
 Facebook Authentication:
   <%= link_to "Authenticate", @dash.fb_oauth %>
   <br/>
 <hr/>
+<% end %>
 <%= link_to 'Queue', dash_post_queue_path(@dash, @post) %>
 <br/>
 <hr/>
