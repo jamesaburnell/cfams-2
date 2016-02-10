@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Dashes</h1>
+<h1>Listing Accts</h1>
 
 <table>
   <thead>
@@ -23,8 +23,10 @@
 </table>
 
 <br>
+<% if current_user.role != 'user' || current_user.dashes.count == 0 %>
+  <%= link_to 'New Dash', new_dash_path %>
+<% end %>
 
-<%= link_to 'New Dash', new_dash_path %>
   <li>
   <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>        
   </li>
