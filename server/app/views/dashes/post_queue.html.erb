@@ -21,16 +21,24 @@
               <% end %>
               <%= link_to "", toggle_disapprove_dash_post_path(@dash, post), :remote => true, class: "toggle_button toggle_disapprove_queue" %>     
             </div>
-            <h3><%= post.body %></h3>
+            <h3><%= post.body %></h3>                          
+              <div class="uk-button-group">
+                  <a href="#" class="uk-button"><i class="uk-icon-facebook"></i></a>
+                  <a href="#" class="uk-button"><i class="uk-icon-twitter"></i></a>
+                  <a href="#" class="uk-button"><i class="uk-icon-tumblr"></i></a>
+                  <a href="#" class="uk-button"><i class="uk-icon-wordpress"></i></a>
+                  <a href="#" class="uk-button"><i class="uk-icon-mail-forward"></i></a>
+                  <a href="#" class="uk-button"><i class="uk-icon-mobile-phone"></i></a>
+              </div>
             <br/> 
           </div>
-      <hr/> 
+            <hr/> 
       </div>
     <% end %>
+            <br/> 
   </div>
 </div>
 </div>
-
 <script type="text/javascript">
   $(window).ready(function(){
     $('.toggle_disapprove_queue').click(function(){
