@@ -22,12 +22,13 @@ Rails.application.routes.draw do
     get "/post_tweet" => "dashes#post_tweet"
     get "/post_tumblr" => "dashes#post_tumblr"
 
+    get "/favorite_tweets" => "dashes#favorite_tweets", path: 'favorite-tweets'
+
     # Post Routes
-    resources :posts do  
+    resources :posts do
       get 'toggle_approve', :on => :member   
   	  get 'toggle_disapprove', :on => :member   
   	end
-    
   end
 
   root "dashes#index"

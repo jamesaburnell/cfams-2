@@ -143,9 +143,44 @@ class Dash < ActiveRecord::Base
 		post.fb_published = true
 	end
 
+# Robot
 
+	def tweet_fave(search, number, retweet)
+		puts "started"
+		@client = self.get_twit_client
+		if retweet
+			retweet = " -rt"
+		else !retweet
+			retweet = ""
+		end
+		@client.search(search + retweet).take(number).collect do |tweet|
+			user = 	tweet.user.screen_name
+			begin
+				@client.favorite(tweet)
+				puts tweet.text
+				sleep 2
+			rescue => e
+				puts "already favorited"
+				next
+			end
+		end
+		return true
+	end	
 
-
+	def tweet_loop
+		puts "started tweet loop"
+		["cats suck", "#catsareassholes"].each do |term|
+			begin
+				body = term.body
+				number = term.count
+				retweet = 1
+				self.tweet_fave(body, number, retweet)
+			rescue
+				puts 'something just borke. thats right. borke'
+			end
+		end
+		puts "Finished!"
+	end
 
 
 	# Auth Methods

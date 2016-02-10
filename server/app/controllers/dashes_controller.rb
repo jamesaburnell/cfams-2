@@ -73,6 +73,18 @@ class DashesController < ApplicationController
   end
 
 
+  def robot
+
+
+  end
+
+
+  def favorite_tweets
+    @dash = Dash.find(params[:dash_id])
+    @dash.tweet_loop
+    redirect_to(@dash)
+  end
+
   def scrape
     @user = current_user
     @dash = Dash.find(params[:dash_id])
@@ -85,6 +97,14 @@ class DashesController < ApplicationController
     end        
   end
 
+  def post_queue
+    @dash = Dash.find(params[:dash_id])
+    @posts = Post.where(approved: true, dash_id: @dash.id)
+    respond_to do |format|
+      format.html # show.html.erb
+      format.json { render json: @posts }
+     end        
+  end
 
 
 # Custom Scrape Methods
@@ -129,14 +149,6 @@ class DashesController < ApplicationController
     redirect_to @dash
   end
 
-  def post_queue
-    @dash = Dash.find(params[:dash_id])
-    @posts = Post.where(approved: true, dash_id: @dash.id)
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @posts }
-     end        
-  end
 
   # Posting Actions
   def post_tweet
@@ -151,7 +163,7 @@ class DashesController < ApplicationController
     respond_to do |format|
       if res != 'tried'
         format.html { redirect_to dash_post_queue_path(@dash), notice: 'Tweet Posted.' }
-    else
+      else
         format.html { redirect_to dash_post_queue_path(@dash), notice: 'There was an issue..' }
       end
     end
