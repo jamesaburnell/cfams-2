@@ -1,6 +1,5 @@
        <p class="notice"><%= notice %></p>
        <p class="alert"><%= alert %></p>
-
 <p>
   <%= @dash.title %>
 </p>
@@ -12,17 +11,15 @@
 </p>
 
 <p>
-  Already Posted: <%= @dash.posts.where(approved: true).count - @posts.count %>
+
 </p>
 
 <div id="masonry-container" class="transitions-enabled infinite-scroll clearfix">
 
 <% @posts.each do |post|  %>
   <div class="box col2">
-  title: <%= post.title %>, 
-  body: <%= post.body %>, 
-  og source: <%= post.og_source %>, 
-  img: <%= post.image_src %>, 
+
+  <h3><%= post.body %></h3>
   <% if !post.image_src.nil? %>
 
     <%= image_tag post.og_source %>

@@ -13,3 +13,62 @@
  *= require_tree .
  *= require_self
  */
+/*= require uikit/almost-flat */
+
+.overlay{
+	text-align: center;
+}
+
+.toggle_button{
+	background: rgba(0, 0, 0, 0);
+    height: 100%;
+    width: 50%;
+    position: absolute;
+    top: 0;
+    transition: .2s ease;	
+}
+
+.toggle_approve{
+	right: 0;
+}
+.toggle_disapprove{
+	left: 0;
+}
+
+.toggle_approve:hover{
+	background: rgba(30, 130, 76, .6);
+}
+.toggle_disapprove:hover{
+	background: rgba(207, 0, 15, .6);
+}
+
+.pic_holder{
+	position: relative;
+}
+
+
+input.uk-button{
+	margin-top: 10px;
+	text-shadow: none;
+}
+
+.uk-button.twitter-button{
+	background-color: #4099FF;
+	background: #4099FF;
+	color: white;
+}
+.uk-button.giphy-button{
+	background-color: #f16667;
+	background: #f16667;
+	color: white;
+}
+.uk-button.reddit-button{
+	background-color: #5f99cf;
+	background: #5f99cf;
+	color: white;
+}
+.uk-button.tumblr-button{
+	background-color: #35465c;
+	background: #35465c;
+	color: white;
+}

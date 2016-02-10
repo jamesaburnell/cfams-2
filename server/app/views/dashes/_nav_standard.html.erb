@@ -1,0 +1,39 @@
+<div class="uk-margin">
+    <nav class="uk-navbar">
+
+        <a class="uk-navbar-brand" href="#">
+            <%= @dash.title %>
+        </a>
+        <div class="uk-navbar-content uk-navbar-flip  uk-hidden-small">
+	        <ul class="uk-navbar-nav">
+				<li>
+	               <div class="uk-badge uk-badge-success uk-navbar-content">
+	               		<%= @dash.posts.where(approved: nil).count %>
+	               </div>
+	            </li>
+
+				<li>
+					<div class="uk-badge uk-badge-warning uk-navbar-content">
+						<%= @dash.posts.where(approved: true).count %>
+					</div> 
+				</li>
+				<li>
+					<div class="uk-badge uk-badge-danger uk-navbar-content">
+						<%= @dash.posts.where(approved: true).count %>
+					</div>
+				</li>
+			</ul>
+
+	        <ul class="uk-navbar-nav uk-navbar-content">
+	        	<%= link_to "", new_dash_post_path(@dash, @post), class: "uk-icon-small uk-icon-button uk-icon-upload "  %>
+	        	<%= link_to "", dash_post_tweet_path(@dash), class: "uk-icon-small uk-icon-button uk-icon-twitter " %>
+	        	<%= link_to "", dash_post_tumblr_path(@dash), class: "uk-icon-small uk-icon-button uk-icon-tumblr " %>
+	        </ul>
+
+
+	        <ul class="uk-navbar-nav">
+	        	<%= link_to "", dash_post_tweet_path(@dash), class: "uk-icon-small uk-icon-button uk-icon-cog" %>
+	        </ul>
+        </div>
+    </nav>
+</div>
