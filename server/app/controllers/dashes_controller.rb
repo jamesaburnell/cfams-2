@@ -74,7 +74,7 @@ class DashesController < ApplicationController
 
 
   def robot
-
+    @dash = Dash.find(params[:dash_id])
 
   end
 

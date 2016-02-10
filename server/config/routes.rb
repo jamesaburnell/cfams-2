@@ -22,6 +22,8 @@ Rails.application.routes.draw do
     get "/post_tweet" => "dashes#post_tweet"
     get "/post_tumblr" => "dashes#post_tumblr"
 
+
+    get "/robot" => "dashes#robot", path: 'phil'
     get "/favorite_tweets" => "dashes#favorite_tweets", path: 'favorite-tweets'
 
     # Post Routes

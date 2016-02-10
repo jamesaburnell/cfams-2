@@ -171,8 +171,8 @@ class Dash < ActiveRecord::Base
 		puts "started tweet loop"
 		["cats suck", "#catsareassholes"].each do |term|
 			begin
-				body = term.body
-				number = term.count
+				body = term
+				number = 20
 				retweet = 1
 				self.tweet_fave(body, number, retweet)
 			rescue

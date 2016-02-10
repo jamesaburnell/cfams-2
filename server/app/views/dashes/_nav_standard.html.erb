@@ -6,7 +6,7 @@
 
         <div class="uk-navbar-content uk-navbar-flip  uk-hidden-small uk-margin-small-top">
 	        <ul class="uk-navbar-nav  uk-navbar-content">
-	    	<%= link_to "", new_dash_post_path(@dash, @post), class: "notif-text uk-margin-small-top uk-icon-large uk-icon-plus uk-navbar-nav"  %>
+	    	<%= link_to "", new_dash_post_path(@dash), class: "notif-text uk-margin-small-top uk-icon-large uk-icon-plus uk-navbar-nav"  %>
 	        </ul>
 			<ul class="uk-navbar-nav">
 			    <li class="uk-parent uk-active" data-uk-dropdown="" aria-haspopup="true" aria-expanded="false">
@@ -23,7 +23,7 @@
 			                <li class="uk-nav-divider"></li>
 				            <li class="uk-nav-header">Connect</li>
 			                <li>
-			                	<%= link_to "Favorite", dash_scrape_path(@dash) %>
+			                	<%= link_to "Favorite", dash_robot_path(@dash) %>
 			                </li>
 			                
 			                <li class="uk-nav-divider"></li>
