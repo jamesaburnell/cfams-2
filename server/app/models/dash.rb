@@ -49,12 +49,14 @@ class Dash < ActiveRecord::Base
 	def twitter_pic_scrape(search)
 		t = self.get_twit_client
 		search_var = search
-		t.search(search_var, result_type: "recent").collect do |tweet|
+		pic_limit = 0
+		t.search(search_var, result_type: "recent").take(100).collect do |tweet|
 			unless tweet.media[0].nil?
-				puts "tweetlovin: "
-				puts tweet
-				img = tweet.media[0].media_url
-				self.build_post("Twitter", img, tweet.text, img, img)
+				pic_limit += 1
+				if pic_limit < 50 
+					img = tweet.media[0].media_url
+					self.build_post("Twitter", img, tweet.text, img, img)
+				end
 			end
 		end	 		
 	end
