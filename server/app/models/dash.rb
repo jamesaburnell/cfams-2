@@ -218,6 +218,12 @@ class Dash < ActiveRecord::Base
 	end
 
 
+	def get_twilio_client
+      	@client = Twilio::REST::Client.new
+		return @client
+	end
+
+
 	def fb_oauth
 	    app_id = self.fb_app_id
 	    app_secret = self.fb_app_secret

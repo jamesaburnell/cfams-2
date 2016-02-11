@@ -47,14 +47,15 @@
                   </a>
                 <% end %>
                   <%= link_to dash_email_post_path(@dash, post_id: post.id), remote: true, class: "uk-button" do %>
+                  
                     <i class="uk-icon-envelope"></i>
                   <% end %>
                   <a href="#" class="uk-button disabled">
                     <i class="uk-icon-wordpress"></i>
                   </a>
-                  <a href="#" class="uk-button disabled">
+                  <%= link_to dash_text_post_path(@dash, post_id: post.id), remote: true, class: "uk-button" do %>
                     <i class="uk-icon-mobile-phone"></i>
-                  </a>
+                  <% end %>
               </div>
             <br/> 
           </div>

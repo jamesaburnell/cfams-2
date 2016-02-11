@@ -232,6 +232,27 @@ class DashesController < ApplicationController
     end
   end
 
+  def text_post
+      @user = current_user
+      @post = Post.find(params[:post_id])
+      @dash = Dash.find(params[:dash_id])
+      @twilio = @dash.get_twilio_client
+      @twilio.messages.create(
+        from: '+12622879807',
+        to: '+13038593854',
+        body: @post.image_src
+      )      
+    respond_to do |format|
+      if @twilio != 'tried'
+        format.html { redirect_to dash_post_queue_path(@dash), notice: 'Text Sent.' }
+      # format.js
+      else
+        format.html { redirect_to dash_post_queue_path(@dash), status: 500, notice: 'There was an issue..' }
+      # format.js
+      end
+    end
+  end
+
 
   # Authorization Controller Methods
 

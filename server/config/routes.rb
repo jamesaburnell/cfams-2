@@ -31,6 +31,7 @@ Rails.application.routes.draw do
     get "/post_tweet" => "dashes#post_tweet"
     get "/post_tumblr" => "dashes#post_tumblr"
     get "/email_post" => "dashes#email_post"
+    get "/text_post" => "dashes#text_post"
 
 
     get "/robot" => "dashes#robot", path: 'phil'
