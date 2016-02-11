@@ -36,6 +36,10 @@ var Navbar = React.createClass({
 	},
 
 	toApprovedPage: function () {
+		console.log(this.props.approvedContent)
+		if(!this.props.approvedContent) {
+			return this.props.getApprovedContent(this.props.currentAccount.id, this.toApprovedPage)
+		}
 		this.props.navigate(this.props.navigator, ApprovedContent, 'Approved Content');
 	},
 
@@ -44,7 +48,7 @@ var Navbar = React.createClass({
 	},
 
 	animateNavbar: function () {
-		LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut, this.showMenu)
+		LayoutAnimation.configureNext(LayoutAnimation.Presets.spring, this.showMenu)
 		this.setState({
 			navStyle: {
 				height: this.state.navStyle.height > 50 ? 50 : 200
@@ -70,10 +74,10 @@ var Navbar = React.createClass({
 		var navbarStyle = [styles.container, this.state.navStyle];
 		var buttonStyle = [this.state.menuButtonStyle, {fontSize: 20}];
 		var menuStyle = [styles.linkStyle, this.state.approvedStyle]
+		
 		return (
 			<View style={navbarStyle}>
 				<View style={{marginTop: 15, flex: 1, flexDirection: 'row'}}>
-					
 					<View style={styles.menuButton}>
 						
 						<View style={this.state.menuStyle}>
@@ -92,8 +96,6 @@ var Navbar = React.createClass({
 							>
 							<Text style={buttonStyle}>{this.state.menuButton}</Text> 
 						</TouchableWithoutFeedback> 
-
-						
 					</View>
 				</View>
 			</View>
