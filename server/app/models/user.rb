@@ -1,4 +1,7 @@
 class User < ActiveRecord::Base
+# Added by Koudoku.
+  has_one :subscription
+
 
 	after_initialize :set_default_role, :if => :new_record?
 	enum role: [:user, :admin, :silver, :gold, :platinum]
