@@ -1,6 +1,6 @@
 class DashesController < ApplicationController
   before_action :set_dash, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!, only: [:index, :show, :scrape, :new]
+  before_action :authenticate_user!, only: [:index, :show, :scrape, :new, :email_post]
 
   # GET /dashes
   # GET /dashes.json
@@ -208,6 +208,22 @@ class DashesController < ApplicationController
     respond_to do |format|
       if res != 'tried'
         format.html { redirect_to dash_post_queue_path(@dash), notice: 'Tumblr Posted.' }
+      # format.js
+      else
+        format.html { redirect_to dash_post_queue_path(@dash), status: 500, notice: 'There was an issue..' }
+      # format.js
+      end
+    end
+  end
+
+  def email_post
+      @user = current_user
+      @post = Post.find(params[:post_id])
+      @dash = Dash.find(params[:dash_id])
+      res = EmailPost.send_post_email(@user, @post).deliver
+    respond_to do |format|
+      if res != 'tried'
+        format.html { redirect_to dash_post_queue_path(@dash), notice: 'Email Sent.' }
       # format.js
       else
         format.html { redirect_to dash_post_queue_path(@dash), status: 500, notice: 'There was an issue..' }
