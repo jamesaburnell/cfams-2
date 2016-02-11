@@ -75,15 +75,42 @@ class DashesController < ApplicationController
 
   def robot
     @dash = Dash.find(params[:dash_id])
-
   end
 
+  def add_term
+    @dash = Dash.find(params[:dash_id])
+    body = params[:body]
+    count = params[:count]
+    term = Term.new(dash_id: @dash.id, count: count, body: body)
+    term.save
+    @dash.save
+  end
+
+  def destroy_term
+    @dash = Dash.find(params[:dash_id])
+    term = Term.find(params[:term_id])
+    term.destroy
+    redirect_to(dash_robot_path(@dash))
+  end
 
   def favorite_tweets
     @dash = Dash.find(params[:dash_id])
-    @dash.tweet_loop
-    redirect_to(@dash)
+    res = @dash.tweet_loop
+    # redirect_to(@dash)
+    respond_to do |format|
+      if res != 'tried'
+        format.html { redirect_to dash_post_queue_path(@dash), notice: 'Tweets favorited!' }
+      else
+        format.html { redirect_to dash_post_queue_path(@dash), status: 500, notice: 'There was an issue..' }
+      end
+    end
   end
+
+
+
+
+
+
 
   def scrape
     @user = current_user
@@ -164,7 +191,7 @@ class DashesController < ApplicationController
       if res != 'tried'
         format.html { redirect_to dash_post_queue_path(@dash), notice: 'Tweet Posted.' }
       else
-        format.html { redirect_to dash_post_queue_path(@dash), notice: 'There was an issue..' }
+        format.html { redirect_to dash_post_queue_path(@dash), status: 500, notice: 'There was an issue..' }
       end
     end
   end

@@ -4,6 +4,7 @@ class Dash < ActiveRecord::Base
 	require 'uri'
 	belongs_to :user
 	has_many :posts	
+	has_many :terms
 
 	def giphy_scrape(search)
 		begin
@@ -145,23 +146,28 @@ class Dash < ActiveRecord::Base
 
 # Robot
 
-	def tweet_fave(search, number, retweet)
+	def tweet_fave(term, number, retweet)
 		puts "started"
+		puts "term: ", term.body
 		@client = self.get_twit_client
 		if retweet
 			retweet = " -rt"
 		else !retweet
 			retweet = ""
 		end
-		@client.search(search + retweet).take(number).collect do |tweet|
+		@client.search(term.body + retweet).take(number).collect do |tweet|
 			user = 	tweet.user.screen_name
 			begin
-				@client.favorite(tweet)
-				puts tweet.text
-				sleep 2
+					if !tweet.favorited?
+						term.favorite_count += 1
+					end
+					res = @client.favorite(tweet)
+					puts res.to_json
 			rescue => e
-				puts "already favorited"
-				next
+				puts e
+				return 'tried'
+				# puts "already favorited"
+				# next
 			end
 		end
 		return true
@@ -169,17 +175,23 @@ class Dash < ActiveRecord::Base
 
 	def tweet_loop
 		puts "started tweet loop"
-		["cats suck", "#catsareassholes"].each do |term|
+		self.terms.each do |term|
+			puts term.body
+			puts term.count
 			begin
 				body = term
-				number = 20
+				number = term.count
+				puts term.favorite_count
 				retweet = 1
-				self.tweet_fave(body, number, retweet)
-			rescue
+				res = self.tweet_fave(body, number, retweet)
+				puts res
+			rescue => e
+				puts e
 				puts 'something just borke. thats right. borke'
 			end
 		end
 		puts "Finished!"
+		return true
 	end
 
 

@@ -1,7 +1,7 @@
 <div class="uk-margin">
     <nav class="uk-navbar">
        	<%= link_to root_path, class: "uk-navbar-brand notif-text uk-text-bold uk-margin-small-top" do %> 
-            Butterfli
+            butterfli
         <% end %>
 
         <div class="uk-navbar-content uk-navbar-flip  uk-hidden-small uk-margin-small-top">
@@ -10,7 +10,7 @@
 	        </ul>
 			<ul class="uk-navbar-nav">
 			    <li class="uk-parent uk-active" data-uk-dropdown="" aria-haspopup="true" aria-expanded="false">
-			        <a href=""><i class="uk-icon-home"></i> <%= @dash.title %></a>
+			        <%= link_to @dash do %><i class="uk-icon-home"></i> <%= @dash.title %><% end %>
 
 			        <div class="uk-dropdown uk-dropdown-navbar uk-dropdown-bottom" style="top: 40px; left: 0px;">
 			            <ul class="uk-nav uk-nav-navbar">
