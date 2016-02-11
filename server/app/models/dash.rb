@@ -4,6 +4,7 @@ class Dash < ActiveRecord::Base
 	require 'uri'
 	belongs_to :user
 	has_many :posts	
+	has_many :terms
 
 	def giphy_scrape(search)
 		begin
@@ -92,22 +93,23 @@ class Dash < ActiveRecord::Base
 			post.save
 			twitCli.update_with_media(post.body.to_s, img)
 		rescue
-			puts "nothin here"
+			return 'tried'
 		end
 	end
 
 	def post_tumblr(post)
-		post = Post.find(post)
 		tumblr_client = self.get_tumblr_client
+		post = Post.find(post)
 		client = Tumblr::Client.new
+		puts 'about to try'
 		begin
 			url = post.og_source
 			img = URI.parse(post.image_src)
 			client.photo("ourcatsareassholes.tumblr.com", caption: post.body, source: img, tags: "cats")
 			post.tumblr_published += 1
 			post.save
-		rescue => e
-			puts e
+		rescue
+			return 'tried'
 		end
 	end
 
@@ -142,9 +144,55 @@ class Dash < ActiveRecord::Base
 		post.fb_published = true
 	end
 
+# Robot
 
+	def tweet_fave(term, number, retweet)
+		puts "started"
+		puts "term: ", term.body
+		@client = self.get_twit_client
+		if retweet
+			retweet = " -rt"
+		else !retweet
+			retweet = ""
+		end
+		@client.search(term.body + retweet).take(number).collect do |tweet|
+			user = 	tweet.user.screen_name
+			begin
+					if !tweet.favorited?
+						term.favorite_count += 1
+					end
+					res = @client.favorite(tweet)
+					puts res.to_json
+			rescue => e
+				puts e
+				return 'tried'
+				# puts "already favorited"
+				# next
+			end
+		end
+		return true
+	end	
 
-
+	def tweet_loop
+		puts "started tweet loop"
+		self.terms.each do |term|
+			puts term.body
+			puts term.count
+			begin
+				body = term
+				number = term.count
+				puts term.favorite_count
+				retweet = 1
+				res = self.tweet_fave(body, number, retweet)
+				puts res
+			rescue => e
+				puts e
+				puts 'something just borke. thats right. borke'
+			end
+		end
+		puts "Finished!"
+		return true
+	end
 
 
 	# Auth Methods

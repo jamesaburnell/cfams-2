@@ -1,0 +1,30 @@
+<div class="uk-margin">
+    <nav class="uk-navbar">
+
+       	<%= link_to root_path, class: "uk-navbar-brand notif-text uk-text-bold uk-margin-small-top" do %> 
+            butterfli
+        <% end %>
+        <div class="uk-navbar-content uk-navbar-flip  uk-hidden-small uk-margin-small-top">
+			<ul class="uk-navbar-nav">
+			    <li class="uk-parent uk-active" data-uk-dropdown="" aria-haspopup="true" aria-expanded="false">
+			        <a href=""><i class="uk-icon-home"></i> <%= current_user.email %></a>
+
+			        <div class="uk-dropdown uk-dropdown-navbar uk-dropdown-bottom" style="top: 40px; left: 0px;">
+			            <ul class="uk-nav uk-nav-navbar">
+				            <li>
+							    <% if current_user.role != 'user' || current_user.dashes.count == 0 %>
+							      <%= link_to 'New Dash', new_dash_path %>
+							    <% end %>
+						    </li>
+			                <li class="uk-nav-divider"></li>
+			                <li><%= link_to "Edit #{current_user.email}", edit_dash_path(@dash) %></li>
+			                <li>  <%= link_to('Logout', destroy_user_session_path, :method => :delete) %></li>
+			            </ul>
+			        </div>
+
+			    </li>
+
+			</ul>	        
+        </div>
+    </nav>
+</div>

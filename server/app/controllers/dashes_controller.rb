@@ -1,11 +1,13 @@
 class DashesController < ApplicationController
   before_action :set_dash, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!, only: [:index, :show, :new]
+  before_action :authenticate_user!, only: [:index, :show, :scrape, :new]
 
   # GET /dashes
   # GET /dashes.json
   def index
     @dashes = Dash.all.where(user_id: current_user)
+    @dash = @dashes.first
+    @posts = Post.all.where(approved: nil)
   end
 
   # GET /dashes/1
@@ -71,8 +73,65 @@ class DashesController < ApplicationController
   end
 
 
+  def robot
+    @dash = Dash.find(params[:dash_id])
+  end
+
+  def add_term
+    @dash = Dash.find(params[:dash_id])
+    body = params[:body]
+    count = params[:count]
+    term = Term.new(dash_id: @dash.id, count: count, body: body)
+    term.save
+    @dash.save
+  end
+
+  def destroy_term
+    @dash = Dash.find(params[:dash_id])
+    term = Term.find(params[:term_id])
+    term.destroy
+    redirect_to(dash_robot_path(@dash))
+  end
+
+  def favorite_tweets
+    @dash = Dash.find(params[:dash_id])
+    res = @dash.tweet_loop
+    # redirect_to(@dash)
+    respond_to do |format|
+      if res != 'tried'
+        format.html { redirect_to dash_post_queue_path(@dash), notice: 'Tweets favorited!' }
+      else
+        format.html { redirect_to dash_post_queue_path(@dash), status: 500, notice: 'There was an issue..' }
+      end
+    end
+  end
 
 
+
+
+
+
+
+  def scrape
+    @user = current_user
+    @dash = Dash.find(params[:dash_id])
+    # @dash.reddit_pic_scrape()
+    
+    @posts = @dash.posts.where(approved: nil)
+    respond_to do |format|
+      format.html # show.html.erb
+      format.json { render json: @posts }
+    end        
+  end
+
+  def post_queue
+    @dash = Dash.find(params[:dash_id])
+    @posts = Post.where(approved: true, dash_id: @dash.id)
+    respond_to do |format|
+      format.html # show.html.erb
+      format.json { render json: @posts }
+     end        
+  end
 
 
 # Custom Scrape Methods
@@ -84,7 +143,7 @@ class DashesController < ApplicationController
     @dash.subreddit = search_term
     @dash.save
     @dash.reddit_pic_scrape(search_term)
-    redirect_to @dash
+    redirect_to dash_scrape_path(@dash)
   end
 
   def add_twitter_pics
@@ -94,7 +153,7 @@ class DashesController < ApplicationController
     @dash.twitter_pic_search = search_term
     @dash.save
     @dash.twitter_pic_scrape(search_term)
-    redirect_to @dash
+    redirect_to dash_scrape_path(@dash)
   end
 
   def add_giphy_gifs
@@ -104,7 +163,7 @@ class DashesController < ApplicationController
     @dash.giphy_search = search_term
     @dash.save
     @dash.giphy_scrape(search_term)
-    redirect_to @dash
+    redirect_to dash_scrape_path(@dash)
   end
 
   def add_tumblr_pics
@@ -114,31 +173,25 @@ class DashesController < ApplicationController
     @dash.tumblr_pic_search = search_term
     @dash.save
     @dash.tumblr_pic_scrape(search_term)
-    redirect_to @dash
+    redirect_to dash_scrape_path(@dash)
   end
 
-  def post_queue
-    @dash = Dash.find(params[:dash_id])
-    @posts = Post.where(approved: true, dash_id: @dash.id, twit_published: 0)
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @posts }
-     end        
-  end
 
   # Posting Actions
   def post_tweet
     @dash = Dash.find(params[:dash_id])
     if params[:post_id]
       post_id = params[:post_id]
-      @dash.post_tweet(post_id)
+      res = @dash.post_tweet(post_id)
     else
       post = Post.all.where(dash_id: @dash.id, approved: true, twit_published: 0).shuffle.first      
-      @dash.post_tweet(post.id)      
+      res = @dash.post_tweet(post.id)      
     end
     respond_to do |format|
-      if @dash.save
-        format.html { redirect_to @dash, notice: 'Tweet Posted.' }
+      if res != 'tried'
+        format.html { redirect_to dash_post_queue_path(@dash), notice: 'Tweet Posted.' }
+      else
+        format.html { redirect_to dash_post_queue_path(@dash), status: 500, notice: 'There was an issue..' }
       end
     end
   end
@@ -147,14 +200,18 @@ class DashesController < ApplicationController
     @dash = Dash.find(params[:dash_id])
     if params[:post_id]
       post_id = params[:post_id]
-      @dash.post_tumblr(post_id)
+      res = @dash.post_tumblr(post_id)
     else
-      post = Post.all.where(dash_id: @dash.id, approved: true).shuffle.first      
-      @dash.post_tumblr(post.id)      
+      post = Post.all.where(dash_id: @dash.id, approved: true, tumblr_published: 0).shuffle.first      
+      res = @dash.post_tumblr(post.id)      
     end
     respond_to do |format|
-      if @dash.save
-        format.html { redirect_to @dash, notice: 'Tumblr Posted.' }
+      if res != 'tried'
+        format.html { redirect_to dash_post_queue_path(@dash), notice: 'Tumblr Posted.' }
+      # format.js
+      else
+        format.html { redirect_to dash_post_queue_path(@dash), status: 500, notice: 'There was an issue..' }
+      # format.js
       end
     end
   end

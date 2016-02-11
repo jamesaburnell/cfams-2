@@ -13,3 +13,109 @@
  *= require_tree .
  *= require_self
  */
+/*= require uikit/almost-flat */
+html, body{
+	/*background: #f9f9f9;*/
+    /*height: 100%;	*/
+}
+
+.disabled{
+	opacity: .2;
+    cursor: default;
+}
+
+a:hover{
+	background-color: rgba(0,0,0,0);
+}
+
+.uk-overlay-hover{
+	transition: 2s all;
+	background-color: green;
+}
+
+.uk-button.uk-button-primary{
+	color: white;
+}
+.overlay{
+	text-align: center;
+}
+
+.toggle_button{
+	background: rgba(0, 0, 0, 0);
+    height: 100%;
+    width: 50%;
+    position: absolute;
+    transition: .2s ease;	
+}
+
+.toggle_approve{
+	right: 0;
+    top: 0;
+}
+.toggle_disapprove{
+	left: 0;
+    top: 0;
+}
+.toggle_disapprove_queue{
+	left: 0;
+	height: 70px;
+	width: 70px;
+	transition: .3s ease;
+	position: absolute;
+	bottom: 0;
+}
+
+.pic_holder:hover .toggle_disapprove_queue{
+	background: rgba(207, 0, 15, .7);
+    border-top-right-radius: 2em;
+}
+
+.toggle_approve:hover{
+	background: rgba(30, 130, 76, .6);
+}
+
+.toggle_disapprove:hover{
+	background: rgba(207, 0, 15, .6);
+}
+
+.pic_holder{
+	position: relative;
+}
+
+.notif-text{
+	color: #fff;
+}
+
+.notif-text:hover{
+	color: #0077dd;
+	background: none;
+}
+
+.uk-form input{
+	text-align: center;
+}
+
+input.uk-button{
+	text-shadow: none;
+}
+
+.uk-button.twitter-button{
+	background-color: #4099FF;
+	background: #4099FF;
+	color: white;
+}
+.uk-button.giphy-button{
+	background-color: #f16667;
+	background: #f16667;
+	color: white;
+}
+.uk-button.reddit-button{
+	background-color: #5f99cf;
+	background: #5f99cf;
+	color: white;
+}
+.uk-button.tumblr-button{
+	background-color: #35465c;
+	background: #35465c;
+	color: white;
+}
