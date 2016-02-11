@@ -143,7 +143,7 @@ class DashesController < ApplicationController
     @dash.subreddit = search_term
     @dash.save
     @dash.reddit_pic_scrape(search_term)
-    redirect_to @dash
+    redirect_to dash_scrape_path(@dash)
   end
 
   def add_twitter_pics
@@ -153,7 +153,7 @@ class DashesController < ApplicationController
     @dash.twitter_pic_search = search_term
     @dash.save
     @dash.twitter_pic_scrape(search_term)
-    redirect_to @dash
+    redirect_to dash_scrape_path(@dash)
   end
 
   def add_giphy_gifs
@@ -163,7 +163,7 @@ class DashesController < ApplicationController
     @dash.giphy_search = search_term
     @dash.save
     @dash.giphy_scrape(search_term)
-    redirect_to @dash
+    redirect_to dash_scrape_path(@dash)
   end
 
   def add_tumblr_pics
@@ -173,7 +173,7 @@ class DashesController < ApplicationController
     @dash.tumblr_pic_search = search_term
     @dash.save
     @dash.tumblr_pic_scrape(search_term)
-    redirect_to @dash
+    redirect_to dash_scrape_path(@dash)
   end
 
 
