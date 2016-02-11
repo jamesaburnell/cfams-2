@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   # Added by Koudoku.
-  mount Koudoku::Engine, at: 'koudoku'
+  mount Koudoku::Engine, at: 'k'
   scope module: 'koudoku' do
     get 'pricing' => 'subscriptions#index', as: 'pricing'
   end
