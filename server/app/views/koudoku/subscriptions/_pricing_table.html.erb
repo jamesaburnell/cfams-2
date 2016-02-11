@@ -1,4 +1,5 @@
 <ul class="thumbnails koudoku-pricing-table">
+  
   <% @plans.each do |plan| %>
     <li class="span3 plan <%= 'plan-primary' if plan.highlight? %>">
       <div class="thumbnail">
@@ -27,7 +28,6 @@
             <% if Koudoku.free_trial? %>
             <li class='muted'><%= Koudoku.free_trial_length %>-day Free Trial</li>
             <% end %>
-            <%= BlueCloth.new(plan.features.gsub(/\n/, "\n\n")).to_html.gsub(/<(\/?)p>/, '<\1li>').html_safe %>
           </ul>
         </div>
       </div>
