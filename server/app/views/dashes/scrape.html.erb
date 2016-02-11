@@ -107,6 +107,9 @@
     console.log("width: ",w);
     $(window).trigger("resize");
   })
+    $(window).ready(function(){
+      var grid = UIkit.grid($("#grid"));
+    })
   $('.toggle_approve').click(function(){
     var parent = $(this).parent().parent().parent();
     parent.css('background-color','rgba(30, 130, 76, .6)')
