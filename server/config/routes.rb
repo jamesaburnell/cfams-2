@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-
-  
   # Added by Koudoku.
   mount Koudoku::Engine, at: 'koudoku'
   scope module: 'koudoku' do
