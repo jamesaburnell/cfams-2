@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  # Added by Koudoku.
+  mount Koudoku::Engine, at: 'k'
+  scope module: 'koudoku' do
+    get 'pricing' => 'subscriptions#index', as: 'pricing'
+  end
+
 
   namespace :api do
     mount_devise_token_auth_for 'User', at: 'auth'
@@ -24,6 +30,8 @@ Rails.application.routes.draw do
     # Posting to Channels
     get "/post_tweet" => "dashes#post_tweet"
     get "/post_tumblr" => "dashes#post_tumblr"
+    get "/email_post" => "dashes#email_post"
+    get "/text_post" => "dashes#text_post"
 
 
     get "/robot" => "dashes#robot", path: 'phil'
