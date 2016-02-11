@@ -50,12 +50,12 @@ class Dash < ActiveRecord::Base
 		t = self.get_twit_client
 		search_var = search
 		pic_limit = 0
-		t.search(search_var, result_type: "recent").take(100).collect do |tweet|
+		t.search(search_var, result_type: "recent").collect do |tweet|
 			unless tweet.media[0].nil?
 				pic_limit += 1
 				if pic_limit < 50 
 					img = tweet.media[0].media_url
-					self.build_post("Twitter", img, tweet.text, img, img)
+					self.build_post("twitter", img, tweet.text, img, img)
 				end
 			end
 		end	 		
@@ -69,7 +69,7 @@ class Dash < ActiveRecord::Base
 				author = post["post_author"]
 				message = post["summary"]
 				extracted_img = post['photos'][0]['alt_sizes'][0]['url']
-				self.build_post("Tumblr", extracted_img, message, extracted_img, author)
+				self.build_post("tumblr", extracted_img, message, extracted_img, author)
 			end
 		rescue
 			puts "nope. tumblr_pic_scrape failed."
@@ -221,6 +221,10 @@ class Dash < ActiveRecord::Base
 
 
 	def get_twilio_client
+		Twilio.configure do |config|
+		  config.account_sid = 'ACac6d56cd8004c2d776c4334668649963'
+		  config.auth_token = '181633469cf73ea73fd941715f4517eb'
+		end		
       	@client = Twilio::REST::Client.new
 		return @client
 	end

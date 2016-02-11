@@ -7,12 +7,38 @@
 <p class="alert"><%= alert %></p>
 
 <div class="uk-grid uk-grid-small">
+  <%= link_to "Find The Fire!", dash_scrape_path(@dash), class: "uk-button uk-button-large uk-width-1-1 uk-margin-bottom" %>
+</div>
 
-<%= link_to "Find The Fire!", dash_scrape_path(@dash), class: "uk-button uk-button-large uk-width-1-1 uk-margin-bottom" %>
-          </div>
-  <div class="uk-grid-width-small-1-2 uk-grid-width-medium-1-4" data-uk-observe data-uk-grid>
+<hr class="uk-grid-divider"/>    
+<!-- Filter Controls -->
+<ul id="my-id" class="uk-subnav">
+    <li data-uk-filter=""><a href="">All</a></li>
+    <li data-uk-filter="a"><a href="">Twitter</a></li>
+    <li data-uk-filter="b"><a href="">Giphy</a></li>
+    <li data-uk-filter="c"><a href="">Reddit</a></li>
+    <li data-uk-filter="d"><a href="">Tumblr</a></li>
+</ul>  
+
+  <div class="uk-grid-width-small-1-2 uk-grid-width-medium-1-4" data-uk-grid="{controls: '#my-id', gutter: 10}">
     <% @posts.each do |post|  %>
-      <div class="overlay">
+    <% if post.title == 'twitter' %>
+      
+      <div class="overlay" data-uk-filter='a'>
+
+    <% elsif post.title == 'giphy' %>
+      
+      <div class="overlay" data-uk-filter='b'>
+
+    <% elsif post.title == 'reddit' %>
+      
+      <div class="overlay" data-uk-filter='c'>
+
+    <% else post.title == 'tumblr' %>
+      
+      <div class="overlay" data-uk-filter='d'>
+
+    <% end %>
           <div>
             <div class="pic_holder">
               <% if !post.image_src.nil? %>
@@ -72,9 +98,8 @@
       var container = $('.uk-grid-width-small-1-2');
       var w = container.width();
       console.log("width: ",w);
-      $(window).trigger("resize");
     })
-      $(window).trigger("resize");
+
   })
 </script>
 <script type="text/javascript">

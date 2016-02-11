@@ -126,7 +126,7 @@ class DashesController < ApplicationController
 
   def post_queue
     @dash = Dash.find(params[:dash_id])
-    @posts = Post.where(approved: true, dash_id: @dash.id)
+    @posts = Post.where(approved: true, dash_id: @dash.id).take(20)
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @posts }

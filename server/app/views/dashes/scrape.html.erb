@@ -41,9 +41,35 @@
     </div>
   </div>
 <hr class="uk-grid-divider"/>
-  <div class="uk-grid-width-small-1-2 uk-grid-width-medium-1-4" data-uk-grid>
+<!-- Filter Controls -->
+<ul id="my-id" class="uk-subnav">
+    <li data-uk-filter=""><a href="">All</a></li>
+    <li data-uk-filter="a"><a href="">Twitter</a></li>
+    <li data-uk-filter="b"><a href="">Giphy</a></li>
+    <li data-uk-filter="c"><a href="">Reddit</a></li>
+    <li data-uk-filter="d"><a href="">Tumblr</a></li>
+</ul>
+
+<hr class="uk-grid-divider"/>
+  <div class="uk-grid-width-small-1-2 uk-grid-width-medium-1-4" data-uk-grid="{controls: '#my-id'}">
     <% @posts.each do |post|  %>
-      <div class="overlay">
+    <% if post.title == 'twitter' %>
+      
+      <div class="overlay" data-uk-filter='a'>
+
+    <% elsif post.title == 'giphy' %>
+      
+      <div class="overlay" data-uk-filter='b'>
+
+    <% elsif post.title == 'reddit' %>
+      
+      <div class="overlay" data-uk-filter='c'>
+
+    <% else post.title == 'tumblr' %>
+      
+      <div class="overlay" data-uk-filter='d'>
+
+    <% end %>
           <div>
             <div class="pic_holder">
               <% if !post.image_src.nil? %>

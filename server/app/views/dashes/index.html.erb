@@ -2,12 +2,11 @@
 
 <%= render "dashes/nav_home" %>
 
-<p class="notice"><%= notice %></p>
-<p class="alert"><%= alert %></p>
 
         <div class="uk-container uk-container-center uk-margin-top uk-margin-large-bottom">
-<p id="notice"><%= notice %></p>
 
+<p class="notice"><%= notice %></p>
+<p class="alert"><%= alert %></p>
             <div class="uk-grid" data-uk-grid-margin="">
                 <% @dashes.each do |dash| %>
 
@@ -29,5 +28,3 @@
             </div>
     <% end %>            
             <hr class="uk-grid-divider">
-
-            
