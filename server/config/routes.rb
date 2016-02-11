@@ -6,6 +6,9 @@ Rails.application.routes.draw do
   devise_for :users
   # Dash Routes
   resources :dashes do
+    resources :terms
+    get '/add_term', to: "dashes#add_term"
+    get '/destroy_term', to: "dashes#destroy_term"
     # Auth Routes
     get "/fb_oauth"  => 'dashes#fb_oauth'   
 
@@ -22,6 +25,8 @@ Rails.application.routes.draw do
     get "/post_tweet" => "dashes#post_tweet"
     get "/post_tumblr" => "dashes#post_tumblr"
 
+
+    get "/robot" => "dashes#robot", path: 'phil'
     get "/favorite_tweets" => "dashes#favorite_tweets", path: 'favorite-tweets'
 
     # Post Routes
