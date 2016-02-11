@@ -20,7 +20,7 @@
     <li data-uk-filter="d"><a href="">Tumblr</a></li>
 </ul>  
 
-  <div class="uk-grid-width-small-1-2 uk-grid-width-medium-1-4" data-uk-grid="{controls: '#my-id', gutter: 10}">
+  <div id="grid" class="uk-grid-width-small-1-2 uk-grid-width-medium-1-4" data-uk-grid="{controls: '#my-id', gutter: 10}">
     <% @posts.each do |post|  %>
     <% if post.title == 'twitter' %>
       
@@ -99,7 +99,9 @@
       var w = container.width();
       console.log("width: ",w);
     })
-
+    $(window).ready(function(){
+      var grid = UIkit.grid($("#grid"));
+    })
   })
 </script>
 <script type="text/javascript">

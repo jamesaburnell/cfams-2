@@ -42,6 +42,8 @@
   </div>
 <hr class="uk-grid-divider"/>
 <!-- Filter Controls -->
+
+<% if !@posts.count == 0 %>
 <ul id="my-id" class="uk-subnav">
     <li data-uk-filter=""><a href="">All</a></li>
     <li data-uk-filter="a"><a href="">Twitter</a></li>
@@ -49,9 +51,9 @@
     <li data-uk-filter="c"><a href="">Reddit</a></li>
     <li data-uk-filter="d"><a href="">Tumblr</a></li>
 </ul>
-
 <hr class="uk-grid-divider"/>
-  <div class="uk-grid-width-small-1-2 uk-grid-width-medium-1-4" data-uk-grid="{controls: '#my-id', gutter: 10}">
+<% end %>
+  <div id="grid" class="uk-grid-width-small-1-2 uk-grid-width-medium-1-4" data-uk-grid="{controls: '#my-id', gutter: 10}">
     <% @posts.each do |post|  %>
     <% if post.title == 'twitter' %>
       
@@ -116,6 +118,8 @@
 
   })
     $(window).trigger("resize");
+
+    var grid = UIkit.grid($("#grid");  
   })
 </script>
 
