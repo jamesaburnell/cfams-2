@@ -20,7 +20,8 @@ Rails.application.routes.draw do
 
     # Controller Action Routes
     get "/scrape"  => 'dashes#scrape', path: 'scrape'
-	  get "/post_queue"  => 'dashes#post_queue', path: 'queue'
+    get "/post_queue"  => 'dashes#post_queue', path: 'queue'
+	  get "/edit_post"  => 'dashes#edit_post', path: 'edit-post'
     get "/add_twitter_pics" => "dashes#add_twitter_pics", path: 'twitter-pics'
     get "/add_giphy_gifs" => "dashes#add_giphy_gifs", path: 'giphy-gifs'
     get "/add_reddit_pics" => "dashes#add_reddit_pics", path: 'reddit-pics'

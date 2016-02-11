@@ -5,6 +5,7 @@ class Dash < ActiveRecord::Base
 	belongs_to :user
 	has_many :posts	
 	has_many :terms
+	has_many :automation_times
 
 	def giphy_scrape(search)
 		begin
@@ -157,21 +158,33 @@ class Dash < ActiveRecord::Base
 		else !retweet
 			retweet = ""
 		end
-		@client.search(term.body + retweet).take(number).collect do |tweet|
-			user = 	tweet.user.screen_name
-			begin
-					if !tweet.favorited?
-						term.favorite_count += 1
-					end
-					res = @client.favorite(tweet)
-					puts res.to_json
-			rescue => e
-				puts e
-				return 'tried'
-				# puts "already favorited"
-				# next
+
+		success_count = 0
+
+		# while success_count < 10 do
+		# 	number += 10
+			@client.search(term.body + retweet).take(number).collect do |tweet|
+				user = 	tweet.user.screen_name
+				begin
+						if !tweet.favorited?
+							puts tweet.to_json
+							res = @client.favorite(tweet)
+							puts "happy!"
+							term.favorite_count += 1
+							success_count += 1
+						end
+						puts res.to_json
+						puts tweet.text
+				rescue => e
+					puts e
+					puts "damn, didn't work"
+					next
+				end
 			end
-		end
+		# end
+			puts "success_count: ", success_count
+
+
 		return true
 	end	
 

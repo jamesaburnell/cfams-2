@@ -45,7 +45,7 @@
               <% end %>
               <%= link_to "", toggle_disapprove_dash_post_path(@dash, post), :remote => true, class: "toggle_button toggle_disapprove_queue" %>     
             </div>
-            <h3><%= post.body %></h3>                          
+            <h3 class="post-body-text" id='<%= post.id %>' contenteditable><%= post.body %></h3> 
               <div class="uk-button-group">
                   <a class="uk-button disabled">
                     <i class="uk-icon-facebook"></i>
@@ -88,6 +88,21 @@
   </div>
 </div>
 <script type="text/javascript">
+  var textBox = $('.post-body-text')
+  textBox.blur(function(){
+    var content = $(this).text();
+    var post = $(this).attr("id");
+    postBody(post, content);
+  });
+  function postBody(post, content){
+    var uri = '/dashes/1/edit-post?post_id='+ post +'&body_text=' + content
+    $.get(uri, function(data) {
+      console.log(data)
+    });  
+  }
+</script>
+
+<script type="text/javascript">
   $(document).ready(function(){
     $('.toggle_disapprove_queue').click(function(){
       var parent = $(this).parent().parent().parent();
@@ -95,7 +110,9 @@
       var container = $('.uk-grid-width-small-1-2');
       var w = container.width();
       console.log("width: ",w);
+    $(window).trigger("resize");
     })
+    $(window).trigger("resize");
     $(window).ready(function(){
       var grid = UIkit.grid($("#grid"));
     })
