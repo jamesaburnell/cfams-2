@@ -1,7 +1,7 @@
 'use strict';
 
 var React = require('react-native');
-var Dash = require('./Dash.js')
+var Dash = require('./Dash.js');
 
 var {
   Component,
@@ -44,9 +44,9 @@ var AccountHome = React.createClass({
 
 
 		return (
-			<View style={styles.container}>	
-				{dashList}	
-			</View>
+				<View style={styles.container}>	
+					{dashList}	
+				</View>
 		)
 	}
 });

@@ -2,6 +2,7 @@
 
 var React = require('react-native');
 
+
 var {
   Component,
   StyleSheet,
@@ -12,8 +13,8 @@ var {
   Image,
   LayoutAnimation,
   TouchableWithoutFeedback,
+  TouchableOpacity,
   ScrollView,
-  Link
 } = React;
 
 var Dash = React.createClass({
@@ -21,8 +22,7 @@ var Dash = React.createClass({
 	getInitialState: function () {
 		return {
 			viewStyle: {
-				height: 240,
-			    width: 360
+				height: 400,
 			}
 		}
 	},
@@ -31,18 +31,8 @@ var Dash = React.createClass({
 		LayoutAnimation.configureNext(LayoutAnimation.Presets.spring)
 		this.setState({
 			viewStyle: {
-				height: this.state.viewStyle.height > 240 ? 240 : 250,
-				width: this.state.viewStyle.width > 180 ? 180 : 300
+				height: this.state.viewStyle.height > 400 ? 400 : 500,
 			}
-		})
-	},
-
-	approvePost: function (dashId, postId, toggle) {
-		fetch('http://localhost:3000/dashes/'+dashId+'/posts/'+postId+'/'+toggle, {method: 'GET'}, function (err) {
-			console.error("error: ", err)
-		})
-		.then(function (response) {
-			console.log('approvePost response: ', response)
 		})
 	},
 
@@ -54,43 +44,56 @@ var Dash = React.createClass({
 			idProp++;
 			return (
 
-				<View key={idProp} style={{marginBottom: 50, }}>
-					
-					<Image resizeMode={Image.resizeMode.cover} style={imageStyle} key={index} source={{uri: element.image_src}} />
-					<Text style={{fontStyle: 'italic'}}>{element.body}</Text>					
-					<Text style={{fontStyle: 'italic'}}>Source: {element.title}</Text>
-
+				<View key={idProp} style={{marginBottom: 50, flex: 1}}>
+					<View style={{flex: 1}}>
+						<Image resizeMode={Image.resizeMode.contain} style={imageStyle} key={index} source={{uri: element.image_src}} />
+						<Text style={{fontStyle: 'italic'}}>{element.body}</Text>					
+						<Text style={{fontStyle: 'italic'}}>Source: {element.title}</Text>
+					</View>
 					<View style={styles.choice}>
-						
-						<TouchableHighlight onPress={function(){this.approvePost(element.dash_Id, element.id, 'toggle_approve')}.bind(this)} style={styles.choiceButton}>
+						<TouchableHighlight onPress={function(){this.props.approvePost(element.dash_Id, element.id, 'toggle_approve')}.bind(this)} style={styles.choiceButton}>
 							<Text>Approve</Text>
 						</TouchableHighlight>
 						
-						<TouchableHighlight onPress={function(){this.approvePost(element.dash_Id, element.id, 'toggle_disapprove')}.bind(this)} style={styles.choiceButton}>
+						<TouchableHighlight onPress={function(){this.props.approvePost(element.dash_Id, element.id, 'toggle_disapprove')}.bind(this)} style={styles.choiceButton}>
 							<Text>Disapprove</Text>
 						</TouchableHighlight>
-
 					</View>
-
 				</View>
 
 				)
 		}.bind(this)) 
-
+		         
+		// onPress={() => { _scrollView.scrollTo({y: 0}); }}>
+		// var _scrollView: ScrollView;
 		return (
-			<View style={styles.accountHome}>	
-				<Text>{this.props.username}</Text>
-				<ScrollView 
-					automaticallyAdjustContentInsets={true}>
-					<View>{images}</View>
-				</ScrollView>
-				
+			<View>
+				<View>	
+			        <ScrollView
+			          	automaticallyAdjustContentInsets={false}
+			          	horizontal={false}
+			          	style={[styles.scrollView, styles.horizontalScrollView]}>
+			          	{images}
+			        </ScrollView>
+			        <TouchableOpacity
+			          	style={styles.button}>
+			          	<Text>Scroll to Top</Text>
+			        </TouchableOpacity>
+			     </View>
 			</View>
 		)
 	}
 });
 
 var styles = StyleSheet.create({
+	scrollView: {
+    	backgroundColor: 'D9F0FF',
+    	height: 300,
+  	},
+  	horizontalScrollView: {
+    	height: 600,
+    	width: 400
+  	},
 	accountHome: {
 		flex: 1,
 		justifyContent: 'center',
@@ -102,6 +105,7 @@ var styles = StyleSheet.create({
 	    flexDirection: 'row',
 	    borderWidth: 0.5,
 	    borderColor: 'black',
+	    backgroundColor: '#ffffff'
 	    
  	},
  	choiceButton: {
