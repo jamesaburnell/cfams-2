@@ -1,6 +1,6 @@
 class DashesController < ApplicationController
   before_action :set_dash, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!, only: [:index, :show, :scrape, :new, :email_post]
+  before_action :authenticate_user!, only: [:index, :show, :scrape, :new, :email_post, :text_post]
 
   # GET /dashes
   # GET /dashes.json
@@ -233,13 +233,15 @@ class DashesController < ApplicationController
   end
 
   def text_post
-      @user = current_user
+      @user = User.find(current_user.id)
       @post = Post.find(params[:post_id])
       @dash = Dash.find(params[:dash_id])
       @twilio = @dash.get_twilio_client
+      puts @user.mobile_number
+      user_mobile = '+1' + @user.mobile_number
       @twilio.messages.create(
         from: '+12622879807',
-        to: '+13038593854',
+        to: user_mobile,
         body: @post.image_src
       )      
     respond_to do |format|
