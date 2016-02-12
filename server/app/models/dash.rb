@@ -201,6 +201,15 @@ class Dash < ActiveRecord::Base
 		return true
 	end
 
+	def robot_run
+		automations = self.automation_times
+		automations.each do |auto|
+			if auto.task == "twitter favorite"
+				self.tweet_loop
+			end
+		end
+	end
+
 
 	# Auth Methods
 	def get_twit_client

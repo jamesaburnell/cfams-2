@@ -11,20 +11,20 @@
 
 			        <div class="uk-dropdown uk-dropdown-navbar uk-dropdown-bottom" style="top: 40px; left: 0px;">
 			            <ul class="uk-nav uk-nav-navbar">
-				            <li class="uk-nav-header">Scrape</li>
+				            <li class="uk-nav-header">scrape</li>
 			                <li>
 			                	<%= link_to "Scrape (#{@dash.posts.where(approved: nil).count})", dash_scrape_path(@dash) %>
 			                </li>
 			                <li><%= link_to "Queue (#{@dash.posts.where(approved: true).count})", dash_post_queue_path(@dash) %></li>
 			                
 			                <li class="uk-nav-divider"></li>
-				            <li class="uk-nav-header">Connect</li>
+				            <li class="uk-nav-header">run</li>
 			                <li>
 			                	<%= link_to "Favorite", dash_robot_path(@dash) %>
 			                </li>
 			                
 			                <li class="uk-nav-divider"></li>
-				            <li class="uk-nav-header">Learn</li>
+				            <li class="uk-nav-header">explore</li>
 			                <li>
 			                	<%= link_to "Find Articles", dash_scrape_path(@dash) %>
 			                </li>
