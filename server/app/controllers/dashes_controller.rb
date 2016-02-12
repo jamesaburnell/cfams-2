@@ -84,6 +84,7 @@ class DashesController < ApplicationController
     term = Term.new(dash_id: @dash.id, count: count, body: body)
     term.save
     @dash.save
+    redirect_to(dash_robot_path(@dash))
   end
 
   def destroy_term

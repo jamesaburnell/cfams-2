@@ -163,16 +163,14 @@ class Dash < ActiveRecord::Base
 			user = 	tweet.user.screen_name
 			begin
 				if !tweet.favorited?
-					sleep 2
-					res = @client.favorite(tweet)
+					@client.favorite(tweet)
 					success_count += 1
 					puts "happy!"
 					term.favorite_count += 1
+					term.save
 				end
 			rescue => e
-				# if e.rate_limit.status == "429 Too Many Requests"
 				return e.inspect
-				# end
 			end
 		end
 		puts "success_count: ", success_count
