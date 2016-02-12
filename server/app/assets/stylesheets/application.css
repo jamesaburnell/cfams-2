@@ -119,3 +119,6 @@ input.uk-button{
 	background: #35465c;
 	color: white;
 }
+.uk-button.white-text{
+	color: white;
+}

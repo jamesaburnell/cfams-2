@@ -5,6 +5,7 @@ class Dash < ActiveRecord::Base
 	belongs_to :user
 	has_many :posts	
 	has_many :terms
+	has_many :automation_times
 
 	def giphy_scrape(search)
 		begin
@@ -49,12 +50,14 @@ class Dash < ActiveRecord::Base
 	def twitter_pic_scrape(search)
 		t = self.get_twit_client
 		search_var = search
+		pic_limit = 0
 		t.search(search_var, result_type: "recent").collect do |tweet|
 			unless tweet.media[0].nil?
-				puts "tweetlovin: "
-				puts tweet
-				img = tweet.media[0].media_url
-				self.build_post("Twitter", img, tweet.text, img, img)
+				pic_limit += 1
+				if pic_limit < 50 
+					img = tweet.media[0].media_url
+					self.build_post("twitter", img, tweet.text, img, img)
+				end
 			end
 		end	 		
 	end
@@ -67,7 +70,7 @@ class Dash < ActiveRecord::Base
 				author = post["post_author"]
 				message = post["summary"]
 				extracted_img = post['photos'][0]['alt_sizes'][0]['url']
-				self.build_post("Tumblr", extracted_img, message, extracted_img, author)
+				self.build_post("tumblr", extracted_img, message, extracted_img, author)
 			end
 		rescue
 			puts "nope. tumblr_pic_scrape failed."
@@ -147,7 +150,6 @@ class Dash < ActiveRecord::Base
 # Robot
 
 	def tweet_fave(term, number, retweet)
-		puts "started"
 		puts "term: ", term.body
 		@client = self.get_twit_client
 		if retweet
@@ -155,22 +157,27 @@ class Dash < ActiveRecord::Base
 		else !retweet
 			retweet = ""
 		end
+
+		success_count = 0
 		@client.search(term.body + retweet).take(number).collect do |tweet|
 			user = 	tweet.user.screen_name
 			begin
-					if !tweet.favorited?
-						term.favorite_count += 1
-					end
+				if !tweet.favorited?
+					sleep 2
 					res = @client.favorite(tweet)
-					puts res.to_json
+					success_count += 1
+					puts "happy!"
+					term.favorite_count += 1
+				end
 			rescue => e
-				puts e
-				return 'tried'
-				# puts "already favorited"
-				# next
+				# if e.rate_limit.status == "429 Too Many Requests"
+				return e.inspect
+				# end
 			end
 		end
+		puts "success_count: ", success_count
 		return true
+
 	end	
 
 	def tweet_loop
@@ -192,6 +199,15 @@ class Dash < ActiveRecord::Base
 		end
 		puts "Finished!"
 		return true
+	end
+
+	def robot_run
+		automations = self.automation_times
+		automations.each do |auto|
+			if auto.task == "twitter favorite"
+				self.tweet_loop
+			end
+		end
 	end
 
 
@@ -219,6 +235,10 @@ class Dash < ActiveRecord::Base
 
 
 	def get_twilio_client
+		Twilio.configure do |config|
+		  config.account_sid = 'ACac6d56cd8004c2d776c4334668649963'
+		  config.auth_token = '181633469cf73ea73fd941715f4517eb'
+		end		
       	@client = Twilio::REST::Client.new
 		return @client
 	end

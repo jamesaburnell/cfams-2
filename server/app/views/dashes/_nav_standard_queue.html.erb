@@ -6,7 +6,8 @@
 
         <div class="uk-navbar-content uk-navbar-flip  uk-hidden-small uk-margin-small-top">
 	        <ul class="uk-navbar-nav  uk-navbar-content">
-  <%= link_to "scrape", dash_scrape_path(@dash), class: "uk-button uk-button-primary uk-button-large white-text" %>
+  <%= link_to "post", dash_post_queue_path(@dash), class: "uk-button uk-button-primary uk-button-large white-text" %>
+	    	<%= link_to "", new_dash_post_path(@dash), class: "notif-text uk-margin-small-top uk-icon-large uk-icon-plus uk-navbar-nav"  %>
 	        </ul>
 			<ul class="uk-navbar-nav">
 			    <li class="uk-parent uk-active" data-uk-dropdown="" aria-haspopup="true" aria-expanded="false">

@@ -1,4 +1,10 @@
-<%= form_for([@dash, @post]) do |f| %>
+<div class="uk-vertical-align uk-text-center uk-height-1-1">
+    <div class="uk-vertical-align-middle" style="width: 250px;">
+<p class="notice"><%= notice %></p>
+<p class="alert"><%= alert %></p>
+
+      <%= form_for([@dash, @post]) do |f| %>
+        <div class="uk-form-row">
   <% if @post.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
@@ -12,15 +18,20 @@
   <% end %>
   <%= f.hidden_field :dash_id, value: params[:dash_id] %>
   <%= f.hidden_field :og_source, value: 'change me' %>
-  <div class="field">
-    <%= f.label :usr_image %><br>
-    <%= f.file_field :usr_image %>
-  </div>
-  <div class="field">
-    <%= f.label :body %><br>
-    <%= f.text_field :body %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+          <%= f.file_field :usr_image, class: "uk-width-1-1 uk-form-large" %>
+        </div>
+
+        <div class="uk-form-row">
+          <%= f.label :body %>
+          <%= f.text_field :body, placeholder: "insert text here..", autocomplete: "off", class: "uk-width-1-1 uk-form-large" %>
+        </div>
+        <div class="uk-form-row">
+          <%= f.submit "post", class: "uk-width-1-1 uk-button uk-button-primary uk-button-large" %>
+        </div>
+      <% end %>                 
+    </div>
+</div>
+
+
+
+<script id="hiddenlpsubmitdiv" style="display: none;"></script><script>try{(function() { for(var lastpass_iter=0; lastpass_iter < document.forms.length; lastpass_iter++){ var lastpass_f = document.forms[lastpass_iter]; if(typeof(lastpass_f.lpsubmitorig2)=="undefined"){ lastpass_f.lpsubmitorig2 = lastpass_f.submit; if (typeof(lastpass_f.lpsubmitorig2)=='object'){ continue;}lastpass_f.submit = function(){ var form=this; var customEvent = document.createEvent("Event"); customEvent.initEvent("lpCustomEvent", true, true); var d = document.getElementById("hiddenlpsubmitdiv"); if (d) {for(var i = 0; i < document.forms.length; i++){ if(document.forms[i]==form){ if (typeof(d.innerText) != 'undefined') { d.innerText=i.toString(); } else { d.textContent=i.toString(); } } } d.dispatchEvent(customEvent); }form.lpsubmitorig2(); } } }})()}catch(e){}</script>
