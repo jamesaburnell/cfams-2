@@ -100,6 +100,8 @@ class DashesController < ApplicationController
     respond_to do |format|
       if res != 'tried'
         format.html { redirect_to dash_post_queue_path(@dash), notice: 'Tweets favorited!' }
+      elsif res == "too many requests"
+        puts "errors!"
       else
         format.html { redirect_to dash_post_queue_path(@dash), status: 500, notice: 'There was an issue..' }
       end
@@ -126,7 +128,7 @@ class DashesController < ApplicationController
 
   def post_queue
     @dash = Dash.find(params[:dash_id])
-    @posts = Post.where(approved: true, dash_id: @dash.id).take(20)
+    @posts = Post.where(approved: true, dash_id: @dash.id).shuffle.take(20)
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @posts }

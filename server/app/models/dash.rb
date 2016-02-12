@@ -150,7 +150,6 @@ class Dash < ActiveRecord::Base
 # Robot
 
 	def tweet_fave(term, number, retweet)
-		puts "started"
 		puts "term: ", term.body
 		@client = self.get_twit_client
 		if retweet
@@ -160,32 +159,25 @@ class Dash < ActiveRecord::Base
 		end
 
 		success_count = 0
-
-		# while success_count < 10 do
-		# 	number += 10
-			@client.search(term.body + retweet).take(number).collect do |tweet|
-				user = 	tweet.user.screen_name
-				begin
-						if !tweet.favorited?
-							puts tweet.to_json
-							res = @client.favorite(tweet)
-							puts "happy!"
-							term.favorite_count += 1
-							success_count += 1
-						end
-						puts res.to_json
-						puts tweet.text
-				rescue => e
-					puts e
-					puts "damn, didn't work"
-					next
+		@client.search(term.body + retweet).take(number).collect do |tweet|
+			user = 	tweet.user.screen_name
+			begin
+				if !tweet.favorited?
+					sleep 2
+					res = @client.favorite(tweet)
+					success_count += 1
+					puts "happy!"
+					term.favorite_count += 1
 				end
+			rescue => e
+				# if e.rate_limit.status == "429 Too Many Requests"
+				return e.inspect
+				# end
 			end
-		# end
-			puts "success_count: ", success_count
-
-
+		end
+		puts "success_count: ", success_count
 		return true
+
 	end	
 
 	def tweet_loop
