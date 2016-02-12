@@ -50,7 +50,7 @@
         <form class="uk-form tweet-fave ">
           <% @dash.automation_times.where(task: "twitter favorite").each do |auto| %>
             <div class="uk-width-1-1">
-              <input type="text" class="auto-time  uk-margin-small-bottom" value=<%= auto.start_time.strftime("%I:%M %P") %> data-uk-timepicker="{format:'12h'}">
+              <input type="text" class="auto-time  uk-margin-small-bottom" placeholder=<%= auto.start_time.strftime("%I:%M %P") %> data-uk-timepicker="{format:'12h'}">
             </div>
           <% end %>
         </form> 
@@ -125,13 +125,20 @@
     
   var autoTime = $('.auto-time');
   var val = autoTime.val();
-  autoTime.focus(function(){
-    var count = 0;
-      $(this).on('change', function(){
+  function getMsSinceMidnight(d) {
+  var e = new Date(d);
+    return (d - e.setHours(0,0,0,0)) / 1000;
+  }
 
-        count++;
+
+      autoTime.on('focusout', function(e){
+        var date = new Date(e.timeStamp);
+        var woo = getMsSinceMidnight(date);
+        console.log("time", woo);
+        console.log("date", date);
+        var setTime = autoTime.value;
+        console.log("setTime: ", setTime);
       })
-  })
 
   function postBody(post, content){
     var uri = '/dashes/1/edit-post?post_id='+ post +'&body_text=' + content

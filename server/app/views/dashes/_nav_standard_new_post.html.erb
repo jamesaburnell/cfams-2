@@ -23,12 +23,12 @@
 			                	<%= link_to "Favorite", dash_robot_path(@dash) %>
 			                </li>
 			                
-			                <li class="uk-nav-divider"></li>
-				            <li class="uk-nav-header">explore</li>
+			                <!-- <li class="uk-nav-divider"></li> -->
+<!-- 				            <li class="uk-nav-header">explore</li>
 			                <li>
 			                	<%= link_to "Find Articles", dash_scrape_path(@dash) %>
-			                </li>
-			                <li><%= link_to "Articles (#{@dash.posts.where(approved: true).count - 10})", dash_post_queue_path(@dash) %></li>
+			                </li> -->
+			              <!--   <li><%= link_to "Articles (#{@dash.posts.where(approved: true).count - 10})", dash_post_queue_path(@dash) %></li> -->
 			                
 			                <li class="uk-nav-divider"></li>
 			                <li><%= link_to "Edit #{@dash.title}", edit_dash_path(@dash) %></li>

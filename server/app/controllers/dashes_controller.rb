@@ -15,7 +15,6 @@ class DashesController < ApplicationController
   def show
     @user = current_user
     # @dash.reddit_pic_scrape()
-    
     @posts = @dash.posts.where(approved: nil)
     respond_to do |format|
       format.html # show.html.erb
@@ -87,6 +86,10 @@ class DashesController < ApplicationController
     redirect_to(dash_robot_path(@dash))
   end
 
+  def add_automation_time
+    
+  end
+
   def destroy_term
     @dash = Dash.find(params[:dash_id])
     term = Term.find(params[:term_id])
@@ -108,13 +111,6 @@ class DashesController < ApplicationController
       end
     end
   end
-
-
-
-
-
-
-
   def scrape
     @user = current_user
     @dash = Dash.find(params[:dash_id])
