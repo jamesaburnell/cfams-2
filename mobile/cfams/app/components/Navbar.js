@@ -48,7 +48,6 @@ var Navbar = React.createClass({
 	},
 
 	animateNavbar: function () {
-		LayoutAnimation.configureNext(LayoutAnimation.Presets.spring, this.showMenu)
 		this.setState({
 			navStyle: {
 				height: this.state.navStyle.height > 50 ? 50 : 200
@@ -61,8 +60,10 @@ var Navbar = React.createClass({
 			},
 
 		})
-	},
+		LayoutAnimation.configureNext(LayoutAnimation.Presets.spring, this.showMenu)
 
+	},
+	// try changing margin height so it is hidden instead and doesnt
 	showMenu: function () {
 		console.log('show menu');
 		this.setState({ 
@@ -105,7 +106,7 @@ var Navbar = React.createClass({
 
 var styles = StyleSheet.create({
 	container: {
-		backgroundColor: 'turquoise',
+		backgroundColor: '#F5F5F5',
 		flex: 1,
 		flexDirection: 'row'
 	},
