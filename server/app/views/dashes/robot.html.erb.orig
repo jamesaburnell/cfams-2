@@ -3,10 +3,12 @@
 <p class="notice"><%= notice %></p>
 <p class="alert"><%= alert %></p>
 <div class="uk-container uk-container-center uk-margin-top uk-margin-large-bottom">    
-	   <div class="uk-grid" data-uk-grid-margin="">
+	<div class="uk-grid" data-uk-grid-margin="">
+
         <div class="uk-width-medium-1-2 uk-row-first">
             <img width="400" height="400" src="/robot7.svg" alt="">
         </div>
+
         <div class="uk-width-medium-1-2 uk-grid uk-margin-top uk-text-center">
             <div class="uk-text-bottom">
                 <h1 class="">this is phil</h1>
@@ -106,7 +108,9 @@
     var count = 0;
       $(this).on('change', function(){
 
-
+<<<<<<< Updated upstream
+        count++;
+=======
       autoTime.on('focusout', function(e){
         var date = new Date(e.timeStamp);
         var woo = getMsSinceMidnight(date);
@@ -114,6 +118,7 @@
           var setTime = $(this).val();
           console.log("setTime: ", setTime);
         })
+>>>>>>> Stashed changes
       })
   })
 
