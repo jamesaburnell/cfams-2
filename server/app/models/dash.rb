@@ -159,7 +159,7 @@ class Dash < ActiveRecord::Base
 		end
 
 		success_count = 0
-		@client.search(term.body + retweet).take(number).collect do |tweet|
+		@client.search(term.body + retweet, lang: "ja").take(number).collect do |tweet|
 			user = 	tweet.user.screen_name
 			begin
 				if !tweet.favorited?
