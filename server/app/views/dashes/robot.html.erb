@@ -99,10 +99,12 @@
   $(document).ready(function(){
   	$('.delete-term').bind('click', function(){
   		$(this).data("disabled")
+      $('.spinner').addClass('loading');
   		console.log("hey")
   	});
 
     $('.delete-term').bind('ajax:success', function(){
+      $('.spinner').removeClass('loading');
       UIkit.notify({
           message : "Success!",
           status  : 'success',
@@ -111,6 +113,7 @@
       });
     });
     $('.delete-term').bind('ajax:error', function(){
+      $('.spinner').removeClass('loading');
       UIkit.notify({
           message : "Uh oh! There was an issue..",
           status  : 'danger',
@@ -145,25 +148,27 @@
         console.log("setTime: ", setTime);
         })
       })
-
+      
 
 </script>
 
 
 <script type="text/javascript">
   $(document).ready(function(){
+    $('.start-button').bind('click', function(){
+      $('.spinner').addClass('loading');
+    });
     $('.start-button').bind('ajax:success', function(){
+      $('.spinner').removeClass('loading');
       UIkit.notify({
           message : "Success!",
           status  : 'success',
           timeout : 2500,
           pos     : 'top-center'
       });
-      $(this).removeAttr("href")
-      $(this).removeAttr("data-remote")
-      $(this).addClass("disabled");
     });
     $('.start-button').bind('ajax:error', function(){
+      $('.spinner').removeClass('loading');
       UIkit.notify({
           message : "Uh oh! There was an issue..",
           status  : 'danger',
