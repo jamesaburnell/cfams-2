@@ -47,7 +47,6 @@ var ApprovedContent = React.createClass({
             <TouchableHighlight onPress={function(){this.props.approvePost(element.dash_id, element.id, 'toggle_disapprove')}.bind(this)} style={styles.choiceButton}>
               <Text>Disapprove</Text>
             </TouchableHighlight>
-           
 
           </View>
         </View>
@@ -55,8 +54,6 @@ var ApprovedContent = React.createClass({
         )
     }.bind(this)) 
              
-    // onPress={() => { _scrollView.scrollTo({y: 0}); }}>
-    // var _scrollView: ScrollView;
     return (
       <View>
         <View>  
@@ -104,9 +101,10 @@ var styles = StyleSheet.create({
     padding: 5,
     borderRadius: 3,
     paddingVertical: 10,
+    backgroundColor: 'blue'
   },
   postContainer: {
-    
+
   }
 
 })

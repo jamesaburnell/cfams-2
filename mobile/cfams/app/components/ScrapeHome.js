@@ -1,10 +1,5 @@
 'use strict';
 
-// 
-// THIS PAGE WILL COME B4 THE UNAPPROVED CONTENT, AFTER CHOOSING THE DASH.
-// IT WILL HOUSE MOST (IF NOT ALL) OF THE FUNCTIONALITY (BUTTONS, INPUT, ETC) FOR THE INDIVIDUAL DASHES
-//
-
 var React = require('react-native');
 var Dash = require('./Dash.js');
 
@@ -32,7 +27,9 @@ var ScrapeHome = React.createClass({
 				giphy: false,
 				reddit: false,
 				tumblr: false
-			}
+			},
+			twitterButton: 'Twitter'
+
 		}
 	},
 
@@ -45,31 +42,31 @@ var ScrapeHome = React.createClass({
 		fetch('http://localhost:3000/dashes/'+this.props.currentAccount.id+'/'+toggle+'?search_term='+term, {method: 'GET'}, function(){
 			this.setState({
 				animating: {
-					twitter: true
+					twitter: true,
+					twitterButton: 'Fetching Tweets...'
 				}
 			})
 		}, function (err) {
 			console.error('Error adding Terms: ', err)
 		}.bind(this))
 		.then(function (response) {
-			console.log('Term Response: ', response)
+			console.log('Scrape Response: ', response)
 			this.setState({
 				animating: {
-					twitter: false
+					twitter: false,
+					twitterButton: 'Twitter'
 				}
 			})
 		}.bind(this))
 	},
 
 	goToDashes: function (id) {
-		// console.log('in go to dashes');
 		if(!this.props.unapprovedContent) {
 			return this.props.getDashContent(id, this.goToDashes);
 		}
 		this.props.navigate(this.props.navigator, Dash, 'Dash');
 	},
 
-	// Create _renderRow function for these, then add to Scroll View
 	render: function () {
 		return (
 			<View style={styles.ScrapeHome}>
@@ -78,7 +75,7 @@ var ScrapeHome = React.createClass({
 							<TextInput onChangeText={function (term) {this.setState({twitterTerm: term})}.bind(this)} style={styles.inputField} />
 						</TouchableHighlight>
 						<TouchableHighlight style={[styles.button, {backgroundColor: '#4099FF'}]} onPress={function(){this.addTerms('twitter-pics', this.state.twitterTerm)}.bind(this)}>
-							<Text style={{fontFamily: 'verdana', color: "#ffffff"}}>Twitter</Text>
+							<Text style={{fontFamily: 'verdana', color: "#ffffff"}}>{this.state.twitterButton}</Text>
 						</TouchableHighlight>
 					</View>
 
@@ -139,8 +136,6 @@ var styles = StyleSheet.create({
 	    backgroundColor: '#EAEAEA',
 		marginTop: 20,
 		height: 60
-		// borderColor: 'darkgrey',
-		// borderWidth: 1
 	},
 	button: {
 	    flexDirection: 'row',
@@ -158,7 +153,6 @@ var styles = StyleSheet.create({
         borderRadius: 4,
         borderColor: 'grey'
 	}
-
 })
 
 module.exports = ScrapeHome;
