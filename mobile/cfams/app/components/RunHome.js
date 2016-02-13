@@ -46,9 +46,9 @@ var DashHome = React.createClass({
 
 	startPhil: function () {
 		this.setState({
-			phil: 'booting up Phil...'
+			phil: 'Phil is running...'
 		})
-		console.log('Phil is running...');
+		console.log('booting up Phil...');
   		var acctId = this.props.currentAccount.id;
 		fetch('http://localhost:3000/dashes/'+acctId+'/favorite-tweets', {method: 'GET'}, function (err) {
 			console.error('Phil had a malfunction: ', err)
@@ -148,7 +148,6 @@ var styles = StyleSheet.create({
 	},
 	term: {
 		flex: 1,
-		flexDirection: 'row',
 	    justifyContent: 'center',
 	    alignItems: 'center',
 	    marginHorizontal: 5,
