@@ -24,7 +24,7 @@ var DashHome = React.createClass({
 
 	addTerm: function () {
 		var acctId = this.props.currentAccount.id;
-	    fetch('http://127.0.0.1:3000/dashes/'+acctId+'/add_term?body='+this.state.term+'&count='+this.state.count, {method: 'GET'}, function (err) {
+	    fetch('https://calm-bastion-26857.herokuapp.com/dashes/'+acctId+'/add_term?body='+this.state.term+'&count='+this.state.count, {method: 'GET'}, function (err) {
 	      console.error('error adding terms: ', err);
 	    })
 	    .then(function (response) {
@@ -35,7 +35,7 @@ var DashHome = React.createClass({
 
   	removeTerm: function (termId) {
   		var acctId = this.props.currentAccount.id;
-	    fetch('http://127.0.0.1:3000/dashes/'+acctId+'/destroy_term?term_id='+termId, {method: 'DELETE'}, function (err) {
+	    fetch('https://calm-bastion-26857.herokuapp.com/dashes/'+acctId+'/destroy_term?term_id='+termId, {method: 'DELETE'}, function (err) {
 	      console.error('error adding terms: ', err);
 	    })
 	    .then(function (response) {
@@ -50,7 +50,7 @@ var DashHome = React.createClass({
 		})
 		console.log('booting up Phil...');
   		var acctId = this.props.currentAccount.id;
-		fetch('http://127.0.0.1:3000/dashes/'+acctId+'/favorite-tweets', {method: 'GET'}, function (err) {
+		fetch('https://calm-bastion-26857.herokuapp.com/dashes/'+acctId+'/favorite-tweets', {method: 'GET'}, function (err) {
 			console.error('Phil had a malfunction: ', err)
 		})
 		.then(function (response) {
