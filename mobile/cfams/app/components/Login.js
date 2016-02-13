@@ -13,7 +13,8 @@ var {
   View,
   Navigator,
   TouchableHighlight,
-  TextInput
+  TextInput,
+  AlertIOS
 } = React;
 
 var Login = React.createClass({
@@ -25,7 +26,9 @@ var Login = React.createClass({
 	goToDashes: function () {		
 		if(!this.props.userLoggedIn) {
 			return this.props.checkCreds(this.goToDashes);
-		} 	
+		} else if(this.props.userDenied) {
+            return AlertIOS.alert('Sorry, your creds don\'t checkout!');
+		}	
 		this.props.navigate(this.props.navigator, AccountHome, 'Account Home');
 	},
 
@@ -34,27 +37,26 @@ var Login = React.createClass({
 			<View style={styles.login}>
 
 				<View style={styles.headingContainer}>
-					<Text style={styles.heading}>Welcome to the Greenery</Text>
+					<Text style={styles.heading}>Welcome to Butterfli</Text>
 					<Text style={styles.tagLine}>the premier content finding and management system</Text>
 					<Text style={styles.tagLine}>for the cannabis industry</Text>
 				</View>
 
-				<Text>Username:</Text>
                 <TouchableHighlight>
-                    <TextInput style={styles.inputField} onChangeText={this.props.setUsername} />    
+                    <TextInput style={styles.inputField} onChangeText={this.props.setUsername} placeholder='username'/>    
                 </TouchableHighlight>
 
-                <Text>Password:</Text>
                 <TouchableHighlight>
-                    <TextInput style={styles.inputField} onChangeText={this.props.setPassword} />    
+                    <TextInput style={styles.inputField} onChangeText={this.props.setPassword} placeholder='password'/>    
                 </TouchableHighlight>
 
-				<View>
-					<TouchableHighlight onPress={this.goToSignUp}>
-						<Text>SIGN UP PAGE</Text>
+				<View style={styles.buttonContainer}>
+		 
+					<TouchableHighlight style={[styles.button, {marginRight: 20}]} onPress={this.goToSignUp}>
+						<Text style={{fontFamily: 'verdana'}}>Sign Up</Text>
 					</TouchableHighlight>
-					<TouchableHighlight onPress={this.goToDashes}>
-						<Text>LOGIN</Text>
+					<TouchableHighlight style={[styles.button, {marginLeft: 20}]} onPress={this.goToDashes}>
+						<Text style={{fontFamily: 'verdana'}}>Login</Text>
 					</TouchableHighlight>
 				</View>	
 
@@ -68,13 +70,13 @@ var styles = StyleSheet.create({
 		flex: 1,
 		justifyContent: 'center',
 		alignItems: 'center',
-		marginTop: 80
-
+		marginTop: 80,
 	},
 	inputField: {
 		height: 50,
         width: 300,
-        borderColor: 'grey',
+        borderColor: '#B2CFDD',
+        borderRadius: 4,
         borderWidth: 2,
         marginBottom: 30,
         padding: 5,
@@ -87,11 +89,23 @@ var styles = StyleSheet.create({
 		alignItems: 'center',
 	},
 	heading: {
-		fontSize: 30,
+		fontSize: 28,
+		fontFamily: 'verdana'
 	},
 	tagLine: {
-		fontSize: 15,
+		fontSize: 10,
 		fontStyle: 'italic',
+		fontFamily: 'verdana'
+
+	},
+	buttonContainer: {
+		flex: 1,
+		flexDirection: 'row',
+	},
+	button: {
+		backgroundColor: '#B3CFE8',
+		width: 100,
+		height: 40,
 	}
 })
 

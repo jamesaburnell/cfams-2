@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
 
   # disable this when api time 
-  protect_from_forgery with: :exception
+  # protect_from_forgery with: :exception
 
  # protected
  #  def authenticate_user!
@@ -16,6 +16,6 @@ class ApplicationController < ActionController::Base
  #    end
  #  end
 # enabled this ::: 
-  # protect_from_forgery with: :null_session
-  # include DeviseTokenAuth::Concerns::SetUserByToken
+  protect_from_forgery with: :null_session
+  include DeviseTokenAuth::Concerns::SetUserByToken
 end

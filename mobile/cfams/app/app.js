@@ -21,6 +21,8 @@ var cfams = React.createClass({
       password: null,
       initialContentLoaded: false,
       accountDenied: false,
+      userDashes: null,
+      currentAccount: null
     }
   },
 
@@ -41,7 +43,15 @@ var cfams = React.createClass({
     })
   },
 
+  resetContentState: function () {
+    this.setState({
+      unapprovedContent: null,
+      initialContentLoaded: false
+    })
+  },
+
   saveId: function (dashId, func) {
+      console.log('user dashes: ', this.state.userDashes)
       var currAcct = this.state.userDashes.filter(function (element) {
         if(element.id === dashId){
           return true;
@@ -51,15 +61,37 @@ var cfams = React.createClass({
       this.setState({
         currentAccount: currAcct[0]
       })
-      this.getDashContent(dashId, func);
-    },
+      console.log('currentAccount: ', this.state.currentAccount)
+      func();
+  },
+
+  getDashContent: function (dashId, func) {
+    fetch('http://localhost:3000/dashes/'+dashId+'.json', {method: 'GET'}, function (err) {
+    })
+      .then(function (response) {
+        return response.json();
+      })
+      .then(function (responseData) {
+        this.setState({
+          unapprovedContent: responseData,
+        })
+      }.bind(this))
+      .done(function(){
+        this.setState({
+          initialContentLoaded: true
+        })
+        console.log(this.state.initialContentLoaded)
+        func(this.state.currentAccount.id)
+      }.bind(this))
+  },
 
   checkCreds: function (func) {
     // Get DB set up first, lulz
-    fetch("http://localhost:3000/auth/sign_in?email="+this.state.username+"&password="+this.state.password+"", {method: "POST"}, function (error) {
+    fetch("http://localhost:3000/api/auth/sign_in?email="+this.state.username+"&password="+this.state.password, {method: "POST"}, function (error) {
       console.error(error);
     })
       .then(function (response) {
+        console.log(response)
         if(response.status === 200) {
           return response.headers.map
         } else {
@@ -86,7 +118,6 @@ var cfams = React.createClass({
         this.setState({userLoggedIn: true})
         this.getDashesList(headers, func)
       }.bind(this))
-
   },
 
   getDashesList: function(headers, func) {
@@ -104,30 +135,9 @@ var cfams = React.createClass({
     .done(function () {
       func()
     }.bind(this))
-
-  },
-
-  getDashContent: function (dashId, func) {
-    fetch('http://localhost:3000/dashes/'+dashId+'.json', {method: 'GET'}, function (err) {
-    })
-      .then(function (response) {
-        return response.json();
-      })
-      .then(function (responseData) {
-        this.setState({
-          unapprovedContent: responseData,
-        })
-      }.bind(this))
-      .done(function(){
-        this.setState({
-          initialContentLoaded: true
-        })
-        func()
-      }.bind(this))
   },
 
   getApprovedContent: function (dashId, func) {
-    console.log('http://localhost:3000/dashes/'+dashId+'/queue.json');
     fetch('http://localhost:3000/dashes/'+dashId+'/queue.json', {method: 'GET'}, function (err) {
       console.log("Error retrieving approved content: ", err)
     })
@@ -184,6 +194,7 @@ var cfams = React.createClass({
                     username={this.state.username} 
                     password={this.state.password} 
                     checkCreds={this.checkCreds}
+                    getDashContent={this.getDashContent}
                     unapprovedContent={this.state.unapprovedContent}
                     initialContentLoaded={this.state.initialContentLoaded} 
                     userDashes={this.state.userDashes}
@@ -195,6 +206,7 @@ var cfams = React.createClass({
                     approvedContent={this.state.approvedContent}
                     sendPost={this.sendPost}
                     approvePost={this.approvePost}
+                    resetContentState={this.resetContentState}
                     {...route.props}
                     navigator={navigator}
                     route={route} />
