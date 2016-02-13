@@ -33,17 +33,21 @@ var ApprovedContent = React.createClass({
             <Text style={{fontStyle: 'italic'}}>{element.body}</Text>         
             <Text style={{fontStyle: 'italic'}}>Source: {element.title}</Text>
           </View>
-          <View style={styles.choice}>
+          <View>
+            
+            <View style={styles.postContainer}>
+              <TouchableHighlight onPress={function(){this.props.sendPost(element.dash_id, element.id, 'post_tweet')}.bind(this)} style={styles.choiceButton}>
+                <Text>Post to Twitter!</Text>
+              </TouchableHighlight>
+              <TouchableHighlight onPress={function(){this.props.sendPost(element.dash_id, element.id, 'post_tumblr')}.bind(this)} style={styles.choiceButton}>
+                <Text>Post to Tumblr!</Text>
+              </TouchableHighlight>
+            </View>
 
             <TouchableHighlight onPress={function(){this.props.approvePost(element.dash_id, element.id, 'toggle_disapprove')}.bind(this)} style={styles.choiceButton}>
               <Text>Disapprove</Text>
             </TouchableHighlight>
-             <TouchableHighlight onPress={function(){this.props.sendPost(element.dash_id, element.id, 'post_tweet')}.bind(this)} style={styles.choiceButton}>
-              <Text>Post to Twitter!</Text>
-            </TouchableHighlight>
-             <TouchableHighlight onPress={function(){this.props.sendPost(element.dash_id, element.id, 'post_tumblr')}.bind(this)} style={styles.choiceButton}>
-              <Text>Post to Tumblr!</Text>
-            </TouchableHighlight>
+           
 
           </View>
         </View>
@@ -73,10 +77,10 @@ var styles = StyleSheet.create({
       backgroundColor: 'D9F0FF',
       height: 300,
     },
-    horizontalScrollView: {
-      height: 600,
-      width: 400
-    },
+  horizontalScrollView: {
+    height: 600,
+    width: 400
+  },
   accountHome: {
     flex: 1,
     justifyContent: 'center',
@@ -84,20 +88,25 @@ var styles = StyleSheet.create({
     marginTop: 20
   },
   resizeMode: {
-      flex: 2,
-      flexDirection: 'row',
-      borderWidth: 0.5,
-      borderColor: 'black',
-      backgroundColor: '#ffffff',
-      height: 400
-      
+    flex: 1,
+    flexDirection: 'column',
+    borderWidth: 0.5,
+    borderColor: 'black',
+    backgroundColor: '#ffffff',
+    height: 400 
   },
   choiceButton: {
-    width: 100,
-    height: 30,
-    backgroundColor: 'lightgrey',
-      borderWidth: 0.5,
-      borderColor: 'black',
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginHorizontal: 5,
+    marginVertical: 3,
+    padding: 5,
+    borderRadius: 3,
+    paddingVertical: 10,
+  },
+  postContainer: {
+    
   }
 
 })

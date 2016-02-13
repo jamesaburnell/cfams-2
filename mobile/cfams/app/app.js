@@ -172,6 +172,15 @@ var cfams = React.createClass({
     })
   },
 
+  getRunTerms: function (dashId) {
+    fetch('http://localhost:3000/dashes/'+dashId+'/phil.json', {method: 'GET'}, function (err) {
+      console.error('Error Fetching Terms: ', err);
+    })
+    .then(function (response) {
+      console.log('term response: ', response);
+    })
+  },
+
   _navigate: function (navigator, component, title) {
     navigator.push({
       component: component,
@@ -207,6 +216,7 @@ var cfams = React.createClass({
                     sendPost={this.sendPost}
                     approvePost={this.approvePost}
                     resetContentState={this.resetContentState}
+                    getRunTerms={this.getRunTerms}
                     {...route.props}
                     navigator={navigator}
                     route={route} />

@@ -73,13 +73,12 @@ var ScrapeHome = React.createClass({
 	render: function () {
 		return (
 			<View style={styles.ScrapeHome}>
-				<Text>Dash Home!</Text>
 					<View style={styles.termContainer}>
 						<TouchableHighlight>
 							<TextInput onChangeText={function (term) {this.setState({twitterTerm: term})}.bind(this)} style={styles.inputField} />
 						</TouchableHighlight>
 						<TouchableHighlight style={[styles.button, {backgroundColor: '#4099FF'}]} onPress={function(){this.addTerms('twitter-pics', this.state.twitterTerm)}.bind(this)}>
-							<Text style={{fontFamily: 'verdana'}}>Twitter</Text>
+							<Text style={{fontFamily: 'verdana', color: "#ffffff"}}>Twitter</Text>
 						</TouchableHighlight>
 					</View>
 
@@ -88,7 +87,7 @@ var ScrapeHome = React.createClass({
 							<TextInput onChangeText={function (term) {this.setState({giphyTerm: term})}.bind(this)} style={styles.inputField} />
 						</TouchableHighlight>
 						<TouchableHighlight style={[styles.button, {backgroundColor: '#35465C'}]} onPress={function(){this.addTerms('giphy-gifs', this.state.giphyTerm)}.bind(this)}>
-							<Text style={{fontFamily: 'verdana'}}>Giphy</Text>
+							<Text style={{fontFamily: 'verdana', color: "#ffffff"}}>Giphy</Text>
 						</TouchableHighlight>
 					</View>
 
@@ -97,7 +96,7 @@ var ScrapeHome = React.createClass({
 							<TextInput onChangeText={function (term) {this.setState({redditTerm: term})}.bind(this)} style={styles.inputField} />
 						</TouchableHighlight>
 						<TouchableHighlight style={[styles.button, {backgroundColor: '#5F99CF'}]} onPress={function(){this.addTerms('reddit-pics', this.state.redditTerm)}.bind(this)}>
-							<Text style={{fontFamily: 'verdana'}}>Reddit</Text>
+							<Text style={{fontFamily: 'verdana', color: "#ffffff"}}>Reddit</Text>
 						</TouchableHighlight>
 					</View>
 
@@ -106,11 +105,11 @@ var ScrapeHome = React.createClass({
 							<TextInput onChangeText={function (term) {this.setState({tumblrTerm: term})}.bind(this)} style={styles.inputField} />
 						</TouchableHighlight>
 						<TouchableHighlight style={[styles.button, {backgroundColor: '#35465C'}]} onPress={function(){this.addTerms('tumblr-pics', this.state.tumblrTerm)}.bind(this)}>
-							<Text style={{fontFamily: 'verdana'}}>Tumblr</Text>
+							<Text style={{fontFamily: 'verdana', color: "#ffffff"}}>Tumblr</Text>
 						</TouchableHighlight>
 					</View>
 
-				<TouchableHighlight onPress={function (){this.goToDashes(this.props.currentAccount.id)}.bind(this)}>
+				<TouchableHighlight style={[styles.button, styles.scrapeButton]} onPress={function (){this.goToDashes(this.props.currentAccount.id)}.bind(this)}>
 					<Text>Scrape!</Text>
 				</TouchableHighlight>
 			</View>
@@ -125,28 +124,39 @@ var styles = StyleSheet.create({
 	},
 	inputField: {
 		height: 50,
-        width: 300,
+        flexDirection: 'row',
         borderColor: '#B2CFDD',
         borderRadius: 4,
         borderWidth: 2,
         padding: 5,
         justifyContent: 'center',
         color: 'darkgrey',
-        backgroundColor: '#ffffff'
+        backgroundColor: '#ffffff',
+        marginHorizontal: 5,
+	    marginVertical: 3,
+	},
+	scrapeButton: {
+	    backgroundColor: '#EAEAEA',
+		marginTop: 20,
+		height: 60
+		// borderColor: 'darkgrey',
+		// borderWidth: 1
 	},
 	button: {
-		backgroundColor: '#B3CFE8',
-		width: 100,
-		height: 40,
-		marginBottom: 20
-	},
+	    flexDirection: 'row',
+	    justifyContent: 'center',
+	    alignItems: 'center',
+	    marginHorizontal: 5,
+	    marginVertical: 3,
+	    padding: 5,
+	    borderRadius: 3,
+	    paddingVertical: 10,
+  	},
 	termContainer: {
-		backgroundColor: '#F5F5F5',
 		padding: 5,
 		marginTop: 20,
-		borderColor: '#B2CFDD',
         borderRadius: 4,
-        borderWidth: 2, 
+        borderColor: 'grey'
 	}
 
 })

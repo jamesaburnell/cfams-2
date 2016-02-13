@@ -42,13 +42,13 @@ var AccountHome = React.createClass({
 		var idProp = 0;
 		var dashList = this.props.userDashes.map(function (dash) {
 			idProp++;
-			return ( <View key={idProp}><TouchableHighlight onPress={function(){this.goToDashHome(dash.id)}.bind(this)} style={styles.dash}><Text>{dash.title}</Text></TouchableHighlight></View> )
+			return ( <View key={idProp}><TouchableHighlight onPress={function(){this.goToDashHome(dash.id)}.bind(this)} style={styles.buttonContents}><Text>{dash.title}</Text></TouchableHighlight></View> )
 		}.bind(this)) 
 
 		return (
-				<View style={styles.container}>	
-					{dashList}	
-				</View>
+			<View style={styles.container}>	
+				{dashList}	
+			</View>
 		)
 	}
 });
@@ -64,7 +64,18 @@ var styles = StyleSheet.create({
 		backgroundColor: 'turquoise',
 		padding: 10,
 		borderRadius: 10,
-	}
+	},
+	buttonContents: {
+	    flexDirection: 'row',
+	    justifyContent: 'center',
+	    alignItems: 'center',
+	    marginHorizontal: 5,
+	    marginVertical: 3,
+	    padding: 5,
+	    backgroundColor: '#EAEAEA',
+	    borderRadius: 3,
+	    paddingVertical: 10,
+  	},
 })
 
 module.exports = AccountHome;

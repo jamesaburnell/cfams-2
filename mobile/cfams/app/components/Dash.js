@@ -50,13 +50,13 @@ var Dash = React.createClass({
 						<Text style={{fontStyle: 'italic'}}>{element.body}</Text>					
 						<Text style={{fontStyle: 'italic'}}>Source: {element.title}</Text>
 					</View>
-					<View style={styles.choice}>
-						<TouchableHighlight onPress={function(){this.props.approvePost(element.dash_Id, element.id, 'toggle_approve')}.bind(this)} style={styles.choiceButton}>
-							<Text>Approve</Text>
+					<View>
+						<TouchableHighlight onPress={function(){this.props.approvePost(element.dash_Id, element.id, 'toggle_approve')}.bind(this)} style={[styles.choiceButton, {backgroundColor: "#1E824C"}]}>
+							<Text style={{color: '#ffffff'}}>Approve</Text>
 						</TouchableHighlight>
 						
-						<TouchableHighlight onPress={function(){this.props.approvePost(element.dash_Id, element.id, 'toggle_disapprove')}.bind(this)} style={styles.choiceButton}>
-							<Text>Disapprove</Text>
+						<TouchableHighlight onPress={function(){this.props.approvePost(element.dash_Id, element.id, 'toggle_disapprove')}.bind(this)} style={[styles.choiceButton, {backgroundColor: "#CF000F" }]}>
+							<Text style={{color: '#ffffff'}}>Disapprove</Text>
 						</TouchableHighlight>
 					</View>
 				</View>
@@ -87,12 +87,12 @@ var Dash = React.createClass({
 
 var styles = StyleSheet.create({
 	scrollView: {
-    	backgroundColor: 'D9F0FF',
+	    backgroundColor: '#EAEAEA',
+    	// backgroundColor: 'D9F0FF',
     	height: 300,
   	},
   	horizontalScrollView: {
     	height: 600,
-    	width: 400
   	},
 	accountHome: {
 		flex: 1,
@@ -103,18 +103,21 @@ var styles = StyleSheet.create({
 	resizeMode: {
 	    flex: 2,
 	    flexDirection: 'row',
-	    borderWidth: 0.5,
+	    borderBottomWidth: 0.5,
 	    borderColor: 'black',
 	    backgroundColor: '#ffffff'
 	    
  	},
  	choiceButton: {
- 		width: 100,
- 		height: 30,
- 		backgroundColor: 'lightgrey',
-	    borderWidth: 0.5,
-	    borderColor: 'black',
-
+	    flexDirection: 'row',
+	    justifyContent: 'center',
+	    alignItems: 'center',
+	    marginHorizontal: 5,
+	    marginVertical: 3,
+	    padding: 5,
+	    backgroundColor: '#EAEAEA',
+	    borderRadius: 3,
+	    paddingVertical: 10,
 
  	}
 

@@ -34,6 +34,8 @@ var DashHome = React.createClass({
 		// if(!this.props.unapprovedContent) {
 		// 	return this.props.getDashContent(id, this.goToScrapeHome);
 		// }
+		
+		// this.props.getRunTerms(id);
 		this.props.navigate(this.props.navigator, RunHome, 'Run Home');
 	},
 
@@ -41,10 +43,10 @@ var DashHome = React.createClass({
 	render: function () {
 		return (
 			<View style={styles.dashHome}>
-				<TouchableHighlight onPress={function (){this.goToScrapeHome(this.props.currentAccount.id)}.bind(this)}>
+				<TouchableHighlight style={styles.buttonContents} onPress={function (){this.goToScrapeHome(this.props.currentAccount.id)}.bind(this)}>
 					<Text>Scrape</Text>
 				</TouchableHighlight>
-				<TouchableHighlight onPress={function (){this.goToRunHome(this.props.currentAccount.id)}.bind(this)}>
+				<TouchableHighlight style={styles.buttonContents} onPress={function (){this.goToRunHome(this.props.currentAccount.id)}.bind(this)}>
 					<Text>Run</Text>
 				</TouchableHighlight>
 			</View>
@@ -55,10 +57,23 @@ var DashHome = React.createClass({
 var styles = StyleSheet.create({
 	dashHome: {
 		flex: 1,
+		flexDirection: 'column',
 		justifyContent: 'center',
-		alignItems: 'center'
-
+		marginTop: 20
 	},
+	buttonContents: {
+		flex: 1,
+	    flexDirection: 'row',
+	    justifyContent: 'center',
+	    alignItems: 'center',
+	    marginHorizontal: 5,
+	    marginVertical: 3,
+	    padding: 5,
+	    backgroundColor: '#EAEAEA',
+	    borderRadius: 3,
+	    paddingVertical: 10,
+  },
+
 
 })
 

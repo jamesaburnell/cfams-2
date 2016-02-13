@@ -99,13 +99,19 @@ var styles = StyleSheet.create({
 
 	},
 	buttonContainer: {
-		flex: 1,
 		flexDirection: 'row',
 	},
 	button: {
 		backgroundColor: '#B3CFE8',
-		width: 100,
-		height: 40,
+		alignItems: 'center',
+	    marginHorizontal: 5,
+	    marginVertical: 3,
+	    padding: 5,
+	    backgroundColor: '#EAEAEA',
+	    borderRadius: 3,
+	    paddingVertical: 10,
+	    paddingHorizontal: 30
+
 	}
 })
 
