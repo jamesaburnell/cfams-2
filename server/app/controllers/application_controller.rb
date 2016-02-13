@@ -15,7 +15,9 @@ class ApplicationController < ActionController::Base
  #      ## render :file => File.join(Rails.root, 'public/404'), :formats => [:html], :status => 404, :layout => false
  #    end
  #  end
+	protect_from_forgery with: :exception
+	skip_before_action :verify_authenticity_token, if: -> {params[:controller].split('/')[0] == 'api'}
 # enabled this ::: 
-  protect_from_forgery with: :null_session
-  include DeviseTokenAuth::Concerns::SetUserByToken
+  # protect_from_forgery with: :null_session
+  # include DeviseTokenAuth::Concerns::SetUserByToken
 end
