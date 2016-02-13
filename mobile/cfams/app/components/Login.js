@@ -102,7 +102,6 @@ var styles = StyleSheet.create({
 		flexDirection: 'row',
 	},
 	button: {
-		backgroundColor: '#B3CFE8',
 		alignItems: 'center',
 	    marginHorizontal: 5,
 	    marginVertical: 3,

@@ -39,7 +39,7 @@ var ScrapeHome = React.createClass({
 
 	addTerms: function (toggle, term) {
 		this.props.resetContentState();
-		fetch('http://localhost:3000/dashes/'+this.props.currentAccount.id+'/'+toggle+'?search_term='+term, {method: 'GET'}, function(){
+		fetch('http://127.0.0.1:3000/dashes/'+this.props.currentAccount.id+'/'+toggle+'?search_term='+term, {method: 'GET'}, function(){
 			this.setState({
 				animating: {
 					twitter: true,
