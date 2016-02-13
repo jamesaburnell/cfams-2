@@ -14,7 +14,5 @@ Koudoku.setup do |config|
   # we use stripe_event under the hood and you can subscribe using the 
   # stripe_event syntax on the config object: 
   # config.subscribe 'charge.failed', Koudoku::ChargeFailed
-
-
   
 end
