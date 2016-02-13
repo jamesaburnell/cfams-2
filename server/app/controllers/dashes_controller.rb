@@ -74,6 +74,10 @@ class DashesController < ApplicationController
 
   def robot
     @dash = Dash.find(params[:dash_id])
+    respond_to do |format|
+      format.html # show.html.erb
+      format.json { render json: @dash.terms }
+    end       
   end
 
   def add_term
@@ -87,7 +91,15 @@ class DashesController < ApplicationController
   end
 
   def add_automation_time
-    
+    time = params[:start_time]
+    task = params[:task]
+
+    time = Time.parse(time)
+    puts "time: ", time
+    @dash = Dash.find(params[:dash_id])
+    at = AutomationTime.new(start_time: time, task: task)
+    @dash.automation_times << at
+    redirect_to(dash_robot_path(@dash))
   end
 
   def destroy_term

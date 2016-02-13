@@ -15,7 +15,7 @@ Rails.application.routes.draw do
     resources :terms
     get '/add_term', to: "dashes#add_term"
     delete '/destroy_term', to: "dashes#destroy_term"
-    delete '/add_automation_time', to: "dashes#add_automation_time", path: 'add-time'
+    get '/add_automation_time', to: "dashes#add_automation_time", path: 'add-time'
     # Auth Routes
     get "/fb_oauth"  => 'dashes#fb_oauth'   
 
