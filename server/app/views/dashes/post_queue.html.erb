@@ -46,13 +46,13 @@
               <%= link_to "", toggle_disapprove_dash_post_path(@dash, post), :remote => true, class: "toggle_button toggle_disapprove_queue" %>     
             </div>
             <h3 class="post-body-text" id='<%= post.id %>' contenteditable><%= post.body %></h3> 
-              <div class="uk-button-group">
+              <div class="uk-button-group share-btns">
                   <a class="uk-button disabled">
                     <i class="uk-icon-facebook"></i>
                   </a>
 
                 <% if post.twit_published < 1 %>
-                  <%= link_to dash_post_tweet_path(@dash, post_id: post.id), remote: true,  class: "uk-button" do %>
+                  <%= link_to dash_post_tweet_path(@dash, post_id: post.id), remote: true,  class: "uk-button share-button" do %>
                     <i class="uk-icon-twitter"></i>
                   <% end %>
                 <% else %>
@@ -61,7 +61,7 @@
                   </a>
                 <% end %>
                 <% if post.tumblr_published < 1 %>
-                  <%= link_to dash_post_tumblr_path(@dash, post_id: post.id), remote: true, class: "uk-button" do %>
+                  <%= link_to dash_post_tumblr_path(@dash, post_id: post.id), remote: true, class: "uk-button share-button" do %>
                     <i class="uk-icon-tumblr"></i>
                   <% end %>
                 <% else %>
@@ -69,14 +69,14 @@
                     <i class="uk-icon-tumblr"></i>
                   </a>
                 <% end %>
-                  <%= link_to dash_email_post_path(@dash, post_id: post.id), remote: true, class: "uk-button" do %>
+                  <%= link_to dash_email_post_path(@dash, post_id: post.id), remote: true, class: "uk-button share-button" do %>
                   
                     <i class="uk-icon-envelope"></i>
                   <% end %>
                   <a href="#" class="uk-button disabled">
                     <i class="uk-icon-wordpress"></i>
                   </a>
-                  <%= link_to dash_text_post_path(@dash, post_id: post.id), remote: true, class: "uk-button" do %>
+                  <%= link_to dash_text_post_path(@dash, post_id: post.id), remote: true, class: "uk-button share-button" do %>
                     <i class="uk-icon-mobile-phone"></i>
                   <% end %>
               </div>
@@ -101,7 +101,40 @@
     });  
   }
 </script>
+<script type="text/javascript">
+  
+$(document).ready(function(){
+  $('.share-button').bind('click', function(){
+      $('.spinner').addClass('loading');
+      UIkit.notify({
+          message : "Posting..",
+          status  : 'success',
+          timeout : 2500,
+          pos     : 'top-center'
+      });
+  });
+    $('.share-button').bind('ajax:success', function(){
+      $('.spinner').removeClass('loading');
+      UIkit.notify({
+          message : "Success!",
+          status  : 'success',
+          timeout : 2500,
+          pos     : 'top-center'
+      });
+    });
+    $('.share-button').bind('ajax:error', function(){
+      $('.spinner').removeClass('loading');
+      UIkit.notify({
+          message : "Uh oh! There was an issue..",
+          status  : 'danger',
+          timeout : 2500,
+          pos     : 'top-center'
+      });  
+    });
+  });
 
+
+</script>
 <script type="text/javascript">
   $(document).ready(function(){
     $('.toggle_disapprove_queue').click(function(){

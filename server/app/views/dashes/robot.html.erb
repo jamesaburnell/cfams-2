@@ -138,9 +138,9 @@
         $(this).on('change', function(){
           var setTime = $(this).val();
 
-          if(setTime){
-          var uri = '/dashes/1/add-time?start_time='+ setTime.getutc + '&task=twitter+favorite'
-          $.get(uri, function(data) {
+          if(setTime != undefined){
+            var uri = '/dashes/1/add-time?start_time='+ setTime.getutc + '&task=twitter+favorite'
+            $.get(uri, function(data) {
             console.log('work')
           });  
         }
