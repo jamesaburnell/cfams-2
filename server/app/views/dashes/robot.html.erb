@@ -22,37 +22,35 @@
     </div>
 
 
-
-<div class="uk-block  uk-text-center">
-	<%= form_tag dash_add_term_path(@dash), method: "get", remote: true, class: "uk-form" do %>
-	    <div class="uk-grid">
-		    <div class="uk-width-1-1">
-			  <%= text_field_tag :body,nil, placeholder: "terms", class: 'uk-width-1-3 uk-margin-remove' %>
-			  <%= text_field_tag :count,nil, placeholder: "count", class: 'uk-width-1-3 uk-margin-remove' %>
-			  <%= submit_tag "add", class: "uk-button term-add uk-width-1-4 uk-margin-remove" %>
-			</div>
-		</div>
-	<% end %>    
-</div>
-<div class="uk-block uk-block-muted">
+<div class="uk-margin-large-top uk-block uk-block-muted">
 	<div class="uk-container">
-		<ul class="uk-sortable uk-grid uk-grid-small uk-grid-width-1-4" data-uk-sortable="">
-	        <% @dash.terms.each do |term| %>
-		        <li class="uk-grid-margin"><div class="uk-panel uk-panel-box"><%= term.body %> - <%= term.count %> <span class="uk-badge uk-badge-notification uk-badge-success"><%= term.favorite_count %></span>    
-  | <%= link_to "Remove", dash_destroy_term_path(@dash, term_id: term.id), method: :delete, remote: true %>  </div></li>
+		<div class="uk-grid-width-small-1-2 uk-grid-width-medium-1-4" data-uk-grid="{gutter: 20}">
+	        <% @dash.terms.each do |term| %><div class="uk-text-center"><%= term.body %> - <%= term.count %> <span class="uk-badge uk-badge-notification uk-badge-success"><%= term.favorite_count %></span>    
+        | <%= link_to "Remove", dash_destroy_term_path(@dash, term_id: term.id), class: "delete-term", method: :delete %>  </div>
 	    	<% end %>
-	    </ul>
-    </div>
+	  </div>
   </div>
+</div>
+
 
 <div class="uk-block  uk-text-center">
- 
+  <%= form_tag dash_add_term_path(@dash), method: "get", class: "uk-form" do %>
+      <div class="uk-grid">
+        <div class="uk-width-1-1">
+        <%= text_field_tag :body,nil, placeholder: "terms", class: 'uk-width-1-3 uk-margin-remove' %>
+        <%= text_field_tag :count,nil, placeholder: "count", class: 'uk-width-1-3 uk-margin-remove' %>
+        <%= submit_tag "add", class: "uk-button term-add uk-width-1-4 uk-margin-remove" %>
+      </div>
+    </div>
+  <% end %>    
+</div>
+  <div class="uk-block  uk-text-center">
     <div class="uk-grid" data-uk-grid-margin="">
       <div class="uk-width-medium-1-2">
         <form class="uk-form tweet-fave ">
           <% @dash.automation_times.where(task: "twitter favorite").each do |auto| %>
-            <div class="uk-width-1-1">
-              <input type="text" class="auto-time  uk-margin-small-bottom" value=<%= auto.start_time.strftime("%I:%M %P") %> data-uk-timepicker="{format:'12h'}">
+            <div id=<%= auto.id %> class="uk-width-1-1">
+              <input type="text" class="auto-time  uk-margin-small-bottom" placeholder=<%= auto.start_time.strftime("%I:%M %P") %> data-uk-timepicker="{format:'12h'}">
             </div>
           <% end %>
         </form> 
@@ -60,8 +58,8 @@
       <div class="uk-width-medium-1-2">
         <form class="uk-form">
           <% @dash.automation_times.where(task: "twitter favorite").each do |auto| %>
-            <div class="uk-width-1-1">
-              <input type="text" class="auto-time  uk-margin-small-bottom" value=<%= auto.start_time.strftime("%I:%M %P") %> data-uk-timepicker="{format:'12h'}">
+            <div id=<%= auto.id %> class="uk-width-1-1">
+              <input type="text" class="auto-time  uk-margin-small-bottom" placeholder=<%= auto.start_time.strftime("%I:%M %P") %> data-uk-timepicker="{format:'12h'}">
             </div>
           <% end %>
         </form>                                       
@@ -74,10 +72,10 @@
 
 <script type="text/javascript">
   $(document).ready(function(){
-  	$('.term-add').bind('click', function(){
-  		$(this).data("disabled")
-  		console.log("hey")
-  	});
+    $('.term-add').bind('click', function(){
+      $(this).data("disabled")
+      console.log("hey")
+    });
 
     $('.term-add').bind('ajax:success', function(){
       UIkit.notify({
@@ -97,32 +95,57 @@
     });
   });
 </script>
+<script type="text/javascript">
+  $(document).ready(function(){
+  	$('.delete-term').bind('click', function(){
+  		$(this).data("disabled")
+  		console.log("hey")
+  	});
+
+    $('.delete-term').bind('ajax:success', function(){
+      UIkit.notify({
+          message : "Success!",
+          status  : 'success',
+          timeout : 2500,
+          pos     : 'top-center'
+      });
+    });
+    $('.delete-term').bind('ajax:error', function(){
+      UIkit.notify({
+          message : "Uh oh! There was an issue..",
+          status  : 'danger',
+          timeout : 2500,
+          pos     : 'top-center'
+      });  
+    });
+  });
+</script>
 
 <script type="text/javascript">
     
   var autoTime = $('.auto-time');
   var val = autoTime.val();
-  autoTime.focus(function(){
-    var count = 0;
-      $(this).on('change', function(){
-
-
-      autoTime.on('focusout', function(e){
+      function getMsSinceMidnight(d) {
+      var e = new Date(d);
+        return (d - e.setHours(0,0,0,0)) / 1000;
+      }
+      autoTime.on('change', function(e){
         var date = new Date(e.timeStamp);
         var woo = getMsSinceMidnight(date);
         $(this).on('change', function(){
           var setTime = $(this).val();
-          console.log("setTime: ", setTime);
+
+          if(setTime){
+          var uri = '/dashes/1/add-time?start_time='+ setTime.getutc + '&task=twitter+favorite'
+          $.get(uri, function(data) {
+            console.log('work')
+          });  
+        }
+        console.log("just left input")
+        console.log("setTime: ", setTime);
         })
       })
-  })
 
-  function postBody(post, content){
-    var uri = '/dashes/1/edit-post?post_id='+ post +'&body_text=' + content
-    $.get(uri, function(data) {
-      console.log(data)
-    });  
-  }
 
 </script>
 

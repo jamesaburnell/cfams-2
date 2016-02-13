@@ -6,7 +6,8 @@
 
         <div class="uk-navbar-content uk-navbar-flip  uk-hidden-small uk-margin-small-top">
 	        <ul class="uk-navbar-nav  uk-navbar-content">
-	    	<%= link_to "", new_dash_post_path(@dash), class: "notif-text uk-margin-small-top uk-icon-large uk-icon-plus uk-navbar-nav"  %>
+	    	
+<%= link_to 'start phil!', dash_favorite_tweets_path(@dash), remote: true, class: "uk-button uk-button-primary" %>
 	        </ul>
 			<ul class="uk-navbar-nav">
 			    <li class="uk-parent uk-active" data-uk-dropdown="" aria-haspopup="true" aria-expanded="false">
@@ -26,12 +27,12 @@
 			                	<%= link_to "Favorite", dash_robot_path(@dash) %>
 			                </li>
 			                
-			                <li class="uk-nav-divider"></li>
+<!-- 			                <li class="uk-nav-divider"></li>
 				            <li class="uk-nav-header">Explore</li>
 			                <li>
 			                	<%= link_to "Find Articles", dash_scrape_path(@dash) %>
 			                </li>
-			                <li><%= link_to "Articles (#{@dash.posts.where(approved: true).count - 10})", dash_post_queue_path(@dash) %></li>
+			                <li><%= link_to "Articles (#{@dash.posts.where(approved: true).count - 10})", dash_post_queue_path(@dash) %></li> -->
 			                
 			                <li class="uk-nav-divider"></li>
 			                <li><%= link_to "Edit #{@dash.title}", edit_dash_path(@dash) %></li>
