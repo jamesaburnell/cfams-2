@@ -42,7 +42,13 @@ var AccountHome = React.createClass({
 		var idProp = 0;
 		var dashList = this.props.userDashes.map(function (dash) {
 			idProp++;
-			return ( <View key={idProp}><TouchableHighlight onPress={function(){this.goToDashHome(dash.id)}.bind(this)} style={styles.buttonContents}><Text>{dash.title}</Text></TouchableHighlight></View> )
+			return ( 
+				<View key={idProp}>
+					<TouchableHighlight onPress={function(){this.goToDashHome(dash.id)}.bind(this)} style={styles.buttonContents}>
+						<Text>{dash.title}</Text>
+					</TouchableHighlight>
+				</View> 
+			)
 		}.bind(this)) 
 
 		return (

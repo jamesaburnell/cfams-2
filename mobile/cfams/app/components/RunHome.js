@@ -5,6 +5,7 @@ var {
 	Text,
 	View,
 	TouchableHighlight,
+	TouchableOpacity,
 	ScrollView,
 	LayoutAnimation,
 	TextInput,
@@ -16,21 +17,64 @@ var DashHome = React.createClass({
 	getInitialState: function () {
 		return {
 			term: '',
-			count: ''
+			count: '',
+			phil: 'Start Phil!'
 		}
 	},
 
 	addTerm: function () {
-		console.log('term:', this.state.term, ' count:', this.state.count);
+		var acctId = this.props.currentAccount.id;
+	    fetch('http://localhost:3000/dashes/'+acctId+'/add_term?body='+this.state.term+'&count='+this.state.count, {method: 'GET'}, function (err) {
+	      console.error('error adding terms: ', err);
+	    })
+	    .then(function (response) {
+	      console.log('newTerm response: ', response);
+	      this.props.getRunTerms(acctId)
+	    }.bind(this))
+  	},
 
-	},
+  	removeTerm: function (termId) {
+  		var acctId = this.props.currentAccount.id;
+	    fetch('http://localhost:3000/dashes/'+acctId+'/destroy_term?term_id='+termId, {method: 'DELETE'}, function (err) {
+	      console.error('error adding terms: ', err);
+	    })
+	    .then(function (response) {
+	      console.log('newTerm response: ', response);
+	      this.props.getRunTerms(acctId)
+	    }.bind(this))
+  	},
 
 	startPhil: function () {
-		console.log('booting up Phil...');
+		this.setState({
+			phil: 'booting up Phil...'
+		})
+		console.log('Phil is running...');
+  		var acctId = this.props.currentAccount.id;
+		fetch('http://localhost:3000/dashes/'+acctId+'/favorite-tweets', {method: 'GET'}, function (err) {
+			console.error('Phil had a malfunction: ', err)
+		})
+		.then(function (response) {
+			console.log('Message from Phil: ', response)
+			this.setState({
+				phil: 'Start Phil!'
+			})
+		}.bind(this))
 	},
 
 	// Create _renderRow function for these, then add to Scroll View
 	render: function () {
+		var uniqueKey = 0;
+		var terms = this.props.philTerms.map(function (term) {
+			uniqueKey++;
+			return (
+				<TouchableOpacity key={uniqueKey} style={styles.term} onPress={function () {this.removeTerm(term.id)}.bind(this)}>
+					<View style={styles.termInfo}>
+						<Text>Term: </Text><Text style={{fontStyle: 'italic'}}>{term.body}</Text>
+						<Text>Count: </Text><Text style={{fontStyle: 'italic'}}>{term.count}</Text>
+					</View>
+				</TouchableOpacity>
+			)
+		}.bind(this))
 		return (
 			<View style={styles.dashHome}>
 				<Text>This is Phil</Text>
@@ -42,15 +86,26 @@ var DashHome = React.createClass({
 
 				<TextInput onChangeText={function (value) {this.setState({term: value})}.bind(this)} style={styles.inputField} placeholder='term' />
 				<TextInput onChangeText={function (value) {this.setState({count: value})}.bind(this)} style={styles.inputField} placeholder='count' />
+				
 				<View style={styles.philButtonsCont}>
 					<TouchableHighlight style={styles.button} onPress={this.addTerm}>
 						<Text style={{fontFamily: 'verdana', color: "#000000"}}>Add Term</Text>
 					</TouchableHighlight>
-					<TouchableHighlight style={styles.button} onPress={this.createNewTerm}>
-						<Text style={{fontFamily: 'verdana', color: "#000000"}}>Start Phil!</Text>
+					<TouchableHighlight style={styles.button} onPress={this.startPhil}>
+						<Text style={{fontFamily: 'verdana', color: "#000000"}}>{this.state.phil}</Text>
 					</TouchableHighlight>
 				</View>
-			
+				
+				<ScrollView 
+					automaticallyAdjustContentInsets={false}
+					style={{height: 350}} 
+					>
+					<View style={styles.termContainer}>
+						{terms}
+					</View>
+				</ScrollView>
+
+
 			</View>
 		)
 	}
@@ -88,10 +143,30 @@ var styles = StyleSheet.create({
 
 	},
 	philButtonsCont: {
-		flex: .5,
+		flex: 1,
 		flexDirection: 'row',
-	}
-
-})
+	},
+	term: {
+		flex: 1,
+		flexDirection: 'row',
+	    justifyContent: 'center',
+	    alignItems: 'center',
+	    marginHorizontal: 5,
+	    marginVertical: 3,
+	    padding: 5,
+	    borderRadius: 3,
+	    paddingVertical: 10,
+	    backgroundColor: '#EAEAEA',
+	    width: 350
+	},
+	termsContainer: {
+		flex: 1,
+		flexDirection: 'row'
+	},
+	termInfo: {
+		flexDirection: 'column',
+		alignItems: 'center',
+	},
+});
 
 module.exports = DashHome;

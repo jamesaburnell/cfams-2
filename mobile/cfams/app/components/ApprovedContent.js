@@ -104,9 +104,10 @@ var styles = StyleSheet.create({
     padding: 5,
     borderRadius: 3,
     paddingVertical: 10,
+    backgroundColor: 'blue'
   },
   postContainer: {
-    
+
   }
 
 })

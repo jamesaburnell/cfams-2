@@ -52,7 +52,7 @@ var ScrapeHome = React.createClass({
 			console.error('Error adding Terms: ', err)
 		}.bind(this))
 		.then(function (response) {
-			console.log('Term Response: ', response)
+			console.log('Scrape Response: ', response)
 			this.setState({
 				animating: {
 					twitter: false

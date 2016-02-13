@@ -22,7 +22,8 @@ var cfams = React.createClass({
       initialContentLoaded: false,
       accountDenied: false,
       userDashes: null,
-      currentAccount: null
+      currentAccount: null,
+      philTerms: null,
     }
   },
 
@@ -81,7 +82,9 @@ var cfams = React.createClass({
           initialContentLoaded: true
         })
         console.log(this.state.initialContentLoaded)
-        func(this.state.currentAccount.id)
+        if(func){
+          func(this.state.currentAccount.id)
+        }
       }.bind(this))
   },
 
@@ -168,16 +171,29 @@ var cfams = React.createClass({
       console.error("error: ", err)
     })
     .then(function (response) {
-      console.log('approvePost response: ', response)
-    })
+      console.log('approvePost response: ', response);
+      this.getDashContent(this.state.currentAccount.id);
+    }.bind(this))
   },
 
-  getRunTerms: function (dashId) {
+  getRunTerms: function (dashId, func) {
     fetch('http://localhost:3000/dashes/'+dashId+'/phil.json', {method: 'GET'}, function (err) {
       console.error('Error Fetching Terms: ', err);
     })
     .then(function (response) {
-      console.log('term response: ', response);
+      console.log('fetching terms....')
+      return response.json()
+    })
+    .then(function (responseData) {
+      this.setState({
+        philTerms: responseData
+      })
+      console.log('phil terms: ', this.state.philTerms)
+    }.bind(this))
+    .done(function () {
+      if(func){
+        func()
+      }
     })
   },
 
@@ -217,6 +233,7 @@ var cfams = React.createClass({
                     approvePost={this.approvePost}
                     resetContentState={this.resetContentState}
                     getRunTerms={this.getRunTerms}
+                    philTerms={this.state.philTerms}
                     {...route.props}
                     navigator={navigator}
                     route={route} />

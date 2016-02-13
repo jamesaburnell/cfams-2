@@ -1,10 +1,5 @@
 'use strict';
 
-// 
-// THIS PAGE WILL COME B4 THE UNAPPROVED CONTENT, AFTER CHOOSING THE DASH.
-// IT WILL HOUSE MOST (IF NOT ALL) OF THE FUNCTIONALITY (BUTTONS, INPUT, ETC) FOR THE INDIVIDUAL DASHES
-//
-
 var React = require('react-native');
 var Dash = require('./Dash.js');
 var ScrapeHome = require('./ScrapeHome.js');
@@ -31,11 +26,9 @@ var DashHome = React.createClass({
 	},
 
 	goToRunHome: function (id) {
-		// if(!this.props.unapprovedContent) {
-		// 	return this.props.getDashContent(id, this.goToScrapeHome);
-		// }
-		
-		// this.props.getRunTerms(id);
+		if(!this.props.philTerms){
+			return this.props.getRunTerms(id, this.goToRunHome);
+		}
 		this.props.navigate(this.props.navigator, RunHome, 'Run Home');
 	},
 
@@ -73,7 +66,6 @@ var styles = StyleSheet.create({
 	    borderRadius: 3,
 	    paddingVertical: 10,
   },
-
 
 })
 
