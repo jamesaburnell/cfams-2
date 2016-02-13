@@ -67,7 +67,7 @@ var cfams = React.createClass({
   },
 
   getDashContent: function (dashId, func) {
-    fetch('https://calm-bastion-26857.herokuapp.com/dashes/'+dashId+'.json', {method: 'GET'}, function (err) {
+    fetch('http://127.0.0.1:3000/dashes/'+dashId+'.json', {method: 'GET'}, function (err) {
     })
       .then(function (response) {
         return response.json();
@@ -90,7 +90,7 @@ var cfams = React.createClass({
 
   checkCreds: function (func) {
     // Get DB set up first, lulz
-    fetch("https://calm-bastion-26857.herokuapp.com/api/auth/sign_in?email="+this.state.username+"&password="+this.state.password, {method: "POST"}, function (error) {
+    fetch("http://127.0.0.1:3000/api/auth/sign_in?email="+this.state.username+"&password="+this.state.password, {method: "POST"}, function (error) {
       console.error(error);
     })
       .then(function (response) {
@@ -124,7 +124,7 @@ var cfams = React.createClass({
   },
 
   getDashesList: function(headers, func) {
-    fetch('https://calm-bastion-26857.herokuapp.com/dashes.json', {method: 'GET', headers: headers}, function (err) {
+    fetch('http://127.0.0.1:3000/dashes.json', {method: 'GET', headers: headers}, function (err) {
       console.error('error getting dashes: ', err);
     })
     .then(function (response) {
@@ -141,7 +141,7 @@ var cfams = React.createClass({
   },
 
   getApprovedContent: function (dashId, func) {
-    fetch('https://calm-bastion-26857.herokuapp.com/dashes/'+dashId+'/queue.json', {method: 'GET'}, function (err) {
+    fetch('http://127.0.0.1:3000/dashes/'+dashId+'/queue.json', {method: 'GET'}, function (err) {
       console.log("Error retrieving approved content: ", err)
     })
     .then(function (response) {
@@ -158,7 +158,7 @@ var cfams = React.createClass({
   },
 
   sendPost: function (dashId, postId, toggle) {    
-    fetch('https://calm-bastion-26857.herokuapp.com/dashes/'+dashId+'/'+toggle+'?post_id='+postId, {method: 'GET'}, function (err) {
+    fetch('http://127.0.0.1:3000/dashes/'+dashId+'/'+toggle+'?post_id='+postId, {method: 'GET'}, function (err) {
       console.error("error: ", err)
     })
     .then(function (response) {
@@ -167,7 +167,7 @@ var cfams = React.createClass({
   },
 
   approvePost: function (dashId, postId, toggle) {
-    fetch('https://calm-bastion-26857.herokuapp.com/dashes/'+dashId+'/posts/'+postId+'/'+toggle, {method: 'GET'}, function (err) {
+    fetch('http://127.0.0.1:3000/dashes/'+dashId+'/posts/'+postId+'/'+toggle, {method: 'GET'}, function (err) {
       console.error("error: ", err)
     })
     .then(function (response) {
@@ -177,7 +177,7 @@ var cfams = React.createClass({
   },
 
   getRunTerms: function (dashId, func) {
-    fetch('https://calm-bastion-26857.herokuapp.com/dashes/'+dashId+'/phil.json', {method: 'GET'}, function (err) {
+    fetch('http://127.0.0.1:3000/dashes/'+dashId+'/phil.json', {method: 'GET'}, function (err) {
       console.error('Error Fetching Terms: ', err);
     })
     .then(function (response) {
