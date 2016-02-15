@@ -2,7 +2,7 @@ class DashesController < ApplicationController
   before_action :add_posts, only: [:add_reddit_pics, :add_tumblr_pics, :add_twitter_pics, :add_giphy_gifs]
   before_action :set_post, only: [:edit_post]
   before_action :set_dash, only: [:show, :edit, :update, :destroy]
-  before_action :set_dash_by_dash_id, only: [:post_queue, :fb_oauth, :text_post, :email_post, :post_tumblr, :post_tweet, :edit_post, :add_automation_time, :robot, :add_term, :destroy_term, :favorite_tweets, :scrape, :add_reddit_pics, :add_twitter_pics, :add_tumblr_pics, :add_giphy_gifs]
+  before_action :set_dash_by_dash_id, only: [:edit_automation_time, :post_queue, :fb_oauth, :text_post, :email_post, :post_tumblr, :post_tweet, :edit_post, :add_automation_time, :robot, :add_term, :destroy_term, :favorite_tweets, :scrape, :add_reddit_pics, :add_twitter_pics, :add_tumblr_pics, :add_giphy_gifs]
   before_action :authenticate_user!, only: [:index, :show, :scrape, :new, :email_post, :text_post]
 
   def index
@@ -78,13 +78,15 @@ class DashesController < ApplicationController
     redirect_to(dash_robot_path(@dash))
   end
 
-  def add_automation_time
+  def edit_automation_time
+    auto_time = AutomationTime.find(params[:auto_time_id])
     time = params[:start_time]
     task = params[:task]
     time = Time.parse(time)
     puts "time: ", time
-    at = AutomationTime.new(start_time: time, task: task)
-    @dash.automation_times << at
+    auto_time.start_time = time
+    auto_time.task = task
+    auto_time.save
     redirect_to(dash_robot_path(@dash))
   end
 
@@ -107,6 +109,9 @@ class DashesController < ApplicationController
     end
   end
 
+  def uri_creator
+    
+  end
 
 
 

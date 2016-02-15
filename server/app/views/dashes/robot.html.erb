@@ -49,20 +49,11 @@
       <div class="uk-width-medium-1-2">
         <form class="uk-form tweet-fave ">
           <% @dash.automation_times.where(task: "twitter favorite").each do |auto| %>
-            <div id=<%= auto.id %> class="uk-width-1-1">
-              <input type="text" class="auto-time  uk-margin-small-bottom" placeholder=<%= auto.start_time.strftime("%I:%M %P") %> data-uk-timepicker="{format:'12h'}">
+            <div  class="uk-width-1-1">
+              <input type="text"id='<%= auto.id %>' class="auto-time   uk-margin-small-bottom" placeholder=<%= auto.start_time.in_time_zone("MST").strftime("%I:%M %P") %> data-uk-timepicker="{format:'12h'}">
             </div>
           <% end %>
         </form> 
-      </div>
-      <div class="uk-width-medium-1-2">
-        <form class="uk-form">
-          <% @dash.automation_times.where(task: "twitter favorite").each do |auto| %>
-            <div id=<%= auto.id %> class="uk-width-1-1">
-              <input type="text" class="auto-time  uk-margin-small-bottom" placeholder=<%= auto.start_time.strftime("%I:%M %P") %> data-uk-timepicker="{format:'12h'}">
-            </div>
-          <% end %>
-        </form>                                       
       </div>
     </div>
 </div>
@@ -102,24 +93,22 @@
 <script type="text/javascript">
      $(document).ready(function(){
       var autoTime = $('.auto-time');
-      var inputVal = autoTime.val();
+      var inputVal = autoTime.attr('placeholder');
       
-        $(this).on('change', function(){
+        autoTime.on('change', function(){
           var setTime = $(this).val();
-          if(setTime){
-            console.log('work')
-            var uri = '/dashes/1/add-time?start_time='+ setTime + '&task=twitter+favorite'
+          console.log("setTime:  ", setTime);
+          var input_id = $(this).attr("id")
+
+          if(setTime.indexOf(':')){
+            console.log("setTime: ", setTime);
+            var uri = encodeURI('/dashes/1/edit-time?start_time='+ setTime + '&task=twitter+favorite&' + 'auto_time_id=' + input_id);
+            console.log(uri);
             $.get(uri, function(data) {
-          });  
-        }    
-
-
-
-
-        console.log("just left input")
-        console.log("setTime: ", setTime);
+              console.log(data);
+            });  
+            }
         })
-      })
       
 
     $('.term-add').bind('click', function(){
