@@ -72,31 +72,6 @@
 
 <script type="text/javascript">
   $(document).ready(function(){
-    $('.term-add').bind('click', function(){
-      $(this).data("disabled")
-      console.log("hey")
-    });
-
-    $('.term-add').bind('ajax:success', function(){
-      UIkit.notify({
-          message : "Success!",
-          status  : 'success',
-          timeout : 2500,
-          pos     : 'top-center'
-      });
-    });
-    $('.term-add').bind('ajax:error', function(){
-      UIkit.notify({
-          message : "Uh oh! There was an issue..",
-          status  : 'danger',
-          timeout : 2500,
-          pos     : 'top-center'
-      });  
-    });
-  });
-</script>
-<script type="text/javascript">
-  $(document).ready(function(){
   	$('.delete-term').bind('click', function(){
   		$(this).data("disabled")
       $('.spinner').addClass('loading');
@@ -125,31 +100,50 @@
 </script>
 
 <script type="text/javascript">
-    
-  var autoTime = $('.auto-time');
-  var val = autoTime.val();
-      function getMsSinceMidnight(d) {
-      var e = new Date(d);
-        return (d - e.setHours(0,0,0,0)) / 1000;
-      }
-      autoTime.on('change', function(e){
-        var date = new Date(e.timeStamp);
-        var woo = getMsSinceMidnight(date);
+     $(document).ready(function(){
+      var autoTime = $('.auto-time');
+      var inputVal = autoTime.val();
+      
         $(this).on('change', function(){
           var setTime = $(this).val();
-
-          if(setTime != undefined){
-            var uri = '/dashes/1/add-time?start_time='+ setTime.getutc + '&task=twitter+favorite'
-            $.get(uri, function(data) {
+          if(setTime){
             console.log('work')
+            var uri = '/dashes/1/add-time?start_time='+ setTime + '&task=twitter+favorite'
+            $.get(uri, function(data) {
           });  
-        }
+        }    
+
+
+
+
         console.log("just left input")
         console.log("setTime: ", setTime);
         })
       })
       
 
+    $('.term-add').bind('click', function(){
+      $(this).data("disabled")
+      console.log("hey")
+    });
+
+    $('.term-add').bind('ajax:success', function(){
+      UIkit.notify({
+          message : "Success!",
+          status  : 'success',
+          timeout : 2500,
+          pos     : 'top-center'
+      });
+    });
+    $('.term-add').bind('ajax:error', function(){
+      UIkit.notify({
+          message : "Uh oh! There was an issue..",
+          status  : 'danger',
+          timeout : 2500,
+          pos     : 'top-center'
+      });  
+    });
+  });
 </script>
 
 
