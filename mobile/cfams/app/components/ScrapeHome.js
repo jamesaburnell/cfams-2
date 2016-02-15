@@ -14,6 +14,9 @@ var {
 	ActivityIndicatorIOS
 } = React;
 
+var onlineUri = 'https://calm-bastion-26857.herokuapp.com/';
+var localhostUri = 'http://localhost:3000/';
+
 var ScrapeHome = React.createClass({
 
 	getInitialState: function () {
@@ -39,7 +42,7 @@ var ScrapeHome = React.createClass({
 
 	addTerms: function (toggle, term) {
 		this.props.resetContentState();
-		fetch('http://localhost:3000/dashes/'+this.props.currentAccount.id+'/'+toggle+'?search_term='+term, {method: 'GET'}, function(){
+		fetch(onlineUri+'/dashes/'+this.props.currentAccount.id+'/'+toggle+'?search_term='+term, {method: 'GET'}, function(){
 			this.setState({
 				animating: {
 					twitter: true,

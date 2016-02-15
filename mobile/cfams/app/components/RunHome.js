@@ -12,19 +12,23 @@ var {
 	ActivityIndicatorIOS
 } = React;
 
+var onlineUri = 'https://calm-bastion-26857.herokuapp.com/';
+var localhostUri = 'http://localhost:3000/';
+
 var DashHome = React.createClass({
 
 	getInitialState: function () {
 		return {
 			term: '',
 			count: '',
-			phil: 'Start Phil!'
+			phil: 'Start Phil!',
+
 		}
 	},
 
 	addTerm: function () {
 		var acctId = this.props.currentAccount.id;
-	    fetch('http://localhost:3000/dashes/'+acctId+'/add_term?body='+this.state.term+'&count='+this.state.count, {method: 'GET'}, function (err) {
+	    fetch(onlineUri+'dashes/'+acctId+'/add_term?body='+this.state.term+'&count='+this.state.count, {method: 'GET'}, function (err) {
 	      console.error('error adding terms: ', err);
 	    })
 	    .then(function (response) {
@@ -35,7 +39,7 @@ var DashHome = React.createClass({
 
   	removeTerm: function (termId) {
   		var acctId = this.props.currentAccount.id;
-	    fetch('http://localhost:3000/dashes/'+acctId+'/destroy_term?term_id='+termId, {method: 'DELETE'}, function (err) {
+	    fetch(onlineUri+'dashes/'+acctId+'/destroy_term?term_id='+termId, {method: 'DELETE'}, function (err) {
 	      console.error('error adding terms: ', err);
 	    })
 	    .then(function (response) {
@@ -44,13 +48,28 @@ var DashHome = React.createClass({
 	    }.bind(this))
   	},
 
+  	setLoading: function () {
+  		var loader = 'Phil is running.';
+  		var counter = 0;
+  		setTimeout(function() {
+  			counter++;
+  			if(counter > 3){
+  				loader = 'Phil is running.'
+  				return loader; 
+  			}
+  			loader += '.'
+  			return loader;
+  		}, 1000)
+  	},
+
 	startPhil: function () {
+		this.setLoading();
 		this.setState({
 			phil: 'Phil is running...'
 		})
 		console.log('booting up Phil...');
   		var acctId = this.props.currentAccount.id;
-		fetch('http://localhost:3000/dashes/'+acctId+'/favorite-tweets', {method: 'GET'}, function (err) {
+		fetch(onlineUri+'dashes/'+acctId+'/favorite-tweets', {method: 'GET'}, function (err) {
 			console.error('Phil had a malfunction: ', err)
 		})
 		.then(function (response) {
