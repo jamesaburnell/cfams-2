@@ -12,8 +12,8 @@ var {
 	ActivityIndicatorIOS
 } = React;
 
-var onlineUri = 'https://calm-bastion-26857.herokuapp.com/';
-var localhostUri = 'http://localhost:3000/';
+var localhostUri = 'https://calm-bastion-26857.herokuapp.com/';
+var onlineUri = 'http://localhost:3000/';
 
 var DashHome = React.createClass({
 
