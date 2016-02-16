@@ -13,8 +13,8 @@ var {
   Navigator
 } = React;
 
-var localhostUri = 'https://calm-bastion-26857.herokuapp.com/';
-var onlineUri = 'http://localhost:3000/';
+var onlineUri = 'https://calm-bastion-26857.herokuapp.com/';
+var localhostUri = 'http://localhost:3000/';
 
 var cfams = React.createClass({
 
@@ -97,7 +97,7 @@ var cfams = React.createClass({
       console.error(error);
     })
       .then(function (response) {
-        console.log(response)
+        console.log('Login Response: ', response);
         if(response.status === 200) {
           return response.headers.map
         } else {
@@ -131,6 +131,7 @@ var cfams = React.createClass({
       console.error('error getting dashes: ', err);
     })
     .then(function (response) {
+      console.log("Get Dashes Response: ", response)
       return response.json();
     })
     .then(function (responseData) {
