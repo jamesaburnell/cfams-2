@@ -6,9 +6,9 @@ namespace :robot do
   		automation_times = dash.automation_times
   		automation_times.each do |time|
         time_when = time.start_time.seconds_since_midnight
-        if (time_when - time_now).between?(-300, 300)
+        # if (time_when - time_now).between?(-300, 300)
   				dash.robot_run
-        end
+        # end
   		end
   	end
   end

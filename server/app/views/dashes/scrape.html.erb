@@ -91,7 +91,40 @@
 </div>
 
 </div>
-
+<script type="text/javascript">
+$(document).ready(function(){
+  $('.scrape-button').bind('click', function(){
+      $('.spinner').addClass('loading');
+      UIkit.notify({
+          message : "Searching for content..",
+          status  : 'success',
+          timeout : 2500,
+          pos     : 'top-center'
+      });
+  });
+    $('.uk-button').bind('ajax:success', function(){
+      $('.spinner').removeClass('loading');
+      UIkit.notify({
+          message : "Success!",
+          status  : 'success',
+          timeout : 2500,
+          pos     : 'top-center'
+      });
+      $(this).removeAttr("href")
+      $(this).removeAttr("data-remote")
+      $(this).addClass("disabled");
+    });
+    $('.uk-button').bind('ajax:error', function(){
+      $('.spinner').removeClass('loading');
+      UIkit.notify({
+          message : "Uh oh! There was an issue..",
+          status  : 'danger',
+          timeout : 2500,
+          pos     : 'top-center'
+      });  
+    });
+  });
+</script>
 <script type="text/javascript">
   var textBox = $('.post-body-text')
   textBox.blur(function(){

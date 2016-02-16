@@ -147,7 +147,7 @@ class Dash < ActiveRecord::Base
 		post.fb_published = true
 	end
 
-# Robot
+	# Robot
 
 	def tweet_fave(term, number, retweet)
 		puts "term: ", term.body

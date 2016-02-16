@@ -49,11 +49,20 @@
       <div class="uk-width-medium-1-2">
         <form class="uk-form tweet-fave ">
           <% @dash.automation_times.where(task: "twitter favorite").each do |auto| %>
-            <div  class="uk-width-1-1">
-              <input type="text"id='<%= auto.id %>' class="auto-time   uk-margin-small-bottom" placeholder=<%= auto.start_time.in_time_zone("MST").strftime("%I:%M %P") %> data-uk-timepicker="{format:'12h'}">
+            <div id=<%= auto.id %> class="uk-width-1-1">
+              <input type="text" class="auto-time  uk-margin-small-bottom" placeholder=<%= auto.start_time.strftime("%I:%M %P") %> data-uk-timepicker="{format:'12h'}">
             </div>
           <% end %>
         </form> 
+      </div>
+      <div class="uk-width-medium-1-2">
+        <form class="uk-form">
+          <% @dash.automation_times.where(task: "twitter favorite").each do |auto| %>
+            <div id=<%= auto.id %> class="uk-width-1-1">
+              <input type="text" class="auto-time  uk-margin-small-bottom" placeholder=<%= auto.start_time.strftime("%I:%M %P") %> data-uk-timepicker="{format:'12h'}">
+            </div>
+          <% end %>
+        </form>                                       
       </div>
     </div>
 </div>
@@ -63,54 +72,6 @@
 
 <script type="text/javascript">
   $(document).ready(function(){
-  	$('.delete-term').bind('click', function(){
-  		$(this).data("disabled")
-      $('.spinner').addClass('loading');
-  		console.log("hey")
-  	});
-
-    $('.delete-term').bind('ajax:success', function(){
-      $('.spinner').removeClass('loading');
-      UIkit.notify({
-          message : "Success!",
-          status  : 'success',
-          timeout : 2500,
-          pos     : 'top-center'
-      });
-    });
-    $('.delete-term').bind('ajax:error', function(){
-      $('.spinner').removeClass('loading');
-      UIkit.notify({
-          message : "Uh oh! There was an issue..",
-          status  : 'danger',
-          timeout : 2500,
-          pos     : 'top-center'
-      });  
-    });
-  });
-</script>
-
-<script type="text/javascript">
-     $(document).ready(function(){
-      var autoTime = $('.auto-time');
-      var inputVal = autoTime.attr('placeholder');
-      
-        autoTime.on('change', function(){
-          var setTime = $(this).val();
-          console.log("setTime:  ", setTime);
-          var input_id = $(this).attr("id")
-
-          if(setTime.indexOf(':')){
-            console.log("setTime: ", setTime);
-            var uri = encodeURI('/dashes/1/edit-time?start_time='+ setTime + '&task=twitter+favorite&' + 'auto_time_id=' + input_id);
-            console.log(uri);
-            $.get(uri, function(data) {
-              console.log(data);
-            });  
-            }
-        })
-      
-
     $('.term-add').bind('click', function(){
       $(this).data("disabled")
       console.log("hey")
@@ -134,15 +95,14 @@
     });
   });
 </script>
-
-
 <script type="text/javascript">
   $(document).ready(function(){
-    $('.start-button').bind('click', function(){
-      $('.spinner').addClass('loading');
-    });
-    $('.start-button').bind('ajax:success', function(){
-      $('.spinner').removeClass('loading');
+  	$('.delete-term').bind('click', function(){
+  		$(this).data("disabled")
+  		console.log("hey")
+  	});
+
+    $('.delete-term').bind('ajax:success', function(){
       UIkit.notify({
           message : "Success!",
           status  : 'success',
@@ -150,8 +110,70 @@
           pos     : 'top-center'
       });
     });
+    $('.delete-term').bind('ajax:error', function(){
+      UIkit.notify({
+          message : "Uh oh! There was an issue..",
+          status  : 'danger',
+          timeout : 2500,
+          pos     : 'top-center'
+      });  
+    });
+  });
+</script>
+
+<script type="text/javascript">
+    
+  var autoTime = $('.auto-time');
+  var val = autoTime.val();
+      function getMsSinceMidnight(d) {
+      var e = new Date(d);
+        return (d - e.setHours(0,0,0,0)) / 1000;
+      }
+      autoTime.on('change', function(e){
+        var date = new Date(e.timeStamp);
+        var woo = getMsSinceMidnight(date);
+        $(this).on('change', function(){
+          var setTime = $(this).val();
+
+<<<<<<< HEAD
+
+      autoTime.on('focusout', function(e){
+        var date = new Date(e.timeStamp);
+        var woo = getMsSinceMidnight(date);
+        $(this).on('change', function(){
+          var setTime = $(this).val();
+          console.log("setTime: ", setTime);
+=======
+          if(setTime){
+          var uri = '/dashes/1/add-time?start_time='+ setTime.getutc + '&task=twitter+favorite'
+          $.get(uri, function(data) {
+            console.log('work')
+          });  
+        }
+        console.log("just left input")
+        console.log("setTime: ", setTime);
+>>>>>>> master
+        })
+      })
+
+
+</script>
+
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    $('.start-button').bind('ajax:success', function(){
+      UIkit.notify({
+          message : "Success!",
+          status  : 'success',
+          timeout : 2500,
+          pos     : 'top-center'
+      });
+      $(this).removeAttr("href")
+      $(this).removeAttr("data-remote")
+      $(this).addClass("disabled");
+    });
     $('.start-button').bind('ajax:error', function(){
-      $('.spinner').removeClass('loading');
       UIkit.notify({
           message : "Uh oh! There was an issue..",
           status  : 'danger',
